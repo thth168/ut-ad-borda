@@ -8,7 +8,75 @@
   <title>Út Að Borða</title>
 </head>
 <body>
-<h1>Hello !</h1>
-<p>Welcome to <span th:text="${appName}">Our App</span></p>
+	<header class="header">
+      <div class="header__content">
+        <h1 class="header__title">
+          <span class="sr-only">Út Að Borða</span>
+          <span class="header__login">Sign In</span>
+       </h1>
+        <nav class="header__nav">
+          <ul class="header__navList">
+            <div class="header__navItem">
+              <a href="#" class="header__navLink">
+                Submit listing
+              </a>
+            </div>
+            <div class="header__navItem">
+              <a href="#" class="header__navLink">
+                Login
+              </a>
+            </div>
+            <div class="header__navItem">
+              <a href="#" class="header__navLink">
+                About us
+              </a>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+   	  <section class="filter">
+    	  <div class="filter__grid">
+    	    <div class="filter__row">
+            <div class="title__kicker">What would you like?</div>
+            <div class="title__options">
+              <div class="filter__option">
+                <div class="filter__image">
+                  <img class="filter__img" alt="" src="">
+                </div>
+                <div class="filter__optionItem">Italians</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slides">
+        <div class="slides__row">
+          <div class="cards">
+            <div class="cards__column">
+              <section class="card">
+                <div class="card__image">
+                  <img class="card__img" alt="" src="">
+                </div>
+                <div class="card__content">
+                  <div class="card__restaurantHours">Kitchen hours: 11:30 - 22:00</div>
+                  <div class="card__restaurantType">Quick service</div>
+                  <div class="card__restaurantTags">
+                    <div class="card__tagItem">Vegan</div>
+                    <div class="card__tagItem">BBQ</div>
+                    <div class="card__tagItem">Keto</div>
+                    <div class="card__tagItem">Take-away</div>
+                    <div class="card__tagItem">Delivery(Aha)</div>
+                  </div>
+                  <a href="#" class="card__restaurantMenu">Menu</a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
 </body>
 </html>
