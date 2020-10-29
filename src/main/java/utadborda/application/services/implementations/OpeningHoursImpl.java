@@ -1,9 +1,10 @@
-package utadborda.application.services;
+package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utadborda.application.Entities.OpeningHours;
 import utadborda.application.services.DAO.OpeningHoursRepo;
+import utadborda.application.services.OpeningHoursService;
 
 @Service
 public class OpeningHoursImpl implements OpeningHoursService {

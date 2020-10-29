@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" lang="is">
+<html
+    xmlns:th="http://www.w3.org/1999/xhtml"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+    lang="is"
+>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +36,26 @@
               </a>
             </div>
           </ul>
+          <h1>Login</h1>
+          <form name="f" th:action="@{/login}" method='post' sec:authorize="anonymous">
+            <table>
+              <tr>
+                <td>User:</td>
+                <td><input type='text' name='username' value=''></td>
+              </tr>
+              <tr>
+                <td>Password:</td>
+                <td><input type='password' name='password' /></td>
+              </tr>
+              <tr>
+                <td><button type="submit">Login</button></td>
+              </tr>
+            </table>
+          </form>
+          <form th:action="@{/logout}" method="post" sec:authorize="authenticated">
+            <button type="submit">Signout</button>
+          </form>
+          <p th:if="${retry}">Error</p>
         </nav>
       </div>
     </header>
@@ -77,6 +101,6 @@
           </div>
         </div>
       </section>
-
+    </main>
 </body>
 </html>

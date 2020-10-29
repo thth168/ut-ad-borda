@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.services.RestaurantService;
+import utadborda.application.web.restaurantForm;
 
 import java.io.IOException;
 
@@ -25,12 +26,12 @@ public class RestaurantController {
     }
 
     @PostMapping("/restaurantData")
-    @ResponseBody
-    public ResponseEntity addRestaurant (
-        @RequestBody Restaurant restaurant
+    public String addRestaurant (
+        @ModelAttribute Restaurant restaurant,
+        Model model
     ) {
         restaurantService.addRestaurant(restaurant);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return "redirect:/";
     }
 
     @GetMapping(value = "/restaurantData", produces = MediaType.APPLICATION_JSON_VALUE)

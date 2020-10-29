@@ -22,4 +22,19 @@ public class GeneralExceptions {
             super(throwable);
         }
     }
+
+    @ResponseStatus(code = HttpStatus.NOT_ACCEPTABLE, reason = "User already exists")
+    public static class UserAlreadyExistsException extends Exception {
+        public UserAlreadyExistsException(String s) {
+            super(s);
+        }
+
+        public UserAlreadyExistsException(String s, Throwable throwable) {
+            super(s, throwable);
+        }
+
+        public UserAlreadyExistsException(Throwable throwable) {
+            super(throwable);
+        }
+    }
 }

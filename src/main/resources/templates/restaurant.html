@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Restaurant síða</title>
 </head>
 <body>
-
+    <form action="#" th:action="@{/restaurantData}" th:object="${restaurant}" method="post">
+        <input type="text" th:field="*{name}"/>
+        <input type="text" th:field="*{phone}">
+        <input type="text" th:field="*{address}"/>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
