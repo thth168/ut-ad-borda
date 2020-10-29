@@ -5,8 +5,8 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class User {
@@ -26,8 +26,8 @@ public class User {
                     + " WHERE email=?";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private UUID id;
     @NotNull
     @NotEmpty
     private String userName;

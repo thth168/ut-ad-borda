@@ -2,11 +2,13 @@ package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import utadborda.application.Entities.OpeningHours;
 import utadborda.application.Entities.Restaurant;
+import utadborda.application.Entities.TimeRange;
 import utadborda.application.Exceptions.GeneralExceptions;
 import utadborda.application.services.DAO.RestaurantRepo;
 import utadborda.application.services.RestaurantService;
+
+import java.util.List;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
@@ -28,7 +30,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Restaurant addRestaurant(String name, String phone, String address, OpeningHours openingHours) {
+    public Restaurant addRestaurant(String name, String phone, String address, List<TimeRange> openingHours) {
         return restaurantRepo.save(new Restaurant(name, phone, address, openingHours));
     }
 

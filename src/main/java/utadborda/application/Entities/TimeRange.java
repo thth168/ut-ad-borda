@@ -3,20 +3,21 @@ package utadborda.application.Entities;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.UUID;
 
 @Entity
 public class TimeRange {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    private UUID id;
     private Time openTime;
     private Time closeTime;
     private int weekDay;
     private boolean holiday;
     private Date specialDate;
-
     @ManyToOne
-    private OpeningHours openingHours;
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
     protected TimeRange() {}
 
@@ -26,14 +27,14 @@ public class TimeRange {
             int weekDay,
             boolean holiday,
             Date specialDate,
-            OpeningHours openingHours
+            Restaurant restaurant
     ) {
         this.openTime = openTime;
         this.closeTime = closeTime;
         this.weekDay = weekDay;
         this.holiday = holiday;
         this.specialDate = specialDate;
-        this.openingHours = openingHours;
+        this.restaurant = restaurant;
     }
 
     public Time getOpenTime() {
@@ -76,11 +77,19 @@ public class TimeRange {
         this.specialDate = specialDate;
     }
 
-    public OpeningHours getOpeningHours() {
-        return openingHours;
+    public UUID getId() {
+        return id;
     }
 
-    public void setOpeningHours(OpeningHours openingHours) {
-        this.openingHours = openingHours;
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 }

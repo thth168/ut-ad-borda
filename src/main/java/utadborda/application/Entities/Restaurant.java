@@ -1,20 +1,24 @@
 package utadborda.application.Entities;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 public class Restaurant {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private UUID id;
     private String name;
     private String phone;
     private String address;
-    @OneToOne
-    private OpeningHours openingHours;
+    @OneToMany(mappedBy = "restaurant")
+    private List<TimeRange> openingHours;
+    @ManyToMany
+    @JoinTable
+    private List<Tag> tags;
+    @OneToMany(mappedBy = "restaurant")
+    private List<MenuItem> menu;
 
     protected Restaurant() {}
 
@@ -22,7 +26,7 @@ public class Restaurant {
             String name,
             String phone,
             String address,
-            OpeningHours openingHours
+            List<TimeRange> openingHours
     ){
         this.name = name;
         this.phone = phone;
@@ -30,11 +34,11 @@ public class Restaurant {
         this.openingHours = openingHours;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -62,11 +66,27 @@ public class Restaurant {
         this.address = address;
     }
 
-    public OpeningHours getOpeningHours() {
+    public List<TimeRange> getOpeningHours() {
         return openingHours;
     }
 
-    public void setOpeningHours(OpeningHours openingHours) {
+    public void setOpeningHours(List<TimeRange> openingHours) {
         this.openingHours = openingHours;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public List<MenuItem> getMenu() {
+        return menu;
+    }
+
+    public void setMenu(List<MenuItem> menu) {
+        this.menu = menu;
     }
 }
