@@ -4,7 +4,7 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 

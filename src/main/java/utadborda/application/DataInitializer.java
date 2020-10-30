@@ -14,7 +14,10 @@ import utadborda.application.services.TimeRangeService;
 import utadborda.application.services.UserService;
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @ConditionalOnProperty(
@@ -54,9 +57,9 @@ public class DataInitializer implements ApplicationRunner {
         restaurantService.addRestaurant(new Restaurant("Black-box", "489-2345", "Hjallarstíg", null));
         restaurantService.addRestaurant(new Restaurant("Sbarro", "581-2425", "Kringlan", null));
         try {
-            userService.registerNewUser(new UserDTO("test", "test", "test", "test@test.is"));
+            userService.registerNewUser(new UserDTO("test", "test", "test", "test@test.is", new SimpleDateFormat("dd/MM/yy").parse("04/12/97")));
             userService.registerAdmin();
-        } catch (GeneralExceptions.UserAlreadyExistsException uaeEX) {
+        } catch (GeneralExceptions.UserAlreadyExistsException | ParseException e) {
             System.out.println("Error creating admin");
         }
     }

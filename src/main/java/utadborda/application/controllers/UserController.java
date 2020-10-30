@@ -52,7 +52,13 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/register", method = POST)
+    @RequestMapping(value = requestMappings.SIGNUP, method = GET)
+    public String getSignupView(Model model) {
+        model.addAttribute("user", new UserDTO());
+        return "signup";
+    }
+
+    @RequestMapping(value = requestMappings.SIGNUP, method = POST)
     public String registerUser(
             @ModelAttribute @Valid UserDTO user,
             RedirectAttributes model

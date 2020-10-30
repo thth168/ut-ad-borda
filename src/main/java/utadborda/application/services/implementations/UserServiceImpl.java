@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
                 user.getUsername(),
                 passwordEncoder.encode(user.getPassword()),
                 user.getEmail(),
-                null,
+                user.getDateOfBirth(),
                 Arrays.asList("USER")
         ));
     }

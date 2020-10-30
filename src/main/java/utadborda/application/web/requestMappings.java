@@ -17,6 +17,11 @@ public final class requestMappings {
     public static final String LOGOUT = "/logout";
     public static final String LOGOUT_SUCCESS = LOGOUT + "_success";
 
+    // =============== //
+    // SIGNUP MAPPINGS
+    // =============== //
+
+    public static final String SIGNUP = "/signup";
 
     public requestMappings() {
     }

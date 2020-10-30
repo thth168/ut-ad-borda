@@ -1,10 +1,14 @@
 package utadborda.application.services.DTO;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import utadborda.application.Annotations.PasswordMatches;
 import utadborda.application.Annotations.ValidEmail;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @PasswordMatches
 public class UserDTO {
@@ -22,12 +26,26 @@ public class UserDTO {
     @NotEmpty
     private String email;
 
-    public UserDTO(@NotNull @NotEmpty String username, @NotNull @NotEmpty String password, String matchingPassword, @NotNull @NotEmpty String email) {
+    @NotNull
+    @NotEmpty
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private Date dateOfBirth;
+
+    public UserDTO(
+            @NotNull @NotEmpty String username,
+            @NotNull @NotEmpty String password,
+            String matchingPassword,
+            @NotNull @NotEmpty String email,
+            @NotNull @NotEmpty Date dateOfBirth
+    ) {
         this.username = username;
         this.password = password;
         this.matchingPassword = matchingPassword;
         this.email = email;
+        this.dateOfBirth = dateOfBirth;
     }
+
+    public UserDTO() {}
 
     public String getUsername() {
         return username;
@@ -59,5 +77,13 @@ public class UserDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }

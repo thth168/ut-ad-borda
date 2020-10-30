@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:include="fragments/general :: headerfiles">
+    <title id="title">Signup</title>
+</head>
+<body>
+    <header th:replace="fragments/general :: header"></header>
+    <main>
+        <section class="signup">
+            <h1>Signup</h1>
+            <form name="f" th:action="@{/signup}" th:object="${user}" method="post">
+                <div>
+                    <label for="email">Email: </label>
+                    <input id="email" type="email" th:field="*{email}">
+                </div>
+                <div>
+                    <label for="username">Username: </label>
+                    <input id="username" type="text" th:field="*{username}">
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input id="password" type="password" th:field="*{password}">
+                </div>
+                <div>
+                    <label for="matchingPassword">Repeat password: </label>
+                    <input id="matchingPassword" type="password" th:field="*{matchingPassword}">
+                </div>
+                <div>
+                    <label for="dob">Date of birth: </label>
+                    <input id="dob" type="date" th:field="*{dateOfBirth}" lang="is">
+                </div>
+                <button type="submit">Signup</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
