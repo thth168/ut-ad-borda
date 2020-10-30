@@ -3,6 +3,12 @@ $max-width: 1290px;
 $font-heading: 'Playfair Display', serif;
 $font-body: Poppins, sans-serif;
 
-h1 {
-  font-size: 32px;
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
 }

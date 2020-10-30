@@ -3,6 +3,7 @@ package utadborda.application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.TimeRange;
@@ -15,6 +16,13 @@ import utadborda.application.services.UserService;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+
+@ConditionalOnProperty(
+    prefix = "data.init",
+    value = "enabled",
+    havingValue = "true",
+    matchIfMissing = true
+)
 
 @Component
 public class DataInitializer implements ApplicationRunner {

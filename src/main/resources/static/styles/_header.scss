@@ -1,0 +1,25 @@
+.header {
+  position: relative;
+  background-color: red;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__login {
+    position: absolute;
+    background-color: blue;
+    top: 100%;
+    right: 0;
+  }
+
+  &__navList {
+    display: flex;
+    list-style: none;
+
+    & > li {
+      margin-left: 1rem;
+    }
+  }
+}
