@@ -12,4 +12,18 @@ We would offer the restaurants and establishments on our website with the abilit
 
 ## [Diagrams](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Verkefni%202#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D17e2fS_mkV4Q6fI9me-lGXkqkub6Kmd7A%26export%3Ddownload)
 
-## [Design Model](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1VX--wFussKenOMT5XJjg49a-TYxV3ECb)
+## How to run
+1. Validate that you have maven installed with the following code in the terminal:
+```
+mvn -version
+```
+2. Navigate to the project root
+3. To run the program first run
+```
+mvn sass:watch
+```
+4. In another terminal, run the following code in the project root
+```
+mvn spring-boot:run
+```
+5. Go to ```localhost:8081``` to see the website in action
