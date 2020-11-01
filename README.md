@@ -8,7 +8,7 @@ We plan on obtaining as much information about these establishments as we can, i
 
 We would offer the restaurants and establishments on our website with the ability to control their data and update it as needed, as well as the ability to add additional restaurants to our database, and for the users to be able to filter the data to their preference. 
 
-## [Verkefni 1](https://docs.google.com/document/d/e/2PACX-1vSA0KG4AtFpsrqkOSmcTxMKRO9WtAfEsuu06lS0wgpEPFL5RoC_ziJmc_8tOJFuPqEfVAC5rjI7UWpO/pub)
+## [Vision and Scope](https://docs.google.com/document/d/e/2PACX-1vSA0KG4AtFpsrqkOSmcTxMKRO9WtAfEsuu06lS0wgpEPFL5RoC_ziJmc_8tOJFuPqEfVAC5rjI7UWpO/pub)
 
-## [Verkefni 2](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Verkefni%202#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D17e2fS_mkV4Q6fI9me-lGXkqkub6Kmd7A%26export%3Ddownload)
+## [Diagrams](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Verkefni%202#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D17e2fS_mkV4Q6fI9me-lGXkqkub6Kmd7A%26export%3Ddownload)
 
