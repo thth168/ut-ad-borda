@@ -1,0 +1,4088 @@
+{
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 66.0732914,
+                    "lng": -23.1202959
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 66.0746796802915,
+                        "lng": -23.1186719197085
+                    },
+                    "southwest": {
+                        "lat": 66.07198171970849,
+                        "lng": -23.1213698802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Hamraborg ehf",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2848,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101653226656935623159\">sigeharucom</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA9v5LmBMRBt8sFoSIJ3JzS4h1uANBlwzI5JDaTuxPY9lpZDaIua8AU_HdEL7R7hO5Wgclfgcla7g0yu9ovWKxr9R-s6A5y2Nwf0_13mGHXq_Y2fESOtHal5L3e-imKcD7EhBxbji_WQm_MswR4625CxiLGhQ-7oVIIOaylqghff_fmyTbbEDqHQ",
+                    "width": 4272
+                }
+            ],
+            "place_id": "ChIJi012EskfK08RGAAKvCdCeYw",
+            "plus_code": {
+                "compound_code": "3VFH+8V Ísafjörður, Iceland",
+                "global_code": "99RR3VFH+8V"
+            },
+            "rating": 4.2,
+            "reference": "ChIJi012EskfK08RGAAKvCdCeYw",
+            "scope": "GOOGLE",
+            "types": [
+                "supermarket",
+                "grocery_or_supermarket",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 85,
+            "vicinity": "Hafnarstræti 7, Ísafjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.6915099,
+                    "lng": -18.1074107
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.6929736302915,
+                        "lng": -18.1064416697085
+                    },
+                    "southwest": {
+                        "lat": 65.6902756697085,
+                        "lng": -18.1091396302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 745,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104849344910791222271\">Domino&#39;s Pizza</a>"
+                    ],
+                    "photo_reference": "CmRaAAAATdNK_JSvTADBEnC5W2YNOkpoKEB0Ix7ovCvJWC0ghaKztdJnKrn_OI3VjDp_vI1kWiaJZxd5L5gnvmhUaRmGmh5hcg1mgN01HgUEXgp4So-akOqwDSe3_XHUmVN2_9gXEhBZ1Zqs59hpIFLS2RaqZGOVGhTzqjUZiYP8vTyEFDbHe1Gzw7c5GA",
+                    "width": 1293
+                }
+            ],
+            "place_id": "ChIJSbq9IqaP0kgRf_RnAkTKhTA",
+            "plus_code": {
+                "compound_code": "MVRV+J2 Akureyri, Iceland",
+                "global_code": "9CQ3MVRV+J2"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJSbq9IqaP0kgRf_RnAkTKhTA",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 117,
+            "vicinity": "Undirhlíð 2, 603, Akureyri"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.681922,
+                    "lng": -18.0912557
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.6833097802915,
+                        "lng": -18.0897693697085
+                    },
+                    "southwest": {
+                        "lat": 65.68061181970849,
+                        "lng": -18.09246733029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Pylsuvagninn á Akureyri",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118411150227419593368\">Delphim</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAMoccDeGPkNkZfSQy1z1qh87D_Mph9xuyn1bcCwUwBLDxDBC6SPoSCzPOBYWd9QP2N9jiLK7cIts1yhJzD_4d6KfZseRSZ8h8lx7XBJtKzTEbiGMQdMtBtEUNhuq6jeJhEhC7BbZyilONZbNvuji24v9sGhSQkdR4KNNRUEnuDIYT87FzdT_s9Q",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJd8qRxw6P0kgRIqIOmhLfdog",
+            "plus_code": {
+                "compound_code": "MWJ5+QF Akureyri, Iceland",
+                "global_code": "9CQ3MWJ5+QF"
+            },
+            "rating": 4.6,
+            "reference": "ChIJd8qRxw6P0kgRIqIOmhLfdog",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 141,
+            "vicinity": "Hafnarstræti, Akureyri"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.6823704,
+                    "lng": -18.0909487
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.6837356802915,
+                        "lng": -18.0896144697085
+                    },
+                    "southwest": {
+                        "lat": 65.6810377197085,
+                        "lng": -18.0923124302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Lemon Juice Bar",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1152,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107066363042135191195\">Niels Freckmann</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA8o0dKuObuMSb5zcpDlB7TZqljRF0z7RsFvNxZmjrZpXd4NK_5G31Mn8TyrBs1wa5k5ncdfU7aVM9MqtNich1cTCrHIfq5l5oKcZe2KAUCPk5PRP95ylaiSukLV2TERUqEhCnzU3dskXRtwgcXsYP-1RqGhSmf9205TyvwCdB7YcLjr1adQQy7g",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJgXYCrM6P0kgRmK1bmxMtov8",
+            "plus_code": {
+                "compound_code": "MWJ5+WJ Akureyri, Iceland",
+                "global_code": "9CQ3MWJ5+WJ"
+            },
+            "rating": 5,
+            "reference": "ChIJgXYCrM6P0kgRmK1bmxMtov8",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3,
+            "vicinity": "Ráðhústorg 3, Akureyri"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.6855377,
+                    "lng": -18.081178
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.6868678802915,
+                        "lng": -18.0798194197085
+                    },
+                    "southwest": {
+                        "lat": 65.68416991970848,
+                        "lng": -18.0825173802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Bryggjan",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102901780028083884205\">Kevin Huang</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAqMOrRN5EpZTGftfjl0NTAVaTMxQd2LUOR8VSWauQatG1Hs_jtOpR6UnRRBIllwkZB20LlhPBlsdcnrtDSZWaUHCey6BKPcH7IeywuV47xvVYhSoP1BJQLSMT6C7Eiab_EhDt596DY6AgGhWNIwD3akbcGhTsr5RG3Q4WyZPK6mJ1D-Vp-pvV_g",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJNRYeQAuP0kgRq6VJU3oc9tY",
+            "plus_code": {
+                "compound_code": "MWP9+6G Akureyri, Iceland",
+                "global_code": "9CQ3MWP9+6G"
+            },
+            "price_level": 3,
+            "rating": 4.4,
+            "reference": "ChIJNRYeQAuP0kgRq6VJU3oc9tY",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 304,
+            "vicinity": "Strandgata, Akureyri"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.7665798,
+                    "lng": -23.6323272
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.7678281802915,
+                        "lng": -23.6309049197085
+                    },
+                    "southwest": {
+                        "lat": 64.7651302197085,
+                        "lng": -23.6336028802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Mönsvagninn",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103078599092779880596\">Stephan Winter</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAU8Tb0iGNyLFgiCLUL-Kj41f-_plF_CWH5z7nxOwcHVgD2fE2ZSJ3wU9Hmh2fTXVjotDqa1B0KKf4LiBrWNQNIOsk9AdcNiPw2DdbjN7PGQoXGe6hlirp6TWocSvZ49SqEhAxz9NllrloAsD3Eoz4upYXGhQ75Vx_06TaKWYiCoG32EVCuKv85g",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJ9RyEnwGBKkkRVD2xqK7KQmo",
+            "plus_code": {
+                "compound_code": "Q989+J3 Arnarstapi, Iceland",
+                "global_code": "99PRQ989+J3"
+            },
+            "rating": 4.7,
+            "reference": "ChIJ9RyEnwGBKkkRVD2xqK7KQmo",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 70,
+            "vicinity": "Arnarstapi"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.3272094,
+                    "lng": -22.0542978
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.32847428029152,
+                        "lng": -22.0527285197085
+                    },
+                    "southwest": {
+                        "lat": 64.3257763197085,
+                        "lng": -22.0554264802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Dominos",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1920,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101414613704111862375\">Marek Stranc</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAGMeMNfMp4kAeURz4hgr_euxoUDZORPZXWSXWtdREbJfNf61V1F8nY-E3dywFUE9kKvmTQDXcZnbw_HOBADLPyCSEI9CtAJfdgpUsM04Z2aGhs9fhmqz0EHkq1LUQG3iwEhB5IBoTpbQrFVvI6ytsSOtrGhRoqmfLTMFWxOQ8Z9P0VdANdE3wxQ",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJg1fZqqTd1UgRntX2VeQfDzQ",
+            "plus_code": {
+                "compound_code": "8WGW+V7 Akranes, Iceland",
+                "global_code": "99PV8WGW+V7"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJg1fZqqTd1UgRntX2VeQfDzQ",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6,
+            "vicinity": "Smiðjuvellir, Akranes"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.3217287,
+                    "lng": -22.069458
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.3229252802915,
+                        "lng": -22.06772671970849
+                    },
+                    "southwest": {
+                        "lat": 64.3202273197085,
+                        "lng": -22.0704246802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1920,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101681283104405396823\">Kristófer Kristjánsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA2VXcT7c0HqlZ5JzXAbIb_SBUfyjFmxLUqdUo1x69cyeBGHJocFvklCZR7c2Sq4HzRaQqlXNWjkTrEpwqABn1exB3XmwryQIJeS2dSzgXwZEXfD6ici2qDeAKhURqxA_sEhA4fWYHEOd9aTdEeddifWP5GhTEo7Gd4SAPDGCtbk5_wBdlsFX2nA",
+                    "width": 1080
+                }
+            ],
+            "place_id": "ChIJcb7UVZbd1UgRQVh_gj1O0RU",
+            "plus_code": {
+                "compound_code": "8WCJ+M6 Akranes, Iceland",
+                "global_code": "99PV8WCJ+M6"
+            },
+            "rating": 3.6,
+            "reference": "ChIJcb7UVZbd1UgRQVh_gj1O0RU",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14,
+            "vicinity": "Dalbraut, Akranes"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.99707069999999,
+                    "lng": -22.5493162
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.9984224302915,
+                        "lng": -22.5478009197085
+                    },
+                    "southwest": {
+                        "lat": 63.99572446970849,
+                        "lng": -22.5504988802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 724,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101649002396673786732\">Domino&#39;s Pizza</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAbN07tg3cjsZtWBLxjYLoxIGhf9XsZwqpELImjfxdSnxXBBL1rM30kBGYLHKFVbL8n0gENtmd6ab9ygDfBzDVIUF28TzQncIuqJQ6zQOowiU5R_hot6blvXhTjzIU_5YKEhC0wM7ZRi9h7773Zg1MtIMyGhQGj6FszV51LYjgXEr51UMa5uqwHQ",
+                    "width": 1086
+                }
+            ],
+            "place_id": "ChIJd6UmOD0C1kgRWRlngeKF2aQ",
+            "plus_code": {
+                "compound_code": "XFW2+R7 Reykjanesbær, Iceland",
+                "global_code": "99MVXFW2+R7"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJd6UmOD0C1kgRWRlngeKF2aQ",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 74,
+            "vicinity": "Hafnargata, Keflavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.9967589,
+                    "lng": -22.6232841
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.9981087302915,
+                        "lng": -22.6215365697085
+                    },
+                    "southwest": {
+                        "lat": 63.99541076970849,
+                        "lng": -22.6242345302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "JOE & THE JUICE",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1152,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102753832845264596379\">輕旅行</a>"
+                    ],
+                    "photo_reference": "CmRZAAAAwptcIVBslY0qfkQg7cSFfweUnlX0Bp1u2iZKBmJVgv3-hZN6pt34S57D0v3J4OZUlDAN2fcTWhJ1o5P4m2poNMjlIIrl419DSkod1f_1eYAPLOYPYxuDLn6DMnais3MKEhA_xGbjeC73Nq0TYcJ_NNhaGhQSGYwnLAG9i81C9KuX-A_m42223Q",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ7ZS-i-X9KUkRoYp6Vy5KLFY",
+            "plus_code": {
+                "compound_code": "X9WG+PM Reykjanesbær, Iceland",
+                "global_code": "99MVX9WG+PM"
+            },
+            "rating": 3.3,
+            "reference": "ChIJ7ZS-i-X9KUkRoYp6Vy5KLFY",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 70,
+            "vicinity": "Keflavik Airport Landside, Keflavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.9964624,
+                    "lng": -22.6242106
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.9978210802915,
+                        "lng": -22.6234202697085
+                    },
+                    "southwest": {
+                        "lat": 63.99512311970849,
+                        "lng": -22.6261182302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Joe & The Juice",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114031659356161517208\">Joe Kaufman</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAxDugwaEn-GWUqb8mXN_BlO-miyNEdzsbG5jk2W32pcbLJkYt3_bDib5-lHBy2r2opv2Y5-Vd2f9hvPseSqAnlkMaKYYZ5IQb8YEi4ZCDAtWslUgn8wHhQMiYmgfdGURVEhC8D5yRQ3DYlYSZWOCzZQJyGhTBvIOnM6DN49GmJdljNtvTWtSY8g",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJn0Zpof39KUkRvrL2ImHcsLA",
+            "plus_code": {
+                "compound_code": "X9WG+H8 Reykjanesbær, Iceland",
+                "global_code": "99MVX9WG+H8"
+            },
+            "rating": 3.2,
+            "reference": "ChIJn0Zpof39KUkRvrL2ImHcsLA",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 151,
+            "vicinity": "Keflavik Airport Southside, Keflavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0055556,
+                    "lng": -22.5572221
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.0069324302915,
+                        "lng": -22.5556410697085
+                    },
+                    "southwest": {
+                        "lat": 64.00423446970849,
+                        "lng": -22.5583390302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Ungó",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1334,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115764186512720692693\">Ungó</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAHfAMHSfscBDVgu1Ef2YgAwGKrDb9zl1dhHUtRXxphixFYCtbUbx6lwiYjUbDNbgEIBClqgPt_C6wSnap6tQ8UDKtt9vOkVBwVB41py7XBDLh7h1OUB8HjAJRyDS_lanVEhCzqN4Dsd_pirAEHOurfyLvGhSJVGRAosO3jgGhhyRetLZGa83evQ",
+                    "width": 750
+                }
+            ],
+            "place_id": "ChIJy6itriEC1kgR1PDhvl-Llz8",
+            "plus_code": {
+                "compound_code": "2C4V+64 Reykjanesbær, Iceland",
+                "global_code": "99PV2C4V+64"
+            },
+            "rating": 4.4,
+            "reference": "ChIJy6itriEC1kgR1PDhvl-Llz8",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 98,
+            "vicinity": "Hafnargata 6, Keflavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.9728476,
+                    "lng": -22.5448599
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.9744335802915,
+                        "lng": -22.5433631697085
+                    },
+                    "southwest": {
+                        "lat": 63.97173561970849,
+                        "lng": -22.5460611302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113720718472885870312\">Danni Borgarinsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAB350mFP4upPZB3rpzr4lSPeRBuXd-8jjNyx1FQtftVoo_i--ZsO1nkEDSX4g-HmN7tohpBtw2iXgLpY_r7I6pm2ipJ-9Na2XBas8i2DISLq9-EunwhqVXHgYPHetWLE7EhCSdUAmUWF6k8Jz5w6hlDkhGhSduNXtZQWfKMULMUKG0-fbzMuSDg",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJG64XjmUC1kgRzWfxCG7kGAs",
+            "plus_code": {
+                "compound_code": "XFF4+43 Reykjanesbær, Iceland",
+                "global_code": "99MVXFF4+43"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJG64XjmUC1kgRzWfxCG7kGAs",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 25,
+            "vicinity": "Fitjar 2, Reykjanesbær"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.99713389999999,
+                    "lng": -22.5492456
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.9984850302915,
+                        "lng": -22.5477682697085
+                    },
+                    "southwest": {
+                        "lat": 63.99578706970849,
+                        "lng": -22.55046623029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Orange streetfood - osf.is",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 809,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108203342871518406631\">Orange streetfood - osf.is</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAM1EnqAwSSPgbG4OFiE30RlcQ2ESzp2-706WTuOKYOm_bAIuR3Ame3OKETICdKNhg2aMZCyCLKQ1FJKsRB9O4DPkDd0RxlSfryxhRZcdlNYTWjPWxYraHP4DT1E7j_0xHEhD_VUgCwfuaJmm7RuwWK3IGGhRMaeiK9XJovPQAHQzWTOZ59RrZ2w",
+                    "width": 1440
+                }
+            ],
+            "place_id": "ChIJrbnfCxAD1kgRf_wEruJErVs",
+            "plus_code": {
+                "compound_code": "XFW2+V8 Reykjanesbær, Iceland",
+                "global_code": "99MVXFW2+V8"
+            },
+            "rating": 4.5,
+            "reference": "ChIJrbnfCxAD1kgRf_wEruJErVs",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 90,
+            "vicinity": "Hafnargata 86, Keflavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.9726435,
+                    "lng": -22.5435287
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.9741380802915,
+                        "lng": -22.5418656697085
+                    },
+                    "southwest": {
+                        "lat": 63.97144011970849,
+                        "lng": -22.5445636302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Issi fish and chips",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1236,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111018335236251140654\">R Houseman</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAeBxiGCpNrzvyth_KXkTCEO1dQr3reEjjov1ak-eiS5GkR0Ms7ETTSNmqxTNeNQWq0PGIN500JDwoyALXe6tgarl655lJL5Ru232R3ZuJOp9yJOvdOgmcBJ3a6s56mYS8EhAN0Ko2MjygpyhQgZ1jyf-tGhRa3ZRcjuqK4aCTbEHxnZgagCJMzA",
+                    "width": 2543
+                }
+            ],
+            "place_id": "ChIJMU7s42UC1kgRhtFfo2kE9hE",
+            "plus_code": {
+                "compound_code": "XFF4+3H Njardvik, Iceland",
+                "global_code": "99MVXFF4+3H"
+            },
+            "price_level": 1,
+            "rating": 4.9,
+            "reference": "ChIJMU7s42UC1kgRhtFfo2kE9hE",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 162,
+            "vicinity": "Fitjar"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1457704,
+                    "lng": -21.9624309
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1471891802915,
+                        "lng": -21.9608957697085
+                    },
+                    "southwest": {
+                        "lat": 64.1444912197085,
+                        "lng": -21.9635937302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Thai Grill",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101000127172108652170\">Andres Canal</a>"
+                    ],
+                    "photo_reference": "CmRaAAAARG4E57mik8mWtjP0HtzcyU7JsfjX0soQQHCHW9PZyDlisLQGiM4n5kLTmP5n23K48bB9RrCx7joHdwFnLVfacJ1-HeyMFjMLwkt80mHQUIycYrmK4VBR1Gyyf-YwgZZgEhBMupnWcuTaZEJUu0R4GyYNGhTWwL7gTE9a9K7_mVZooZhtatVFUw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ-wwjnyUL1kgR0Qtd_WWbM40",
+            "plus_code": {
+                "compound_code": "42WQ+82 Reykjavík, Iceland",
+                "global_code": "99PW42WQ+82"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ-wwjnyUL1kgR0Qtd_WWbM40",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16,
+            "vicinity": "Hagamel 67, 107, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1414642,
+                    "lng": -21.96201529999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14281658029151,
+                        "lng": -21.9604159197085
+                    },
+                    "southwest": {
+                        "lat": 64.1401186197085,
+                        "lng": -21.9631138802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101371172887705812970\">Rúnar Unnþórsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAARYopzhyDzHxLr7IqYdMmECtPb80JBbHSGOX9qND4MyGCtx3tDzrYjO9HmRCLrcldXroFgl5JxRIpzpn2vVh_JfULtA9L_sI9RRRzEPuasIiq17o85R2um2o605my8AiKEhA0Rs-ltSvlk8MYA5JaplrgGhSKRf1su5pZay7v2IBRaMfTTcQWkA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJV2xRJjsL1kgRy0IqqHyp_Tg",
+            "plus_code": {
+                "compound_code": "42RQ+H5 Reykjavík, Iceland",
+                "global_code": "99PW42RQ+H5"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJV2xRJjsL1kgRy0IqqHyp_Tg",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 53,
+            "vicinity": "Hjarðarhagi 45, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1504302,
+                    "lng": -21.96025179999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1517807802915,
+                        "lng": -21.95880581970849
+                    },
+                    "southwest": {
+                        "lat": 64.1490828197085,
+                        "lng": -21.9615037802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Pizzan Hringbraut",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1228,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106469345560937115283\">Pizzan Hringbraut</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAkJfecRJsW_c_MmlhNDtOY3qbknbNtqGGEh6SiLLG2GwPN1itoWAxvHOcM-kJH-VF4kl_iEH2xCD7XNBiZhLM3BXMySitv0QKnlKtxXq6yxk9xvjrrMXOitAFw5vqwQrEEhCXKZ-UwfRlWtT7rUBTlkpwGhT04TmXS6vzXGukILmm3jcDfXJx_Q",
+                    "width": 1840
+                }
+            ],
+            "place_id": "ChIJHah3issL1kgRps9P6rr5MU8",
+            "plus_code": {
+                "compound_code": "522Q+5V Reykjavík, Iceland",
+                "global_code": "99PW522Q+5V"
+            },
+            "rating": 4.2,
+            "reference": "ChIJHah3issL1kgRps9P6rr5MU8",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5,
+            "vicinity": "Hringbraut 119, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.14641499999999,
+                    "lng": -21.937986
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1477281802915,
+                        "lng": -21.9366780697085
+                    },
+                    "southwest": {
+                        "lat": 64.14503021970849,
+                        "lng": -21.9393760302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Hraðlestin",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1439,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108222639623506721239\">Hraðlestin</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA4KdyZc053RA0SYl4uAE_zlREfmO2LUHCePaSjoxeuy73UVHPTtsXF2CV9tO2zg3ZqccJH10fUq5VQdS29kv5J0wg8LwCT9QRyIZrdfcHA2eBX5dRbL-HWrpGrGkFdl-SEhByqVzB2xpoEJDw5i0pDsSzGhTm7PQMlrA4MLqFSOASYTr5MiJBbA",
+                    "width": 2156
+                }
+            ],
+            "place_id": "ChIJZUHUTy0L1kgRe8hyHHckw9A",
+            "plus_code": {
+                "compound_code": "43W6+HR Reykjavík, Iceland",
+                "global_code": "99PW43W6+HR"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJZUHUTy0L1kgRe8hyHHckw9A",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 95,
+            "vicinity": "Lækjargata 8, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1482785,
+                    "lng": -21.937986
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1496413302915,
+                        "lng": -21.9366299697085
+                    },
+                    "southwest": {
+                        "lat": 64.1469433697085,
+                        "lng": -21.9393279302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Bæjarins Beztu Pylsur",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3648,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103739386401981365138\">Alexander Barth</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAceaZZJCK7S3L-2pd5wBK_Y9qyrrVmZOrKSt3gnOXok3IlDuhVQEzCW8IoX3uuJIVXMUf5IwmxZaxtjaTnk60LHHNei0P33gBGoCOjMqyvUflZQHu78XwoWqoZgD_3Y2VEhCxtdAm5yJCnACtXG_l0DSxGhSnhgKpDUgud_Olv1sqQGvEy-MJtA",
+                    "width": 5472
+                }
+            ],
+            "place_id": "ChIJu66lMC0L1kgReTpj_Nwsoe4",
+            "plus_code": {
+                "compound_code": "43X6+8R Reykjavík, Iceland",
+                "global_code": "99PW43X6+8R"
+            },
+            "price_level": 1,
+            "rating": 4.4,
+            "reference": "ChIJu66lMC0L1kgReTpj_Nwsoe4",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3822,
+            "vicinity": "Tryggvagata 1, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1482518,
+                    "lng": -21.9410263
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1496007802915,
+                        "lng": -21.9396773197085
+                    },
+                    "southwest": {
+                        "lat": 64.14690281970849,
+                        "lng": -21.9423752802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Pylsuhúsið",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108497186580164720587\">Samuel Wong</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA38irKH13T1NSK00-BTARDNzsbDXkB8Z_UX3HduNwK5K-Pml0pk1PWzq8OHBA3OUkU1gHvVdPlwyh7ut3lMJDiryl4-e9TUTP0goVmX1DvPus_FO9hCc3vCr7yBp5fCRYEhBNyBfX_GD-V1GlMsHebI4HGhTRliygW64--I5jFsrWW-AcKBvJAQ",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJezrYGi0L1kgRR67vAkcBBro",
+            "plus_code": {
+                "compound_code": "43X5+8H Reykjavík, Iceland",
+                "global_code": "99PW43X5+8H"
+            },
+            "rating": 4.4,
+            "reference": "ChIJezrYGi0L1kgRR67vAkcBBro",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 109,
+            "vicinity": "101, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.148211,
+                    "lng": -21.9389761
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14945748029152,
+                        "lng": -21.9372974697085
+                    },
+                    "southwest": {
+                        "lat": 64.1467595197085,
+                        "lng": -21.9399954302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Mandi Pizza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107335527024097732287\">Steinar Jónsson</a>"
+                    ],
+                    "photo_reference": "CmRZAAAA2Jl9CWfQG8QhMa5iIMrn_3Vvixy7XarTSq2p-x_X7TD7dXb7BpCDzLYhLD_Apdntt7hFEtNBKNCrludxyB1AinzM_WuHskcooTkCxUgkf9UJCY9kyuNA2GcdF1HUEB9dEhD6JbIlVrPKoKhriNWi4SKlGhTrJTezC768s7kiiJ1-ELhqXm50jw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJrelJt7QL1kgRc1fiThT0QUw",
+            "plus_code": {
+                "compound_code": "43X6+7C Reykjavík, Iceland",
+                "global_code": "99PW43X6+7C"
+            },
+            "rating": 4.4,
+            "reference": "ChIJrelJt7QL1kgRc1fiThT0QUw",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 15,
+            "vicinity": "Hafnarstræti 9, 101, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.147741,
+                    "lng": -21.9401561
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14914163029151,
+                        "lng": -21.9387614197085
+                    },
+                    "southwest": {
+                        "lat": 64.14644366970849,
+                        "lng": -21.9414593802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "The Hot Dog Shake and Pylsa Stand",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106999280356018120973\">Zaelin James</a>"
+                    ],
+                    "photo_reference": "CmRaAAAABIa28iH1oPG-7IZa8yX-An9BqLn0LlThX882q2cGea1phRBFnW1asr7KQk9Hi8jWjZ0UCEvkQXVM8oDGMqiLJLHGIppB75S5FrvFBCk58kv2WzKPw0_SCwtR0VAG0jUgEhBDKG591CBo889kFQDoMPspGhQEO2VBArq2Vl0NMHlZKiscCRGh4A",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJu5agRi0L1kgRbQtJC2AtY2M",
+            "plus_code": {
+                "compound_code": "43X5+3W Reykjavík, Iceland",
+                "global_code": "99PW43X5+3W"
+            },
+            "rating": 3.9,
+            "reference": "ChIJu5agRi0L1kgRbQtJC2AtY2M",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 74,
+            "vicinity": "Austurstræti 8, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.146378,
+                    "lng": -21.933259
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14784433029149,
+                        "lng": -21.9320221197085
+                    },
+                    "southwest": {
+                        "lat": 64.14514636970848,
+                        "lng": -21.9347200802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "PizzaPastaDeli (the Deli)",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 834,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117006423777840629298\">PizzaPastaDeli (the Deli)</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAKft-abYJiGLcUHDJUVw8GqpenSgDwgMsZPXw8ZG6H6ZV71312lp_HR3SN9btSuXkMW7LdoPaxwxikDiM2vsSQN1c7AFbBxkPCxa5hXFbsONf38_XszdJCSMpJFv2kGDuEhBQjSvPOBpuaBm5O20JEgKOGhQBPvgM3wBsqa52AAKe8gJfGc67cA",
+                    "width": 627
+                }
+            ],
+            "place_id": "ChIJ6YgBUc101kgR2NcJ9NV7rvQ",
+            "plus_code": {
+                "compound_code": "43W8+HM Reykjavík, Iceland",
+                "global_code": "99PW43W8+HM"
+            },
+            "price_level": 1,
+            "rating": 4.3,
+            "reference": "ChIJ6YgBUc101kgR2NcJ9NV7rvQ",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 101,
+            "vicinity": "Bankastræti 14, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.146354,
+                    "lng": -21.932609
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14782273029151,
+                        "lng": -21.9317472697085
+                    },
+                    "southwest": {
+                        "lat": 64.14512476970849,
+                        "lng": -21.9344452302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Sushibarinn",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3722,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102188619884843115802\">Kenneth Anderson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAQoXfopnl9FdNDsV0C_ydzSeQujIz6f-8u99eHwdCKlXEMjBqH9e1OGjnoUS4x5iE6R9MiqxO6MBJ79NdCFHjZJZ8rAsyjHJhZuC4hv5PCCqlTOgKu_hnlH3EKyTgRbgKEhDki5MK8_E5Wrv-u0LhO6pZGhSH9ryVfDD8HY2R9JG_0GlR746KcA",
+                    "width": 8338
+                }
+            ],
+            "place_id": "ChIJX1-ZWs101kgRqR5IrVu_yvs",
+            "plus_code": {
+                "compound_code": "43W8+GX Reykjavík, Iceland",
+                "global_code": "99PW43W8+GX"
+            },
+            "rating": 4.2,
+            "reference": "ChIJX1-ZWs101kgRqR5IrVu_yvs",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 114,
+            "vicinity": "Miðbær, Laugavegur 2, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1490054,
+                    "lng": -21.9339929
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1503543802915,
+                        "lng": -21.9326439197085
+                    },
+                    "southwest": {
+                        "lat": 64.14765641970848,
+                        "lng": -21.93534188029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Fish and Chips Wagon",
+            "place_id": "ChIJE0mYCXJ11kgRIfU6McOF6eY",
+            "plus_code": {
+                "compound_code": "43X8+JC Reykjavík, Iceland",
+                "global_code": "99PW43X8+JC"
+            },
+            "reference": "ChIJE0mYCXJ11kgRIfU6McOF6eY",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Reykjavik, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1454739,
+                    "lng": -21.9176673
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1469601302915,
+                        "lng": -21.9166134
+                    },
+                    "southwest": {
+                        "lat": 64.1442621697085,
+                        "lng": -21.920829
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3036,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100705890708823647819\">Alexander Williamson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAtrcdk23LOd11-Kdih56XBNdwOu2Fd4K1udYDnTu1BI85gaMbW4Z7-fD58_RQjGk7snc9gLkOyNxtUuf8gvPwBSNeGZI49PVjnp7u1AFq81UGEQfy68UB-cBHaBJW9InkEhDMJDKUfLh-bEI-6eioAWDLGhS8DmB33AmHVs8vELFzCb7XdaqjyQ",
+                    "width": 4048
+                }
+            ],
+            "place_id": "ChIJm1V2a7B01kgRMGOaCjosFak",
+            "plus_code": {
+                "compound_code": "43WJ+5W Reykjavík, Iceland",
+                "global_code": "99PW43WJ+5W"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJm1V2a7B01kgRMGOaCjosFak",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 245,
+            "vicinity": "Skúlagata 26, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.14606119999999,
+                    "lng": -21.9317131
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14747258029149,
+                        "lng": -21.9302959697085
+                    },
+                    "southwest": {
+                        "lat": 64.14477461970849,
+                        "lng": -21.9329939302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Joe & the Juice",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2966,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104771369170657206207\">Joey Paysinger</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA2cABN-4c1HofmDkgcUaBZNiXfT8_1GO8qOQ2kYy49qLxp9F-vMTnLEbFHZzaOJkEtBqYqayD-jrFnMAkr9ecHPTZuNy76CysmoqOZnqkY0hyt2DDoSdFjUle2UzCLmplEhCNTqUoZ1mJGeeXUuEU4t31GhQT-7m5wJSZzpuVDiC2CfFrkpXx7g",
+                    "width": 3955
+                }
+            ],
+            "place_id": "ChIJ81gERM101kgRMy-93lyZNdk",
+            "plus_code": {
+                "compound_code": "43W9+C8 Reykjavík, Iceland",
+                "global_code": "99PW43W9+C8"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJ81gERM101kgRMy-93lyZNdk",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 353,
+            "vicinity": "Laugavegur 10, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1453312,
+                    "lng": -21.924154
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1467382302915,
+                        "lng": -21.9227451697085
+                    },
+                    "southwest": {
+                        "lat": 64.1440402697085,
+                        "lng": -21.9254431302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Hraðlestin",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2447,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111969353897249494602\">Sumit Awasthi</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAcPr-aUpLCbzR4K64q5IOnZdE-K-DnBJpc-f-5EQsboq-QBA-KgId4E0BHtv737RNN6TTxpiYCrUGzNkmzGZRVu7BMRLmx8qFGqnHVFZRZ3eMKgLRELvq8gc0WhzYbmqCEhAg9RavFPGQnppJgpw5t5LnGhRbQw-peBAwjDHxiiw_uy2xQYqC7A",
+                    "width": 2447
+                }
+            ],
+            "place_id": "ChIJswkctc101kgRaW01AYCv2DI",
+            "plus_code": {
+                "compound_code": "43WG+48 Reykjavík, Iceland",
+                "global_code": "99PW43WG+48"
+            },
+            "rating": 4.2,
+            "reference": "ChIJswkctc101kgRaW01AYCv2DI",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 73,
+            "vicinity": "Hverfisgata 64a, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1442497,
+                    "lng": -21.9257404
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14496508029151,
+                        "lng": -21.9249511697085
+                    },
+                    "southwest": {
+                        "lat": 64.1422671197085,
+                        "lng": -21.9276491302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Fish&Co",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2736,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106671071390661460515\">Dominic Gramlich</a>"
+                    ],
+                    "photo_reference": "CmRaAAAArBYKMZVILP1_7SV2dai3yEo65Qaqd4C9CGdnP4bpmx2tfGxMmj2eJ-lrPRgxnW_Yn_BUp3FCgu7PP7dq6sTf9WXngOU6X3DH-UqKKdIqoAligcmxgTcXZayNW5GWhX4OEhDuT2VtXfQ2E8Ej_3gMrj92GhR2HL_ELxNJlYciE8brVgqcU33YFw",
+                    "width": 3648
+                }
+            ],
+            "place_id": "ChIJ8TzwVsx01kgRynl_U4yup4I",
+            "plus_code": {
+                "compound_code": "43VF+MP Reykjavík, Iceland",
+                "global_code": "99PW43VF+MP"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ8TzwVsx01kgRynl_U4yup4I",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 406,
+            "vicinity": "Frakkastígur 25, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1454869,
+                    "lng": -21.9246724
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14681323029151,
+                        "lng": -21.9232107197085
+                    },
+                    "southwest": {
+                        "lat": 64.1441152697085,
+                        "lng": -21.9259086802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "BrewDog Reykjavik",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100716120720008390872\">BrewDog Reykjavik</a>"
+                    ],
+                    "photo_reference": "CmRZAAAA6DVZDW1TYxiQEjDunfrho-QZ1WVlM0TUrxtZSJWM5FMAdJpuU-8oC75FWJ2mVBzCpdaC4K46W_eATo6i6vksT3GBxItipxAEaWwKOGrTJiQd3mbhllfA_CxHo6nPS_wMEhBZz39rsVRCQ0Osgsc8XEQOGhT80VSi8Pv37LlLqZ2Q2QCdrpdCFw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJBaRei2N11kgRHdjaVIFDp-o",
+            "plus_code": {
+                "compound_code": "43WG+54 Reykjavík, Iceland",
+                "global_code": "99PW43WG+54"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJBaRei2N11kgRHdjaVIFDp-o",
+            "scope": "GOOGLE",
+            "types": [
+                "bar",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 311,
+            "vicinity": "Frakkastígur 8, 101, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1299013,
+                    "lng": -21.8942791
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1314534302915,
+                        "lng": -21.89296295
+                    },
+                    "southwest": {
+                        "lat": 64.1287554697085,
+                        "lng": -21.89822755
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109568990668751009498\">Ólafur Jón Jónsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAb-mTY63RR_k1y3rXX5Wa841jXGhJmeEINISa3ogT2S0DgP4OZKBi3uiA7xetY6E5aQpkcuMsscENR3aHPuhfVONw7eHGwEO74fkr6hQZwtZWgHPuKEQHbuEaLgrTiC8YEhAL8limzK2mAwngn8CKRSMsGhTjk128DL2cOHIkD3N7ZDLVkXaZcw",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJm1V2a7B01kgRbeVkeNAUAGw",
+            "plus_code": {
+                "compound_code": "44H4+X7 Reykjavík, Iceland",
+                "global_code": "99PW44H4+X7"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJm1V2a7B01kgRbeVkeNAUAGw",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 37,
+            "vicinity": "Stjörnutorg, Kringlan 4, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.129323,
+                    "lng": -21.896789
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1307518302915,
+                        "lng": -21.89371655
+                    },
+                    "southwest": {
+                        "lat": 64.1280538697085,
+                        "lng": -21.89781315
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109568990668751009498\">Ólafur Jón Jónsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA5XLLvO6HZRLBNFwcbXHlRI_B_ANKQGJtjVJSCh5UMluk3KoZl-34nATf5Dh8XirOe3EoNp8rOMSTJGELMWWAnMZ4bH6ik7seoCeTOCKitT2ehCcKyoOQ-hSFwSBoYHbBEhAXO54RVeWWJpPvlhnZ4AsRGhQQKTpvX__nosxJhOvfxtljFD6O5Q",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJyXP_arB01kgRdL743ED-zp8",
+            "plus_code": {
+                "compound_code": "44H3+P7 Reykjavík, Iceland",
+                "global_code": "99PW44H3+P7"
+            },
+            "rating": 4.1,
+            "reference": "ChIJyXP_arB01kgRdL743ED-zp8",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10,
+            "vicinity": "Kringlan 4-12, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1388363,
+                    "lng": -21.89046919999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1402713302915,
+                        "lng": -21.88963671970849
+                    },
+                    "southwest": {
+                        "lat": 64.13757336970849,
+                        "lng": -21.8923346802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "JOE & THE JUICE",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113720718472885870312\">Danni Borgarinsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAMvsJuET16olSSAqYKbbBJVkLQ-92z3bhazeHTtrq0iIM0n84M1dQLITxSmdfuQhvKBLHuo3M0LVX9-_q5_ScggqGQHLeD5qaGGumPyU2aNrc1N4FOoAIPSxK9k6JCgGEEhBNa5B8Uzq_bkuYovbjvDFCGhQftIDZj-KiN-OnLFD5Kjxp_NY_Ww",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJUwKf3bh01kgRFHPUhi-nYKw",
+            "plus_code": {
+                "compound_code": "44Q5+GR Reykjavík, Iceland",
+                "global_code": "99PW44Q5+GR"
+            },
+            "rating": 4.3,
+            "reference": "ChIJUwKf3bh01kgRFHPUhi-nYKw",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 22,
+            "vicinity": "Lágmúli, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.12988779999999,
+                    "lng": -21.8946595
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1310043302915,
+                        "lng": -21.89337391970849
+                    },
+                    "southwest": {
+                        "lat": 64.1283063697085,
+                        "lng": -21.8960718802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "JOE & THE JUICE",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109568990668751009498\">Ólafur Jón Jónsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAAy93dwTD-B0Pwbws7CzQ06ie63iI4VQNClNdRbiBDKfQwFMEKhITVDcfmNeBiBGLOJHMIsg3vqIdmIt2_cdzOuHiTNj0HixwD9vLQnHqxTUoJJ1mj1oO7QbLU8bwZx4TEhCGSZknK9ZTPHfqavDSbJzDGhRT0ijseFw2hmbapefzALipWw4CJA",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJm5YWM5d01kgR05cvtsSopWw",
+            "plus_code": {
+                "compound_code": "44H4+X4 Reykjavík, Iceland",
+                "global_code": "99PW44H4+X4"
+            },
+            "rating": 4.2,
+            "reference": "ChIJm5YWM5d01kgR05cvtsSopWw",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 10,
+            "vicinity": "Kringlan, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1394553,
+                    "lng": -21.8819552
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1408257802915,
+                        "lng": -21.8805725197085
+                    },
+                    "southwest": {
+                        "lat": 64.13812781970849,
+                        "lng": -21.8832704802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Sushibarinn",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3036,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111210992639248977272\">budiono tjahjono</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAlF_7U6p0JL11kR-H0lIG8r_ryzSt3jNZL7KauFQ_IsVPCpH06bUFDYJvztJo2KgLFq-EpIsrFZ3HoCLwvnRzMIpJWkCfFuqXA9SCjHP2E4MA-_5hNJ7cqyNV5cpvWzGgEhDuqpo2es-vS4hwSz_qyvAlGhQrghnebMNY5j4gpALTpYme6MWGnw",
+                    "width": 4048
+                }
+            ],
+            "place_id": "ChIJ6dkfFr901kgRIAu84x-YI1I",
+            "plus_code": {
+                "compound_code": "44Q9+Q6 Reykjavík, Iceland",
+                "global_code": "99PW44Q9+Q6"
+            },
+            "rating": 3.3,
+            "reference": "ChIJ6dkfFr901kgRIAu84x-YI1I",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 53,
+            "vicinity": "Suðurlandsbraut 10, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1427509,
+                    "lng": -21.9024102
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1441428302915,
+                        "lng": -21.90158636970849
+                    },
+                    "southwest": {
+                        "lat": 64.1414448697085,
+                        "lng": -21.9042843302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105025519905375724643\">David Mc Dermott</a>"
+                    ],
+                    "photo_reference": "CmRaAAAADIxKy9LUnlllrESb2L_-IT24ZI08Q_sqcfOIPyCJabwssow2G6GEOIaOBgQYaN8Me6LqZTVbVH3wUl3f1VFS_EipJ20Bs7udd8f2Qicf8s13VHNWPMPMnMAIxaX3DWrpEhDfgrqL5SGQMDy1CGR_jsJyGhSZ3x74t3F2ryU288dup48mxtAB1g",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJC5P1Ms111kgR2g8D4Av7zlQ",
+            "plus_code": {
+                "compound_code": "43VX+42 Reykjavík, Iceland",
+                "global_code": "99PW43VX+42"
+            },
+            "rating": 4.1,
+            "reference": "ChIJC5P1Ms111kgR2g8D4Av7zlQ",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 21,
+            "vicinity": "Nóatún 17, Reykjavík"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "geometry": {
+                "location": {
+                    "lat": 64.1434329,
+                    "lng": -21.918361
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1448483302915,
+                        "lng": -21.9170587697085
+                    },
+                    "southwest": {
+                        "lat": 64.14215036970849,
+                        "lng": -21.9197567302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104771369170657206207\">Joey Paysinger</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAGRzM4h6OOtPQhvBrUAw6GiPkJew-bf6ttoHrVFH-zboe0uawmxZthv6HADmKaIQdCozOX4wuIWI-spM50_j6fe8buP2GRcYk9HKxaPhqjPC3JlAJDdYJvyyugyqyOvlFEhBDPHhdaIrvFwfmgWG9iVnbGhSoVq5kMizpE-sgzVb-TLTtmGl9RA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJJyjAqc501kgR-aFWVjrizy4",
+            "plus_code": {
+                "compound_code": "43VJ+9M Reykjavík, Iceland",
+                "global_code": "99PW43VJ+9M"
+            },
+            "rating": 3.9,
+            "reference": "ChIJJyjAqc501kgR-aFWVjrizy4",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 101,
+            "vicinity": "Laugavegur 86, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.130247,
+                    "lng": -21.8951159
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.13118393029151,
+                        "lng": -21.8935793197085
+                    },
+                    "southwest": {
+                        "lat": 64.12848596970849,
+                        "lng": -21.8962772802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Hraðlestin",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117030211722558838758\">Ordinary.in. Iceland</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAFlryVJIl-PrrLECZQPb3RvQf6fthMxUQzIqi0stoUZmkaofuyVn73vhfHLRBjPw13rg70fhaMjtp0i6LpxCO6zRxt60tJEt4mhJysJ78KFMmE1T1FbuEGf3EZRpaFOWPEhAQsv1SeZei-Bs3m3fAA-IOGhRoewR3p3OrpcWQ87orhja3oDeQCg",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJezZxR7B01kgRZ-gNVLGp1jQ",
+            "plus_code": {
+                "compound_code": "44J3+3X Reykjavík, Iceland",
+                "global_code": "99PW44J3+3X"
+            },
+            "rating": 4,
+            "reference": "ChIJezZxR7B01kgRZ-gNVLGp1jQ",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9,
+            "vicinity": "Kringlan 4-12, (Kringlan Mall), Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1127403,
+                    "lng": -21.90268649999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1139585302915,
+                        "lng": -21.90131796970849
+                    },
+                    "southwest": {
+                        "lat": 64.11126056970849,
+                        "lng": -21.9040159302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107497019416861689120\">Kristján Matthíasson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAaBMZtX99a39G4XBHfnPrv1CJSN3QjfpJy1Y5qJ4pK-y8uh0AH4KvywqEAxaEz_K2RFzfM3_YhdnhmB5QvsynKg6Ak5ph12CBaZLdkeZ7Zt1tnAHBTNsG8hF35YWZCb1FEhB6HO5hx2wAqGxkyU9vQoQaGhQg96R19sjaIHFa6QzEYEHQTMWEyw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ4Z5GwKoM1kgRE_TMsgR9fxI",
+            "plus_code": {
+                "compound_code": "437W+3W Kópavogur, Iceland",
+                "global_code": "99PW437W+3W"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ4Z5GwKoM1kgRE_TMsgR9fxI",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30,
+            "vicinity": "Hamraborg, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.111238,
+                    "lng": -21.9360603
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1126897302915,
+                        "lng": -21.9347105197085
+                    },
+                    "southwest": {
+                        "lat": 64.10999176970849,
+                        "lng": -21.93740848029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Matstöðin",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117534862649033822307\">Hákon Ágústsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAdH7POQ5mRQZf4OdoRUjFZa9cRMyeEZ9Rjv_XKEV3UU4wkLuSRmEhMhnmo0-O_jrYYSpQETjSwslsxtnxKqhdwb1DTX3nV4L2nOSmARQdaihV82VjDJLZLyfbAq2W_ZA8EhCiehslDwEu6d7YEhmORPI5GhRLooYPLNg6kQDyUTALbcUX_qwcBg",
+                    "width": 5760
+                }
+            ],
+            "place_id": "ChIJB0nFz1gL1kgREEQUCGnidEQ",
+            "plus_code": {
+                "compound_code": "4367+FH Kópavogur, Iceland",
+                "global_code": "99PW4367+FH"
+            },
+            "price_level": 1,
+            "rating": 4.8,
+            "reference": "ChIJB0nFz1gL1kgREEQUCGnidEQ",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 38,
+            "vicinity": "Borgarholtsbraut, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.114183,
+                    "lng": -21.8930411
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.11560393029151,
+                        "lng": -21.8916786697085
+                    },
+                    "southwest": {
+                        "lat": 64.11290596970849,
+                        "lng": -21.8943766302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116954756715881820690\">Bjarni Masson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAAluLBTyi8xiqOZRTRA8M28dChIBxqQwg5Ac34AN8odVkaivRYUGs4ab_lMu5XDnaI5Nhc-kuMpS8ZIN6nianuQN9w3SEgxbmPnczkhcWsGSpqZd9BxTO2s17imP6feQREhDI2u7G8gD5jA8n93u9IXnCGhSUh4AVggp8ME7IjjudqoRVLRn_Dg",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJw8NSvlVz1kgR6SaSz8sDw64",
+            "plus_code": {
+                "compound_code": "4474+MQ Kópavogur, Iceland",
+                "global_code": "99PW4474+MQ"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJw8NSvlVz1kgR6SaSz8sDw64",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 25,
+            "vicinity": "Nýbýlavegur 14, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.08853810000001,
+                    "lng": -21.9194648
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.08982698029152,
+                        "lng": -21.9183168697085
+                    },
+                    "southwest": {
+                        "lat": 64.0871290197085,
+                        "lng": -21.9210148302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 5046,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114158785296609368062\">Domino&#39;s Pizza</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAQ0GZEDDGysH2WPQRbuICGrzgLyd9wSR3_TCjBdF8YSi_lOwVUQcy6E3nc5L4JY-SCH6UFkkuE44KOPI0ze1Jl7zg2d_HzvUT7YCvZmKhr6o2ojm2W4KDEBKo0oKtyq4UEhCsosL0bOfZ0poVPVrnLj56GhR8U0QSyWr9Sq7wi5gEwiLCQ8WPpg",
+                    "width": 7316
+                }
+            ],
+            "place_id": "ChIJRT80C78M1kgR9S3xDRThl38",
+            "plus_code": {
+                "compound_code": "33QJ+C6 Gardabaer, Iceland",
+                "global_code": "99PW33QJ+C6"
+            },
+            "price_level": 2,
+            "rating": 3.8,
+            "reference": "ChIJRT80C78M1kgR9S3xDRThl38",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 19,
+            "vicinity": "Garðatorg, Garðabær"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0968167,
+                    "lng": -21.8906665
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.09824183029151,
+                        "lng": -21.88960946970849
+                    },
+                    "southwest": {
+                        "lat": 64.0955438697085,
+                        "lng": -21.8923074302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Hraðlestin",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 288,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102152307610453102368\">Hraðlestin</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAbxUQpOVmCqRcCegPVsLMaI1nLH8W50z6dsWIOFGc9Nyshs4iiaXVguAZqIh-GxLB3W_xVdTTAbW_Be_Efi080b3oQzBRuAHV0acomSnMca0F4RmCZ_80_yoHHRi97pTdEhA8WohmFjASHzh74VOBaHhZGhQmvX69ZKDEo2CY9zedrLdVahMJBQ",
+                    "width": 512
+                }
+            ],
+            "place_id": "ChIJQ4m3fLQM1kgR6jEioLM3N64",
+            "plus_code": {
+                "compound_code": "34W5+PP Kópavogur, Iceland",
+                "global_code": "99PW34W5+PP"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJQ4m3fLQM1kgR6jEioLM3N64",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 51,
+            "vicinity": "Hlíðasmári, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1009967,
+                    "lng": -21.8831636
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1021412302915,
+                        "lng": -21.8819208697085
+                    },
+                    "southwest": {
+                        "lat": 64.09944326970849,
+                        "lng": -21.8846188302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "JOE & THE JUICE",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117030211722558838758\">Ordinary.in. Iceland</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAfSKa3GYf3JtlCZKHRlWK4Kff7l0fwwIxXsnv12PIMShls9KoQzkBpO7VSNC44Y0r4RGjxUMTv-myNKA2OuciDxyCVXJBeN5m6oEbw7LZAb9w7tXKvhAW3bzsoCKabKG0EhAGtFjv9WspyXg_Nw7_S2scGhSM1yU3pYSoCJ1zPS8VH2LL1qpe8Q",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJHdl95Uxz1kgRNl4dosCFUFY",
+            "plus_code": {
+                "compound_code": "4428+9P Kópavogur, Iceland",
+                "global_code": "99PW4428+9P"
+            },
+            "rating": 4.1,
+            "reference": "ChIJHdl95Uxz1kgRNl4dosCFUFY",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 7,
+            "vicinity": "Hagasmári 1, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.081741,
+                    "lng": -21.938159
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.08300223029151,
+                        "lng": -21.93678046970849
+                    },
+                    "southwest": {
+                        "lat": 64.08030426970849,
+                        "lng": -21.9394784302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Veislulist - Skútan Veisluþjónusta",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 400,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112470000787298242874\">Veislulist - Skútan Veisluþjónusta</a>"
+                    ],
+                    "photo_reference": "CmRZAAAAhV8-Ba9nhmKPas1RwDJhBpINXhlaQfEs0EKy5cRjZjx2R7nb0HSMu0x_-3uQyXguWPHhbSKNGE3fy3tzxVypnT43kRKd2P5iM_p8fpxgorJGG6AUrmPxG7k6XsIB8FVrEhASxdmbbao2B29TDJ771vcPGhRfrI2ZePdU7Bh3RI1kqm3N8r_28w",
+                    "width": 495
+                }
+            ],
+            "place_id": "ChIJHxYN5OwM1kgRF-qdpkgRqaw",
+            "plus_code": {
+                "compound_code": "33J6+MP Hafnarfjordur, Iceland",
+                "global_code": "99PW33J6+MP"
+            },
+            "rating": 5,
+            "reference": "ChIJHxYN5OwM1kgRF-qdpkgRqaw",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5,
+            "vicinity": "Hólshraun 3, Hafnarfjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.088981,
+                    "lng": -21.9215431
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.0902920802915,
+                        "lng": -21.92007531970849
+                    },
+                    "southwest": {
+                        "lat": 64.0875941197085,
+                        "lng": -21.9227732802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Flatey pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "place_id": "ChIJBWnqkvAN1kgRAQ7Ykvbr9_s",
+            "plus_code": {
+                "compound_code": "33QH+H9 Gardabaer, Iceland",
+                "global_code": "99PW33QH+H9"
+            },
+            "reference": "ChIJBWnqkvAN1kgRAQ7Ykvbr9_s",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Garðabær"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.10103269999999,
+                    "lng": -21.8834604
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.10280198029149,
+                        "lng": -21.8819915697085
+                    },
+                    "southwest": {
+                        "lat": 64.10010401970848,
+                        "lng": -21.8846895302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "opening_hours": {
+                "open_now": true
+            },
+            "place_id": "ChIJUX7XM_1z1kgRWkI49yzf6lY",
+            "plus_code": {
+                "compound_code": "4428+CJ Kópavogur, Iceland",
+                "global_code": "99PW4428+CJ"
+            },
+            "reference": "ChIJUX7XM_1z1kgRWkI49yzf6lY",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Hagasmari 1, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.09937289999999,
+                    "lng": -21.8773746
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.10060378029151,
+                        "lng": -21.8759727197085
+                    },
+                    "southwest": {
+                        "lat": 64.0979058197085,
+                        "lng": -21.8786706802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Nonnabiti",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102358695832047361823\">Grétar Matthíasson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAgV8bLK7JWj773OiRcLoegJhO50io703QnWTsIS0jfU59kQAFhtT3IIy0DE74qKSFJIpeeKOwbgbSoUzFEMNXcCOTheQf2psobfGpzVX07HI2selum67O7lSXSa-n28yaEhCKdq7KpnteNLz8XtPt4X6UGhSXbc9Crpt9kmrnxIdscCva8GOBtA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJLfPzhUtz1kgRKbNXfz8qZIw",
+            "plus_code": {
+                "compound_code": "34XF+P3 Kópavogur, Iceland",
+                "global_code": "99PW34XF+P3"
+            },
+            "rating": 4.3,
+            "reference": "ChIJLfPzhUtz1kgRKbNXfz8qZIw",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 42,
+            "vicinity": "Bæjarlind 14-16, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1312318,
+                    "lng": -21.8662739
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.13267358029151,
+                        "lng": -21.8646595697085
+                    },
+                    "southwest": {
+                        "lat": 64.12997561970849,
+                        "lng": -21.8673575302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1836,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100578611971089230563\">Davíð Birkir Tryggvason</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAewLPVuFw69qvWlcVb_b4CEpmxDXAKOiAXvh3vKrow52N2fhhtKt4wAjADNeZopyRyWQeaAAYKObYVYa4zioomcbAgR9hfoAMqX6ehR6NPz-0WxHG4y6YZ63U4pcJPLl2EhBz4iB9hJpgfUX9nqwv5AchGhSA8rrO3rFpeeXeYsdbRc6EGwX6rQ",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJmZtbDJh01kgRckZk-VaYxIs",
+            "plus_code": {
+                "compound_code": "44JM+FF Reykjavík, Iceland",
+                "global_code": "99PW44JM+FF"
+            },
+            "rating": 4.1,
+            "reference": "ChIJmZtbDJh01kgRckZk-VaYxIs",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 50,
+            "vicinity": "Suðurlandsbraut, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1451202,
+                    "lng": -21.8795084
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1463101302915,
+                        "lng": -21.8784008697085
+                    },
+                    "southwest": {
+                        "lat": 64.14361216970848,
+                        "lng": -21.8810988302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "JOE & THE JUICE",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117030211722558838758\">Ordinary.in. Iceland</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAsZlhkGMStBj3mFkokGoDIWgFg9i9Aoxx3F_6YYNKh3SFHa8ZchlNY_FbP0poM64eAhomNLi2LiExezSepajIhFsoaXOW267uSrj3CBXEdwnF5QQuUyVNI-7S9tbH8bO3EhCVXUwFEqyHEWWouMmZi_LOGhTw_kpaXnHamlmc_MBcqvt9pmV0ug",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ8Xindup01kgRjwOIYXnCsgc",
+            "plus_code": {
+                "compound_code": "44WC+25 Reykjavík, Iceland",
+                "global_code": "99PW44WC+25"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ8Xindup01kgRjwOIYXnCsgc",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "cafe",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 16,
+            "vicinity": "Sundlaugavegur 30, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1301086,
+                    "lng": -21.8708755
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.13162163029152,
+                        "lng": -21.8697542197085
+                    },
+                    "southwest": {
+                        "lat": 64.12892366970851,
+                        "lng": -21.87245218029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109445404557569707215\">Þorgeir Auðunn Karlsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA6GGawFx0gJgBInXtDoSY4Jv7_CsWEzbQ6RSfNGlpJPl4_YYaLqzTJ1nmmRRWtJ4x1A3yIMjRmjgK4MCtlQ0_6Bb59Krzaw08MDk1pblhqGIwDs1Qcgao8-oDuapRO5_GEhDqNl7BImIA29CUz3k2MW3FGhRYQXqHHT6VVNcUu1tGBC49snD4FQ",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ4Sf66KJ01kgRIQdRJl0wbFo",
+            "plus_code": {
+                "compound_code": "44JH+2J Reykjavík, Iceland",
+                "global_code": "99PW44JH+2J"
+            },
+            "price_level": 2,
+            "rating": 4,
+            "reference": "ChIJ4Sf66KJ01kgRIQdRJl0wbFo",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 126,
+            "vicinity": "Skeifan, Reykjavík"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "geometry": {
+                "location": {
+                    "lat": 64.13064779999999,
+                    "lng": -21.8617763
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.13208918029149,
+                        "lng": -21.86018311970849
+                    },
+                    "southwest": {
+                        "lat": 64.12939121970848,
+                        "lng": -21.8628810802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "name": "Domino's Pizza",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110154143591386300935\">George Lambert</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA3i_OMXrCX3BdMzgHw7kzKel0UtWeZ3Qz5aTMxsYpmdOkoaw4khFEmaWETWMFwn6S_LCjb8PAGaZMfjQob8tkXvQbaRk8UGphwqxaH5ZYeWqEK1puSLBdrgSLB-ieTQIhEhB3BhDFyRL-PsAxpN2DZQvTGhQdTJ76uNJphhKI5tVP6O_RgqyC1w",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJrT6-UJh01kgRSwKU4czRyJg",
+            "plus_code": {
+                "compound_code": "44JQ+77 Reykjavík, Iceland",
+                "global_code": "99PW44JQ+77"
+            },
+            "price_level": 2,
+            "rating": 4.6,
+            "reference": "ChIJrT6-UJh01kgRSwKU4czRyJg",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12,
+            "vicinity": "Gnoðarvogur, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1508409,
+                    "lng": -21.788651
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.15215418029149,
+                        "lng": -21.7873194197085
+                    },
+                    "southwest": {
+                        "lat": 64.14945621970848,
+                        "lng": -21.7900173802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114892303773324218094\">Jens Gunnarsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAATKUvlRnwaY51MB_O4QPNTX5Vm1OnHB7UoPpVNnXv6-QuLWURNJ5B3gR7Ocg4HssJsH1aYjsZm3wdR-B_ol5bxeauOv9lcAShDzoZtB_4cKqjNR2OzqjKzotwd0_qbfbkEhAwJPCdEMBeuyBVpuE1RYChGhTc5rs3oZChNdYQuTZfwrMjC4O1fw",
+                    "width": 3120
+                }
+            ],
+            "place_id": "ChIJLZLgnWx01kgR1w6nDXijflk",
+            "plus_code": {
+                "compound_code": "5626+8G Reykjavík, Iceland",
+                "global_code": "99PW5626+8G"
+            },
+            "price_level": 2,
+            "rating": 3.7,
+            "reference": "ChIJLZLgnWx01kgR1w6nDXijflk",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 21,
+            "vicinity": "Spöngin, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1235834,
+                    "lng": -21.82587699999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.12477513029151,
+                        "lng": -21.8243768697085
+                    },
+                    "southwest": {
+                        "lat": 64.12207716970849,
+                        "lng": -21.8270748302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113571859055116256420\">Javier Moratiel</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA0TRv0OyBddpPhC_pHP9pmqWD6BhYqMmt42oag5plWGJyR8p_X9FmVeO8T015aS3l-jIY47aDCZVO8ylHVQekYHsiMwLquBCSjVzWG5gHZV-oYSk10rXFJJkKTHcAxLXyEhCx3Qa5H2oz2UQM2ApGvwDqGhQRnzylhWgbqgQhoNfANbEEQcuwTQ",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJqcmcrX1z1kgRDJ5wIk-tvsI",
+            "plus_code": {
+                "compound_code": "45FF+CJ Reykjavík, Iceland",
+                "global_code": "99PW45FF+CJ"
+            },
+            "rating": 4,
+            "reference": "ChIJqcmcrX1z1kgRDJ5wIk-tvsI",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 37,
+            "vicinity": "Artúnshöfði, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1493904,
+                    "lng": -21.8719387
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.15080208029151,
+                        "lng": -21.8709219197085
+                    },
+                    "southwest": {
+                        "lat": 64.14810411970849,
+                        "lng": -21.8736198802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107816874654808084415\">dziubek0504</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA16oJYuPMNyOJ5CMeOobckJ6pitofjsOlMXpdbN34IkeA8VA8x3-jF0e8y3oWcahK-G7LQq3EMgDvmVtDh8R_rAfzALfOc5DZGptQDNqD4qiUKbPgZfWDBkzg9Uvowx2tEhAB2ARGCs972gTtRRnseKoSGhSR4Y6UA9cNWgNQDEFyPc8zdeZ3pg",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJ5y7n8ut01kgRkXYpnXJ79QI",
+            "plus_code": {
+                "compound_code": "44XH+Q6 Reykjavík, Iceland",
+                "global_code": "99PW44XH+Q6"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJ5y7n8ut01kgRkXYpnXJ79QI",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 72,
+            "vicinity": "Dalbraut 3, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0904627,
+                    "lng": -21.8425363
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.09174618029151,
+                        "lng": -21.8411780197085
+                    },
+                    "southwest": {
+                        "lat": 64.08904821970849,
+                        "lng": -21.8438759802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2336,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104363603984541594463\">Stacja Męcina</a>"
+                    ],
+                    "photo_reference": "CmRaAAAArfRgglu_Ee7FPyYzK6MevhDrfAuBLvxDLl7b9kBBQAkofRlMGtKEU9vzoCO35cgp9jmH--IfrGIGkXU_UMpTIosJjnwINo_ZzS6KD-KFpAMITjqgwRlnpCXiCbqpnKWdEhAU6qCSIW78HfZkhYZ_RQKVGhSm_4Ss0zmxgx4LjniEzceh3JvGzQ",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJ74XbAnJz1kgRRsC6gmQPsvE",
+            "plus_code": {
+                "compound_code": "35R4+5X Kópavogur, Iceland",
+                "global_code": "99PW35R4+5X"
+            },
+            "price_level": 2,
+            "rating": 3.7,
+            "reference": "ChIJ74XbAnJz1kgRRsC6gmQPsvE",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 24,
+            "vicinity": "Rjúpnasalir 1, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.10905629999999,
+                    "lng": -21.8422493
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1106112302915,
+                        "lng": -21.841087
+                    },
+                    "southwest": {
+                        "lat": 64.10791326970849,
+                        "lng": -21.8457362
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2992,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109568990668751009498\">Ólafur Jón Jónsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAzP_gqc4Ce6JfClpX9rHJDzrQ1DxSfcgMkc3iHRB1vLkcuRTEA-jGmLbVy4gKtXRWBzLv4vRP1GHdG5y_Yw_G2E6FmaWhZOl6o4lZwjCNTF4rh3fsr4jsTUTnVwrjLZPcEhDAPTbfoeNgAU7rSx_wl8PYGhSQ4k3eeiBDSOhlUaa-NL6CHfWQhA",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJSTWuMWhz1kgRNWedpp4ueLM",
+            "plus_code": {
+                "compound_code": "4555+J4 Reykjavík, Iceland",
+                "global_code": "99PW4555+J4"
+            },
+            "price_level": 2,
+            "rating": 3.5,
+            "reference": "ChIJSTWuMWhz1kgRNWedpp4ueLM",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14,
+            "vicinity": "Álfabakki, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.101333,
+                    "lng": -21.823628
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1027217302915,
+                        "lng": -21.8220558697085
+                    },
+                    "southwest": {
+                        "lat": 64.10002376970849,
+                        "lng": -21.8247538302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Wilson's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 5312,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102495779640856412982\">Gudmundur Kristjansson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAACWTJQmo0RstEcr3hBmzTMDABf0gEQItBPErWZK9oE9BaD81_WyA2TiC-Q_N68AGvPkm-3UJksn1129yvldm8yyst3nYMo1Il1C8XwneBuDGiAB4WK-rCnAX0ANC2YHfkEhAWt9OrdsNj9hkiZDxJTrj9GhSYGavaPCr2ZfvZWXjV3RD-zNiEIQ",
+                    "width": 2988
+                }
+            ],
+            "place_id": "ChIJU0xPGSkL1kgRO3FDkbdWieM",
+            "plus_code": {
+                "compound_code": "452G+GG Reykjavík, Iceland",
+                "global_code": "99PW452G+GG"
+            },
+            "rating": 3.8,
+            "reference": "ChIJU0xPGSkL1kgRO3FDkbdWieM",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6,
+            "vicinity": "Eddufell, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.11799719999999,
+                    "lng": -21.7957863
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1191879302915,
+                        "lng": -21.7945761697085
+                    },
+                    "southwest": {
+                        "lat": 64.1164899697085,
+                        "lng": -21.7972741302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 724,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113731300530514300449\">Domino&#39;s Pizza</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA5Q7IATZn5bJeJHDiqYkT4U3Nk2SU8rLhZuG1WP7HoDZnI4Y5Mqrle-aDhLKNOvZON9MF2BMuqs6Qe7LJqNtcVo501BklM5YmsYx8837Wr7NmHjCFf2ykFdnRW-U9KJD0EhDuo9DObZU3OVOnhhpHvFdSGhQWPGxSqNq9096sINAPO7FCnh_pAQ",
+                    "width": 1086
+                }
+            ],
+            "place_id": "ChIJKes6KJ1z1kgRsjTv1FfBQWM",
+            "plus_code": {
+                "compound_code": "4693+5M Reykjavík, Iceland",
+                "global_code": "99PW4693+5M"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJKes6KJ1z1kgRsjTv1FfBQWM",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16,
+            "vicinity": "Hraunbær, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1062469,
+                    "lng": -21.8553075
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1077558802915,
+                        "lng": -21.8541327697085
+                    },
+                    "southwest": {
+                        "lat": 64.1050579197085,
+                        "lng": -21.8568307302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Spaðinn pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113720718472885870312\">Danni Borgarinsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAwHj7RAzhd_zcuBOYvwFGzBvAJIGWLUF86DS0qQqgO2ofZz-DiQ5Bota-oh5fmkjtGbBBJwlnP97kMFffTpXzJfAK8iezBi89703ieLYL3Zey90zBZHfymNtCVq9xy3jzEhDY-c4XHLFBdYBDx0cNUafmGhQAfzPtHqJrlFmie9qtep1BDnHmtg",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJ7_0BUO1z1kgR3za9K-rUaVA",
+            "plus_code": {
+                "compound_code": "444V+FV Kópavogur, Iceland",
+                "global_code": "99PW444V+FV"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ7_0BUO1z1kgR3za9K-rUaVA",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 34,
+            "vicinity": "Dalvegur 32, Kópavogur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1089181,
+                    "lng": -21.817609
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.11022488029151,
+                        "lng": -21.8161658697085
+                    },
+                    "southwest": {
+                        "lat": 64.1075269197085,
+                        "lng": -21.8188638302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118440746438954788600\">Guðbjörn Lúthersson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAArPJwAUrr9r-BJoAoKL-5aBIaRpQMMZswcf4idS2UAvT3Y5euJfPnLf8-ZofbwjxTFCdfkFDqcFE_adM-0xEsQyAzcID_DA2nQb_IXpAVM30WagEB2yH9gCaTe47agZZlEhCpi3hDbFQrxGHwA-59GHtAGhRIWuHY459Ojyz7-dgFl9vi_y73fA",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJ74XbAnJz1kgRZ7iUOfKnxe8",
+            "plus_code": {
+                "compound_code": "455J+HX Reykjavík, Iceland",
+                "global_code": "99PW455J+HX"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJ74XbAnJz1kgRZ7iUOfKnxe8",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 38,
+            "vicinity": "Lóuhólar, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1055488,
+                    "lng": -21.814142
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1068593302915,
+                        "lng": -21.8127924197085
+                    },
+                    "southwest": {
+                        "lat": 64.10416136970849,
+                        "lng": -21.8154903802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Hraunberg Söluturn Grill - DVD - Ís",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110601180592365890266\">Vignir Sveinsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAEtQu38Vjg0SzA2Pb5Afzdh_RuuFcw1_dTfptTdi11dWhWOBu6ytCE9aIMVFeRFkDzSIAIbF1i_lWM7JOhDTn8OcjHY6c7yS1X7zaqoSiCV3DVeWU7LMZ56BB70hozsTtEhDXKGz7ePIncHN0uBPJ3Ek4GhRXf63GDhzFi_EyLehkXb0zMY0Khw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJRZhfZG1z1kgRoW-sl8fQHW0",
+            "plus_code": {
+                "compound_code": "454P+68 Reykjavík, Iceland",
+                "global_code": "99PW454P+68"
+            },
+            "rating": 4,
+            "reference": "ChIJRZhfZG1z1kgRoW-sl8fQHW0",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 23,
+            "vicinity": "Hraunberg 5, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.09617,
+                    "lng": -21.8069687
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.0970487302915,
+                        "lng": -21.8057524697085
+                    },
+                    "southwest": {
+                        "lat": 64.09435076970848,
+                        "lng": -21.80845043029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Pure deli",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1068,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115614179797160022882\">Pure deli</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAIYjmrmGMkmQ-JYXXCYXBWml08CuRdNb2O8b2warM0dHxBn_s704pTJfsHCN--pZFS8mAhv4j_mXgah7z-RdIA2Sadil27ETE2aDOAtUrCAQgVJHysuCMcCzF6jgZxaz_EhCl1I9WDYBOAXgMnp6EqkbFGhRyy3vJxV4WwPoobX6DBOv7B4wfCQ",
+                    "width": 1575
+                }
+            ],
+            "place_id": "ChIJodTzvxFz1kgReRDoo8IlyCs",
+            "plus_code": {
+                "compound_code": "35WV+F6 Kópavogur, Iceland",
+                "global_code": "99PW35WV+F6"
+            },
+            "rating": 4.7,
+            "reference": "ChIJodTzvxFz1kgReRDoo8IlyCs",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 53,
+            "vicinity": "Urðarhvarf, Kópavogur"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "geometry": {
+                "location": {
+                    "lat": 64.07664369999999,
+                    "lng": -21.9498545
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.07804358029149,
+                        "lng": -21.9490481697085
+                    },
+                    "southwest": {
+                        "lat": 64.07534561970849,
+                        "lng": -21.9517461302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Subway",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113742394844291271965\">Bóas Kár Ketilsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAAhEhfMyntpdff4H3qa3ZxS78TrTT1H1-cciaB4EJ8-TEF8-gQD6SGOwsmMpJUoQyrkQX0W4PmfeHPj2fdu1IJhi3KPdEsWgpQMffaGF4NMzgXHPUxds6lw5GCzopfmPMEhCr4VlUj4DTm2FSZnKJtyQFGhRa-Auel0dJCZDV_FAqGIDEGVEIgw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJdd4I6fMM1kgRkG7RFLUk3f0",
+            "plus_code": {
+                "compound_code": "33G2+M3 Hafnarfjordur, Iceland",
+                "global_code": "99PW33G2+M3"
+            },
+            "rating": 4.1,
+            "reference": "ChIJdd4I6fMM1kgRkG7RFLUk3f0",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 34,
+            "vicinity": "Reykjavikurvegur, Hafnarfjordur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0686111,
+                    "lng": -21.9572222
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.0699167802915,
+                        "lng": -21.9560266697085
+                    },
+                    "southwest": {
+                        "lat": 64.0672188197085,
+                        "lng": -21.95872463029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Dominos Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111950232053162710832\">Alok Chadha</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAFOzt-Hd4AkMRRHqfuTw2arA7j05H4PP5B0iEWLq_1Z_E_drlnFSKmSIYBj2GjY5s4eaTZOS1TUadRtUrPZ8H8Lg3eS-S5Zgp3MvCNzhJyZWFfrmi69iJMlr6_Pz20_zyEhCduPnmzE7_G-MbrbBOzy2yGhR6wL9IGitb7HY8gD8ZAFDC7BJaAw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJm1V2a7B01kgRxhIZ4HF2s_M",
+            "plus_code": {
+                "compound_code": "329V+C4 Hafnarfjordur, Iceland",
+                "global_code": "99PW329V+C4"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJm1V2a7B01kgRxhIZ4HF2s_M",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 65,
+            "vicinity": "Fjarðargata, Hafnarfjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0764343,
+                    "lng": -21.9413413
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.0776066802915,
+                        "lng": -21.9397598197085
+                    },
+                    "southwest": {
+                        "lat": 64.07490871970849,
+                        "lng": -21.9424577802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 484,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116878120846011683678\">Domino&#39;s Pizza</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAOVBoCRFPGDJmPugvIfwPCaOZ4AD9f2U3YnnrRcKdnAodNb-JiY9i_t3j-wMKqEGqEXq4uF2jEmcUEMoQ2DDuphFFrllpEE9aJtS9E74eITEDgjw9I5uVRKOD55KBsAv3EhCVYll9-KNxGlCchYwsfJ71GhS4QFEn7t4p-xl3SSkzBQs6PuLv_w",
+                    "width": 656
+                }
+            ],
+            "place_id": "ChIJFcPq-vEM1kgRw3tag6XXDvg",
+            "plus_code": {
+                "compound_code": "33G5+HF Hafnarfjordur, Iceland",
+                "global_code": "99PW33G5+HF"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJFcPq-vEM1kgRw3tag6XXDvg",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 29,
+            "vicinity": "Flatahraun, Hafnarfjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0591665,
+                    "lng": -21.9711932
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.06055148029151,
+                        "lng": -21.9697097697085
+                    },
+                    "southwest": {
+                        "lat": 64.05785351970849,
+                        "lng": -21.9724077302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Holtanesti",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107086385832245695257\">Hoddi Rúnarsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA-qGlkO-O_45eXPn83ydj5GayoKrkGds2BCtQEkcVI0bdKoL21d9IUPaJNBIMKIbq9NYV8HJYMNyg-l8_JkP0dn0yGWy-FbPqnwO1ny2ZvIFnCN-k7BtLmGZA-c3TSr4rEhBbT0rbMKW46KYGyK8loMC4GhQ6m_u9tm5AB4w0CqyRZlftdWNV9w",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ4Z58GlIM1kgR0HJnd7lNZx8",
+            "plus_code": {
+                "compound_code": "325H+MG Hafnarfjordur, Iceland",
+                "global_code": "99PW325H+MG"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ4Z58GlIM1kgR0HJnd7lNZx8",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 45,
+            "vicinity": "Melabraut 11, Hafnarfjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.07709690000002,
+                    "lng": -21.9449181
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.0784447302915,
+                        "lng": -21.9436411197085
+                    },
+                    "southwest": {
+                        "lat": 64.07574676970849,
+                        "lng": -21.9463390802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Fine take away",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106300775274585819535\">Fine take away</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAVJyi6BB1G6awlhLo4e9vxWEM367xMFgh4HzgBr87AR92n0fO4VR8vuH_8k6LTbkKee20MGbhGCX4hxrgAqg26p-db349rb9nbrnHsr5zUZCDIrupgY4w1YqRORzx09W1EhB9d6WjI5h1KpZEOicFPjYCGhTGiip3EVqOcBuzfbdUTh9dvgnxwA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJh_AGKG8N1kgRj4SXp98UK1Q",
+            "plus_code": {
+                "compound_code": "33G4+R2 Hafnarfjordur, Iceland",
+                "global_code": "99PW33G4+R2"
+            },
+            "rating": 5,
+            "reference": "ChIJh_AGKG8N1kgRj4SXp98UK1Q",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8,
+            "vicinity": "Helluhraun, Hafnarfjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.66568,
+                    "lng": -21.2871
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.66678738029151,
+                        "lng": -21.2864198697085
+                    },
+                    "southwest": {
+                        "lat": 64.6640894197085,
+                        "lng": -21.2891178302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Staldrið",
+            "photos": [
+                {
+                    "height": 1220,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110585418264602808256\">Staldrið</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAKXoQkjH6MwCkmYgL_dD7T2DLN4Xmnv9QU6R5rWVFgOxzwB5hYD94u1MupE-6epTmoIR0GGwWVPEgQTVNXyP-oLozXK--MW3f4izdwUxQTsFsqDGd4e5KYL6yLOPCl6jBEhDgrdFv1Zz4qXznifc2GEHFGhSm3koxIu_VOzB2M4MuQaZJ4qWKnQ",
+                    "width": 1262
+                }
+            ],
+            "place_id": "ChIJ6wWZSaA31EgR_4fSFKT8q7E",
+            "plus_code": {
+                "compound_code": "MP87+75 Reykholt, Iceland",
+                "global_code": "99PWMP87+75"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ6wWZSaA31EgR_4fSFKT8q7E",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2,
+            "vicinity": "Viðigerði, Reykholt"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1665361,
+                    "lng": -21.697247
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.16770853029152,
+                        "lng": -21.6956619697085
+                    },
+                    "southwest": {
+                        "lat": 64.1650105697085,
+                        "lng": -21.6983599302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino’s Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3264,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111027805788397881717\">Hlynur Hilmarsson</a>"
+                    ],
+                    "photo_reference": "CmRZAAAAHERTS0a89GquxUmSbZXUQ75nYM_XGX9F2lHuLCga4MKnWgxQQJGCghxi6TN4_1BucgOBNXRstetdyZV9hKF4MyY5yl35WwCrEkfFKoG0PIZVtQHE3ykiYXdli_gQ4LZqEhBpvJPGD5Jj1am2fuBayz_nGhTTwarStkWdYPmJFn2IKg9DFi-OCw",
+                    "width": 2448
+                }
+            ],
+            "place_id": "ChIJaT7aoMB21kgRfZzZ4UOB4rA",
+            "plus_code": {
+                "compound_code": "5883+J4 Mosfellsbær, Iceland",
+                "global_code": "99PW5883+J4"
+            },
+            "price_level": 2,
+            "rating": 3.9,
+            "reference": "ChIJaT7aoMB21kgRfZzZ4UOB4rA",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 60,
+            "vicinity": "Háholt 14, Mosfellsbær"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.99754300000001,
+                    "lng": -21.188676
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.99899968029151,
+                        "lng": -21.1877534197085
+                    },
+                    "southwest": {
+                        "lat": 63.9963017197085,
+                        "lng": -21.1904513802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Fiskverslun Hveragerðis",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108006487549050227350\">Louis Ng</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA7bvgXsK7GQ77natt3wYozl2aOJluMPW6CRe7inH81ah7HYkVznu1u-cLV9iP2JzilZJr8mwt6KS737O_R8Y74mtTXmZxh6SiWtX2FvyT8Hg3-p31AeNJJogMQEbGmUSeEhDg16imMdPB3lOK2goZb9taGhS5apxzX3Lf-prLSdfDLi2FZTRc8w",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJb2QOD8lm1kgRry2jjVnmQTw",
+            "plus_code": {
+                "compound_code": "XRX6+2G Hveragerði, Iceland",
+                "global_code": "99MWXRX6+2G"
+            },
+            "rating": 4.9,
+            "reference": "ChIJb2QOD8lm1kgRry2jjVnmQTw",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 40,
+            "vicinity": "Breiðamörk 2, Hveragerði"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.937351,
+                    "lng": -21.0053131
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.93864133029151,
+                        "lng": -21.0038933697085
+                    },
+                    "southwest": {
+                        "lat": 63.9359433697085,
+                        "lng": -21.0065913302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Domino's Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100934910047953169734\">Jóhann Gunnarsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA5aKgPg0nPT3-slmE3i7cbzvYWdFV9o_KZ2QIyDexrVLdshPcAEcJsHR95dbt602I3zwYqQc6888ldQkJ2pTX1DVAAQGbuR4XW8gajzz9tF0yXJUKw4N6dpn93UA993TcEhDQ5JPO_k8Uvh4I-DxbI1-zGhTV5-1BojCd2yPjFyHA3RVqvyj3ag",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJQ3egisxf1kgRQF0gfpFeD3w",
+            "plus_code": {
+                "compound_code": "WXPV+WV Selfoss, Iceland",
+                "global_code": "99MWWXPV+WV"
+            },
+            "price_level": 2,
+            "rating": 3.7,
+            "reference": "ChIJQ3egisxf1kgRQF0gfpFeD3w",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 144,
+            "vicinity": "Eyravegur 2, 800, Selfoss"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.8450765,
+                    "lng": -22.4344268
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.8464612302915,
+                        "lng": -22.4334688197085
+                    },
+                    "southwest": {
+                        "lat": 63.84376326970848,
+                        "lng": -22.4361667802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "hjá höllu",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106419263039959669811\">Sam Watson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA2nqzABLgS0-ra0dtoYRmUslAwjaCgzO3muR-g1v8QLDae15Zxd4C0ztFnav2njShXTEDgh5eG_k-HyzNN5wMwdJIzGUyjbAcIGRgBSujwhqoow051q9-5NcpQmVkCDe3EhB1R4Nmo-rztBitR-nF4493GhSYTNK_YfksSaOesIdWC7fyM57boQ",
+                    "width": 2880
+                }
+            ],
+            "place_id": "ChIJKSM66_kd1kgRO8OlH4FnnUk",
+            "plus_code": {
+                "compound_code": "RHW8+26 Grindavik, Iceland",
+                "global_code": "99MVRHW8+26"
+            },
+            "rating": 4.8,
+            "reference": "ChIJKSM66_kd1kgRO8OlH4FnnUk",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 25,
+            "vicinity": "Víkurbraut 62, Grindavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.7514866,
+                    "lng": -20.2255146
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.75279943029151,
+                        "lng": -20.2241777697085
+                    },
+                    "southwest": {
+                        "lat": 63.7501014697085,
+                        "lng": -20.2268757302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Gallery Pizza",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117553233120376063865\">Faris saieda</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAYUZ7EWIZSxFRTiZHeu2oiPMRc_W5L4RYlmNHENOAs8Gjaz13UwauyZOFhFPKvwkijFTKZynCpPX4nRdLVeGiem0H_2KcIWphDiNvH8Xcx_BDPNIh3hDtqHD5FXzgY6KaEhAJqg-E5TSi0S8COVhrco6aGhSIzmQnXdk7g7vtAyv2NFeYklEOPQ",
+                    "width": 5120
+                }
+            ],
+            "place_id": "ChIJC5FufXXj1kgRmW2ejStt3Jg",
+            "plus_code": {
+                "compound_code": "QQ2F+HQ Hvolsvöllur, Iceland",
+                "global_code": "99MXQQ2F+HQ"
+            },
+            "price_level": 2,
+            "rating": 4.1,
+            "reference": "ChIJC5FufXXj1kgRmW2ejStt3Jg",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 229,
+            "vicinity": "Hvolsvegur, Hvolsvöllur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.4404842,
+                    "lng": -20.267618
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.4418688302915,
+                        "lng": -20.2662672197085
+                    },
+                    "southwest": {
+                        "lat": 63.43917086970849,
+                        "lng": -20.2689651802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "900",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109452850400321195640\">900</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAznIfmjXIrCvTmgWPf_pt26Zwt0NqXA6bCBxAxUnfXnmrFp9KS3pHuCTlV-YGgy8IOe9fxO_iakHO6mubmkvdz-hXssGV2RLTn23SGpvjsMYyOnqXIwZAgjkdmaKNKG_YEhCvTXanvlGym38yWxwEkTFSGhTI38tH8LmR5sAbbkm-StkaxqkHdA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ89haAcYI10gRlic4i2vGVSs",
+            "plus_code": {
+                "compound_code": "CPRJ+5X Vestmannaeyjabær, Iceland",
+                "global_code": "99MXCPRJ+5X"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJ89haAcYI10gRlic4i2vGVSs",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_delivery",
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 102,
+            "vicinity": "Vestmannabraut, Vestmannaeyjabær"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0482352,
+                    "lng": -16.1792609
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.04963558029151,
+                        "lng": -16.1780725197085
+                    },
+                    "southwest": {
+                        "lat": 64.0469376197085,
+                        "lng": -16.1807704802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Nailed It Fish and Chips",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112785136716414359202\">James williams</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAZfxFVffVmSoI6OLevit1eVPzACv8jSg7spmJM7sdvJAEzzlk1ukb9IqQCH4Mxy4Srn1hIi3GFIYDfSRyHQEFyVQFjQKgFKG18n5dePU_ckLq3Ghmk6Jx8oCiIRpEoWpXEhD44v9Kr6zXCpq2g96E89ZFGhQ6SHCRZpFkkGSMti9XYn9cu6HdUA",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJbz05mpLXz0gRHRle4f3_WdQ",
+            "plus_code": {
+                "global_code": "9CP52RXC+77"
+            },
+            "rating": 5,
+            "reference": "ChIJbz05mpLXz0gRHRle4f3_WdQ",
+            "scope": "GOOGLE",
+            "types": [
+                "meal_takeaway",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 61,
+            "vicinity": "Jökulsárlón, Hornafjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.2501843,
+                    "lng": -15.2031639
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.2514809802915,
+                        "lng": -15.2017555697085
+                    },
+                    "southwest": {
+                        "lat": 64.2487830197085,
+                        "lng": -15.20445353029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Ishusid Pizzeria Restaurant",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117992287562149946654\">Tomasz Bąkowski</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAG9MI_AA4jIzqIX958_5n1ItjFN__ZLAaFEbZDeffGjn8SYYr33tis2icnbVUH_YojalXtBSAM-WiufXLPvA1BZmqPscNwDAoYjHyHzZhWlWnZArq9ia7cJR6CB2FiOF3EhDXeTglPNzgUpa60VrQSKHFGhShQAbXKf_N7LE3ANvsSQLclk0zow",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJfdg9UFqsz0gRzPTu4JD-mZI",
+            "plus_code": {
+                "compound_code": "7Q2W+3P Höfn, Iceland",
+                "global_code": "9CP67Q2W+3P"
+            },
+            "price_level": 2,
+            "rating": 4.7,
+            "reference": "ChIJfdg9UFqsz0gRzPTu4JD-mZI",
+            "scope": "GOOGLE",
+            "types": [
+                "restaurant",
+                "meal_takeaway",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 548,
+            "vicinity": "Heppuvegur 2a, Höfn í Hornafirði"
+        }
+    ],
+    "ids": [
+        "ChIJi012EskfK08RGAAKvCdCeYw",
+        "ChIJSbq9IqaP0kgRf_RnAkTKhTA",
+        "ChIJd8qRxw6P0kgRIqIOmhLfdog",
+        "ChIJgXYCrM6P0kgRmK1bmxMtov8",
+        "ChIJNRYeQAuP0kgRq6VJU3oc9tY",
+        "ChIJ9RyEnwGBKkkRVD2xqK7KQmo",
+        "ChIJg1fZqqTd1UgRntX2VeQfDzQ",
+        "ChIJcb7UVZbd1UgRQVh_gj1O0RU",
+        "ChIJd6UmOD0C1kgRWRlngeKF2aQ",
+        "ChIJ7ZS-i-X9KUkRoYp6Vy5KLFY",
+        "ChIJn0Zpof39KUkRvrL2ImHcsLA",
+        "ChIJy6itriEC1kgR1PDhvl-Llz8",
+        "ChIJG64XjmUC1kgRzWfxCG7kGAs",
+        "ChIJrbnfCxAD1kgRf_wEruJErVs",
+        "ChIJMU7s42UC1kgRhtFfo2kE9hE",
+        "ChIJ-wwjnyUL1kgR0Qtd_WWbM40",
+        "ChIJV2xRJjsL1kgRy0IqqHyp_Tg",
+        "ChIJHah3issL1kgRps9P6rr5MU8",
+        "ChIJZUHUTy0L1kgRe8hyHHckw9A",
+        "ChIJu66lMC0L1kgReTpj_Nwsoe4",
+        "ChIJezrYGi0L1kgRR67vAkcBBro",
+        "ChIJrelJt7QL1kgRc1fiThT0QUw",
+        "ChIJu5agRi0L1kgRbQtJC2AtY2M",
+        "ChIJ6YgBUc101kgR2NcJ9NV7rvQ",
+        "ChIJX1-ZWs101kgRqR5IrVu_yvs",
+        "ChIJE0mYCXJ11kgRIfU6McOF6eY",
+        "ChIJm1V2a7B01kgRMGOaCjosFak",
+        "ChIJ81gERM101kgRMy-93lyZNdk",
+        "ChIJswkctc101kgRaW01AYCv2DI",
+        "ChIJ8TzwVsx01kgRynl_U4yup4I",
+        "ChIJBaRei2N11kgRHdjaVIFDp-o",
+        "ChIJm1V2a7B01kgRbeVkeNAUAGw",
+        "ChIJyXP_arB01kgRdL743ED-zp8",
+        "ChIJUwKf3bh01kgRFHPUhi-nYKw",
+        "ChIJm5YWM5d01kgR05cvtsSopWw",
+        "ChIJ6dkfFr901kgRIAu84x-YI1I",
+        "ChIJC5P1Ms111kgR2g8D4Av7zlQ",
+        "ChIJJyjAqc501kgR-aFWVjrizy4",
+        "ChIJezZxR7B01kgRZ-gNVLGp1jQ",
+        "ChIJ4Z5GwKoM1kgRE_TMsgR9fxI",
+        "ChIJB0nFz1gL1kgREEQUCGnidEQ",
+        "ChIJw8NSvlVz1kgR6SaSz8sDw64",
+        "ChIJRT80C78M1kgR9S3xDRThl38",
+        "ChIJQ4m3fLQM1kgR6jEioLM3N64",
+        "ChIJHdl95Uxz1kgRNl4dosCFUFY",
+        "ChIJHxYN5OwM1kgRF-qdpkgRqaw",
+        "ChIJBWnqkvAN1kgRAQ7Ykvbr9_s",
+        "ChIJUX7XM_1z1kgRWkI49yzf6lY",
+        "ChIJLfPzhUtz1kgRKbNXfz8qZIw",
+        "ChIJmZtbDJh01kgRckZk-VaYxIs",
+        "ChIJ8Xindup01kgRjwOIYXnCsgc",
+        "ChIJ4Sf66KJ01kgRIQdRJl0wbFo",
+        "ChIJrT6-UJh01kgRSwKU4czRyJg",
+        "ChIJLZLgnWx01kgR1w6nDXijflk",
+        "ChIJqcmcrX1z1kgRDJ5wIk-tvsI",
+        "ChIJ5y7n8ut01kgRkXYpnXJ79QI",
+        "ChIJ74XbAnJz1kgRRsC6gmQPsvE",
+        "ChIJSTWuMWhz1kgRNWedpp4ueLM",
+        "ChIJU0xPGSkL1kgRO3FDkbdWieM",
+        "ChIJKes6KJ1z1kgRsjTv1FfBQWM",
+        "ChIJ7_0BUO1z1kgR3za9K-rUaVA",
+        "ChIJ74XbAnJz1kgRZ7iUOfKnxe8",
+        "ChIJRZhfZG1z1kgRoW-sl8fQHW0",
+        "ChIJodTzvxFz1kgReRDoo8IlyCs",
+        "ChIJdd4I6fMM1kgRkG7RFLUk3f0",
+        "ChIJm1V2a7B01kgRxhIZ4HF2s_M",
+        "ChIJFcPq-vEM1kgRw3tag6XXDvg",
+        "ChIJ4Z58GlIM1kgR0HJnd7lNZx8",
+        "ChIJh_AGKG8N1kgRj4SXp98UK1Q",
+        "ChIJ6wWZSaA31EgR_4fSFKT8q7E",
+        "ChIJaT7aoMB21kgRfZzZ4UOB4rA",
+        "ChIJb2QOD8lm1kgRry2jjVnmQTw",
+        "ChIJQ3egisxf1kgRQF0gfpFeD3w",
+        "ChIJKSM66_kd1kgRO8OlH4FnnUk",
+        "ChIJC5FufXXj1kgRmW2ejStt3Jg",
+        "ChIJ89haAcYI10gRlic4i2vGVSs",
+        "ChIJbz05mpLXz0gRHRle4f3_WdQ",
+        "ChIJfdg9UFqsz0gRzPTu4JD-mZI"
+    ]
+}

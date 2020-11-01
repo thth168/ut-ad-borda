@@ -1,0 +1,1458 @@
+{
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 66.13113,
+                    "lng": -23.5271664
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 66.1324976302915,
+                        "lng": -23.5258779697085
+                    },
+                    "southwest": {
+                        "lat": 66.12979966970849,
+                        "lng": -23.5285759302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "club nocturn",
+            "place_id": "ChIJkYzraKHlKk8RqOgv7BjEBKU",
+            "plus_code": {
+                "compound_code": "4FJF+F4 Suðureyri, Iceland",
+                "global_code": "99RR4FJF+F4"
+            },
+            "rating": 5,
+            "reference": "ChIJkYzraKHlKk8RqOgv7BjEBKU",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3,
+            "vicinity": "Club nocturn, Suðureyri"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.6282238,
+                    "lng": -23.8229674
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.62960078029151,
+                        "lng": -23.8215833697085
+                    },
+                    "southwest": {
+                        "lat": 65.62690281970849,
+                        "lng": -23.8242813302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Tölvur og Net",
+            "opening_hours": {
+                "open_now": false
+            },
+            "place_id": "ChIJQx9hHUOxKk8RkaUGY1QLaG0",
+            "plus_code": {
+                "compound_code": "J5HG+7R Tálknafjörður, Iceland",
+                "global_code": "99QRJ5HG+7R"
+            },
+            "rating": 3.5,
+            "reference": "ChIJQx9hHUOxKk8RkaUGY1QLaG0",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4,
+            "vicinity": "Túngata, Tálknafjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 66.14840389999999,
+                    "lng": -18.9106591
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 66.1498462802915,
+                        "lng": -18.90987975
+                    },
+                    "southwest": {
+                        "lat": 66.14714831970849,
+                        "lng": -18.91299715
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Kings Corner",
+            "opening_hours": {
+                "open_now": true
+            },
+            "place_id": "ChIJMW5Vz6rL0kgRmIhQX-hsI_0",
+            "plus_code": {
+                "compound_code": "43XQ+9P Siglufjörður, Iceland",
+                "global_code": "9CR343XQ+9P"
+            },
+            "rating": 5,
+            "reference": "ChIJMW5Vz6rL0kgRmIhQX-hsI_0",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2,
+            "vicinity": "Gránugata 21, 580, Siglufjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.7505116,
+                    "lng": -19.6508287
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.75187443029151,
+                        "lng": -19.6493239197085
+                    },
+                    "southwest": {
+                        "lat": 65.74917646970849,
+                        "lng": -19.6520218802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Mælifell Skemmtistaður",
+            "photos": [
+                {
+                    "height": 3096,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113162766080892385677\">Aapi Egede</a>"
+                    ],
+                    "photo_reference": "CmRaAAAACkhRBj83k278-9fr_3JH4shnDiQ__0WXywcTMoGRyQjiXmALxmGKbHtB_-LKN7BTjPnxKk-soyy00FlUPcwIXxEprDog7uvoF4ZwyszEPhw3JQWrlAztxj4JPeJSC3xZEhADztVYkjPczs273S7oAou7GhTY-MZg7pANbCT6Ay7TSKB9tW8v4g",
+                    "width": 4128
+                }
+            ],
+            "place_id": "ChIJJ5166GIi00gRoT7OwDQMMps",
+            "plus_code": {
+                "compound_code": "Q82X+6M Sauðárkrókur, Iceland",
+                "global_code": "9CQ2Q82X+6M"
+            },
+            "rating": 5,
+            "reference": "ChIJJ5166GIi00gRoT7OwDQMMps",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2,
+            "vicinity": "Aðalgata 7, Sauðárkrókur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 66.0467401,
+                    "lng": -17.3447544
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 66.04804203029151,
+                        "lng": -17.3435878197085
+                    },
+                    "southwest": {
+                        "lat": 66.04534406970849,
+                        "lng": -17.3462857802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Public toilet",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 735,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115067683611262966823\">Friðrik Sigurðsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAAxzsLpwwwcWzT5Ofu72qLeJFmzdveHj-2uSNWSrfbOjwL5YANYtyapkaiJnFkffIu4rOjW_xjBzY5mvy9PZimG3zGy1cbFASFKYDFefvZQN9DeBGSISvJk74VI6l23FgEhDIxFM8ma1H3YFiurkYTfXGGhRq5InjKRoS952RkxPI387njBz3Xw",
+                    "width": 925
+                }
+            ],
+            "place_id": "ChIJdxZbtElDzUgRhoZOcdZP494",
+            "plus_code": {
+                "compound_code": "2MW4+M3 Húsavík, Iceland",
+                "global_code": "9CR42MW4+M3"
+            },
+            "reference": "ChIJdxZbtElDzUgRhoZOcdZP494",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Hafnarstétt, Húsavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.6819269,
+                    "lng": -18.0897565
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.68332478029151,
+                        "lng": -18.0881595197085
+                    },
+                    "southwest": {
+                        "lat": 65.6806268197085,
+                        "lng": -18.0908574802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Pósthúsbarinn",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109027018793750165012\">Nick Richards</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA_TP2Ov1hCEyJpIiIV0krqU6oFQL2LPxW6Bd7rd9H4VHrMH05quat_FOAAxdQsi0LCG6hGBcnSnXtS2uRfnEk2c7VImVQ8UKfGHs_F3kw3LwOEXXJhYnmkPVAJNSB0GlNEhAc2RYxUJ2lVYErftFcV-a2GhSQ6ednUCigQwprCG7MDudrK8HTvg",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJZ46Zuw6P0kgRsAwBn8LLGH4",
+            "plus_code": {
+                "compound_code": "MWJ6+Q3 Akureyri, Iceland",
+                "global_code": "9CQ3MWJ6+Q3"
+            },
+            "rating": 4.4,
+            "reference": "ChIJZ46Zuw6P0kgRsAwBn8LLGH4",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5,
+            "vicinity": "Skipagata 102, Akureyri"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.6844716,
+                    "lng": -18.0907751
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.6858963302915,
+                        "lng": -18.0895151197085
+                    },
+                    "southwest": {
+                        "lat": 65.68319836970849,
+                        "lng": -18.0922130802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Sjallinn",
+            "photos": [
+                {
+                    "height": 1611,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110685751754540657965\">Ingvi Már Atlason</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAYMHLV2TK2GCfaKSkV4HzKI49oUuMfQu6Ea9wLEZt1pZC2GnUKwHIAqEImz9wpOdFPmMVze4oC6zdNtBvv4BaOdWpvWEa0iioCt99ri4zDShqElIkRyVPx3bLVTa8M5ePEhCCcNfDGCDTWu1cCTIdeTAUGhTsp5BTjpFvA-mJm42c1ADZqq_xbg",
+                    "width": 2970
+                }
+            ],
+            "place_id": "ChIJw0kLZwmP0kgRKgeg1u9mN7U",
+            "plus_code": {
+                "compound_code": "MWM5+QM Akureyri, Iceland",
+                "global_code": "9CQ3MWM5+QM"
+            },
+            "rating": 3,
+            "reference": "ChIJw0kLZwmP0kgRKgeg1u9mN7U",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3,
+            "vicinity": "Gránufélagsgata 4, Akureyri"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.59103619999999,
+                    "lng": -16.9109817
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.5924954302915,
+                        "lng": -16.9102778697085
+                    },
+                    "southwest": {
+                        "lat": 65.58979746970849,
+                        "lng": -16.9129758302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Dimmuborgir 黑色城堡",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114822562116458333559\">Robert</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAS6qgX0dtKLLy4W6N2N6GvZR7_bXR2v3lOHmS3n98gw_IbAO27kOKPx4IM-B0Q4AJiBiENIL14eBaKK7axqEDokjLKOk2TCGRYAOe3N4_tuMkq9y-baRWt0nH92wj9DY6EhBPI1v6nSeIk27hSPPoZ3EUGhQH8HtDncNBxx26Zpq4eg5HOeu3gw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJGR6IPZOfzUgR_wJHaGhwmr4",
+            "plus_code": {
+                "compound_code": "H3RQ+CJ Skutustadhir, Iceland",
+                "global_code": "9CQ5H3RQ+CJ"
+            },
+            "rating": 5,
+            "reference": "ChIJGR6IPZOfzUgR_wJHaGhwmr4",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3,
+            "vicinity": "Iceland"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.17689709999999,
+                    "lng": -14.5305276
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.17804629999999,
+                        "lng": -14.5297525197085
+                    },
+                    "southwest": {
+                        "lat": 65.17344949999998,
+                        "lng": -14.5324504802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Iðavellir, 701 Egilsstaðir",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2916,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112026123425736987633\">Hanna Þráinsdóttir</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA-EvYW3YL1ZuPtoPcQJRgQt3MOTLVQbnu8lfBi3l06DsjGoyCIw-XMy52aUIOxtWES0FTIDeyyqHfqL8XNxo2aDgvFcvQUtSDxEYYqdLAhSTbb_pKsujYZvkTdMPXw7kTEhD5GtrFluAgZ-xMX68ArlEEGhR2rzYOicI4t64fFmVyB8oCAb81Iw",
+                    "width": 5184
+                }
+            ],
+            "place_id": "ChIJ38YBSHUdzEgRWhdUTGteypE",
+            "plus_code": {
+                "compound_code": "5FG9+QQ Vallanes, Iceland",
+                "global_code": "9CQ75FG9+QQ"
+            },
+            "rating": 3,
+            "reference": "ChIJ38YBSHUdzEgRWhdUTGteypE",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "Iceland"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.2764383,
+                    "lng": -14.4096409
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.27716209999998,
+                        "lng": -14.40397825
+                    },
+                    "southwest": {
+                        "lat": 65.27426690000001,
+                        "lng": -14.41152845
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "letreiros",
+            "place_id": "ChIJ____O4gEzEgRMY3Yeunf3dM",
+            "plus_code": {
+                "compound_code": "7HGR+H4 Egilsstaðir, Iceland",
+                "global_code": "9CQ77HGR+H4"
+            },
+            "reference": "ChIJ____O4gEzEgRMY3Yeunf3dM",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "egs"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.9171923,
+                    "lng": -23.88389
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.91855158029149,
+                        "lng": -23.88237961970849
+                    },
+                    "southwest": {
+                        "lat": 64.91585361970849,
+                        "lng": -23.8850775802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Röstin Samkomuhús",
+            "photos": [
+                {
+                    "height": 1058,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101797178865047521636\">Kristján saevarsson</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAGGVoJhNrw1Mi9J1jUazF1_G2vBu7rOy8aQdMH4FrAQ2Qp25WbXotewTOEp1wXGZ-xrQ4NweK0XCN03ayOpYJyakmiaqK8vy31DzjPsWFlcEFchPLlZy2CBPZqs7rwnf9EhDyIP1ToAn0Q6jtsxg9vDuIGhTIxrEq-goh3wbFwu-f5NtKW5sK7w",
+                    "width": 1967
+                }
+            ],
+            "place_id": "ChIJ_cUUYCSbKkkRcRjtZUV8x4Q",
+            "plus_code": {
+                "compound_code": "W488+VC Hellissandur, Iceland",
+                "global_code": "99PRW488+VC"
+            },
+            "reference": "ChIJ_cUUYCSbKkkRcRjtZUV8x4Q",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Höskuldarbraut, Hellissandur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0009043,
+                    "lng": -22.5478719
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.00221218029151,
+                        "lng": -22.5468306197085
+                    },
+                    "southwest": {
+                        "lat": 63.99951421970849,
+                        "lng": -22.5495285802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "name": "Cafe Petite",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 671,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112886075330200350762\">Cafe Petite</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAs_RQNQzmmfjra-UqfMJA7tTLdHvnqDN_d1ZDAy0LjNYo1fyoJtT2RZzR2hP_-1pnDFA7Uui6Yf_f2QXhATTAw_moywzaY8MnwRatcbpdZPeM99ZxFEbjkdSE_zYTujUtEhDhzl6tpde1X5X6TC5ziR8vGhQKF8zmEZoF3e5lNqjj8mcRmkO4ng",
+                    "width": 1200
+                }
+            ],
+            "place_id": "ChIJQa3loSMC1kgRHgM63t6Rxug",
+            "plus_code": {
+                "compound_code": "2F22+9V Reykjanesbær, Iceland",
+                "global_code": "99PV2F22+9V"
+            },
+            "price_level": 1,
+            "rating": 4.8,
+            "reference": "ChIJQa3loSMC1kgRHgM63t6Rxug",
+            "scope": "GOOGLE",
+            "types": [
+                "cafe",
+                "night_club",
+                "bar",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 177,
+            "vicinity": "Framnesvegur 23, Keflavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.9334107,
+                    "lng": -22.6686011
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.9346992802915,
+                        "lng": -22.6672112197085
+                    },
+                    "southwest": {
+                        "lat": 63.9320013197085,
+                        "lng": -22.6699091802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Waypoint",
+            "place_id": "ChIJzyuv82b9KUkR4cW0-TdPqwQ",
+            "plus_code": {
+                "compound_code": "W8MJ+9H Hafnir, Iceland",
+                "global_code": "99MVW8MJ+9H"
+            },
+            "reference": "ChIJzyuv82b9KUkR4cW0-TdPqwQ",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Hafnavegur, Hafnir"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0519785,
+                    "lng": -21.9747858
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.05334328029151,
+                        "lng": -21.9733296197085
+                    },
+                    "southwest": {
+                        "lat": 64.05064531970851,
+                        "lng": -21.9760275802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Bjartur Cycle Club",
+            "place_id": "ChIJ_Y69O7MN1kgRSpofSEg6RbQ",
+            "plus_code": {
+                "compound_code": "322G+Q3 Hafnarfjordur, Iceland",
+                "global_code": "99PW322G+Q3"
+            },
+            "reference": "ChIJ_Y69O7MN1kgRSpofSEg6RbQ",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Ásvellir, Hafnarfjörður"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.145265,
+                    "lng": -21.9275039
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14665108029149,
+                        "lng": -21.9261157197085
+                    },
+                    "southwest": {
+                        "lat": 64.14395311970848,
+                        "lng": -21.9288136802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Dillon Whiskey Bar",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105887372944424920499\">Dillon Whiskey Bar</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAFBJ-RaN2fRHRkQiFQa4CkpeB4sUCBUzygWf426Kp3e2guj7lvLsUF_td_MZAklnYGcMNYq6Prl3IQZErjQ-SyoDCxj3AHPuyIBhZglrtjhYvs-pCb1Cm8WfO5t1k_VY8EhCF6KWtO5u5o_R1XvUmx5fyGhTcdUk56RsDkawafbIkqK_YQStirA",
+                    "width": 3025
+                }
+            ],
+            "place_id": "ChIJLVq-Bs101kgRufqEvIvgxRU",
+            "plus_code": {
+                "compound_code": "43WC+4X Reykjavík, Iceland",
+                "global_code": "99PW43WC+4X"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJLVq-Bs101kgRufqEvIvgxRU",
+            "scope": "GOOGLE",
+            "types": [
+                "bar",
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 534,
+            "vicinity": "Laugavegur 30, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1479088,
+                    "lng": -21.9397225
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1493851302915,
+                        "lng": -21.9382748697085
+                    },
+                    "southwest": {
+                        "lat": 64.14668716970849,
+                        "lng": -21.9409728302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Austur",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100724525468407282660\">Azn Bruh</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAbaCd2DrKxV4PYj43PDyVWPnOCtxd27FyKB355k339Sz7gVVwezTytGuCWky6f3PxfLNZ5EfIUkPESPdfIOQu1YmIaCJ_eoy1uf_fkCd1ACL5ApsPYpmWsRGDPlDcvo4jEhBZELp29G7YuzHx5zmn46GyGhRbSLGLCRP5vG2kjFKHVBnotADm8w",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ7xHZEC0L1kgRSZARJmeiVi4",
+            "plus_code": {
+                "compound_code": "43X6+54 Reykjavík, Iceland",
+                "global_code": "99PW43X6+54"
+            },
+            "rating": 3.8,
+            "reference": "ChIJ7xHZEC0L1kgRSZARJmeiVi4",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 84,
+            "vicinity": "Hafnarstræti 8, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0760859,
+                    "lng": -21.9351389
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.0774311802915,
+                        "lng": -21.9340353697085
+                    },
+                    "southwest": {
+                        "lat": 64.07473321970849,
+                        "lng": -21.9367333302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "KRIK",
+            "place_id": "ChIJmzwwuFIN1kgR8JQZRq0aw3Q",
+            "plus_code": {
+                "compound_code": "33G7+CW Hafnarfjordur, Iceland",
+                "global_code": "99PW33G7+CW"
+            },
+            "reference": "ChIJmzwwuFIN1kgR8JQZRq0aw3Q",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Hafnarfjordur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1419241,
+                    "lng": -21.9421419
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.14327308029151,
+                        "lng": -21.9407929197085
+                    },
+                    "southwest": {
+                        "lat": 64.1405751197085,
+                        "lng": -21.9434908802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "name": "Lalli Töframaður -Töframaður.is",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 8688,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114704585143932795946\">Lalli Töframaður -Töframaður.is</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAnafJOpCWch9QGYvPPehF-Qur2n1JmA4E2w8Q3lgoNvYfQuXEFErPSGO7kHu0cHFzUvDEO0KjRjNNbZWFkh7xrh0s50eLX0Q-ul7LuB5Kq_cdVwWVeWtr1AAePas3sorLEhDSG6CdtdzO0_BGSkyOwjpIGhSPx-kQwxpiJFaBFimcece09WDVvw",
+                    "width": 5792
+                }
+            ],
+            "place_id": "ChIJr0jgXZcL1kgRkr50F-9zG0I",
+            "plus_code": {
+                "compound_code": "43R5+Q4 Reykjavík, Iceland",
+                "global_code": "99PW43R5+Q4"
+            },
+            "reference": "ChIJr0jgXZcL1kgRkr50F-9zG0I",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Framnesvegur, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1476559,
+                    "lng": -21.9393962
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1490380302915,
+                        "lng": -21.9380179197085
+                    },
+                    "southwest": {
+                        "lat": 64.1463400697085,
+                        "lng": -21.9407158802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Vinnustofa Kjarval",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 675,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115762585721965014963\">Vinnustofa Kjarval</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAG403KsB9IezQ6w8T75fftBfqagGQZ4XRxDYs6Msl6u6DBwIXNH1u9xBWggJALO0gvXfr4sN0JmjB6szf4agmcmASWit7jetyTZord3rDUxl3OZnzBohuauwWUosT1T89EhDO1x6I1EyDHb0P0xpsEnfpGhToe-iDxi2EAu49ULPc-6srE0GvLg",
+                    "width": 1200
+                }
+            ],
+            "place_id": "ChIJf-S-PQ0L1kgRQ8f4e_fUl70",
+            "plus_code": {
+                "compound_code": "43X6+36 Reykjavík, Iceland",
+                "global_code": "99PW43X6+36"
+            },
+            "rating": 5,
+            "reference": "ChIJf-S-PQ0L1kgRQ8f4e_fUl70",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "Austurstræti 10a, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1487171,
+                    "lng": -21.940199
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.15010748029151,
+                        "lng": -21.9387942697085
+                    },
+                    "southwest": {
+                        "lat": 64.1474095197085,
+                        "lng": -21.94149223029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "name": "Gummi Ben bar",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2499,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107655747460021708186\">Gummi Ben bar</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA68MuuUKvNtlGsMlAdRaEjo0qJNY5qJlc7KiSkaQuuSemUapRFPowqAb3WclQ9zE_sbWiDOcWiG6A5ST8myROmvEw2dBkE95PlTNqpShzu6j9cX6AWkn6ZUtZ5MdNmVXmEhDGc6JhC5opJ1PswAWiSfg0GhTMcSZeqA395eSDuqctLzuHg81Rqg",
+                    "width": 1999
+                }
+            ],
+            "place_id": "ChIJ6dw26bkL1kgRrQrkcyjuHGQ",
+            "plus_code": {
+                "compound_code": "43X5+FW Reykjavík, Iceland",
+                "global_code": "99PW43X5+FW"
+            },
+            "rating": 3.3,
+            "reference": "ChIJ6dw26bkL1kgRrQrkcyjuHGQ",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "bar",
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6,
+            "vicinity": "Tryggvagata 22, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1415761,
+                    "lng": -21.9023826
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1430723302915,
+                        "lng": -21.9008693697085
+                    },
+                    "southwest": {
+                        "lat": 64.1403743697085,
+                        "lng": -21.9035673302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "name": "Galaxy Pod VR",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3072,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106213192843106377528\">Galaxy Pod VR</a>"
+                    ],
+                    "photo_reference": "CmRZAAAADl94hiVuWXvaOWyZ8qqdqmhjLRmHQn9REPCAN3U-YuqnZ6_T1W9mHxLKUZh3eWs2l6sqTj5R3Yvj0tH9xy7JRTM1mpb2mmuaP5Uj9Jg_TvxOxAssTsEsWOcnjmV96az5EhDVcH6y_s_t9K_4Kd47CnyiGhQdTSLB3_cUV2Wa8ftdemzSfbr9Gg",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJLRNwfGN11kgRRHCwRnc3LpY",
+            "plus_code": {
+                "compound_code": "43RX+J2 Reykjavík, Iceland",
+                "global_code": "99PW43RX+J2"
+            },
+            "reference": "ChIJLRNwfGN11kgRRHCwRnc3LpY",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "travel_agency",
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Laugavegur 172, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1397192,
+                    "lng": -21.8888702
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1411573302915,
+                        "lng": -21.88753346970849
+                    },
+                    "southwest": {
+                        "lat": 64.1384593697085,
+                        "lng": -21.8902314302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Executive Lounge",
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118200020735530337592\">Andrea Maggi</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAU99kiyRxLbfcix76SluxXWm5HvBnvO7DdLxIVgMCy32b_S0mQHXc-mjs5M9Uy13xAzFUYxNBA8HM6aPXtlRgs1TXn0fNZdG7Uh31Y--QeTtOucY2pgb-7VQjRznxYQcSEhDY1FhRZsPVz3-yqg5fHussGhSzFQBQOixQWMh-3ugZ5B7DtPXHVw",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJW4W-fMZ11kgR1cQ-j0T_zPg",
+            "plus_code": {
+                "compound_code": "44Q6+VF Reykjavík, Iceland",
+                "global_code": "99PW44Q6+VF"
+            },
+            "rating": 5,
+            "reference": "ChIJW4W-fMZ11kgR1cQ-j0T_zPg",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2,
+            "vicinity": "Háaleiti N, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.11012769999999,
+                    "lng": -21.8156372
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1114446302915,
+                        "lng": -21.81428501970849
+                    },
+                    "southwest": {
+                        "lat": 64.1087466697085,
+                        "lng": -21.8169829802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Heimir og Elva",
+            "place_id": "ChIJI3BU78Zz1kgRS1HT7nl3lws",
+            "plus_code": {
+                "compound_code": "456M+3P Reykjavík, Iceland",
+                "global_code": "99PW456M+3P"
+            },
+            "reference": "ChIJI3BU78Zz1kgRS1HT7nl3lws",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Kríuhólar 4, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.11897929999999,
+                    "lng": -21.8013522
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1201388302915,
+                        "lng": -21.8001667697085
+                    },
+                    "southwest": {
+                        "lat": 64.11744086970849,
+                        "lng": -21.8028647302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Iceland",
+            "place_id": "ChIJ6RYLMhxz1kgRB31w0ADNjxw",
+            "plus_code": {
+                "compound_code": "459X+HF Reykjavík, Iceland",
+                "global_code": "99PW459X+HF"
+            },
+            "reference": "ChIJ6RYLMhxz1kgRB31w0ADNjxw",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "bar",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Hraunbær 113, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.17945,
+                    "lng": -21.6033752
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1808002802915,
+                        "lng": -21.6021400197085
+                    },
+                    "southwest": {
+                        "lat": 64.1781023197085,
+                        "lng": -21.6048379802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Roðamói 11",
+            "photos": [
+                {
+                    "height": 2322,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103555593556926965183\">LA Murai</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAY4OsSpweCCqIvUhOr7tQtdzmp1dABzWHqBT_x6o1hc9uW32j-KnB-WmOt3st8iQkkZqjWZtyZ1sQOUQCx09CvKwKETh8cCCXOfB4UGCZvN4epi9EqZTbNW1_0m1mKlxbEhB0mmowG42h4qn3npzOVWSdGhQIo-NYX_109yqy4jtC9qgqWz4A6Q",
+                    "width": 4128
+                }
+            ],
+            "place_id": "ChIJV3WXMUd31kgRjFD6cGrPcxQ",
+            "plus_code": {
+                "compound_code": "59HW+QJ Mosfellsdalur, Iceland",
+                "global_code": "99PW59HW+QJ"
+            },
+            "rating": 3,
+            "reference": "ChIJV3WXMUd31kgRjFD6cGrPcxQ",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "Mosfellsdalur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.15081719999999,
+                    "lng": -21.9639176
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.15216618029149,
+                        "lng": -21.9625686197085
+                    },
+                    "southwest": {
+                        "lat": 64.14946821970848,
+                        "lng": -21.96526658029151
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "La Scoteca",
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100038543138977876673\">tech, music &amp; trash</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAC652X_Pf6Qmjy2FbUZfNy3zx1bvlMhc8WSafcYbijtCF0yJUqGAePr-Bx7JnNkI2QupFtC_3akEFIgOik8JGh5g1YsuDhBg0uJabCgbCZEovbHchO_x9k5iTAhrfcvIVEhA79U0gg56oulIHFwAiYZqFGhQbc0eh3oE5MzkpKCZHW6DEUawZcw",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJ318rlUAL1kgRcZb0t4H2vEk",
+            "plus_code": {
+                "compound_code": "522P+8C Reykjavík, Iceland",
+                "global_code": "99PW522P+8C"
+            },
+            "rating": 5,
+            "reference": "ChIJ318rlUAL1kgRcZb0t4H2vEk",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "Eiðsgrandi, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1420804,
+                    "lng": -21.8835652
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.1434283302915,
+                        "lng": -21.8820315697085
+                    },
+                    "southwest": {
+                        "lat": 64.14073036970849,
+                        "lng": -21.8847295302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Hilmar Viggó Steinsen",
+            "place_id": "ChIJAe3nfPt11kgRG1UH0-JzajA",
+            "plus_code": {
+                "compound_code": "44R8+RH Reykjavík, Iceland",
+                "global_code": "99PW44R8+RH"
+            },
+            "reference": "ChIJAe3nfPt11kgRG1UH0-JzajA",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Reykjavegur 24, Reykjavík"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 65.12765279999999,
+                    "lng": -18.7508085
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 65.1290017802915,
+                        "lng": -18.74945951970849
+                    },
+                    "southwest": {
+                        "lat": 65.12630381970848,
+                        "lng": -18.7521574802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "issacwhys memorial",
+            "place_id": "ChIJ8zextRJL0kgR29mBFp-eMBk",
+            "plus_code": {
+                "global_code": "9CQ346HX+3M"
+            },
+            "reference": "ChIJ8zextRJL0kgR29mBFp-eMBk",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Iceland"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.19159619999999,
+                    "lng": -20.7354582
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.19321988029152,
+                        "lng": -20.7317214
+                    },
+                    "southwest": {
+                        "lat": 64.1905219197085,
+                        "lng": -20.7367038
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Planetarium Projects",
+            "place_id": "ChIJpz3H81aR1kgRx8Y2uQf4rrE",
+            "plus_code": {
+                "compound_code": "57R7+JR Laugarvatn, Iceland",
+                "global_code": "99PX57R7+JR"
+            },
+            "reference": "ChIJpz3H81aR1kgRx8Y2uQf4rrE",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "37"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.1231241,
+                    "lng": -21.3386915
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.12413508029151,
+                        "lng": -21.3373614697085
+                    },
+                    "southwest": {
+                        "lat": 64.1214371197085,
+                        "lng": -21.3400594302915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Сбербанк России",
+            "place_id": "ChIJWw7oRLB71kgRuzZPt7xpVAs",
+            "plus_code": {
+                "global_code": "99PW4MF6+6G"
+            },
+            "rating": 5,
+            "reference": "ChIJWw7oRLB71kgRuzZPt7xpVAs",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "Nesjavallavegur"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.93367019999999,
+                    "lng": -21.0122278
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.93510348029151,
+                        "lng": -21.01108491970849
+                    },
+                    "southwest": {
+                        "lat": 63.9324055197085,
+                        "lng": -21.0137828802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Frón",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 720,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105708897683414971990\">Throniss</a>"
+                    ],
+                    "photo_reference": "CmRaAAAArD_hqutGduwSfFB1MPxi61mretty1QMtb-hRV-ZLpbiWpyMtNw8zJVTeWMWdDBKNaUVP23xEQPisxvaLtpARmZbDQgY3Qcf7fHfkaQu4bSUf0B458it78DmtiK5eOjgKEhArxskg-tI2L9n51gCAA7iRGhT5VHRa71HP9vWgNv-ey4HWQ9cQpg",
+                    "width": 432
+                }
+            ],
+            "place_id": "ChIJZY2cTA9f1kgRO38b-KtCAsE",
+            "plus_code": {
+                "compound_code": "WXMQ+F4 Selfoss, Iceland",
+                "global_code": "99MWWXMQ+F4"
+            },
+            "rating": 5,
+            "reference": "ChIJZY2cTA9f1kgRO38b-KtCAsE",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5,
+            "vicinity": "Eyravegur 35, Selfoss"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 64.0362643,
+                    "lng": -19.8371129
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 64.03903629999998,
+                        "lng": -19.8357017
+                    },
+                    "southwest": {
+                        "lat": 64.0353403,
+                        "lng": -19.8413465
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "Islandia",
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103709985167002589770\">Vanessa Elińska</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAL1mwN9GDRr7Kb-d1P5FoxcLhhY01-KZUmzdIBIYbu-BQjXoFMSuHv32Lz1-8ybLcfTS1phgdOVmNHq9jNlGayhF5TXvsD-yd8pwaye7FTKKi3P9lFcB4aaXlWnfXrfiCEhCZT3O_Q3hO4MtjojPxUB9hGhSrcyFJiy0dErFHjwJp18AmgLzB6A",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJNZhwYg7G1kgRjENvyWhb_wI",
+            "plus_code": {
+                "global_code": "9CP225P7+G5"
+            },
+            "rating": 3.8,
+            "reference": "ChIJNZhwYg7G1kgRjENvyWhb_wI",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 11,
+            "vicinity": "Iceland"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 63.4186315,
+                    "lng": -19.0060479
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 63.42016848029151,
+                        "lng": -19.0043492197085
+                    },
+                    "southwest": {
+                        "lat": 63.41747051970849,
+                        "lng": -19.0070471802915
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+            "name": "mauricevegur",
+            "photos": [
+                {
+                    "height": 3096,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115544339839545543712\">momo habebee</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAQHi7Eir9kEtnYGJJM5jJUnynj5BPwKXY6HPjBuK2feejrsshzMZ40OWxsvh--368cB_7LjqH6nPo-SyCQwwiMDAN3HHODLDvQlt-UpUyRB8KxrCVg0dmBngiERRjFFCtEhCD81UdPOFaVUsIPsuURkUpGhQDIo023vrlwYbJ3FX5CqjXJlY3yw",
+                    "width": 4128
+                }
+            ],
+            "place_id": "ChIJb7tGu7ZL10gRNWW41Uj16z4",
+            "plus_code": {
+                "compound_code": "CX9V+FH Vik, Iceland",
+                "global_code": "9CM2CX9V+FH"
+            },
+            "rating": 5,
+            "reference": "ChIJb7tGu7ZL10gRNWW41Uj16z4",
+            "scope": "GOOGLE",
+            "types": [
+                "night_club",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6,
+            "vicinity": "Vik"
+        }
+    ],
+    "ids": [
+        "ChIJkYzraKHlKk8RqOgv7BjEBKU",
+        "ChIJQx9hHUOxKk8RkaUGY1QLaG0",
+        "ChIJMW5Vz6rL0kgRmIhQX-hsI_0",
+        "ChIJJ5166GIi00gRoT7OwDQMMps",
+        "ChIJdxZbtElDzUgRhoZOcdZP494",
+        "ChIJZ46Zuw6P0kgRsAwBn8LLGH4",
+        "ChIJw0kLZwmP0kgRKgeg1u9mN7U",
+        "ChIJGR6IPZOfzUgR_wJHaGhwmr4",
+        "ChIJ38YBSHUdzEgRWhdUTGteypE",
+        "ChIJ____O4gEzEgRMY3Yeunf3dM",
+        "ChIJ_cUUYCSbKkkRcRjtZUV8x4Q",
+        "ChIJQa3loSMC1kgRHgM63t6Rxug",
+        "ChIJzyuv82b9KUkR4cW0-TdPqwQ",
+        "ChIJ_Y69O7MN1kgRSpofSEg6RbQ",
+        "ChIJLVq-Bs101kgRufqEvIvgxRU",
+        "ChIJ7xHZEC0L1kgRSZARJmeiVi4",
+        "ChIJmzwwuFIN1kgR8JQZRq0aw3Q",
+        "ChIJr0jgXZcL1kgRkr50F-9zG0I",
+        "ChIJf-S-PQ0L1kgRQ8f4e_fUl70",
+        "ChIJ6dw26bkL1kgRrQrkcyjuHGQ",
+        "ChIJLRNwfGN11kgRRHCwRnc3LpY",
+        "ChIJW4W-fMZ11kgR1cQ-j0T_zPg",
+        "ChIJI3BU78Zz1kgRS1HT7nl3lws",
+        "ChIJ6RYLMhxz1kgRB31w0ADNjxw",
+        "ChIJV3WXMUd31kgRjFD6cGrPcxQ",
+        "ChIJ318rlUAL1kgRcZb0t4H2vEk",
+        "ChIJAe3nfPt11kgRG1UH0-JzajA",
+        "ChIJ8zextRJL0kgR29mBFp-eMBk",
+        "ChIJpz3H81aR1kgRx8Y2uQf4rrE",
+        "ChIJWw7oRLB71kgRuzZPt7xpVAs",
+        "ChIJZY2cTA9f1kgRO38b-KtCAsE",
+        "ChIJNZhwYg7G1kgRjENvyWhb_wI",
+        "ChIJb7tGu7ZL10gRNWW41Uj16z4"
+    ]
+}
