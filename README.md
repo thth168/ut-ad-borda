@@ -1,7 +1,14 @@
-# Út að borða
-Verkefni í hugbúnaðarverkefni 1 við Háskóla Íslands unnið af Mikolaj, Valourie og Þresti
+# Out to Eat 
 
-TODO:  
-* Setja upp gagnagrun 
-* Ná í gögn 
-* Byrja að setja upp framendan 
+University of Iceland Software Engineering Project by Mikolaj, Valourie and Þröstur 
+  
+For this project we are building a website for those who are looking for a place to buy food, but don't know where to go. 
+We have found that there is a need for a service that provides information about all available restaurants in Iceland. That includes fancy, fast food, food truck, bakeries and any other type of establishment that offers hot or ready made for your consumption. 
+We plan on obtaining as much information about these establishments as we can, in order to provide our users with up-to-date and complete data. 
+
+We would offer the restaurants and establishments on our website with the ability to control their data and update it as needed, as well as the ability to add additional restaurants to our database, and for the users to be able to filter the data to their preference. 
+
+## [Verkefni 1](https://docs.google.com/document/d/e/2PACX-1vSA0KG4AtFpsrqkOSmcTxMKRO9WtAfEsuu06lS0wgpEPFL5RoC_ziJmc_8tOJFuPqEfVAC5rjI7UWpO/pub)
+
+## [Verkefni 2](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Verkefni%202#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D17e2fS_mkV4Q6fI9me-lGXkqkub6Kmd7A%26export%3Ddownload)
+
