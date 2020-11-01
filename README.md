@@ -12,7 +12,7 @@ We would offer the restaurants and establishments on our website with the abilit
 
 ## [Diagrams](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Verkefni%202#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D17e2fS_mkV4Q6fI9me-lGXkqkub6Kmd7A%26export%3Ddownload)
 
-## [](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1VX--wFussKenOMT5XJjg49a-TYxV3ECb)
+## [Design model](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1VX--wFussKenOMT5XJjg49a-TYxV3ECb)
 
 ## How to run
 1. Validate that you have maven installed with the following code in the terminal:
