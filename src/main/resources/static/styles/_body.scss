@@ -1,0 +1,97 @@
+@import './_config';
+
+
+.filter {
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+ 
+  margin-bottom: $gutter * 2;
+  
+  
+ &__grid {
+    @include grid;
+    margin-top: auto;
+    margin-bottom: auto;
+  } 
+  
+ &__options {
+   display: flex;
+   justify-content: space-evenly;
+   
+    padding-bottom: $gutter;
+    padding-top: $gutter;
+    border-bottom: 2px solid $color-anti-flash-white;
+ }
+ 
+ &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   p {
+     margin: 0;
+   	 font-family: $font-body;
+   }
+ }
+ 
+ &__image {
+   img { 
+     height: 45px;
+   }
+ }
+}
+
+
+.cards { 
+
+  &__grid {
+    position: relative;
+    overflow: hidden;
+
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+  
+    display: flex;
+    flex-direction:column;
+    max-width: 1500px;
+  }
+  
+  &__row {
+    display:flex;
+    flex-direction:row;
+    overflow: scroll;
+    margin-left: ($gutter / -2);
+    margin-right: ($gutter / -2);
+  }
+ 
+ }
+.card {
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+    min-width: 290px;
+    max-width: 800px;
+ 
+    display: flex;
+    flex-direction: column;
+
+    word-break: break-word;
+	&__img {
+     	height: 250px;
+	}
+	
+	&__restaurantTitle { 
+		margin:0;
+		font-family: $font-heading;
+		font-size: 22px;
+	}	
+	
+	&__content {
+		p {
+			margin: 0;
+			font-family: $font-body;
+		}
+	}
+}
+

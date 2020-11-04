@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html
-    xmlns:th="http://www.thymeleaf.org"
-    lang="is"
->
+<html xmlns:th="http://www.thymeleaf.org" lang="is">
 <head th:insert="fragments/general.html :: headerfiles">
   <title id="title">Út Að Borða</title>
 </head>
@@ -11,45 +8,71 @@
     <main>
    	  <section class="filter">
     	  <div class="filter__grid">
-    	    <div class="filter__row">
-            <div class="title__kicker">What would you like?</div>
-            <div class="title__options">
-              <div class="filter__option">
+            <div class="filter__options">
+              <div class="filter__item">
                 <div class="filter__image">
-                  <img class="filter__img" alt="" src="">
+                  <img class="filter__itemImg" alt="spaghetti" src="../static/img/spaghetti.png" th:src="@{img/spaghetti.png}"/>
                 </div>
-                <div class="filter__optionItem">Italians</div>
+                <p>Italians<p>
+              </div>
+              <div class="filter__item">
+                <div class="filter__image">
+                  <img class="filter__img" alt="spaghetti" src="../static/img/spaghetti.png" th:src="@{img/spaghetti.png}"/>
+                </div>
+                <p>Italians<p>
               </div>
             </div>
           </div>
-        </div>
       </section>
 
-      <section class="slides">
-        <div class="slides__row">
-          <div class="cards">
-            <div class="cards__column">
-              <section class="card">
-                <div class="card__image">
-                  <img class="card__img" alt="" src="">
-                </div>
-                <div class="card__content">
-                  <div class="card__restaurantHours">Kitchen hours: 11:30 - 22:00</div>
-                  <div class="card__restaurantType">Quick service</div>
-                  <div class="card__restaurantTags">
-                    <div class="card__tagItem">Vegan</div>
-                    <div class="card__tagItem">BBQ</div>
-                    <div class="card__tagItem">Keto</div>
-                    <div class="card__tagItem">Take-away</div>
-                    <div class="card__tagItem">Delivery(Aha)</div>
-                  </div>
-                  <a href="#" class="card__restaurantMenu">Menu</a>
-                </div>
-              </section>
+      <div class="cards__grid">
+        <h2 class="cards__descript">Popular Near You</h2> 
+        <div class="cards__row">
+          <section class="card">
+            <div class="card__image">
+              <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>
             </div>
-          </div>
+            <div class="card__content">
+              <h2 class="card__restaurantTitle">Wonderful Sushiness</h2>
+              <p class="card__restaurantHours">Kitchen hours: 11:30 - 22:00</p>
+              <p class="card__restaurantType">Quick service</p>
+              <div class="card__restaurantTags">
+                <p class="card__tagItem">Vegan</p>
+              </div>
+              <a href="#" class="card__restaurantMenu">Menu</a>
+            </div>
+          </section>
+          <section class="card">
+            <div class="card__image">
+              <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>
+            </div>
+            <div class="card__content">
+              <h2 class="card__restaurantTitle">Wonderful Sushiness</h2>
+              <p class="card__restaurantHours">Kitchen hours: 11:30 - 22:00</p>
+              <p class="card__restaurantType">Quick service</p>
+              <div class="card__restaurantTags">
+                <p class="card__tagItem">Vegan</p>
+              </div>
+              <a href="#" class="card__restaurantMenu">Menu</a>
+            </div>
+          </section>
+          <section class="card">
+            <div class="card__image">
+              <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>
+            </div>
+            <div class="card__content">
+              <h2 class="card__restaurantTitle">Wonderful Sushiness</h2>
+              <p class="card__restaurantHours">Kitchen hours: 11:30 - 22:00</p>
+              <p class="card__restaurantType">Quick service</p>
+              <div class="card__restaurantTags">
+                <p class="card__tagItem">Vegan</p>
+              </div>
+              <a href="#" class="card__restaurantMenu">Menu</a>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
+
     </main>
 </body>
 </html>
