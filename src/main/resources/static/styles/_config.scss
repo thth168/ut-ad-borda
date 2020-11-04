@@ -1,7 +1,19 @@
 $max-width: 1290px;
 
-$font-heading: 'Playfair Display', serif;
-$font-body: Poppins, sans-serif;
+$size-base: 18px;
+$size-heading: 22px;
+
+$gutter: 30px;
+$columns: 12;
+
+$font-heading: Lobster Two, cursive;
+$font-body: Source Sans Pro, sans-serif;
+
+$color-strong-blue: #71a1d1;
+$color-light-blue: #81d0e8;
+$color-mint-white: #f4fffb;
+$color-white-smoke: #f4faf7;
+$color-anti-flash-white: #f2f2f2;
 
 html, body {
   margin: 0;
@@ -11,4 +23,38 @@ html, body {
 
 .hidden {
   display: none;
+}
+
+@mixin grid() {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $max-width) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@mixin row() {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: ($gutter / -2);
+  margin-right: ($gutter / -2);
+}
+
+@mixin col($cols) {
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+  width: ($cols / $columns * 100%);
+}
+
+@mixin col-offset-left($cols) {
+  margin-left: ($cols / $columns * 100%);
+}
+
+@mixin font($size, $line-height) {
+  font-size: ($size/$size-base * 1rem);
+  line-height: ($line-height/$size);
 }
