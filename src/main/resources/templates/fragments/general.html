@@ -19,27 +19,38 @@
 <body>
     <header class="header" th:fragment="header">
         <div class="header__content">
-        	<div class="header__menu">
-        		<img class="menu__img" alt="menu" src="../../static/img/menu-button.png" th:src="@{img/menu-button.png}"/>
-        	</div>
-            <h1 class="header__title">
-                Út Að Borða
-            </h1>
+            <div class="header__left">
+                <a class="header__menuButton" id="menuButton" href="#" sec:authorize="anonymous">
+                <div class="header__menu">
+                    <img class="menu__img" alt="menu" src="../../static/img/menu-button.png" th:src="@{img/menu-button.png}"/>
+                </div>
+                </a>
+                <a href="#" th:href="@{/}"><h1 class="header__title">Út Að Borða</h1></a>
+            </div>
             <nav class="header__nav">
                 <ul class="header__navList">
                     <li sec:authorize="hasAnyRole('ADMIN')">
                         <a href="#">Submit listing</a>
                     </li>
                     <li>
-                        <a id="login" href="#" sec:authorize="anonymous">Login</a>
+
                         <form id="logoutElement" th:action="@{/logout}" method="post" sec:authorize="authenticated">
                             <a id="logout" href="#">Logout</a>
                         </form>
                     </li>
                 </ul>
             </nav>
-            <div id="loginElement" class="header__login hidden">
-                <h1>Login</h1>
+            
+        </div>
+    </header>
+    <main>
+        <section id="menuNavigationElement" class="menu hidden" th:fragment="sidebar">
+          <div class="menu__loginButton">
+            <a id="login" href="#" sec:authorize="anonymous">
+              <h1>Sign in</h1> 
+            </a>
+            <div id="loginElement" class="header__login hidden" th:fragment="login">
+                <h2>Login</h2>
                 <form name="f" th:action="@{/login}" method='post' sec:authorize="anonymous">
                     <table>
                         <tr>
@@ -52,13 +63,20 @@
                         </tr>
                         <tr>
                             <td><button type="submit">Login</button></td>
-                            <td><a th:href="@{/signup}">Signup</a></td>
                         </tr>
                     </table>
                 </form>
                 <p th:if="${retry}">Error</p>
             </div>
-        </div>
-    </header>
+          </div>
+          <div class="menu__items">
+            <div class="menu__item"><a id="createBusinessAccount" href="#">Create business account</a></div>
+            <div class="menu__item"><a id="addRestaurant" href="#">Add your restaurant</a></div>
+            <div class="menu__item"><a th:href="@{/signup}" id="signUp" href="#">Sign up</a></div>
+          </div>
+        </section>
+
+        
+    </main>
 </body>
 </html>
