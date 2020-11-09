@@ -1,24 +1,32 @@
 @import './_config';
 
 .header {
+  
   position: relative;
-  z-index: 10;
-  height: 80px;
+  z-index: 0;
+  height: 100px;
   width: 100%;
   background-color: $color-anti-flash-white;
 
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
   
+  &__left {
+ 	display: flex;
+  }
   &__title {
   	font-family: $font-heading;
-  	font-weight: bold;
+    font-weight: bold;
+    font-size: 40px;
   }
 
-  &__menu {
+  &__menuButton {
       display: flex;
 	  flex-direction: column;
 	  justify-content: center;
+  }
+  
+  &__menu{
   	img {
 	    height: 20px;
 	    object-fit: cover;  
@@ -30,18 +38,12 @@
     margin: 0 auto; 
     height: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
   }
-  
 
-  &__login {
-    position: absolute;
-    background-color: blue;
-    top: 100%;
-    right: 0;
-  }
 
   &__navList {
+    right:0; 	
     display: flex;
     list-style: none;
 

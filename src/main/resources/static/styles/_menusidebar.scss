@@ -1,0 +1,43 @@
+.menu{
+	position: absolute;
+    background-color: white;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    border: 1px solid black;
+    border-right: 0px;
+    border-top: 0px;
+    vertical-align: center;
+    text-align: center;
+    z-index: 10;
+    
+
+    &__loginButton {
+        a {
+            display: flex;
+            justify-content: center;
+        }
+        h1 {
+            background-color: black;
+            color: #fff;
+            width: 85%;
+            padding: 15px 0;
+        }
+    }
+
+    &__items {
+        margin: 15px 25px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__item {
+        margin: 10px;
+        align-self: flex-start;
+    }
+}
+
+#menuNavigationElement{
+    z-index: 1001;
+}

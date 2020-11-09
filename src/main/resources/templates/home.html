@@ -6,13 +6,18 @@
 <body>
 	<header th:replace="fragments/general.html :: header"></header>
     <main>
+      <section th:replace="fragments/general.html :: sidebar"></section>
+      <section th:replace="fragments/general.html :: login"></section>
    	  <section class="filter">
     	  <div class="filter__grid">
-            <div class="filter__options">
-              <div class="filter__item">
-                <div class="filter__image">
+            <div class="filter__options" th:switch="${options}">
+              <h2 th:case="null">There are no options</h2>
+              <div class="filter__item" th:each="options: ${option}">
+                <div class="filter__image" >
+                  <!-- <img class="filter__itemImg" alt="spaghetti" src="../static/img/spaghetti.png" th:scr="${option.image}"/> -->
                   <img class="filter__itemImg" alt="spaghetti" src="../static/img/spaghetti.png" th:src="@{img/spaghetti.png}"/>
                 </div>
+                <!-- <p th:text="option.title"></p> -->
                 <p>Italians<p>
               </div>
               <div class="filter__item">
@@ -25,23 +30,28 @@
           </div>
       </section>
 
-      <div class="cards__grid">
-        <h2 class="cards__descript">Popular Near You</h2> 
-        <div class="cards__row">
-          <section class="card">
+      <div class="cards__grid" th:switch="${categories}">
+        <h2 th:case="null">No categories</h2>
+        <div th:each="categories : ${category}">
+        <h2 class="cards__descript" th:text="${categories.item}">Popular Near You</h2> 
+        <div class="cards__row" th:switch="${restaurants}">
+          <h2 th:case="null">There are no restaurants in this category</h2>
+          <section class="card" th:each="restaurants : ${restaurant}">
             <div class="card__image">
-              <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>
+              <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->
+              <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}" />
             </div>
             <div class="card__content">
-              <h2 class="card__restaurantTitle">Wonderful Sushiness</h2>
-              <p class="card__restaurantHours">Kitchen hours: 11:30 - 22:00</p>
-              <p class="card__restaurantType">Quick service</p>
-              <div class="card__restaurantTags">
-                <p class="card__tagItem">Vegan</p>
+              <h2 class="card__restaurantTitle" th:text="${receipt.title}">Wonderful Sushiness</h2>
+              <p class="card__restaurantHours" th:text="${receipt.hours}">Kitchen hours: 11:30 - 22:00</p>
+              <p class="card__restaurantType" th:text="${receipt.type}">Quick service</p>
+              <div class="card__restaurantTags" th:each="${receipt.tags : ${tags}}">
+                <p class="card__tagItem" th:text="${tags.item}">Vegan</p>
               </div>
-              <a href="#" class="card__restaurantMenu">Menu</a>
+              <a href="#" class="card__restaurantMenu" th:href="&{receipt.menu}">Menu</a>
             </div>
           </section>
+        </div>
           <section class="card">
             <div class="card__image">
               <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>

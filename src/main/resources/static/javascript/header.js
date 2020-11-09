@@ -14,3 +14,13 @@ $(document).ready(function () {
         }
     );
 })
+
+$(document).ready(function () {
+    $("#menuButton").click(
+        (e) => {
+            e.preventDefault();
+            $("#menuNavigationElement").toggleClass("hidden");
+            return false;
+        }
+    )
+})
