@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface RestaurantService {
     Restaurant getByName(String name);
+    List<Restaurant> getAll();
     Restaurant addRestaurant(String name, String phone, String address, List<TimeRange> openingHours);
     Restaurant addRestaurant(Restaurant restaurant);
 }

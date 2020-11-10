@@ -38,4 +38,9 @@ public class RestaurantServiceImpl implements RestaurantService {
     public Restaurant addRestaurant(Restaurant restaurant) {
         return restaurantRepo.save(restaurant);
     }
+
+    @Override
+    public List<Restaurant> getAll() {
+        return restaurantRepo.findAll();
+    }
 }
