@@ -18,6 +18,8 @@ import utadborda.application.web.requestMappings;
 import javax.validation.Valid;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
+import java.security.Principal;
+
 
 @Controller
 public class UserController {
@@ -57,7 +59,7 @@ public class UserController {
         model.addAttribute("user", new UserDTO());
         return "signup";
     }
-
+    
     @RequestMapping(value = requestMappings.SIGNUP, method = POST)
     public String registerUser(
             @ModelAttribute @Valid UserDTO user,
@@ -71,4 +73,12 @@ public class UserController {
         }
         return "redirect:/";
     }
+    
+    @RequestMapping(value = requestMappings.ACCOUNT, method= GET)
+    public String getAccountView(Model model, Principal principal) {
+    	String email = principal.getName();
+    	return "account";
+    }
+    
+    
 }

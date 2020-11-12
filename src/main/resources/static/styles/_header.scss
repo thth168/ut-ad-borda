@@ -6,22 +6,19 @@
   z-index: 0;
   height: 100px;
   width: 100%;
-  background-color: $color-anti-flash-white;
-
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
   
-  &__left {
- 	display: flex;
-  }
   &__title {
   	font-family: $font-heading;
     font-weight: bold;
     font-size: 40px;
   }
 
+  &__left{
+    display: flex;
+  }
+
   &__menuButton {
-      display: flex;
+    display: flex;
 	  flex-direction: column;
 	  justify-content: center;
   }
@@ -33,6 +30,7 @@
 	    margin: 10px;
   	}
   }
+  
   &__content {
     max-width: $max-width;
     margin: 0 auto; 
@@ -40,7 +38,6 @@
     display: flex;
     justify-content: space-between;
   }
-
 
   &__navList {
     right:0; 	

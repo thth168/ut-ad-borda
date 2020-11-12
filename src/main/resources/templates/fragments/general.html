@@ -33,7 +33,7 @@
                         <a href="#">Submit listing</a>
                     </li>
                     <li>
-
+                        <a th:href="@{/account}" id="account" href="#" sec:authorize="authenticated">My Account</a>
                         <form id="logoutElement" th:action="@{/logout}" method="post" sec:authorize="authenticated">
                             <a id="logout" href="#">Logout</a>
                         </form>
