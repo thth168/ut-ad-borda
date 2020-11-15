@@ -2,12 +2,12 @@
 # Google Places API aided restaurant scrape of Iceland
 
 # Required imports for Google Places API scrape
+from bs4 import BeautifulSoup
 import json
 import requests
 import math
 import time
 import os
-from bs4 import BeautifulSoup
 
 # Iceland's extreme points
 EXTREMITIES = {      # Place        Latitude    Longitude
@@ -31,13 +31,21 @@ EXTREMITIES['N'] = EXTREMITIES['N'] + LAT_OFFSET # North offset
 EXTREMITIES['S'] = EXTREMITIES['S'] - LAT_OFFSET # South offset
 
 # Google API variables
-API_KEY     = None
-API_ADDRESS = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-MAX_RADIUS  = 50000            # 50,000 is max supported by Google Places API
-MIN_RADIUS  = 200              # Tweak for efficiency
+# Basic Data (0.0$ / 1000)
+# Contact Data (3.0$ / 1000)
+# Atmosphere Data (5.0$ / 1000)
+# Places Photo (7.0$ / 1000)
+API_KEY        = None
+API_NEARBY     = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+API_DETAILS    = "https://maps.googleapis.com/maps/api/place/details/json?"
+SKU_BASIC      = "address_component,adr_address,business_status,formatted_address,geometry,icon,name,permanently_closed,photo,place_id,plus_code,type,url,utc_offset,vicinity"
+SKU_CONTACT    = "formatted_phone_number,international_phone_number,opening_hours,website"
+SKU_ATMOSPHERE = "price_level,rating,review,user_ratings_total"
+MAX_RADIUS     = 50000         # 50,000 is max supported by Google Places API
+MIN_RADIUS     = 200           # Tweak for efficiency
 USE_KEYWORD_FILTER = True      # Use keyword filter over type filter
-SEARCH_FILTER = None           # filter to use 
-TOKEN_TIMEOUT = 5              # next_page_token activation wait time
+SEARCH_FILTER      = None      # filter to use 
+TOKEN_TIMEOUT      = 5         # next_page_token activation wait time
 
 # Scraper data files
 SCRAPER_DATA_LOC    = "scraper/scraper_data.json"
@@ -66,7 +74,7 @@ catchup_region   = None   # last stored region tag for the scraper to catch up t
 # optionally with a keyword search instead of type and also if next_page_token
 # is present in returns get all available results, up to 60 with 20 max per page
 def get_locations(latitude, longitude, radius, filter=False, keyword_filter=False, full_depth=False):
-    query = f"{API_ADDRESS}location={latitude},{longitude}&radius={radius}"
+    query = f"{API_NEARBY}location={latitude},{longitude}&radius={radius}"
     if filter:
         if keyword_filter:
             query += f"&keyword={filter}"
@@ -79,7 +87,7 @@ def get_locations(latitude, longitude, radius, filter=False, keyword_filter=Fals
             time.sleep(TOKEN_TIMEOUT)
             answer2 = json.loads(
                 requests.get(
-                    f"{API_ADDRESS}pagetoken={answer['next_page_token']}&key={API_KEY}"
+                    f"{API_NEARBY}pagetoken={answer['next_page_token']}&key={API_KEY}"
                     ).text
                 )
             for item in answer2['results']:
@@ -88,7 +96,7 @@ def get_locations(latitude, longitude, radius, filter=False, keyword_filter=Fals
                 time.sleep(TOKEN_TIMEOUT)
                 answer3 = json.loads(
                     requests.get(
-                        f"{API_ADDRESS}pagetoken={answer2['next_page_token']}&key={API_KEY}"
+                        f"{API_NEARBY}pagetoken={answer2['next_page_token']}&key={API_KEY}"
                     ).text
                 )
                 for item in answer3['results']:
@@ -289,7 +297,7 @@ def run_many():
 # within the squared extreme points of iceland will result in around
 # twelve-thousand (12.000) calls to the Google Places API resulting in
 # MINIMUM 360$ USD in fees at current 30$/1000 calls price
-def combine_data():
+def merge_data():
     data = json.loads(DATA_FORMAT)
     duplicates = 0
     total = 0
@@ -305,13 +313,13 @@ def combine_data():
             else:
                 duplicates += 1
     print(f'Number of duplicates: {duplicates}.')
-    file = open(f"{DATA_FOLDER}/full_data.json", "w", encoding="utf-8")
+    file = open(f"scraper/merged_data.json", "w", encoding="utf-8")
     file.write(json.dumps(data))
     file.close()
     print(f"Number of entries: {len(data['results'])}")
     print(f"Total number of entries in all files: {total}")
     print("Veridying...")
-    data = json.load(open(f"{DATA_FOLDER}/full_data.json", "r", encoding="utf-8"))
+    data = json.load(open(f"scraper/merged_data.json", "r", encoding="utf-8"))
     diff = 0
     for file_name in os.listdir(DATA_FOLDER):
         file = json.load(open(f"{DATA_FOLDER}/{file_name}", "r", encoding="utf-8"))
@@ -345,19 +353,56 @@ def get_govt_data():
         item['leyfishafi'] = entry.find(attrs={'class': 'leyfishafi'}).text
         if item['veitingastadur'] != "" and item['veitingastadur'] != "\n"and item['veitingastadur'] != "...":
             data["veitingastadir"].append(item)
-    json.dump(data, open(f"{DATA_FOLDER}/govt_data.json", "w", encoding="utf-8"))
+    json.dump(data, open(f"scraper/govt_data.json", "w", encoding="utf-8"))
 
-#
-file = json.load(open("scraper/data/full_data.json", "r", encoding="utf-8"))
-points = []
-for location in file['results']:
-    points.append(
-        (
-            location['geometry']['location']['lat'],
-            location['geometry']['location']['lng']
+# Filters merged data by type keys
+def filter_data(keys=[]):
+    if not keys:
+        print("No filter keys given.")
+        return
+    file = json.load(open(f"scraper/merged_data.json", "r", encoding="utf-8"))
+    data = json.loads(DATA_FORMAT)
+    for location in file['results']:
+        if any(key in location['types'] for key in keys):
+            if any(key == "permanently_closed" for key in location.keys()):
+                #print(location['name'])
+                continue
+            data['results'].append(location)
+            data['ids'].append(location['place_id'])
+        else:
+            print(location['name'])
+    json.dump(data, open("scraper/filtered_data.json", "w", encoding="utf-8"))
+
+# saves location points to file
+def map_locations(file):
+    data = json.load(open(file, "r", encoding="utf-8"))
+    points = []
+    for location in data['results']:
+        points.append(
+            (
+                location['geometry']['location']['lat'],
+                location['geometry']['location']['lng']
+            )
         )
-    )
-file = open("scraper/points.txt", "w", encoding="utf-8")
-for item in points:
-    file.write(f"{item[0]}, {item[1]}\n")
-file.close()
+    file = open("scraper/pointmap.txt", "w", encoding="utf-8")
+    for point in points:
+        file.write(f"{point[0]}, {point[1]}\n")
+    file.close()
+
+# Gathers additional data, basic, contact, and atmosphere for each of the
+# location ids in the given data file. The ids must represent a google
+# maps location, be saved in a json format under the key ids.
+def get_additional_location_data(file):
+    if not file:
+        print("No data source file given.")
+        print("Cannot gather additional data.")
+        return
+    old_data = json.load(open(file, "r", encoding="utf-8"))
+    data = json.loads(DATA_FORMAT)
+    for id in old_data['ids']:
+        print(id)
+        query = f"{API_DETAILS}place_id={id}&fields={SKU_BASIC},{SKU_CONTACT},{SKU_ATMOSPHERE}&key={API_KEY}"
+        result = json.loads(requests.get(query).text)
+        data['results'].append(result['result'])
+        data['ids'].append(id)
+    json.dump(data, open(f"{file.replace('.json', '')}_complete.json", "w", encoding="utf-8"))
