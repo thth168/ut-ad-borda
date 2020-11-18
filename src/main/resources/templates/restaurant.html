@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Restaurant síða</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="is">
+<head th:insert="fragments/general.html :: headerfiles">
+    <title id="title">Út Að Borða</title>
 </head>
 <body>
-    <form action="#" th:action="@{/restaurantData}" th:object="${restaurant}" method="post">
-        <input type="text" th:field="*{name}"/>
-        <input type="text" th:field="*{phone}">
-        <input type="text" th:field="*{address}"/>
-        <input type="submit" value="Submit">
-    </form>
+<header th:replace="fragments/general.html :: header"></header>
+<main>
+    <div class="restaurant" >
+        <div class="restaurant__info">
+            <a th:text="${restaurant.getWebsite()}"> <h2 th:text="${restaurant.getName()}"></h2></a>
+            <p th:text="${restaurant.getEmail()}"></p>
+            <p th:text="${restaurant.getPhoneNumber()}"></p>
+        </div>
+    </div>
+</main>
 </body>
 </html>

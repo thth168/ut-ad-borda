@@ -5,6 +5,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,9 +13,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import utadborda.application.Entities.User;
 import utadborda.application.Exceptions.GeneralExceptions;
 import utadborda.application.services.DTO.UserDTO;
+import utadborda.application.services.RestaurantService;
 import utadborda.application.services.UserService;
 import utadborda.application.web.requestMappings;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -24,11 +27,14 @@ import java.security.Principal;
 @Controller
 public class UserController {
     UserService userService;
+    RestaurantService restaurantService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, RestaurantService restaurantService) {
         this.userService = userService;
+        this.restaurantService = restaurantService;
     }
+
 
     @RequestMapping(value = requestMappings.LOGIN)
     public String getLoginView(RedirectAttributes model) {
@@ -74,11 +80,11 @@ public class UserController {
         return "redirect:/";
     }
     
-    @RequestMapping(value = requestMappings.ACCOUNT, method= GET)
+
+    @RequestMapping(value = requestMappings.ACCOUNT)
     public String getAccountView(Model model, Principal principal) {
     	String email = principal.getName();
+        model.addAttribute("LoggedInUser", userService.getUserDetails(email));
     	return "account";
     }
-    
-    
 }
