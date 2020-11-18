@@ -1,48 +1,36 @@
-package utadborda.application.Entities;
+package utadborda.application.services.DTO;
 
-import javax.persistence.*;
+import utadborda.application.Entities.MenuItem;
+import utadborda.application.Entities.Restaurant;
+import utadborda.application.Entities.Tag;
+import utadborda.application.Entities.TimeRange;
+
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.List;
-import java.util.UUID;
 
-@Entity
-public class Restaurant {
-    @Id
-    @GeneratedValue
-    private UUID id;
+public class RestaurantDTO {
+
     private String name;
-    private String phone;
     private String address;
-    @OneToMany(mappedBy = "restaurant")
-    private List<TimeRange> openingHours;
-    @ManyToMany
-    @JoinTable
-    private List<Tag> tags;
-    @OneToMany(mappedBy = "restaurant")
-    private List<MenuItem> menu;
+    private String phone;
     private String cuisineType;
+    private List<TimeRange> openingHours;
+    private List<Tag> tags;
+    private List<MenuItem> menu;
 
-    protected Restaurant() {}
-
-    public Restaurant(
-            String name,
-            String phone,
-            String address,
-            List<TimeRange> openingHours
-    ){
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-        this.openingHours = openingHours;
-        this.cuisineType = cuisineType;
+    public RestaurantDTO(Restaurant restaurant){
+        this.name = restaurant.getName();
+        this.address = restaurant.getAddress();
+        this.phone = restaurant.getPhone();
+        this.cuisineType = restaurant.getCuisineType();
+        this.openingHours = restaurant.getOpeningHours();
+        this.tags = restaurant.getTags();
+        this.menu = restaurant.getMenu();
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    public RestaurantDTO(){}
 
     public String getName() {
         return name;
@@ -52,20 +40,20 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public List<TimeRange> getOpeningHours() {
@@ -99,5 +87,4 @@ public class Restaurant {
     public void setCuisineType(String cuisineType) {
         this.cuisineType = cuisineType;
     }
-
 }

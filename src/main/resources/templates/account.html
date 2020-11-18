@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="is">
+<head th:insert="fragments/general.html :: headerfiles">
+  <title id="title">Út Að Borða</title>
+</head>
+<body>
+  <header th:replace="fragments/general.html :: header"></header>
+  <main>
+    <div class="account">
+      <div class="account__menu">
+        <a href="#">General</a>
+        <a href="#">My Restaurants</a>
+      </div>
+      <div class="account__general">
+        <h2>General Account Settings</h2>
+        <div class="account__info" id="name">
+            <h3>Name</h3>
+            <p>Jón Jónsson</p>
+        </div>
+        <div class="account__info" id="username">
+            <h3>Username</h3>
+            <p th:text="${LoggedInUser.getUsername()}"></p>
+        </div>
+        <div class="account__info" id="contact">
+            <h3>Contact</h3>
+            <p th:text="${LoggedInUser.getEmail()}"></p>
+        </div>
+      </div>
+      <div class="account__restaurants" th:each="restaurant : ${LoggedInUser.getRestaurants()}">
+        <h2>Your restaurants</h2>
+        <a th:href="${restaurant}" href="#" class="account__restaurant"></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

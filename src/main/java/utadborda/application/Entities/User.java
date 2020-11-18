@@ -31,6 +31,8 @@ public class User {
     @NotNull
     @NotEmpty
     private String userName;
+    private String firstName;
+    private String lastName;
     @NotNull
     @NotEmpty
     private String password;
@@ -40,6 +42,33 @@ public class User {
     private Date dateOfBirth;
     @ElementCollection
     private List<String> roles;
+
+    @OneToMany
+    private List<Restaurant> restaurants;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant> restaurants) {
+        this.restaurants = restaurants;
+    }
 
     protected User() {}
 

@@ -23,6 +23,19 @@ public final class requestMappings {
 
     public static final String SIGNUP = "/signup";
 
+    // =============== //
+    // ACCOUNT MAPPING
+    // =============== //
+    
+    public static final String ACCOUNT = "/account";
+
+    // ================= //
+    // RESTAURANT MAPPING
+    // ================= //
+
+    public static final String ADD_RESTAURANT = "/addRestaurant";
+    
     public requestMappings() {
     }
+    
 }

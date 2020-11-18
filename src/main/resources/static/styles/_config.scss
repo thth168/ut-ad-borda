@@ -22,6 +22,12 @@ html, body {
   z-index: 0;
 }
 
+body{
+  min-width: 1029px;
+  max-width: 1900px;
+  padding: 0 80px;
+}
+
 a {
   text-decoration: none;
   color: #000;

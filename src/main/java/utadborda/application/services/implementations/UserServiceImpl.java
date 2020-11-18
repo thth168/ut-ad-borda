@@ -7,6 +7,7 @@ import utadborda.application.Entities.User;
 import utadborda.application.Exceptions.GeneralExceptions;
 import utadborda.application.services.DAO.UserRepo;
 import utadborda.application.services.DTO.UserDTO;
+import utadborda.application.services.DTO.UserDetailsDTO;
 import utadborda.application.services.UserService;
 
 import javax.transaction.Transactional;
@@ -48,5 +49,11 @@ public class UserServiceImpl implements UserService {
             null,
             Arrays.asList("USER", "ADMIN")
         ));
+    }
+    @Transactional
+    @Override
+    public UserDetailsDTO getUserDetails(String email) {
+        UserDetailsDTO userdetails = new UserDetailsDTO(userRepo.findByEmail(email));
+        return userdetails;
     }
 }
