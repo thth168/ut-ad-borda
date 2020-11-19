@@ -19,7 +19,6 @@ public class Restaurant {
     private List<Tag> tags;
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menu;
-    private String cuisineType;
 
     protected Restaurant() {}
 
@@ -28,12 +27,12 @@ public class Restaurant {
             String phone,
             String address,
             List<TimeRange> openingHours
+
     ){
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.openingHours = openingHours;
-        this.cuisineType = cuisineType;
     }
 
     public UUID getId() {
@@ -92,12 +91,5 @@ public class Restaurant {
         this.menu = menu;
     }
 
-    public String getCuisineType() {
-        return cuisineType;
-    }
-
-    public void setCuisineType(String cuisineType) {
-        this.cuisineType = cuisineType;
-    }
 
 }

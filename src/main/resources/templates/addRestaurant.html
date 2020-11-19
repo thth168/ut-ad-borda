@@ -17,7 +17,6 @@
 <!--            </div>-->
                 <input id="phoneNumber" type="number" th:field="*{phone}">
 <!--                <input id="email" type="email" th:field="*{email}">-->
-                <input id="restaurantType" type="text" th:field="*{tags}">
             <div>
                 <select id="numberOfRestaurants" type="text">
                     <option value="1">1</option>
@@ -25,7 +24,7 @@
                     <option value="6-10">6-10</option>
                     <option value="11+">11+</option>
                 </select>
-                <select id="cuisineType" th:field="*{cuisineType}">
+                <select id="cuisineType" th:field="*{tags}">
                     <option value="bar">Bar</option>
                     <option value="chinese">Chinese</option>
                     <option value="french">French</option>

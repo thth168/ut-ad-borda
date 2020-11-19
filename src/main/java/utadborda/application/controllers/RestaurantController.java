@@ -16,6 +16,7 @@ import utadborda.application.web.requestMappings;
 import utadborda.application.web.restaurantForm;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -39,12 +40,18 @@ public class RestaurantController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = GET)
-    public String getSignupView(Model model) {
+    @RequestMapping(value = requestMappings.ADD_RESTAURANT)
+    public String getAddRestaurantView(Model model) {
         model.addAttribute("restaurant", new RestaurantDTO());
         return "addRestaurant";
     }
 
+    @RequestMapping(value = requestMappings.RESTAURANT)
+    public String getRestaurantView(Model model, @PathVariable UUID restaurant_id){
+        Restaurant restaurant = restaurantService.getByID(restaurant_id);
+        model.addAttribute("restaurant", restaurant);
+        return "restaurant";
+    }
 
     @GetMapping(value = "/restaurantData", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

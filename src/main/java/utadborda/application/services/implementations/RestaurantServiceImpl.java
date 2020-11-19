@@ -9,6 +9,7 @@ import utadborda.application.services.DAO.RestaurantRepo;
 import utadborda.application.services.RestaurantService;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
@@ -37,6 +38,11 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) {
         return restaurantRepo.save(restaurant);
+    }
+
+    @Override
+    public Restaurant getByID(UUID restaurant_ID) {
+        return restaurantRepo.findByid(restaurant_ID);
     }
 
     @Override

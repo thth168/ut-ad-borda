@@ -8,4 +8,6 @@ import java.util.UUID;
 
 public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
     Restaurant findByName(String name);
+
+    Restaurant findByid(UUID restaurant_ID);
 }

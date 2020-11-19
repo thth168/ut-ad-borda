@@ -34,7 +34,8 @@ public final class requestMappings {
     // ================= //
 
     public static final String ADD_RESTAURANT = "/addRestaurant";
-    
+    public static final String RESTAURANT = "/restaurant/{restaurant_id}";
+
     public requestMappings() {
     }
     
