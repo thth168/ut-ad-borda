@@ -8,29 +8,72 @@
 <main>
     <section class="addRestaurant">
         <h1>Add Restaurant</h1>
-        <form action="#" th:action="@{/restaurantData}" th:object="${restaurant}" method="post">
-            <input id="name" type="text" th:field="*{name}">
-            <input id="address" type="text" th:field="*{address}">
-<!--            <div>-->
-<!--                <input id="firstName" type="text" th:field="*{firstName}">-->
-<!--                <input id="lastName" type="text" th:field="*{lastName}">-->
-<!--            </div>-->
-                <input id="phoneNumber" type="number" th:field="*{phone}">
-<!--                <input id="email" type="email" th:field="*{email}">-->
-                <input id="restaurantType" type="text" th:field="*{tags}">
-            <div>
-                <select id="numberOfRestaurants" type="text">
-                    <option value="1">1</option>
-                    <option value="2-5">2-5</option>
-                    <option value="6-10">6-10</option>
-                    <option value="11+">11+</option>
-                </select>
+        <form action="#" th:action="@{/addRestaurant}" th:object="${restaurant}" method="post">
+            <fieldset>
+                <label for="name">Name:</label>
+                <input id="name" type="text" th:field="*{name}">
+                <label for="address">Address:</label>
+                <input id="address" type="text" th:field="*{address}">
+                <label for="phoneNumber">Phone:</label>
+                <input id="phoneNumber" type="tel" th:field="*{phone}" pattern="[0-9]{3}-[0-9]{4}">
                 <select id="cuisineType" th:field="*{cuisineType}">
                     <option value="bar">Bar</option>
                     <option value="chinese">Chinese</option>
                     <option value="french">French</option>
                 </select>
-            </div>
+            </fieldset>
+            <fieldset>
+                <legend>Opnunartímar</legend>
+                <fieldset>
+                    <legend>Mánudagar</legend>
+                    <label for="mondayOpen">Opnar:</label>
+                    <input id="mondayOpen" type="time">
+                    <label for="mondayClose">Lokar:</label>
+                    <input id="mondayClose" type="time">
+                </fieldset>
+                <fieldset>
+                    <legend>Þriðjudagar</legend>
+                    <label for="tuesdayOpen">Opnar:</label>
+                    <input id="tuesdayOpen" type="time">
+                    <label for="tuesdayClose">Lokar:</label>
+                    <input id="tuesdayClose" type="time">
+                </fieldset>
+                <fieldset>
+                    <legend>Miðvikudagar</legend>
+                    <label for="wednesdayOpen">Opnar:</label>
+                    <input id="wednesdayOpen" type="time">
+                    <label for="wednesdayClose">Lokar:</label>
+                    <input id="wednesdayClose" type="time">
+                </fieldset>
+                <fieldset>
+                    <legend>Fimmtudagar</legend>
+                    <label for="thursdayOpen">Opnar:</label>
+                    <input id="thursdayOpen" type="time">
+                    <label for="thursdayClose">Lokar:</label>
+                    <input id="thursdayClose" type="time">
+                </fieldset>
+                <fieldset>
+                    <legend>Föstudagar</legend>
+                    <label for="fridayOpen">Opnar:</label>
+                    <input id="fridayOpen" type="time">
+                    <label for="fridayClose">Lokar:</label>
+                    <input id="fridayClose" type="time">
+                </fieldset>
+                <fieldset>
+                    <legend>Laugardagar</legend>
+                    <label for="saturdayOpen">Opnar:</label>
+                    <input id="saturdayOpen" type="time">
+                    <label for="saturdayClose">Lokar:</label>
+                    <input id="saturdayClose" type="time">
+                </fieldset>
+                <fieldset>
+                    <legend>Sunnudagar</legend>
+                    <label for="sundayOpen">Opnar:</label>
+                    <input id="sundayOpen" type="time">
+                    <label for="sundayClose">Lokar:</label>
+                    <input id="sundayClose" type="time">
+                </fieldset>
+            </fieldset>
             <button type="submit">Submit</button>
         </form>
     </section>

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.services.DTO.RestaurantDTO;
 import utadborda.application.services.DTO.UserDTO;
@@ -14,9 +15,10 @@ import utadborda.application.services.RestaurantService;
 import utadborda.application.web.requestMappings;
 import utadborda.application.web.restaurantForm;
 
+import javax.validation.Valid;
 import java.io.IOException;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Controller
 public class RestaurantController {
@@ -29,28 +31,18 @@ public class RestaurantController {
       this.restaurantService = restaurantService;
     }
 
-    @PostMapping("/restaurantData")
-    public String addRestaurant (
-        @ModelAttribute Restaurant restaurant,
-        Model model
-    ) {
-        restaurantService.addRestaurant(restaurant);
-        return "redirect:/";
-    }
-
     @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = GET)
     public String getSignupView(Model model) {
         model.addAttribute("restaurant", new RestaurantDTO());
         return "addRestaurant";
     }
 
-
-    @GetMapping(value = "/restaurantData", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public Restaurant restaurantData(
-        @RequestParam String name
+    @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = POST)
+    public String postSignupView(
+            @ModelAttribute @Valid RestaurantDTO restaurant,
+            RedirectAttributes attributes
     ) {
-        Restaurant result = restaurantService.getByName(name);
-        return result;
+        System.out.println(restaurant);
+        return "redirect:/";
     }
 }

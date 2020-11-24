@@ -13,11 +13,11 @@ public class Restaurant {
     @GeneratedValue
     private UUID id;
     private String name;
+    private String phone;
     private String address;
     private Double posLat;
     private Double posLng;
     private String website;
-    private String phone;
     @OneToMany(mappedBy = "restaurant")
     private List<TimeRange> openingHours;
     private String photos;
@@ -80,6 +80,7 @@ public class Restaurant {
         this.website = website;
         this.phone = phone;
         this.openingHours = openingHours;
+        this.cuisineType = "";
         this.photos = photos;
         this.gmapsId = gmapsId;
         this.gmapsUrl = gmapsUrl;
