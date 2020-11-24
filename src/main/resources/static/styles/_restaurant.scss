@@ -1,0 +1,158 @@
+@import './_config.scss';
+
+*{
+    margin: 0 0;
+    padding: 0 0;
+}
+
+body{
+    margin: 0 auto;
+}
+main {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.restaurant{
+
+    p{
+        font-size: 1.2em;
+        font-weight: bold;
+        font-family: $font-body;
+    }
+    &__header{
+        position: relation;
+
+        &Img{
+            img{
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                z-index: 0;
+                opacity: 80%;
+                filter: contrast(1.3) brightness(0.8) saturate(1.2);
+            }
+
+            h1{
+                font-family: $font-heading;
+                color: #FFF;
+                z-index: 1;
+                position: absolute;
+                top: 32.5%;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                font-size: 5em;
+            //    -webkit-text-stroke: 1px gray;
+            //    -webkit-text-fill-color: #FFF;
+            }
+
+
+        }
+        &Info{
+            display: flex;
+            margin-right: 10px;
+
+            p{
+                font-weight: bold;
+                font-size: 1.2em;
+                margin-right: 10px;
+                margin-top: 0;
+              //  border-right: black solid 1px;
+            }
+        }
+    }
+
+    &__info{
+        &Cards{
+            display:flex;
+            flex-direction:column;
+            flex-wrap: wrap;
+        }
+        &Card{
+            width: auto;
+            margin: 20px;
+            padding: 20px;
+            background: rgba(219, 186, 176, 0.32);
+            border-radius: 10px;
+        }
+
+        &Upper{
+            display:flex;
+            &Card{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                width: 50%;
+                margin: 20px;
+                padding: 20px;
+                background: rgba(219, 186, 176, 0.32);
+                border-radius: 10px;
+            }
+        }
+
+        &Body{
+            margin: 20px 0;
+            //padding:0 20px;
+        }
+        &Lower{
+            display:flex;
+            &Card{
+                width: 33.33%;
+                margin: 20px;
+                padding: 20px;
+                border: 2px rgb(147, 48, 18) solid;
+                border-radius: 10px;
+            }
+        }
+        &Body{
+            display:flex;
+            flex-direction: column;
+            margin: 10px 0;
+            padding-right: 30px;
+        }
+
+        &BodyOuter{
+            display: flex;
+        }
+        &Type{
+            margin-top: 0;
+        }
+
+        &Dietary{
+            display:flex;
+        }
+        &Title{
+            margin: 0 10px 0 0;
+        }
+
+        &Item{
+            margin: 0 0 0 10px;
+
+            &Text{
+
+                margin: 0 0 0 10px;
+            }
+
+            &Box{
+                display: flex;
+            }
+        }
+
+        &Hours{
+            display:flex;
+            align-content: center;
+            p{
+                margin: 0 5px;
+            }
+        }
+
+        &BodyOpenHours{
+            display: flex;
+        }
+
+    }
+}
+
+x {
+            align-item:center;
+        }
