@@ -33,7 +33,7 @@ public class HomeController {
 
     @GetMapping("/restaurant")
     public String restaurantPage(Model model) {
-        Restaurant restaurant = new Restaurant("Empty", "Empty", "Empty", null);
+        Restaurant restaurant = new Restaurant("Empty", "Empty");
         model.addAttribute("restaurant", restaurant);
         return "restaurant";
     }
