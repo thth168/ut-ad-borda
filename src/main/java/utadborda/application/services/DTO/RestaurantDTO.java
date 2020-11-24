@@ -15,7 +15,6 @@ public class RestaurantDTO {
     private String name;
     private String address;
     private String phone;
-    private String cuisineType;
     private List<TimeRange> openingHours;
     private List<Tag> tags;
     private List<MenuItem> menu;
@@ -78,12 +77,5 @@ public class RestaurantDTO {
     public void setMenu(List<MenuItem> menu) {
         this.menu = menu;
     }
-
-    public String getCuisineType() {
-        return cuisineType;
-    }
-
-    public void setCuisineType(String cuisineType) {
-        this.cuisineType = cuisineType;
-    }
+    
 }

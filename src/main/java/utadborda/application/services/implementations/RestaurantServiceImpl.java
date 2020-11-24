@@ -32,7 +32,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant addRestaurant(String name, String phone, String address, List<TimeRange> openingHours) {
-        return restaurantRepo.save(new Restaurant(name, phone, address, openingHours));
+        Restaurant restaurant = new Restaurant(name, address);
+        restaurant.setPhone(phone);
+        restaurant.setOpeningHours(openingHours);
+        return restaurantRepo.save(restaurant);
     }
 
     @Override
@@ -47,6 +50,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public List<Restaurant> getAll() {
-        return restaurantRepo.findAll();
+        return restaurantRepo.findTop20ByIdNotNull();
     }
+
+    @Override
+    public Restaurant updateRestaurant(Restaurant restaurant) {
+        return restaurantRepo.save(restaurant);
+    }
+
 }

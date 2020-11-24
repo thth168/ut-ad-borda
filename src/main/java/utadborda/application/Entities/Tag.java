@@ -1,6 +1,9 @@
 package utadborda.application.Entities;
 
+import org.jruby.RubyBoolean;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -9,7 +12,6 @@ public class Tag {
     @Id
     @GeneratedValue
     private UUID id;
-
     private String name;
     private String category;
     @ManyToMany(mappedBy = "tags")
@@ -20,7 +22,17 @@ public class Tag {
     public Tag(String name, String category, List<Restaurant> restaurants) {
         this.name = name;
         this.category = category;
-        this.restaurants = restaurants;
+        if(restaurants == null) {
+            this.restaurants = new ArrayList<Restaurant>();
+        } else {
+            this.restaurants = restaurants;
+        }
+    }
+
+    public Tag(String name, String category) {
+        this.name = name;
+        this.category = category;
+        this.restaurants = new ArrayList<Restaurant>();
     }
 
     public UUID getId() {
@@ -54,4 +66,13 @@ public class Tag {
     public void setRestaurants(List<Restaurant> restaurants) {
         this.restaurants = restaurants;
     }
+
+    public void addRestaurant(Restaurant restaurant) {
+        this.restaurants.add(restaurant);
+    }
+
+    public String toString() {
+        return this.getCategory() + ": " + this.getName();
+    }
+
 }

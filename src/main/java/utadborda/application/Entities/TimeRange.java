@@ -37,6 +37,20 @@ public class TimeRange {
         this.restaurant = restaurant;
     }
 
+    public TimeRange(
+            Time openTime,
+            Time closeTime,
+            int weekDay,
+            Restaurant restaurant
+    ) {
+        this.openTime = openTime;
+        this.closeTime = closeTime;
+        this.weekDay = weekDay;
+        this.holiday = false;
+        this.specialDate = null;
+        this.restaurant = restaurant;
+    }
+
     public Time getOpenTime() {
         return openTime;
     }
@@ -81,10 +95,6 @@ public class TimeRange {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public Restaurant getRestaurant() {
         return restaurant;
     }
@@ -92,4 +102,43 @@ public class TimeRange {
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
     }
+
+    public String toString() {
+        String str = "";
+        switch (this.getWeekDay()) {
+            case 0:
+                str += "Monday: ";
+                break;
+            case 1:
+                str += "Tuesday: ";
+                break;
+            case 2:
+                str += "Wednesday: ";
+                break;
+            case 3:
+                str += "Thursday: ";
+                break;
+            case 4:
+                str += "Friday: ";
+                break;
+            case 5:
+                str += "Saturday: ";
+                break;
+            case 6:
+                str += "Sunday: ";
+                break;
+        }
+        if (this.getOpenTime().toString().equals("00:00:00") && this.getCloseTime().toString().equals("00:00:00")) {
+            str += "00:00 - 24:00";
+        } else {
+            str += this.getOpenTime().toString().replaceFirst(":00", "") + " - ";
+            if (this.getCloseTime().toString().equals("00:00:00")) {
+                str += "24:00";
+            } else {
+                str += this.getCloseTime().toString().replaceFirst(":00", "");
+            }
+        }
+        return str;
+    }
+
 }

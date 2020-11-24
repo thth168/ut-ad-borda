@@ -11,6 +11,7 @@ public interface RestaurantService {
     List<Restaurant> getAll();
     Restaurant addRestaurant(String name, String phone, String address, List<TimeRange> openingHours);
     Restaurant addRestaurant(Restaurant restaurant);
+    Restaurant updateRestaurant(Restaurant restaurant);
 
     Restaurant getByID(UUID restaurant_ID);
 }
