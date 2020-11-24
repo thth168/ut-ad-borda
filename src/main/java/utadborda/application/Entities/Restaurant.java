@@ -192,4 +192,11 @@ public class Restaurant {
         tags.add(tag);
     }
 
+    public String getCuisineType() {
+        return cuisineType;
+    }
+
+    public void setCuisineType(String cuisineType) {
+        this.cuisineType = cuisineType;
+    }
 }

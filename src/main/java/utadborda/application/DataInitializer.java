@@ -16,6 +16,8 @@ import utadborda.application.services.TagService;
 import utadborda.application.services.TimeRangeService;
 import utadborda.application.services.UserService;
 
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.sql.Time;
 import java.text.ParseException;
@@ -85,7 +87,7 @@ public class DataInitializer implements ApplicationRunner {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = null;
         try {
-            jsonObject = (JSONObject) parser.parse(new FileReader(file, StandardCharsets.UTF_8));
+            jsonObject = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
         } catch ( Exception exception ) {
             exception.printStackTrace();
         }
