@@ -406,3 +406,45 @@ def get_additional_location_data(file):
         data['results'].append(result['result'])
         data['ids'].append(id)
     json.dump(data, open(f"{file.replace('.json', '')}_complete.json", "w", encoding="utf-8"))
+
+file = json.load(open("scraper/merged_data_complete.json", "r", encoding="utf-8"))
+keys = []
+tags = []
+for result in file['results']:
+    for key in result.keys():
+        if key not in keys:
+            keys.append(key)
+    for tag in result['types']:
+        if tag not in tags:
+            tags.append(tag)
+print("Keys")
+print("keys: ", keys)
+print()
+print("Tags")
+print("tags: ", tags)
+print()
+
+
+
+print("Photo count")
+photo_count = 0
+for result in file['results']:
+    try:
+        photo_count += len(result['photos'])
+    except Exception as e:
+        pass
+print(photo_count)
+print()
+
+print("address component types")
+types = []
+for result in file['results']:
+    for component in result['address_components']:
+        for type in component['types']:
+            if type not in types:
+                types.append(type)
+
+print(types)
+print()
+
+print(len(file['results']))
