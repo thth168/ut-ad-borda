@@ -16,6 +16,7 @@ import utadborda.application.services.TagService;
 import utadborda.application.services.TimeRangeService;
 import utadborda.application.services.UserService;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -126,6 +127,8 @@ public class DataInitializer implements ApplicationRunner {
                 "grocery_or_supermarket",
                 "supermarket"
         ));
+
+        ArrayList<String> photoList = new ArrayList<String>(Arrays.asList((new File("scraper/photos/")).list()));
 
         for (JSONObject place : (Iterable<JSONObject>) data) {
             try {
@@ -292,6 +295,22 @@ public class DataInitializer implements ApplicationRunner {
                                     break;
                             }
 
+                        }
+
+                    }
+
+                }
+
+                if (place.containsKey("photos")) {
+                    JSONArray photoObject = (JSONArray) place.get("photos");
+
+                    for (Object p : photoObject) {
+                        JSONObject photo = (JSONObject) p;
+
+                        String reference = (String) photo.get("photo_reference") + ".png";
+
+                        if (photoList.contains(reference)) {
+                            restaurant.addPhoto("scraper/photos/" + reference);
                         }
 
                     }

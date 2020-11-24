@@ -1,8 +1,10 @@
 package utadborda.application.Entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import utadborda.application.Entities.User;
@@ -20,6 +22,7 @@ public class Restaurant {
     private String website;
     @OneToMany(mappedBy = "restaurant")
     private List<TimeRange> openingHours;
+    @Column(columnDefinition = "varchar(1024)")
     private String photos;
     private String gmapsId;
     private String gmapsUrl;
@@ -148,12 +151,29 @@ public class Restaurant {
         this.openingHours = openingHours;
     }
 
-    public String getPhotos() {
-        return this.photos;
+    public List<String> getPhotos() {
+        return new ArrayList<String>(Arrays.asList(this.photos.split("|")));
     }
 
-    public void setPhotos(String photos) {
-        this.photos = photos;
+    public String getPhoto(int index) {
+        String[] str = this.photos.split("|");
+        if (str.length <= index) {
+            return str[str.length-1];
+        } else {
+            return str[index];
+        }
+    }
+
+    public void setPhotos(List<String> photos) {
+        this.photos = String.join("|", photos);
+    }
+
+    public void addPhoto(String photoReference) {
+        if (this.photos == null) {
+            this.photos = photoReference;
+        } else {
+            this.photos += "|" + photoReference;
+        }
     }
 
     public String getGmapsId() {
@@ -195,4 +215,5 @@ public class Restaurant {
     public String toString() {
         return this.getName();
     }
+
 }

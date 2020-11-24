@@ -9,6 +9,7 @@ import math
 import time
 import os
 
+
 # Iceland's extreme points
 EXTREMITIES = {      # Place        Latitude    Longitude
     "N":  67.135833, # Kolbeinsey  (67.135833, -18.684167)
@@ -47,12 +48,13 @@ MIN_RADIUS     = 200           # Tweak for efficiency
 USE_KEYWORD_FILTER = True      # Use keyword filter over type filter
 SEARCH_FILTER      = None      # filter to use 
 TOKEN_TIMEOUT      = 5         # next_page_token activation wait time
-PHOTO_COUNT        = 1         # number of photos to downlaod per location
+PHOTO_COUNT        = 2         # number of photos to downlaod per location
 
 # Scraper data files
 SCRAPER_DATA_LOC    = "scraper/scraper_data.json"
 SCRAPER_POINTS_LOC  = "scraper/scraper_points.txt"
 SCRAPER_REGIONS_LOC = "scraper/scraper_regions.txt"
+PHOTO_FOLDER        = "scraper/photos/"
 DATA_FORMAT         = """{"results": [], "ids": []}"""
 DATA_FOLDER         = "scraper/data"
 SCRAPER_DATA        = {} # Raw data for scraped locations.
@@ -417,8 +419,7 @@ def get_keys(file):
         for key in result.keys():
             if key not in keys:
                 keys.append(key)
-    print("Keys")
-    print(keys)
+    return keys
 
 # Prints all tags in data
 def get_tags(file):
@@ -428,11 +429,28 @@ def get_tags(file):
         for tag in result['types']:
             if tag not in tags:
                 tags.append(tag)
-    print("Tags")
-    print(tags)
+    return tags
 
-# Downloads photos by the 
+# Downloads photos and saves to photo folder.
 def get_photos(file):
     data = json.load(open(file, "r+", encoding="utf-8"))
-    if "photos" in data:
-        pass
+    for location in data["results"]:
+        if "photos" in location:
+            i = 0
+            while i < PHOTO_COUNT and i < len(location["photos"]):
+                photo = location["photos"][i]
+                reference = photo["photo_reference"]
+                if f"{reference}.png" not in os.listdir(PHOTO_FOLDER):
+                    width = photo["width"]
+                    height = photo["height"]
+                    response = requests.get(f"{API_PHOTO}maxwidth={width}&maxheight={height}&photoreference={reference}&key={API_KEY}")
+                    if (response.status_code == 200):
+                        with open(f"{PHOTO_FOLDER}{reference}.png", "wb") as f:
+                            for chunk in response:
+                                f.write(chunk)
+                            print(f"saving file:\n{PHOTO_FOLDER}{reference}.png")
+                else:
+                    print(location["name"])
+                    print(f"file already exists:\n{PHOTO_FOLDER}{reference}.png")
+                i += 1
+get_photos("scraper/merged_data_complete.json")
