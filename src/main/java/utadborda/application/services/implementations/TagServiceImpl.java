@@ -1,5 +1,6 @@
 package utadborda.application.services.implementations;
 
+import jdk.jfr.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utadborda.application.Entities.Restaurant;
@@ -23,6 +24,11 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag addTag(Tag tag) {
         return tagRepo.save(tag);
+    }
+
+    @Override
+    public List<Tag> getAllByCategory(String category) {
+        return tagRepo.findAllByCategory(category);
     }
 
     @Override

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="is">
 <head th:insert="fragments/general.html :: headerfiles">
-  <title id="title">Út Að Borða</title>
+  <title id="title">Out to Eat</title>
 </head>
 <body>
 <header th:replace="fragments/general.html :: header"></header>
@@ -10,22 +10,13 @@
   <section th:replace="fragments/general.html :: login"></section>
   <section class="filter">
     <div class="filter__grid">
-      <div class="filter__options" th:switch="${options}">
+      <div class="filter__options" th:switch="${categories}">
         <h2 th:case="null">There are no options</h2>
-        <div class="filter__item" th:each="options: ${option}">
-<!--          <button th:action="@{/employees}" method="get" class="filter__image" >-->
-<!--            &lt;!&ndash; <img class="filter__itemImg" alt="spaghetti" src="../static/img/spaghetti.png" th:scr="${option.image}"/> &ndash;&gt;-->
-<!--            <img class="filter__itemImg" alt="spaghetti" src="../static/img/spaghetti.png" th:src="@{img/spaghetti.png}"/>-->
-<!--            <p>Bars<p>-->
-<!--          </button>-->
-          <!-- <p th:text="option.title"></p> -->
-
-        </div>
-        <div class="filter__item">
+        <div class="filter__item" th:each="category: ${categories}">
           <div class="filter__image">
-            <img class="filter__img" alt="spaghetti" src="../static/img/spaghetti.png" th:src="@{img/spaghetti.png}"/>
+            <img class="filter__img" alt="${category.name}"  th:src="@{img/__${category.name}__.png}"/>
           </div>
-          <p>Bars<p>
+          <p th:text="${category.name}">Bars<p>
         </div>
       </div>
     </div>
@@ -34,14 +25,14 @@
   <div class="cards__grid" th:switch="${categories}" th:fragment="category">
     <h2 th:case="null">No categories</h2>
     <div th:each="category : ${categories}">
-      <h2 class="cards__descript" th:text="${category}">Popular Near You</h2>
+      <h2 class="cards__descript" th:text="${category.name}">Popular Near You</h2>
       <div class="cards__row" th:switch="${restaurants}">
         <h2 th:case="null">There are no restaurants in this category</h2>
         <section class="card" th:each="restaurant : ${restaurants}">
           <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
           <div class="card__image">
             <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->
-            <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>
+            <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{__${restaurant.getPhoto().get(0)}__}"/>
           </div>
             <div class="card__content">
               <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
@@ -50,7 +41,7 @@
               <div class="card__restaurantTags" th:each="tags : ${restaurant.getTags()}">
                 <p class="card__tagItem" th:text="${tags.getName()}">Vegan</p>
               </div>
-              <a href="#" class="card__restaurantMenu" th:href="${restaurant.getMenu()}">Menu</a>
+              <a href="#" class="card__restaurantMenu" th:href="${restaurant.getWebsite()}">Menu</a>
             </div>
           </a>
         </section>
