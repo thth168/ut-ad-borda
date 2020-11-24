@@ -3,6 +3,7 @@ package utadborda.application.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utadborda.application.Entities.Restaurant;
+import utadborda.application.Entities.Tag;
 import utadborda.application.Entities.TimeRange;
 import utadborda.application.Exceptions.GeneralExceptions;
 import utadborda.application.services.DAO.RestaurantRepo;
