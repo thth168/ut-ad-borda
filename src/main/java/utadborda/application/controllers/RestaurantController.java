@@ -17,6 +17,7 @@ import utadborda.application.web.restaurantForm;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.UUID;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -31,16 +32,32 @@ public class RestaurantController {
       this.restaurantService = restaurantService;
     }
 
-    @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = GET)
-    public String getSignupView(Model model) {
+    @PostMapping("/restaurantData")
+    public String addRestaurant (
+        @ModelAttribute Restaurant restaurant,
+        Model model
+    ) {
+        restaurantService.addRestaurant(restaurant);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = requestMappings.ADD_RESTAURANT)
+    public String getAddRestaurantView(Model model) {
         model.addAttribute("restaurant", new RestaurantDTO());
         return "addRestaurant";
     }
 
-    @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = POST)
-    public String postSignupView(
-            @ModelAttribute @Valid RestaurantDTO restaurant,
-            RedirectAttributes attributes
+    @RequestMapping(value = requestMappings.RESTAURANT)
+    public String getRestaurantView(Model model, @PathVariable UUID restaurant_id){
+        Restaurant restaurant = restaurantService.getByID(restaurant_id);
+        model.addAttribute("restaurant", restaurant);
+        return "restaurant";
+    }
+
+    @GetMapping(value = "/restaurantData", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Restaurant restaurantData(
+        @RequestParam String name
     ) {
         System.out.println(restaurant);
         return "redirect:/";

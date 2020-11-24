@@ -28,7 +28,6 @@ public class Restaurant {
     private List<Tag> tags;
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menu;
-    private String cuisineType;
 
     protected Restaurant() {}
 
@@ -188,15 +187,4 @@ public class Restaurant {
         this.menu = menu;
     }
 
-    public void addTag(Tag tag) {
-        tags.add(tag);
-    }
-
-    public String getCuisineType() {
-        return cuisineType;
-    }
-
-    public void setCuisineType(String cuisineType) {
-        this.cuisineType = cuisineType;
-    }
 }
