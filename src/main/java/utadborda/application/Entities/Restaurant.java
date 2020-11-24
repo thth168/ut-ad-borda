@@ -1,6 +1,7 @@
 package utadborda.application.Entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +34,7 @@ public class Restaurant {
         this.phone = phone;
         this.address = address;
         this.openingHours = openingHours;
-        this.cuisineType = cuisineType;
+        this.cuisineType = "";
     }
 
     public UUID getId() {
