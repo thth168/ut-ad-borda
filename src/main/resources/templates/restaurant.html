@@ -11,7 +11,7 @@
             <div class="restaurant__header">
                 <div class="restaurant__headerImg">
                     <img class="restaurant__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{/img/sushi.jpeg}"/>
-                    <h1 class="restaurant__title">Bastard Brew and Food</h1>
+                    <h1 th:text="${restaurant.getName()}" class="restaurant__title">Bastard Brew and Food</h1>
                 </div>
                 <div class="restaurant__headerInfo">
                     <p>Vegamótastígur 4</p>|
