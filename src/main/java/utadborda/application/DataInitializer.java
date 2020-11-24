@@ -195,7 +195,9 @@ public class DataInitializer implements ApplicationRunner {
                                 }
 
                                 String tagCategory = "type";
-                                filterTags(tags, restaurant, tagCategory, tagName, tagCount);
+                                if (!filterTags(tags, restaurant, tagCategory, tagName, tagCount)) {
+                                    tagCount ++;
+                                }
 
                             }
 
@@ -225,7 +227,9 @@ public class DataInitializer implements ApplicationRunner {
                             }
 
                             String tagName = (String) addrComp.get("long_name");
-                            filterTags(tags, restaurant, tagCategory, tagName, tagCount);
+                            if (!filterTags(tags, restaurant, tagCategory, tagName, tagCount)) {
+                                tagCount ++;
+                            }
 
                         }
 
@@ -303,18 +307,24 @@ public class DataInitializer implements ApplicationRunner {
 
         }
 
-        for (Tag tag : tags) {
-            tagService.addTag(tag);
-        }
+        try {
+            for (Tag tag : tags) {
+                tagService.addTag(tag);
+            }
 
-        for (Restaurant restaurant : restaurants) {
-            restaurantService.updateRestaurant(restaurant);
-        }
+            for (Restaurant restaurant : restaurants) {
+                restaurantService.updateRestaurant(restaurant);
+            }
 
-        System.out.println("Added " + timeRangeCount + " timeRanges to database.");
-        System.out.println("Added " + tagCount + " tags to database.");
-        System.out.println("Added " + restaurantCount + " restaurants to database.");
-        System.out.println("Data insertion into databse was successful.");
+            System.out.println("Added " + timeRangeCount + " timeRanges to database.");
+            System.out.println("Added " + tagCount + " tags to database.");
+            System.out.println("Added " + restaurantCount + " restaurants to database.");
+            System.out.println("Data insertion into databse was successful.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Data insertion into databse was unsuccessful.");
+        }
 
     }
 
@@ -327,7 +337,7 @@ public class DataInitializer implements ApplicationRunner {
      * @param tagCategory
      * @param tagName
      */
-    private void filterTags(ArrayList<Tag> tags, Restaurant restaurant, String tagCategory, String tagName, int tagCount) {
+    private boolean filterTags(ArrayList<Tag> tags, Restaurant restaurant, String tagCategory, String tagName, int tagCount) {
         boolean tagExists = false;
 
         for (Tag tag : tags) {
@@ -345,8 +355,9 @@ public class DataInitializer implements ApplicationRunner {
             newTag.addRestaurant(restaurant);
             restaurant.addTag(newTag);
             tags.add(newTag);
-            tagCount ++;
         }
+
+        return tagExists;
 
     }
 

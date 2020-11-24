@@ -72,7 +72,7 @@ public class Tag {
     }
 
     public String toString() {
-        return "(" + this.getCategory() + ", " + this.getName() + ")";
+        return this.getCategory() + ": " + this.getName();
     }
 
 }

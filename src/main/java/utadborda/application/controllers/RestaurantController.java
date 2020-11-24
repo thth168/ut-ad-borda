@@ -56,10 +56,9 @@ public class RestaurantController {
 
     @GetMapping(value = "/restaurantData", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Restaurant restaurantData(
+    public String restaurantData(
         @RequestParam String name
     ) {
-        System.out.println(restaurant);
         return "redirect:/";
     }
 }

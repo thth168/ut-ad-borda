@@ -107,28 +107,38 @@ public class TimeRange {
         String str = "";
         switch (this.getWeekDay()) {
             case 0:
-                str += "Monday";
+                str += "Monday: ";
                 break;
             case 1:
-                str += "Tuesday";
+                str += "Tuesday: ";
                 break;
             case 2:
-                str += "Wednesday";
+                str += "Wednesday: ";
                 break;
             case 3:
-                str += "Thursday";
+                str += "Thursday: ";
                 break;
             case 4:
-                str += "Friday";
+                str += "Friday: ";
                 break;
             case 5:
-                str += "Saturday";
+                str += "Saturday: ";
                 break;
             case 6:
-                str += "Sunday";
+                str += "Sunday: ";
                 break;
         }
-        return str + ": " + this.getOpenTime().toString() + " - " + this.getCloseTime().toString();
+        if (this.getOpenTime().toString().equals("00:00:00") && this.getCloseTime().toString().equals("00:00:00")) {
+            str += "00:00 - 24:00";
+        } else {
+            str += this.getOpenTime().toString().replaceFirst(":00", "") + " - ";
+            if (this.getCloseTime().toString().equals("00:00:00")) {
+                str += "24:00";
+            } else {
+                str += this.getCloseTime().toString().replaceFirst(":00", "");
+            }
+        }
+        return str;
     }
 
 }
