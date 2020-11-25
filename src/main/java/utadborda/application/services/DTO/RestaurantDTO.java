@@ -32,7 +32,7 @@ public class RestaurantDTO {
         this.openingHours = restaurant.getOpeningHours();
         this.tags = restaurant.getTags();
         this.menu = restaurant.getMenu();
-        this.photos = restaurant.getPhotos();
+        this.photos = restaurant.getPhoto(0);
         this.website = restaurant.getWebsite();
     }
 

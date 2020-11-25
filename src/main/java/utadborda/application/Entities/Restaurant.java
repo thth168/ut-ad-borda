@@ -225,6 +225,10 @@ public class Restaurant {
         return this.getName();
     }
 
+    public String getCuisineType() {
+        return cuisineType;
+    }
+
     public void setCuisineType(String cuisineType) {
         this.cuisineType = cuisineType;
     }
