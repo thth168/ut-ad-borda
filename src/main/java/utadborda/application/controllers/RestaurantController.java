@@ -126,4 +126,12 @@ public class RestaurantController {
         restaurantService.addRestaurant(restaurant.convertToRestaurant());
         return "redirect:/";
     }
+
+    @RequestMapping(value = requestMappings.RESTAURANT)
+    public String getRestaurantView(Model model, @PathVariable UUID restaurant_id){
+        Restaurant restaurant = restaurantService.getByID(restaurant_id);
+        model.addAttribute("restaurant", restaurant);
+        model.addAttribute("categories", restaurant.getTags());
+        return "restaurant";
+    }
 }   
