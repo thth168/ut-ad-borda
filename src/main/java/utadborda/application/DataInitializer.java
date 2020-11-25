@@ -105,6 +105,7 @@ public class DataInitializer implements ApplicationRunner {
      * @param path - Path to JSON data file.
      */
     private void addToDatabase(String path) {
+        System.out.println("Adding data to database.\nThis might take a while...");
         JSONObject file = loadJSON(path);
         JSONArray data = (JSONArray) file.get("results");
 

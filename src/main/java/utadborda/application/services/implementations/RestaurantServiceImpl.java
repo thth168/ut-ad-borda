@@ -32,14 +32,6 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Restaurant addRestaurant(String name, String phone, String address, List<TimeRange> openingHours) {
-        Restaurant restaurant = new Restaurant(name, address);
-        restaurant.setPhone(phone);
-        restaurant.setOpeningHours(openingHours);
-        return restaurantRepo.save(restaurant);
-    }
-
-    @Override
     public Restaurant addRestaurant(Restaurant restaurant) {
         return restaurantRepo.save(restaurant);
     }

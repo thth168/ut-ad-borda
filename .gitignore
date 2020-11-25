@@ -12,8 +12,8 @@ target/
 .settings
 .springBeans
 .sts4-cache
-data/test.mv.db
-data/test.trace.db
+/data/test.mv.db
+/data/test.trace.db
 
 ### IntelliJ IDEA ###
 .idea

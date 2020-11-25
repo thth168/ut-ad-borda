@@ -37,11 +37,4 @@ public class HomeController {
         model.addAttribute("categories", tagService.getAllByCategory("type"));
         return "home";
     }
-
-    @GetMapping("/restaurant")
-    public String restaurantPage(Model model) {
-        Restaurant restaurant = new Restaurant("Empty", "Empty");
-        model.addAttribute("restaurant", restaurant);
-        return "restaurant";
-    }
 }

@@ -35,12 +35,15 @@ public class Restaurant {
 
     protected Restaurant() {}
 
-    public Restaurant( String name, String address ) {
+    public Restaurant(String name, String phone, String address, String website, String photos, List<Tag> tags, List<MenuItem> menu, String cuisineType) {
         this.name = name;
+        this.phone = phone;
         this.address = address;
-        this.openingHours = new ArrayList<TimeRange>();
-        this.tags = new ArrayList<Tag>();
-        this.menu = new ArrayList<MenuItem>();
+        this.website = website;
+        this.photos = photos;
+        this.tags = tags;
+        this.menu = menu;
+        this.cuisineType = cuisineType;
     }
 
     public Restaurant(
@@ -222,4 +225,15 @@ public class Restaurant {
         return this.getName();
     }
 
+    public String getCuisineType() {
+        return cuisineType;
+    }
+
+    public void setCuisineType(String cuisineType) {
+        this.cuisineType = cuisineType;
+    }
+
+    public void addTimeRange(TimeRange timeRange) {
+        this.openingHours.add(timeRange);
+    }
 }
