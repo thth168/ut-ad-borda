@@ -163,7 +163,7 @@ public class Restaurant {
 
     public String getPhoto(int index) {
         if (this.photos == null) {
-            return "";
+            return null;
         }
         String[] str = this.photos.split("&");
         if (str.length <= index) {
