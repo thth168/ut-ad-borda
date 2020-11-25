@@ -12,9 +12,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
 import utadborda.application.Entities.TimeRange;
+import utadborda.application.Entities.Tag;
 import utadborda.application.services.DTO.RestaurantDTO;
 import utadborda.application.services.DTO.UserDTO;
 import utadborda.application.services.RestaurantService;
+import utadborda.application.services.TagService;
 import utadborda.application.web.requestMappings;
 import utadborda.application.web.restaurantForm;
 
@@ -25,6 +27,9 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -32,12 +37,24 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @SessionAttributes("restaurant")
 public class RestaurantController {
     RestaurantService restaurantService;
+    TagService tagService;
 
     @Autowired
     public RestaurantController(
-        RestaurantService restaurantService
+        RestaurantService restaurantService,
+        TagService tagService
     ) {
       this.restaurantService = restaurantService;
+      this.tagService = tagService;
+    }
+
+    @PostMapping("/restaurantData")
+    public String addRestaurant (
+        @ModelAttribute Restaurant restaurant,
+        Model model
+    ) {
+        restaurantService.addRestaurant(restaurant);
+        return "redirect:/";
     }
 
     @ModelAttribute("restaurant")

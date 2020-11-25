@@ -121,25 +121,25 @@ public class TimeRange {
         String str = "";
         switch (this.getWeekDay()) {
             case 0:
-                str += "Monday";
+                str += "Monday: ";
                 break;
             case 1:
-                str += "Tuesday";
+                str += "Tuesday: ";
                 break;
             case 2:
-                str += "Wednesday";
+                str += "Wednesday: ";
                 break;
             case 3:
-                str += "Thursday";
+                str += "Thursday: ";
                 break;
             case 4:
-                str += "Friday";
+                str += "Friday: ";
                 break;
             case 5:
-                str += "Saturday";
+                str += "Saturday: ";
                 break;
             case 6:
-                str += "Sunday";
+                str += "Sunday: ";
                 break;
         }
         return str;

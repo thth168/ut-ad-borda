@@ -26,6 +26,11 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    public List<Tag> getAllByCategory(String category) {
+        return tagRepo.findAllByCategory(category);
+    }
+
+    @Override
     public List<Tag> getAll() {
         return tagRepo.findAll();
     }

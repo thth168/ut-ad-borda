@@ -6,13 +6,165 @@
 <body>
 <header th:replace="fragments/general.html :: header"></header>
 <main>
-    <div class="restaurant" >
+    <div class="restaurant">
         <div class="restaurant__info">
-            <a th:text="${restaurant.getWebsite()}"> <h2 th:text="${restaurant.getName()}"></h2></a>
-            <p th:text="${restaurant.getEmail()}"></p>
-            <p th:text="${restaurant.getPhoneNumber()}"></p>
+            <div class="restaurant__header">
+                <div class="restaurant__headerImg">
+                    <img class="restaurant__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{${restaurant.getPhoto(0)}}"/>
+                    <h1 th:text="${restaurant.name}" class="restaurant__title">Bastard Brew and Food</h1>
+                </div>
+                <div class="restaurant__headerInfo">
+                    <p th:text="${restaurant.address}">Vegamótastígur 4</p>|
+                    <p th:text="${restaurant.getPhone()}">+354 581 2345</p>|
+<!--                    <p th:text="${restaurant.getPhone()}"></p>-->
+                    <a th:text="${restaurant.getWebsite()}">bastardbrewandfood.is</a>
+                </div>
+            </div>
+            <div class="restaurant__infoCards">
+                <div class="restaurant__infoUpper">
+                <div class="restaurant__infoUpperCard">
+                    <h2 class="restaurant__infoType">Tilboð</h2>
+                    <div class="restaurant__infoBody">
+                        <p class="restaurant__infoTitle">Tilboð hússins:</p>
+                        <div class="restaurant__infoItem">
+                            <p class="restaurant__infoItemText">20% af take away</p>
+                        </div>
+                    </div>
+                    <div class="restaurant__infoBody">
+                        <p class="restaurant__infoTitle">Einkaklúbbur:</p>
+                        <div class="restaurant__infoItem">
+                            <p class="restaurant__infoItemText">2f1 af stórum kranabjórum</p>
+                            <p class="restaurant__infoItemText">%15 af mat</p>
+                        </div>
+                    </div>
+                    <div class="restaurant__infoBody">
+                        <p class="restaurant__infoTitle">Coupons:</p>
+                        <div class="restaurant__infoItem">
+                            <p class="restaurant__infoItemText">20% af reikningnum fyrir kl 4</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="restaurant__infoUpperCard x">
+                    <div class="restaurant__infoType">
+                        <h2 class="restaurant__infoTypeTitle">Stemmning</h2>
+                        <p class="restaurant__infoTypeType">Busy</p>
+                    </div>
+                    <div class="restaurant__infoBodyOuter">
+                        <div class="restaurant__infoBody">
+                            <p class="restaurant__infoTitle">Hádegi</p>
+                            <div class="restaurant__infoItemBox">
+                                <p class="restaurant__infoItemTitle">Virkir dagar:</p>
+                                <p class="restaurant__infoItemPercent">50%-60%</p>
+                            </div>
+                            <div class="restaurant__infoItemBox">
+                                <p class="restaurant__infoItemTitle">Helgar:</p>
+                                <p class="restaurant__infoItemPercent">70%-80%</p>
+                            </div>
+                        </div>
+                        <div class="restaurant__infoBody">
+                            <p class="restaurant__infoTitle">Kvöld</p>
+                            <div class="restaurant__infoItemBox">
+                                <p class="restaurant__infoItemTitle">Virkir dagar:</p>
+                                <p class="restaurant__infoItemPercent">70%-80%</p>
+                            </div>
+                            <div class="restaurant__infoItemBox">
+                                <p class="restaurant__infoItemTitle">Helgar:</p>
+                                <p class="restaurant__infoItemPercent">85%-100%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="restaurant__infoLower">
+                    <div class="restaurant__infoLowerCard">
+                        <h2 class="restaurant__infoType">Happy Hour</h2>
+                        <div class="restaurant__infoBody">
+                            <p class="restaurant__infoTitle">500 kr afsláttur</p>
+                            <div class="restaurant__infoItem">
+                                <p class="restaurant__infoItemText">- Stórar dælubjórar</p>
+                                <p class="restaurant__infoItemText">- Krana kokteilar</p>
+                                <p class="restaurant__infoItemText">- Vín hússins</p>
+                            </div>
+                            <div class="restaurant__infoHours">
+                                <p class="restaurant__infoHoursStart">16:00</p> -
+                                <p class="restaurant__indoHoursEnds">19:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="restaurant__infoLowerCard">
+                        <h2 class="restaurant__infoType">Opnunartímar</h2>
+                        <div th:each="hours : ${restaurant.getOpeningHours()}" class="restaurant__infoBodyOpenHours">
+                            <p th:text="${hours}" class="restaurant__infoTitle">Virkir dagar: </p>
+<!--                            <div class="restaurant__infoHours">-->
+<!--                                <p class="restaurant__infoHoursStart">12:00</p>  - -->
+<!--                                <p class="restaurant__infoHoursEnds">01:00</p>-->
+<!--                            </div>-->
+                        </div>
+<!--                        <div class="restaurant__infoBodyOpenHours">-->
+<!--                            <p class="restaurant__infoTitle">Helgar:</p>-->
+<!--                            <div class="restaurant__infoHours">-->
+<!--                                <p class="restaurant__infoHoursStart">12:00</p>  - -->
+<!--                                <p class="restaurant__infoHoursEnds">04:00</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+            <div class="restaurant__infoLowerCard">
+                <h2 class="restaurant__infoType">Ertu með sérþarfir?</h2>
+                <div class="restaurant__infoBody">
+                    <p class="restaurant__infoTitle">Sérfæði í boði:</p>
+                    <div class="restaurant__infoDietary">
+                        <img alt="X" class="restaurant__infoDietaryBool"/>
+                        <p class="restaurant__infoDietaryType">Vegan</p>
+                    </div>
+                    <div class="restaurant__infoDietary">
+                        <img alt="X" class="restaurant__infoDietaryBool"/>
+                        <p class="restaurant__infoDietaryType">Grænmetis</p>
+                    </div>
+                    <div class="restaurant__infoDietary">
+                        <img alt="X" class="restaurant__infoDietaryBool"/>
+                        <p class="restaurant__infoDietaryType">Keto</p>
+                    </div>
+                    <div class="restaurant__infoDietary">
+                        <img alt="X" class="restaurant__infoDietaryBool"/>
+                        <p class="restaurant__infoDietaryType">Glútenfrí</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--            <a th:text="${restaurant.getWebsite()}"> <h2 th:text="${restaurant.getName()}"></h2></a>-->
+<!--            <p th:text="${restaurant.getEmail()}"></p>-->
         </div>
     </div>
+<!--        <section th:replace="home.html :: category"></section>-->
+        <div class="cards__grid" th:switch="${categories}" th:fragment="category">
+            <h2 th:case="null">No categories</h2>
+            <div th:each="category : ${categories}">
+                <h2 class="cards__descript" th:text="${category.name}">Popular Near You</h2>
+                <div class="cards__row" th:switch="${category.getRestaurants()}">
+                    <h2 th:case="null">There are no restaurants in this category</h2>
+                    <section class="card" th:each="restaurant : ${category.getRestaurants()}">
+                        <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
+                            <div class="card__image">
+                                <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->
+                                <img class="card__img" alt="sushi" src="../../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>
+                            </div>
+                            <div class="card__content">
+                                <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
+                                <p class="card__restaurantHours" th:text="${restaurant.getOpeningHours()}">Kitchen hours: 11:30 - 22:00</p>
+                                <p class="card__restaurantType" th:text="${restaurant.getPhone()}">Quick service</p>
+                                <div class="card__restaurantTags" th:each="tags : ${restaurant.getTags()}">
+                                    <p class="card__tagItem" th:text="${tags.getName()}">Vegan</p>
+                                </div>
+                                <div th:switch="${restaurant.getWebsite()}">
+                                    <p th:case="null"></p>
+                                    <a class="card__restaurantMenu" th:href="${restaurant.getWebsite()}">Menu</a>
+                                </div>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </div>
+        </div>
 </main>
 </body>
 </html>

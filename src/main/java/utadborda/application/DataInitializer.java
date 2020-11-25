@@ -16,6 +16,7 @@ import utadborda.application.services.TagService;
 import utadborda.application.services.TimeRangeService;
 import utadborda.application.services.UserService;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -104,6 +105,7 @@ public class DataInitializer implements ApplicationRunner {
      * @param path - Path to JSON data file.
      */
     private void addToDatabase(String path) {
+        System.out.println("Adding data to database.\nThis might take a while...");
         JSONObject file = loadJSON(path);
         JSONArray data = (JSONArray) file.get("results");
 
@@ -126,6 +128,8 @@ public class DataInitializer implements ApplicationRunner {
                 "grocery_or_supermarket",
                 "supermarket"
         ));
+
+        ArrayList<String> photoList = new ArrayList<String>(Arrays.asList((new File("src/main/resources/static/r/")).list()));
 
         for (JSONObject place : (Iterable<JSONObject>) data) {
             try {
@@ -195,7 +199,9 @@ public class DataInitializer implements ApplicationRunner {
                                 }
 
                                 String tagCategory = "type";
-                                filterTags(tags, restaurant, tagCategory, tagName, tagCount);
+                                if (!filterTags(tags, restaurant, tagCategory, tagName, tagCount)) {
+                                    tagCount ++;
+                                }
 
                             }
 
@@ -225,7 +231,9 @@ public class DataInitializer implements ApplicationRunner {
                             }
 
                             String tagName = (String) addrComp.get("long_name");
-                            filterTags(tags, restaurant, tagCategory, tagName, tagCount);
+                            if (!filterTags(tags, restaurant, tagCategory, tagName, tagCount)) {
+                                tagCount ++;
+                            }
 
                         }
 
@@ -294,6 +302,22 @@ public class DataInitializer implements ApplicationRunner {
 
                 }
 
+                if (place.containsKey("photos")) {
+                    JSONArray photoObject = (JSONArray) place.get("photos");
+
+                    for (Object p : photoObject) {
+                        JSONObject photo = (JSONObject) p;
+
+                        String reference = (String) photo.get("photo_reference") + ".png";
+
+                        if (photoList.contains(reference)) {
+                            restaurant.addPhoto("r/" + reference);
+                        }
+
+                    }
+
+                }
+
                 restaurants.add(restaurant);
 
             } catch (Exception e) {
@@ -303,18 +327,24 @@ public class DataInitializer implements ApplicationRunner {
 
         }
 
-        for (Tag tag : tags) {
-            tagService.addTag(tag);
-        }
+        try {
+            for (Tag tag : tags) {
+                tagService.addTag(tag);
+            }
 
-        for (Restaurant restaurant : restaurants) {
-            restaurantService.updateRestaurant(restaurant);
-        }
+            for (Restaurant restaurant : restaurants) {
+                restaurantService.updateRestaurant(restaurant);
+            }
 
-        System.out.println("Added " + timeRangeCount + " timeRanges to database.");
-        System.out.println("Added " + tagCount + " tags to database.");
-        System.out.println("Added " + restaurantCount + " restaurants to database.");
-        System.out.println("Data insertion into databse was successful.");
+            System.out.println("Added " + timeRangeCount + " timeRanges to database.");
+            System.out.println("Added " + tagCount + " tags to database.");
+            System.out.println("Added " + restaurantCount + " restaurants to database.");
+            System.out.println("Data insertion into databse was successful.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Data insertion into databse was unsuccessful.");
+        }
 
     }
 
@@ -327,7 +357,7 @@ public class DataInitializer implements ApplicationRunner {
      * @param tagCategory
      * @param tagName
      */
-    private void filterTags(ArrayList<Tag> tags, Restaurant restaurant, String tagCategory, String tagName, int tagCount) {
+    private boolean filterTags(ArrayList<Tag> tags, Restaurant restaurant, String tagCategory, String tagName, int tagCount) {
         boolean tagExists = false;
 
         for (Tag tag : tags) {
@@ -345,8 +375,9 @@ public class DataInitializer implements ApplicationRunner {
             newTag.addRestaurant(restaurant);
             restaurant.addTag(newTag);
             tags.add(newTag);
-            tagCount ++;
         }
+
+        return tagExists;
 
     }
 

@@ -48,7 +48,32 @@ public class Tag {
     }
 
     public void setName(String name) {
-        this.name = name;
+        switch (name){
+            case "bakery":
+                this.name = "Bakery";
+                break;
+            case "grocer":
+                this.name = "Grocery Store";
+                break;
+            case "cafe":
+                this.name = "Café";
+                break;
+            case "restaurant":
+                this.name = "Restaurant";
+                break;
+            case "liquorStore":
+                this.name = "Liquor Store";
+                break;
+            case "bar":
+                this.name = "Pub";
+                break;
+            case "nightClub":
+                this.name = "Night Club";
+                break;
+            case "gasStation":
+                this.name = "Fast Food";
+                break;
+        }
     }
 
     public String getCategory() {
@@ -72,7 +97,7 @@ public class Tag {
     }
 
     public String toString() {
-        return "(" + this.getCategory() + ", " + this.getName() + ")";
+        return this.getCategory() + ": " + this.getName();
     }
 
 }

@@ -34,3 +34,9 @@ build/
 ### VS Code ###
 .vscode/
 /bin/
+data/test.mv.db
+data/test.mv.db
+*.png
+scraper/photos/
+src/main/resources/static/r/
+src/main/resources/application.properties

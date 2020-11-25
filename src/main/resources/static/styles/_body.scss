@@ -5,7 +5,7 @@ main {
 }
 
 .filter {
-  height: 150px;
+
   position: relative;
   overflow: hidden;
   padding-left: ($gutter / 2);
@@ -15,8 +15,11 @@ main {
   
  &__grid {
     @include grid;
+    max-width: 1800px;
     margin-top: auto;
     margin-bottom: auto;
+    overflow-x: scroll;
+
   } 
   
  &__options {
@@ -26,12 +29,15 @@ main {
     padding-bottom: $gutter;
     padding-top: $gutter;
     border-bottom: 2px solid $color-anti-flash-white;
+    padding-left: 50px;
  }
  
  &__item {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px;
+    align-items: center;
    p {
      margin: 0;
    	 font-family: $font-body;
@@ -40,7 +46,10 @@ main {
  
  &__image {
    img { 
-     height: 45px;
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
    }
  }
 }
@@ -58,7 +67,12 @@ main {
     flex-direction:column;
     /*max-width: 1200px;*/
   }
-  
+
+  &__descript{
+    font-size: 3em;
+    padding: 2rem 0;
+  }
+
   &__row {
     display:flex;
     flex-direction:row;
@@ -67,19 +81,19 @@ main {
     margin-right: ($gutter / -2);
     
     &::-webkit-scrollbar-track{
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
       border-radius: 10px;
       background-color: #F5F5F5;
     }
 
     &::-webkit-scrollbar{
-      width: 6px;
+      width: 3px;
       background-color: #F5F5F5;
     }
 
     &::-webkit-scrollbar-thumb{
       border-radius: 10px;
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.3);
       background-color: #555;
     }
     
@@ -89,7 +103,7 @@ main {
 .card {
     padding-left: ($gutter / 2);
     padding-right: ($gutter / 2);
-    //min-width: 290px;
+    min-width: 400px;
     //max-width: 800px;
     display: flex;
     flex-direction: column;
