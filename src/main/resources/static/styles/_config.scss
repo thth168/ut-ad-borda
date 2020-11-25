@@ -39,7 +39,7 @@ a {
 }
 
 @mixin grid() {
-  max-width: $max-width;
+//  max-width: $max-width;
   margin: 0 auto;
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
