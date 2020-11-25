@@ -36,6 +36,9 @@ build/
 /bin/
 data/test.mv.db
 data/test.mv.db
+<<<<<<< HEAD
 *.png
 img/photos
 scraper
+=======
+>>>>>>> parent of f37912d... lol
