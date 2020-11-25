@@ -12,8 +12,8 @@ target/
 .settings
 .springBeans
 .sts4-cache
-/data/test.mv.db
-/data/test.trace.db
+
+data/
 
 ### IntelliJ IDEA ###
 .idea
@@ -34,8 +34,6 @@ build/
 ### VS Code ###
 .vscode/
 /bin/
-data/test.mv.db
-data/test.mv.db
 *.png
 scraper/photos/
 src/main/resources/static/r/
