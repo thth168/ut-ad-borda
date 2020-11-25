@@ -128,7 +128,7 @@ public class DataInitializer implements ApplicationRunner {
                 "supermarket"
         ));
 
-        ArrayList<String> photoList = new ArrayList<String>(Arrays.asList((new File("scraper/photos/")).list()));
+        ArrayList<String> photoList = new ArrayList<String>(Arrays.asList((new File("src/main/resources/static/img/restaurants")).list()));
 
         for (JSONObject place : (Iterable<JSONObject>) data) {
             try {
@@ -310,7 +310,7 @@ public class DataInitializer implements ApplicationRunner {
                         String reference = (String) photo.get("photo_reference") + ".png";
 
                         if (photoList.contains(reference)) {
-                            restaurant.addPhoto("scraper/photos/" + reference);
+                            restaurant.addPhoto("img/restaurants/" + reference);
                         }
 
                     }
