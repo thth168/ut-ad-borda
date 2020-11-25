@@ -37,3 +37,5 @@ build/
 data/test.mv.db
 data/test.mv.db
 *.png
+img/photos
+scraper
