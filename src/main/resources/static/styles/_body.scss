@@ -25,7 +25,7 @@ main {
  &__options {
    display: flex;
    justify-content: space-evenly;
-   
+    width:1800px;
     padding-bottom: $gutter;
     padding-top: $gutter;
     border-bottom: 2px solid $color-anti-flash-white;
@@ -70,7 +70,7 @@ main {
 
   &__descript{
     font-size: 3em;
-    padding: 2rem 0;
+    padding-top: 2rem;
   }
 
   &__row {
@@ -101,14 +101,16 @@ main {
  
  }
 .card {
-    padding-left: ($gutter / 2);
-    padding-right: ($gutter / 2);
+    padding-left: 15px;
+    padding-right: 15px;
+    /* padding: 15px; */
+    margin: 20px;
     min-width: 400px;
-    //max-width: 800px;
     display: flex;
     flex-direction: column;
-
     word-break: break-word;
+    box-shadow: 2px 3px 15px 1px #888888;
+    border-radius: 4px;
 
     
 	&__img {
@@ -116,11 +118,11 @@ main {
        	height: 300px;
        	object-fit: cover;
 	}
-	
+
 	&__restaurantTitle { 
 		margin:0;
 		font-family: $font-heading;
-		font-size: 22px;
+		font-size: 2em;
 	}	
 	
 	&__content {
@@ -129,14 +131,21 @@ main {
 			font-family: $font-body;
 		}
 	}
+
+	&__restaurantMenu{
+        padding-left: ($gutter / 2);
+        padding-right: ($gutter / 2);
+	}
 }
 
 .main{
-  
+  display: flex;
+  flex-wrap: wrap;
+
   &__grid{
-  margin: 40px 0;
+    margin: 40px 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
   }
 }
