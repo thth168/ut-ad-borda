@@ -68,7 +68,7 @@ public class DataInitializer implements ApplicationRunner {
          * Database insert from file. Keep in while spring.jpa.hibernate.ddl-auto is == to create in application.properties.
          * Otherwise run only once and comment out to avoid multiple loads of the dataset into the db.
          */
-        addToDatabase("scraper/merged_data_complete.json");
+        //addToDatabase("scraper/merged_data_complete.json");
 
         try {
             userService.registerNewUser(new UserDTO("test", "test", "test", "test@test.is", new SimpleDateFormat("dd/MM/yy").parse("04/12/97")));
@@ -105,7 +105,7 @@ public class DataInitializer implements ApplicationRunner {
      * @param path - Path to JSON data file.
      */
     private void addToDatabase(String path) {
-        System.out.println("Adding data to database.\nThis might take a while...");
+        System.out.println("Adding data to database\nThis might take a while...");
         JSONObject file = loadJSON(path);
         JSONArray data = (JSONArray) file.get("results");
 
@@ -322,7 +322,7 @@ public class DataInitializer implements ApplicationRunner {
 
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Data insertion into databse was unsuccessful.");
+                System.out.println("Data insertion into databse was unsuccessful");
             }
 
         }
@@ -336,14 +336,14 @@ public class DataInitializer implements ApplicationRunner {
                 restaurantService.updateRestaurant(restaurant);
             }
 
-            System.out.println("Added " + timeRangeCount + " timeRanges to database.");
-            System.out.println("Added " + tagCount + " tags to database.");
-            System.out.println("Added " + restaurantCount + " restaurants to database.");
-            System.out.println("Data insertion into databse was successful.");
+            System.out.println("Added " + timeRangeCount + " timeRanges to database");
+            System.out.println("Added " + tagCount + " tags to database");
+            System.out.println("Added " + restaurantCount + " restaurants to database");
+            System.out.println("Data insertion into databse was successful");
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Data insertion into databse was unsuccessful.");
+            System.out.println("Data insertion into databse was unsuccessful");
         }
 
     }

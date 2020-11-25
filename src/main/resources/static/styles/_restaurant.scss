@@ -1,5 +1,7 @@
 @import './_config.scss';
 
+$the-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.2);
+
 *{
     margin: 0 0;
     padding: 0 0;
@@ -120,7 +122,25 @@ main {
 
         &Dietary{
             display:flex;
+            position: relative;
+            width: 170px;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+
+            &Type {
+                position: absolute;
+                right: 0;
+            }
+
+            &Bool {
+
+            }
+
         }
+
         &Title{
             margin: 0 10px 0 0;
         }
@@ -148,11 +168,39 @@ main {
 
         &BodyOpenHours{
             display: flex;
+            position: relative;
+            min-width: 245px;
+
+            &__Day {
+
+            }
+
+            &__Hour {
+                position: absolute;
+                right: 0;
+            }
+
         }
 
+    }
+
+    &__gmap__router {
+        position:relative;
+        text-align:right;
+        height:500px;
+        width:700px;
+        margin: auto;
+        padding: 20px;
+        box-shadow: $the-shadow;
+    }
+
+    &__gmap__canvas {
+        background:none !important;
+        height:500px;
+        width:700px;
     }
 }
 
 x {
-            align-item:center;
-        }
+    align-item:center;
+}
