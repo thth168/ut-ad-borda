@@ -310,7 +310,7 @@ public class DataInitializer implements ApplicationRunner {
                         String reference = (String) photo.get("photo_reference") + ".png";
 
                         if (photoList.contains(reference)) {
-                            restaurant.addPhoto("r/" + reference);
+                            restaurant.addPhoto("/r/" + reference);
                         }
 
                     }

@@ -10,7 +10,7 @@
         <div class="restaurant__info">
             <div class="restaurant__header">
                 <div class="restaurant__headerImg">
-                    <img class="restaurant__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{${restaurant.getPhoto(0)}}"/>
+                    <img class="restaurant__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{..{url}(url=${restaurant.getPhoto(0)})}"/>
                     <h1 th:text="${restaurant.name}" class="restaurant__title">Bastard Brew and Food</h1>
                 </div>
                 <div class="restaurant__headerInfo">
@@ -146,7 +146,7 @@
                         <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
                             <div class="card__image">
                                 <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->
-                                <img class="card__img" alt="sushi" src="../../static/img/sushi.jpeg" th:src="@{img/sushi.jpeg}"/>
+                                <img class="card__img" alt="sushi" src="../../static/img/sushi.jpeg" th:src="@{..{url}(url=${restaurant.getPhoto(0)})}"/>
                             </div>
                             <div class="card__content">
                                 <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
