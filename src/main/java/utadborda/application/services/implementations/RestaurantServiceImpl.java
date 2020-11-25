@@ -51,4 +51,8 @@ public class RestaurantServiceImpl implements RestaurantService {
         return restaurantRepo.save(restaurant);
     }
 
+    @Override
+    public boolean existsById(UUID id) {
+        return restaurantRepo.existsById(id);
+    }
 }

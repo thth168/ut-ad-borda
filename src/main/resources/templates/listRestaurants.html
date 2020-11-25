@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="is">
+<head th:insert="fragments/general.html :: headerfiles">
+    <title id="title">Out to Eat</title>
+</head>
+<body>
+    <header th:insert="fragments/general.html :: header">
+    </header>
+    <div class="table-responsive container-fluid center">
+        <table class="table table-bordered table-hover mx-auto" style="max-width: 1000px">
+            <thead class="thead-dark">
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col"></th>
+            <th scope="col">
+                <form th:action="@{/addRestaurant}">
+                    <button type="submit" class="btn btn-success">Add new restaurant</button>
+                </form>
+            </th>
+            </thead>
+            <tbody>
+            <tr th:each="restaurant, rowStat: ${myRestaurants}">
+                <td th:text="${restaurant.name}" class="col-sm-2">
+                    name
+                </td>
+                <td th:text="${restaurant.address}" class="col-sm-2">
+                    address
+                </td>
+                <td class="col-sm-1 text-right">
+                    <form th:action="@{/restaurant/{id}(id=__${restaurant.getId()}__)}">
+                        <button type="submit" class="btn btn-primary">View listing</button>
+                    </form>
+                </td>
+                <td class="col-sm-1 text-right">
+                    <form th:action="@{/editRestaurant/{id}(id=__${restaurant.getId()}__)}">
+                        <button type="submit" class="btn btn-danger">Edit</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

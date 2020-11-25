@@ -87,4 +87,10 @@ public class UserController {
         model.addAttribute("LoggedInUser", userService.getUserDetails(email));
     	return "account";
     }
+
+    @RequestMapping(value = requestMappings.MY_RESTAURANTS)
+    public String getMyRestaurants(Model model, Principal principal) {
+        model.addAttribute("myRestaurants", userService.findUser(principal.getName()).getRestaurants());
+        return "listRestaurants";
+    }
 }

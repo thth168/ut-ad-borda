@@ -1,33 +1,27 @@
 package utadborda.application.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import utadborda.application.Entities.Restaurant;
-import utadborda.application.Entities.Tag;
-import utadborda.application.Entities.TimeRange;
+import utadborda.application.Entities.*;
 import utadborda.application.Entities.Tag;
 import utadborda.application.services.DTO.RestaurantDTO;
-import utadborda.application.services.DTO.UserDTO;
 import utadborda.application.services.RestaurantService;
 import utadborda.application.services.TagService;
+import utadborda.application.services.UserService;
 import utadborda.application.web.requestMappings;
-import utadborda.application.web.restaurantForm;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.io.IOException;
+import java.security.Principal;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,14 +32,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class RestaurantController {
     RestaurantService restaurantService;
     TagService tagService;
+    UserService userService;
 
     @Autowired
     public RestaurantController(
         RestaurantService restaurantService,
-        TagService tagService
+        TagService tagService,
+        UserService userService
     ) {
       this.restaurantService = restaurantService;
       this.tagService = tagService;
+      this.userService = userService;
     }
 
     @PostMapping("/restaurantData")
@@ -63,12 +60,7 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = GET)
-    public String getSignupView(@ModelAttribute("restaurant") RestaurantDTO restaurant, Model model) {
-        restaurant.setOpeningHours(
-                restaurant.getOpeningHours()
-                        .stream().sorted((Comparator.comparing(TimeRange::getWeekDay).thenComparing(TimeRange::getSpecialDate)))
-                        .collect(Collectors.toList())
-        );
+    public String getSignupView(SessionStatus status, Model model) {
         return "addRestaurant";
     }
 
@@ -84,7 +76,7 @@ public class RestaurantController {
                         false,
                         Date.valueOf("1970-1-1")
                 ));
-                return "redirect:/addRestaurant";
+                return "addRestaurant";
             }
         }
         restaurant.addTimeRange(new TimeRange(
@@ -94,7 +86,12 @@ public class RestaurantController {
                 true,
                 Date.valueOf(LocalDate.now())
         ));
-        return "redirect:/addRestaurant";
+        restaurant.setOpeningHours(
+                restaurant.getOpeningHours()
+                        .stream().sorted((Comparator.comparing(TimeRange::getWeekDay).thenComparing(TimeRange::getSpecialDate)))
+                        .collect(Collectors.toList())
+        );
+        return "addRestaurant";
     }
 
     @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = POST, params={"removeDateRow"})
@@ -109,7 +106,7 @@ public class RestaurantController {
             "",
                 ""
         ));
-        return "redirect:/addRestaurant";
+        return "addRestaurant";
     }
 
     @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = POST, params={"removeTagRow"})
@@ -121,17 +118,32 @@ public class RestaurantController {
     @RequestMapping(value = requestMappings.ADD_RESTAURANT, method = POST)
     public String postSignupView(
             @ModelAttribute @Valid RestaurantDTO restaurant,
-            RedirectAttributes attributes
+            RedirectAttributes attributes,
+            Principal principal,
+            SessionStatus status
     ) {
-        restaurantService.addRestaurant(restaurant.convertToRestaurant());
+        User owner = userService.findUser(principal.getName());
+        if(restaurant.getId() != null && restaurantService.existsById(restaurant.getId())){
+
+        } else {
+            restaurantService.addRestaurant(restaurant.convertToRestaurant(owner));
+        }
+        status.setComplete();
         return "redirect:/";
     }
 
     @RequestMapping(value = requestMappings.RESTAURANT)
-    public String getRestaurantView(Model model, @PathVariable UUID restaurant_id){
+    public String getRestaurantView(Model model, @PathVariable UUID restaurant_id, SessionStatus status){
         Restaurant restaurant = restaurantService.getByID(restaurant_id);
         model.addAttribute("restaurant", restaurant);
         model.addAttribute("categories", restaurant.getTags());
+        status.setComplete();
         return "restaurant";
+    }
+
+    @RequestMapping(value = requestMappings.EDIT_RESTAURANT)
+    public String editRestaurant(Model model, @PathVariable UUID restaurant_id) {
+        model.addAttribute("restaurant", new RestaurantDTO(restaurantService.getByID(restaurant_id)));
+        return "addRestaurant";
     }
 }   

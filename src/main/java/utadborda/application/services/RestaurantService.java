@@ -11,7 +11,7 @@ public interface RestaurantService {
     List<Restaurant> getAll();
     Restaurant addRestaurant(Restaurant restaurant);
     Restaurant updateRestaurant(Restaurant restaurant);
-
+    boolean existsById(UUID id);
     Restaurant getByID(UUID restaurant_ID);
 
 }
