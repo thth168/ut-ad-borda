@@ -36,9 +36,7 @@ build/
 /bin/
 data/test.mv.db
 data/test.mv.db
-<<<<<<< HEAD
 *.png
-img/photos
-scraper
-=======
->>>>>>> parent of f37912d... lol
+scraper/photos/
+src/main/resources/static/r/
+src/main/resources/application.properties
