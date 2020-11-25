@@ -152,11 +152,17 @@ public class Restaurant {
     }
 
     public List<String> getPhotos() {
-        return new ArrayList<String>(Arrays.asList(this.photos.split("|")));
+        if (this.photos == null) {
+            return new ArrayList<String>();
+        }
+        return new ArrayList<String>(Arrays.asList(this.photos.split("&")));
     }
 
     public String getPhoto(int index) {
-        String[] str = this.photos.split("|");
+        if (this.photos == null) {
+            return "";
+        }
+        String[] str = this.photos.split("&");
         if (str.length <= index) {
             return str[str.length-1];
         } else {
@@ -165,14 +171,14 @@ public class Restaurant {
     }
 
     public void setPhotos(List<String> photos) {
-        this.photos = String.join("|", photos);
+        this.photos = String.join("&", photos);
     }
 
     public void addPhoto(String photoReference) {
         if (this.photos == null) {
             this.photos = photoReference;
         } else {
-            this.photos += "|" + photoReference;
+            this.photos += "&" + photoReference;
         }
     }
 
