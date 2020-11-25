@@ -105,7 +105,8 @@ main {
     padding-right: 15px;
     /* padding: 15px; */
     margin: 20px;
-    min-width: 400px;
+    min-width: 300px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     word-break: break-word;
