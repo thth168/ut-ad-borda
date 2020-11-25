@@ -8,9 +8,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class RestaurantDTO {
 
+    private UUID id;
     private String name;
     private String address;
     private String phone;
@@ -22,6 +24,7 @@ public class RestaurantDTO {
     private String photos;
 
     public RestaurantDTO(Restaurant restaurant){
+        this.id = restaurant.getId();
         this.name = restaurant.getName();
         this.address = restaurant.getAddress();
         this.phone = restaurant.getPhone();
@@ -131,6 +134,14 @@ public class RestaurantDTO {
 
     public void removeTimeRange(int index) {
         this.openingHours.remove(index);
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public Restaurant convertToRestaurant(User user) {

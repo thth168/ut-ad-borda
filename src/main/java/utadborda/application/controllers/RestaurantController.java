@@ -1,34 +1,27 @@
 package utadborda.application.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import utadborda.application.Entities.*;
 import utadborda.application.Entities.Tag;
 import utadborda.application.services.DTO.RestaurantDTO;
-import utadborda.application.services.DTO.UserDTO;
 import utadborda.application.services.RestaurantService;
 import utadborda.application.services.TagService;
 import utadborda.application.services.UserService;
 import utadborda.application.web.requestMappings;
-import utadborda.application.web.restaurantForm;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.io.IOException;
 import java.security.Principal;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -130,7 +123,11 @@ public class RestaurantController {
             SessionStatus status
     ) {
         User owner = userService.findUser(principal.getName());
-        restaurantService.addRestaurant(restaurant.convertToRestaurant(owner));
+        if(restaurant.getId() != null && restaurantService.existsById(restaurant.getId())){
+
+        } else {
+            restaurantService.addRestaurant(restaurant.convertToRestaurant(owner));
+        }
         status.setComplete();
         return "redirect:/";
     }
@@ -142,5 +139,11 @@ public class RestaurantController {
         model.addAttribute("categories", restaurant.getTags());
         status.setComplete();
         return "restaurant";
+    }
+
+    @RequestMapping(value = requestMappings.EDIT_RESTAURANT)
+    public String editRestaurant(Model model, @PathVariable UUID restaurant_id) {
+        model.addAttribute("restaurant", new RestaurantDTO(restaurantService.getByID(restaurant_id)));
+        return "addRestaurant";
     }
 }   
