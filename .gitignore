@@ -36,3 +36,5 @@ build/
 /bin/
 data/test.mv.db
 data/test.mv.db
+
+src/main/resources/static/r/
