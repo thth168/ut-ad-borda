@@ -50,7 +50,7 @@
   </div>
   <div class="main" th:switch="${restaurants}">
     <h2 th:case="null">No restaurants found</h2>
-    <div class="main__grid" th:each="restaurant : ${restaurants}">
+    <div class="main__grid">
       <section class="card" th:each="restaurant : ${restaurants}">
         <div class="card__image">
           <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->

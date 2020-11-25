@@ -43,7 +43,7 @@ public class User {
     @ElementCollection
     private List<String> roles;
 
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     private List<Restaurant> restaurants;
 
     public String getFirstName() {

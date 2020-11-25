@@ -56,4 +56,10 @@ public class UserServiceImpl implements UserService {
         UserDetailsDTO userdetails = new UserDetailsDTO(userRepo.findByEmail(email));
         return userdetails;
     }
+
+    @Transactional
+    @Override
+    public User findUser(String email) {
+        return userRepo.findByEmail(email);
+    }
 }

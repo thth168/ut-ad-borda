@@ -1,10 +1,7 @@
 package utadborda.application.services.DTO;
 
 import org.springframework.util.AutoPopulatingList;
-import utadborda.application.Entities.MenuItem;
-import utadborda.application.Entities.Restaurant;
-import utadborda.application.Entities.Tag;
-import utadborda.application.Entities.TimeRange;
+import utadborda.application.Entities.*;
 
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -104,6 +101,22 @@ public class RestaurantDTO {
         this.cuisineType = cuisineType;
     }
 
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
+    }
+
     public void addTag(Tag tag) {
         this.tags.add(tag);
     }
@@ -120,7 +133,7 @@ public class RestaurantDTO {
         this.openingHours.remove(index);
     }
 
-    public Restaurant convertToRestaurant() {
+    public Restaurant convertToRestaurant(User user) {
         Restaurant restaurant = new Restaurant(
                 this.name,
                 this.phone,
@@ -129,7 +142,8 @@ public class RestaurantDTO {
                 this.photos,
                 this.tags,
                 this.menu,
-                this.cuisineType
+                this.cuisineType,
+                user
         );
         return restaurant;
     }
