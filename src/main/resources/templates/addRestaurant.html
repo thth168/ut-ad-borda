@@ -10,6 +10,7 @@
         <h1>Add Restaurant</h1>
         <div class="container-fluid">
             <form action="#" th:action="@{/addRestaurant}" th:object="${restaurant}" method="post">
+                <input type="hidden" th:field="*{id}">
                 <fieldset class="form-group">
                     <legend>General info</legend>
                     <div class="form-inline">

@@ -158,4 +158,18 @@ public class RestaurantDTO {
         );
         return restaurant;
     }
+
+    public void updateRestaurant(Restaurant restaurant) {
+        restaurant.setName(this.name);
+        restaurant.setPhone(this.phone);
+        restaurant.setAddress(this.address);
+        restaurant.setWebsite(this.website);
+        restaurant.setPhotos(this.photos);
+        restaurant.setTags(this.tags);
+        restaurant.setMenu(this.menu);
+        restaurant.setCuisineType(this.cuisineType);
+        for(TimeRange timeRange: this.openingHours) {
+            restaurant.addTimeRange(timeRange);
+        }
+    }
 }

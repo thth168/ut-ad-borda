@@ -76,6 +76,11 @@ public class RestaurantController {
                         false,
                         Date.valueOf("1970-1-1")
                 ));
+                restaurant.setOpeningHours(
+                        restaurant.getOpeningHours()
+                                .stream().sorted((Comparator.comparing(TimeRange::getWeekDay).thenComparing(TimeRange::getSpecialDate)))
+                                .collect(Collectors.toList())
+                );
                 return "addRestaurant";
             }
         }
@@ -124,7 +129,10 @@ public class RestaurantController {
     ) {
         User owner = userService.findUser(principal.getName());
         if(restaurant.getId() != null && restaurantService.existsById(restaurant.getId())){
-
+            Restaurant res = restaurantService.getByID(restaurant.getId());
+            restaurant.updateRestaurant(res);
+            System.out.println(res.getOwner());
+            restaurantService.updateRestaurant(res);
         } else {
             restaurantService.addRestaurant(restaurant.convertToRestaurant(owner));
         }
