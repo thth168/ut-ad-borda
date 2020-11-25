@@ -41,6 +41,20 @@ public class TimeRange {
             Time openTime,
             Time closeTime,
             int weekDay,
+            boolean holiday,
+            Date specialDate
+    ) {
+        this.openTime = openTime;
+        this.closeTime = closeTime;
+        this.weekDay = weekDay;
+        this.holiday = holiday;
+        this.specialDate = specialDate;
+    }
+
+    public TimeRange(
+            Time openTime,
+            Time closeTime,
+            int weekDay,
             Restaurant restaurant
     ) {
         this.openTime = openTime;
@@ -103,7 +117,7 @@ public class TimeRange {
         this.restaurant = restaurant;
     }
 
-    public String toString() {
+    public String weekdayToString() {
         String str = "";
         switch (this.getWeekDay()) {
             case 0:
@@ -128,7 +142,11 @@ public class TimeRange {
                 str += "Sunday";
                 break;
         }
-        return str + ": " + this.getOpenTime().toString() + " - " + this.getCloseTime().toString();
+        return str;
+    }
+
+    public String toString() {
+        return weekdayToString() + ": " + this.getOpenTime().toString() + " - " + this.getCloseTime().toString();
     }
 
 }

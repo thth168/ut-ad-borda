@@ -11,11 +11,11 @@
         <form action="#" th:action="@{/addRestaurant}" th:object="${restaurant}" method="post">
             <fieldset>
                 <label for="name">Name:</label>
-                <input id="name" type="text" th:field="*{name}">
+                <input id="name" type="text" th:field="*{name}" required>
                 <label for="address">Address:</label>
-                <input id="address" type="text" th:field="*{address}">
+                <input id="address" type="text" th:field="*{address}" required>
                 <label for="phoneNumber">Phone:</label>
-                <input id="phoneNumber" type="tel" th:field="*{phone}" pattern="[0-9]{3}-[0-9]{4}">
+                <input id="phoneNumber" type="tel" th:field="*{phone}" pattern="[0-9]{3}-[0-9]{4}" required>
                 <select id="cuisineType" th:field="*{cuisineType}">
                     <option value="bar">Bar</option>
                     <option value="chinese">Chinese</option>
@@ -23,60 +23,112 @@
                 </select>
             </fieldset>
             <fieldset>
-                <legend>Opnunartímar</legend>
-                <fieldset>
-                    <legend>Mánudagar</legend>
-                    <label for="mondayOpen">Opnar:</label>
-                    <input id="mondayOpen" type="time">
-                    <label for="mondayClose">Lokar:</label>
-                    <input id="mondayClose" type="time">
-                </fieldset>
-                <fieldset>
-                    <legend>Þriðjudagar</legend>
-                    <label for="tuesdayOpen">Opnar:</label>
-                    <input id="tuesdayOpen" type="time">
-                    <label for="tuesdayClose">Lokar:</label>
-                    <input id="tuesdayClose" type="time">
-                </fieldset>
-                <fieldset>
-                    <legend>Miðvikudagar</legend>
-                    <label for="wednesdayOpen">Opnar:</label>
-                    <input id="wednesdayOpen" type="time">
-                    <label for="wednesdayClose">Lokar:</label>
-                    <input id="wednesdayClose" type="time">
-                </fieldset>
-                <fieldset>
-                    <legend>Fimmtudagar</legend>
-                    <label for="thursdayOpen">Opnar:</label>
-                    <input id="thursdayOpen" type="time">
-                    <label for="thursdayClose">Lokar:</label>
-                    <input id="thursdayClose" type="time">
-                </fieldset>
-                <fieldset>
-                    <legend>Föstudagar</legend>
-                    <label for="fridayOpen">Opnar:</label>
-                    <input id="fridayOpen" type="time">
-                    <label for="fridayClose">Lokar:</label>
-                    <input id="fridayClose" type="time">
-                </fieldset>
-                <fieldset>
-                    <legend>Laugardagar</legend>
-                    <label for="saturdayOpen">Opnar:</label>
-                    <input id="saturdayOpen" type="time">
-                    <label for="saturdayClose">Lokar:</label>
-                    <input id="saturdayClose" type="time">
-                </fieldset>
-                <fieldset>
-                    <legend>Sunnudagar</legend>
-                    <label for="sundayOpen">Opnar:</label>
-                    <input id="sundayOpen" type="time">
-                    <label for="sundayClose">Lokar:</label>
-                    <input id="sundayClose" type="time">
-                </fieldset>
+                <legend>Opening hours</legend>
+                <button type="submit" th:name="addDateRow" formnovalidate>Add opening hour</button>
+                <table th:if="*{openingHours.size() != 0}">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Opening hours</th>
+                            <th>Closing hours</th>
+                            <th>Holiday?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="row, rowStat : *{openingHours}">
+                        <td th:class="${row.holiday ? 'hidden' : ''}">
+                            <select th:field="*{openingHours[__${rowStat.index}__].weekDay}" required>
+                                <option value=0>
+                                    Monday
+                                </option>
+                                <option value=1>
+                                    Tuesday
+                                </option>
+                                <option value=2>
+                                    Wednesday
+                                </option>
+                                <option value=3>
+                                    Thursday
+                                </option>
+                                <option value=4>
+                                    Friday
+                                </option>
+                                <option value=5>
+                                    Saturday
+                                </option>
+                                <option value=6>
+                                    Sunday
+                                </option>
+                                <option value=7 class="hidden">
+                                    Holiday
+                                </option>
+                            </select>
+                        </td>
+                        <td th:id="${'DateField' + rowStat.index}" th:class="${row.holiday ? '' : 'hidden'}">
+                            <input type="date" th:field="*{openingHours[__${rowStat.index}__].specialDate}" required>
+                        </td>
+                        <td>
+                            <input type="time" th:field="*{openingHours[__${rowStat.index}__].openTime}" required>
+                        </td>
+                        <td>
+                            <input type="time" th:field="*{openingHours[__${rowStat.index}__].closeTime}" required>
+                        </td>
+                        <td>
+                            <input th:id="${'isHoliday' + rowStat.index}" class="addRestaurant__isHoliday"
+                                   type="checkbox" th:field="*{openingHours[__${rowStat.index}__].holiday}"
+                                   th:value="true"
+                            >
+                        </td>
+                        <td>
+                            <button type="submit" th:name="removeDateRow" th:value="${rowStat.index}" formnovalidate>Remove</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Tags</legend>
+                <button type="submit" th:name="addTagRow" formnovalidate>Add tag</button>
+                <table th:if="*{tags.size() != 0}">
+                    <thead>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="row, rowStat : *{tags}">
+                            <td>
+                                <input th:field="*{tags[__${rowStat.index}__].name}" required>
+                            </td>
+                            <td>
+                                <input th:field="*{tags[__${rowStat.index}__].category}" required>
+                            </td>
+                            <td>
+                                <button th:name="removeTagRow" th:value="${rowStat.index}" formnovalidate>Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </fieldset>
             <button type="submit">Submit</button>
         </form>
     </section>
+    <script>
+        $('.addRestaurant__isHoliday').on('click',
+            e => {
+                if(e.target.value){
+                    $(e.target).parent().siblings().first('td').children().val(6)
+                } else {
+                    $(e.target).parent().siblings().first('td').children().val(7)
+                }
+                $(e.target).parent().siblings().first('td').toggleClass('hidden')
+                $(e.target).parent().siblings().first('td').next().toggleClass('hidden')
+            }
+        )
+    </script>
 </main>
 </body>
 </html>

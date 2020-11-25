@@ -1,5 +1,6 @@
 package utadborda.application.services.DTO;
 
+import org.springframework.util.AutoPopulatingList;
 import utadborda.application.Entities.MenuItem;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
@@ -8,6 +9,7 @@ import utadborda.application.Entities.TimeRange;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantDTO {
@@ -19,6 +21,8 @@ public class RestaurantDTO {
     private List<TimeRange> openingHours;
     private List<Tag> tags;
     private List<MenuItem> menu;
+    private String website;
+    private String photos;
 
     public RestaurantDTO(Restaurant restaurant){
         this.name = restaurant.getName();
@@ -28,9 +32,21 @@ public class RestaurantDTO {
         this.openingHours = restaurant.getOpeningHours();
         this.tags = restaurant.getTags();
         this.menu = restaurant.getMenu();
+        this.photos = restaurant.getPhotos();
+        this.website = restaurant.getWebsite();
     }
 
-    public RestaurantDTO(){}
+    public RestaurantDTO(){
+        this.name = "";
+        this.address = "";
+        this.phone = "";
+        this.cuisineType = "";
+        this.openingHours = new ArrayList<TimeRange>();
+        this.tags = new ArrayList<Tag>();
+        this.menu = new ArrayList<MenuItem>();
+        this.website = "";
+        this.photos = "";
+    }
 
     public String getName() {
         return name;
@@ -86,5 +102,35 @@ public class RestaurantDTO {
 
     public void setCuisineType(String cuisineType) {
         this.cuisineType = cuisineType;
+    }
+
+    public void addTag(Tag tag) {
+        this.tags.add(tag);
+    }
+
+    public void removeTag(int index) {
+        this.tags.remove(index);
+    }
+
+    public void addTimeRange(TimeRange timeRange) {
+        this.openingHours.add(timeRange);
+    }
+
+    public void removeTimeRange(int index) {
+        this.openingHours.remove(index);
+    }
+
+    public Restaurant convertToRestaurant() {
+        Restaurant restaurant = new Restaurant(
+                this.name,
+                this.phone,
+                this.address,
+                this.website,
+                this.photos,
+                this.tags,
+                this.menu,
+                this.cuisineType
+        );
+        return restaurant;
     }
 }
