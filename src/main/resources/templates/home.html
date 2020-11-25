@@ -30,18 +30,9 @@
         <h2 th:case="null">There are no restaurants in this category</h2>
         <section class="card" th:each="restaurant : ${restaurants}">
           <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
-          <div class="card__image">
             <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
-            <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->
-            <img class="card__img" alt="sushi"  th:src="@{${restaurant.getPhoto(0)}}"/>
-          </div>
-            <div class="card__content">
-              <p class="card__restaurantHours" th:text="${restaurant.getOpeningHours()}">Kitchen hours: 11:30 - 22:00</p>
-              <p class="card__restaurantType" th:text="${restaurant.getPhone()}">Quick service</p>
-              <div class="card__restaurantTags" th:each="tags : ${restaurant.getTags()}">
-                <p class="card__tagItem" th:text="${tags.getName()}">Vegan</p>
-              </div>
-              <a href="#" class="card__restaurantMenu" th:href="${restaurant.getWebsite()}">Menu</a>
+            <div class="card__image">
+              <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
             </div>
           </a>
         </section>
@@ -50,24 +41,15 @@
   </div>
   <div class="main" th:switch="${restaurants}">
     <h2 th:case="null">No restaurants found</h2>
-    <div class="card" th:each="restaurant : ${restaurants}">
-      <a class="card__link" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
-        <div>
-        <div class="card__image">
-          <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->
-          <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{${restaurant.getPhoto(0)}}" />
-        </div>
-        <div class="card__content">
+    <div class="main__grid">
+      <section class="card" th:each="restaurant : ${restaurants}">
+        <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
           <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
-          <!-- <p class="card__restaurantHours" th:text="${restaurant.getOpeningHours()}">Kitchen hours: 11:30 - 22:00</p> -->
-          <p class="card__restaurantType" th:text="${restaurant.getPhone()}">Quick service</p>
-          <div class="card__restaurantTags">
-            <p class="card__tagItem" th:each="tags : ${restaurant.getTags()}" th:text="${tags.getName()}">Vegan</p>
+          <div class="card__image">
+            <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
           </div>
-          <a href="#" class="card__restaurantMenu" th:href="${restaurant.getMenu()}">Menu</a>
-        </div>
-        </div>
-      </a>
+        </a>
+      </section>
     </div>
   </div>
 

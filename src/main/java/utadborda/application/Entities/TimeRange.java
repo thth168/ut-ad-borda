@@ -3,6 +3,7 @@ package utadborda.application.Entities;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.Calendar;
 import java.util.UUID;
 
 @Entity
@@ -118,35 +119,38 @@ public class TimeRange {
     }
 
     public String weekdayToString() {
-        String str = "";
         switch (this.getWeekDay()) {
             case 0:
-                str += "Monday: ";
-                break;
+                return "Monday";
             case 1:
-                str += "Tuesday: ";
-                break;
+                return "Tuesday";
             case 2:
-                str += "Wednesday: ";
-                break;
+                return "Wednesday";
             case 3:
-                str += "Thursday: ";
-                break;
+                return "Thursday";
             case 4:
-                str += "Friday: ";
-                break;
+                return "Friday";
             case 5:
-                str += "Saturday: ";
-                break;
-            case 6:
-                str += "Sunday: ";
-                break;
+                return "Saturday";
+            default:
+                return "Sunday";
         }
+    }
+
+    public String hoursToString() {
+        String str = "";
+        str += this.getOpenTime().toString().replaceFirst(":00", "");
+        str += " - ";
+        str += this.getCloseTime().toString().replaceFirst(":00", "");
         return str;
     }
 
     public String toString() {
-        return weekdayToString() + ": " + this.getOpenTime().toString() + " - " + this.getCloseTime().toString();
+        return weekdayToString() + ": " + hoursToString();
+    }
+
+    public int getCurrentDay() {
+        return Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;
     }
 
 }
