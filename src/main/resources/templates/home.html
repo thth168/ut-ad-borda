@@ -32,7 +32,7 @@
           <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
           <div class="card__image">
             <!-- <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="${receipt.image}" /> -->
-            <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{__${restaurant.getPhoto().get(0)}__}"/>
+            <img class="card__img" alt="sushi" src="../static/img/sushi.jpeg" th:src="@{${restaurant.getPhoto(0)}}"/>
           </div>
             <div class="card__content">
               <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
