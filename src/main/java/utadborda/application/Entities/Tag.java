@@ -47,32 +47,26 @@ public class Tag {
         return name;
     }
 
-    public void setName(String name) {
+    public String getFancyName() {
         switch (name){
             case "bakery":
-                this.name = "Bakery";
-                break;
+                return "Bakery";
             case "grocer":
-                this.name = "Grocery Store";
-                break;
+                return "Grocery Store";
             case "cafe":
-                this.name = "Café";
-                break;
+                return "Café";
             case "restaurant":
-                this.name = "Restaurant";
-                break;
+                return "Restaurant";
             case "liquorStore":
-                this.name = "Liquor Store";
-                break;
+                return "Liquor Store";
             case "bar":
-                this.name = "Pub";
-                break;
+                return "Pub";
             case "nightClub":
-                this.name = "Night Club";
-                break;
+                return "Night Club";
             case "gasStation":
-                this.name = "Fast Food";
-                break;
+                return "Fast Food";
+            default:
+                return name;
         }
     }
 

@@ -9,23 +9,19 @@
   <section th:replace="fragments/general.html :: sidebar"></section>
   <section th:replace="fragments/general.html :: login"></section>
   <section class="filter">
-    <div class="filter__grid">
-      <div class="filter__options" th:switch="${categories}">
-        <h2 th:case="null">There are no options</h2>
-        <div class="filter__item" th:each="category: ${categories}">
-          <div class="filter__image">
-            <img class="filter__img" alt="${category.name}"  th:src="@{img/__${category.name}__.png}"/>
-          </div>
-          <p th:text="${category.name}">Bars<p>
-        </div>
+      <h2 th:unless="${categories}">There are no options</h2>
+      <div class="filter__options" th:if="${categories}">
+        <a th:href="${'?selected=' + category.name}" class="filter__item" th:each="category: ${categories}">
+            <img th:class="'filter__img '+${selected == category.name || selected == null ? '': 'faded'}" alt="${category.name}" th:src="@{img/__${category.name}__.png}"/>
+            <p th:text="${category.getFancyName()}">Bars</p>
+        </a>
       </div>
-    </div>
   </section>
 
-  <div class="cards__grid" th:switch="${categories}" th:fragment="category">
+  <div th:unless="${selected}" class="cards__grid" th:switch="${categories}" th:fragment="category">
     <h2 th:case="null">No categories</h2>
     <div th:each="category : ${categories}">
-      <h2 class="cards__descript" th:text="${category.name}">Popular Near You</h2>
+      <h2 class="cards__descript" th:text="${category.getFancyName()}">Popular Near You</h2>
       <div class="cards__row" th:switch="${restaurants}">
         <h2 th:case="null">There are no restaurants in this category</h2>
         <section class="card" th:each="restaurant : ${restaurants}">

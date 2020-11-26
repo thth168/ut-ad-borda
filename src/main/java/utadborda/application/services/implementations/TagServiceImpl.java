@@ -34,4 +34,9 @@ public class TagServiceImpl implements TagService {
     public List<Tag> getAll() {
         return tagRepo.findAll();
     }
+
+    @Override
+    public List<Restaurant> getByName(String category, String name) {
+        return tagRepo.findByCategoryAndName(category, name).getRestaurants().subList(0,20);
+    }
 }

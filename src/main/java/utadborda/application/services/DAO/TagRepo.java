@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface TagRepo extends JpaRepository<Tag, UUID> {
 
     List<Tag> findAllByCategory(String category);
+    Tag findByCategoryAndName(String category, String name);
 }

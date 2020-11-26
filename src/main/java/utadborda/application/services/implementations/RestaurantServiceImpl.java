@@ -96,4 +96,9 @@ public class RestaurantServiceImpl implements RestaurantService {
         restaurant.setOwner(user);
         return true;
     }
+
+    @Override
+    public List<Restaurant> findAllByTag(Tag tag) {
+        return restaurantRepo.findAllByTagsContaining(tag);
+    }
 }
