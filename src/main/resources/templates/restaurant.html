@@ -10,7 +10,7 @@
         <div class="restaurant__info">
             <div class="restaurant__header">
                 <div class="restaurant__headerImg">
-                    <form th:if="${!owner}" action="#" th:action="@{/restaurant/claim/{id}(id=__${restaurant.getId()}__)}" sec:authorize="authenticated">
+                    <form th:unless="${owner}" action="#" th:action="@{/restaurant/claim/{id}(id=__${restaurant.getId()}__)}" sec:authorize="authenticated">
                         <button class="restaurant__claimButton btn btn-warning" type="submit">Claim</button>
                     </form>
                     <img class="restaurant__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '../img/generic.jpg'})}"/>
