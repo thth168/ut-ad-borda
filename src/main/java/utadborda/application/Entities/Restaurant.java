@@ -262,11 +262,32 @@ public class Restaurant {
     }
 
     public int getCurrentDay() {
-        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-2;
-        if (day == -1) {
-            return 6;
-        } else {
-            return day-1;
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        switch(day) {
+            case 1:
+                return 6;
+            case 2:
+                return 0;
+            case 3:
+                return 1;
+            case 4:
+                return 2;
+            case 5:
+                return 3;
+            case 6:
+                return 4;
+            default:
+                return 5;
         }
+    }
+
+    public String getOpeningHoursToday() {
+        int day = this.getCurrentDay();
+        for(TimeRange time : this.getOpeningHours()) {
+            if(time.getWeekDay() == day) {
+                return time.hoursToString();
+            }
+        }
+        return "Closed";
     }
 }

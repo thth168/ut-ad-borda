@@ -120,8 +120,8 @@ public class TimeRange {
         this.restaurant = restaurant;
     }
 
-    public String weekdayToString() {
-        switch (this.getWeekDay()) {
+    public String weekdayToString(int day) {
+        switch (day) {
             case 0:
                 return "Monday";
             case 1:
@@ -157,7 +157,7 @@ public class TimeRange {
     }
 
     public String toString() {
-        return weekdayToString() + ": " + hoursToString();
+        return weekdayToString(this.getWeekDay()) + ": " + hoursToString();
     }
 
 }

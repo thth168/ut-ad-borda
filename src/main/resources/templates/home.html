@@ -35,8 +35,9 @@
               <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
             </div>
           </a>
-          <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHours().get(restaurant.getCurrentDay()-2).hoursToString() : 'No Opening Hours')}"></p>
-          <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu: '}"></a>
+          <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHoursToday() : 'No Opening Hours')}"></p>
+          <p th:text="${restaurant.getAddress() != null ? restaurant.getAddress() : ''}"></p>
+          <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu'}"></a>
         </section>
       </div>
     </div>
@@ -51,8 +52,9 @@
             <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
           </div>
         </a>
-        <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHours().get(restaurant.getCurrentDay()-2).hoursToString() : 'No Opening Hours')}"></p>
-        <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu: '}"></a>
+        <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHoursToday() : 'No Opening Hours')}"></p>
+        <p th:text="${restaurant.getAddress() != null ? restaurant.getAddress() : ''}"></p>
+        <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu'}"></a>
       </section>
     </div>
   </div>
