@@ -86,16 +86,12 @@ main {
                 justify-content: space-evenly;
                 width: 50%;
                 margin: 20px;
-                padding: 20px;
+                padding: 20px 50px;
                 background: rgba(219, 186, 176, 0.32);
                 border-radius: 10px;
             }
         }
 
-        &Body{
-            margin: 20px 0;
-            //padding:0 20px;
-        }
         &Lower{
             display:flex;
             &Card{
@@ -111,19 +107,33 @@ main {
             flex-direction: column;
             margin: 10px 0;
             padding-right: 30px;
+
+            &Outer{
+                display: flex;
+                justify-content: space-around;
+            }
         }
 
-        &BodyOuter{
-            display: flex;
-        }
+
         &Type{
             margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgb(147, 48, 18);
+            font-weight: bold;
+
+            &Title{
+                color: rgb(147, 48, 18);
+                font-weight: bold;
+            }
         }
 
         &Dietary{
             display:flex;
             position: relative;
             width: 170px;
+            margin: 10px auto;
 
             img {
                 width: 24px;
