@@ -16,16 +16,7 @@
     padding-top: 50px;
 
     &__loginButton {
-        a {
-            display: flex;
-            justify-content: center;
-        }
-        h1 {
-            background-color: black;
-            color: #fff;
-            width: 85%;
-            padding: 15px 0;
-        }
+    padding: 0 20px;
     }
 
     &__items {
@@ -37,18 +28,14 @@
     }
 
     &__item {
-        margin: 20px 0;
-        align-self: flex-start;
-        border: 1px solid black;
-        padding: 30px 0;
-        width: 100%;
-
-        a {
-            font-size: 1.5em;
-        }
+       margin: 20px 0;
     }
 }
 
 #menuNavigationElement{
     z-index: 1001;
+}
+
+.btn {
+    width: 100%;
 }
