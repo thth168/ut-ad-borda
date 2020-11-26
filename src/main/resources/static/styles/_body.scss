@@ -2,7 +2,7 @@
 
 main {
   z-index: 0;
-  margin-bottom: calc(4 * var($element-margin));
+  margin-bottom: calc(5 * #{$element-margin});
 }
 
 .filter {
@@ -55,7 +55,8 @@ main {
 }
 
 
-.cards { 
+.cards {
+
   &__grid {
     position: relative;
     overflow: hidden;
