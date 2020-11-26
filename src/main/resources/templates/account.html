@@ -19,7 +19,7 @@
         </div>
       <div class="account__info" id="birthdate">
           <h3>Birthdate</h3>
-          <p th:text="${LoggedInUser.getDateOfBirth()}"></p>
+          <p th:date="${LoggedInUser.getDateOfBirth()}"></p>
       </div>
         <div class="account__info" id="username">
             <h3>Username</h3>

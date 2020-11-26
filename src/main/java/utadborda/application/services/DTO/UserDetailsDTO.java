@@ -17,13 +17,17 @@ public class UserDetailsDTO{
 
 	private String email;
 	private String username;
+	private Date dateOfBirth;
 	private List<Restaurant> listRestaurants;
 
 	public UserDetailsDTO(User user){
 		this.email = user.getEmail();
 		this.username = user.getUserName();
+		this.dateOfBirth = user.getDateOfBirth();;
 		this.listRestaurants = user.getRestaurants();
 	}
+
+	public Date getDateOfBirth() { return dateOfBirth; }
 
 	public String getEmail() {
 		return email;
