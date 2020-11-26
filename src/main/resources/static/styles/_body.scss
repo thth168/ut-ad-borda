@@ -8,8 +8,7 @@ main {
 .filter {
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
-  margin-bottom: $gutter * 2;
+  margin: 0 auto $gutter * 2;
 
 
   &__grid {
@@ -20,6 +19,7 @@ main {
 
   &__options {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     width: 100%;
     padding-bottom: $gutter;
@@ -40,8 +40,8 @@ main {
     }
 
     img {
-      height: 120px;
-      width: 120px;
+      height: 100px;
+      width: 100px;
       object-fit: cover;
       border-radius: 50%;
     }

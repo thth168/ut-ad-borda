@@ -80,7 +80,7 @@ main {
                 justify-content: space-evenly;
                 width: 50%;
                 margin: $element-margin;
-                padding: $element-margin; 50px;
+                padding: $element-margin 50px;
                 background: rgba(219, 186, 176, 0.32);
                 border-radius: 10px;
             }
@@ -91,11 +91,11 @@ main {
                 width: 33.33%;
                 margin: $element-margin;
                 padding: $element-padding;
-                //box-shadow: $the-shadow;
+                box-shadow: $the-shadow;
                 // Fugly v
-                border: 2px rgb(147, 48, 18) solid;
-                border-radius: 10px;
-                color: #933012;
+                //border: 2px rgb(147, 48, 18) solid;
+                //border-radius: 10px;
+                //color: #933012;
             }
         }
         &Body{
