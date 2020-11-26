@@ -26,15 +26,17 @@
     <h2 th:case="null">No categories</h2>
     <div th:each="category : ${categories}">
       <h2 class="cards__descript" th:text="${category.name}">Popular Near You</h2>
-      <div class="cards__row" th:switch="${restaurants}">
+      <div class="cards__row" th:switch="${category.getRestaurants()}">
         <h2 th:case="null">There are no restaurants in this category</h2>
-        <section class="card" th:each="restaurant : ${restaurants}">
+        <section class="card" th:each="restaurant : ${category.getRestaurants()}">
           <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
             <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
             <div class="card__image">
               <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
             </div>
           </a>
+          <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHours().get(restaurant.getCurrentDay()-2).hoursToString() : 'No Opening Hours')}"></p>
+          <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu: '}"></a>
         </section>
       </div>
     </div>
@@ -49,10 +51,11 @@
             <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
           </div>
         </a>
+        <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHours().get(restaurant.getCurrentDay()-2).hoursToString() : 'No Opening Hours')}"></p>
+        <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu: '}"></a>
       </section>
     </div>
   </div>
-
 </main>
 </body>
 </html>

@@ -97,6 +97,7 @@
                             <p th:text="${hours.hoursToString()}" class="restaurant__infoBodyOpenHours__Hour"></p>
                         </div>
                     </div>
+                </div>
             <div class="restaurant__infoLowerCard">
                 <h2 class="restaurant__infoType">Ertu með sérþarfir?</h2>
                 <div class="restaurant__infoBody">
@@ -124,8 +125,8 @@
                 <div class="restaurant__gmap__router">
                     <div class="restaurant__gmap__canvas">
                         <iframe
-                                width="700"
-                                height="500"
+                                width="810"
+                                height="460"
                                 id="gmap"
                                 src="https://maps.google.com/maps?q=Iceland&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                 th:src="${'https://maps.google.com/maps?q='+restaurant.getName()+' '+restaurant.getAddress()+'&t=&z=15&ie=UTF8&iwloc=&output=embed'}"
@@ -152,6 +153,8 @@
                             <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
                         </div>
                     </a>
+                    <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHours().get(restaurant.getCurrentDay()).hoursToString() : 'No Opening Hours')}"></p>
+                    <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu: '}"></a>
                 </section>
             </div>
         </div>

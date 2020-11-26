@@ -3,10 +3,9 @@ package utadborda.application.Entities;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.UUID;
+
 import utadborda.application.Entities.User;
 
 @Entity
@@ -31,11 +30,10 @@ public class Restaurant {
     private List<Tag> tags;
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menu;
-    private String cuisineType;
 
     protected Restaurant() {}
 
-    public Restaurant(String name, String phone, String address, String website, String photos, List<Tag> tags, List<MenuItem> menu, String cuisineType) {
+    public Restaurant(String name, String phone, String address, String website, String photos, List<Tag> tags, List<MenuItem> menu) {
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -43,7 +41,6 @@ public class Restaurant {
         this.photos = photos;
         this.tags = tags;
         this.menu = menu;
-        this.cuisineType = cuisineType;
     }
 
     public Restaurant(
@@ -86,7 +83,6 @@ public class Restaurant {
         this.website = website;
         this.phone = phone;
         this.openingHours = openingHours;
-        this.cuisineType = "";
         this.photos = photos;
         this.gmapsId = gmapsId;
         this.gmapsUrl = gmapsUrl;
@@ -225,15 +221,20 @@ public class Restaurant {
         return this.getName();
     }
 
-    public String getCuisineType() {
-        return cuisineType;
-    }
-
-    public void setCuisineType(String cuisineType) {
-        this.cuisineType = cuisineType;
+    public void setPhotos(String photos) {
+        this.photos = photos;
     }
 
     public void addTimeRange(TimeRange timeRange) {
         this.openingHours.add(timeRange);
+    }
+
+    public int getCurrentDay() {
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-2;
+        if (day == -1) {
+            return 6;
+        } else {
+            return day-1;
+        }
     }
 }
