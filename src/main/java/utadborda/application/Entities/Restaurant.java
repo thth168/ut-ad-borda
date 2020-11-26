@@ -30,10 +30,24 @@ public class Restaurant {
     private List<Tag> tags;
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menu;
+    private String cuisineType;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User owner;
 
     protected Restaurant() {}
 
-    public Restaurant(String name, String phone, String address, String website, String photos, List<Tag> tags, List<MenuItem> menu) {
+    public Restaurant(
+            String name,
+            String phone,
+            String address,
+            String website,
+            String photos,
+            List<Tag> tags,
+            List<MenuItem> menu,
+            String cuisineType,
+            User owner
+            ) {
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -41,6 +55,8 @@ public class Restaurant {
         this.photos = photos;
         this.tags = tags;
         this.menu = menu;
+        this.cuisineType = cuisineType;
+        this.owner = owner;
     }
 
     public Restaurant(
@@ -223,6 +239,22 @@ public class Restaurant {
 
     public void setPhotos(String photos) {
         this.photos = photos;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public String getCuisineType() {
+        return cuisineType;
+    }
+
+    public void setCuisineType(String cuisineType) {
+        this.cuisineType = cuisineType;
     }
 
     public void addTimeRange(TimeRange timeRange) {

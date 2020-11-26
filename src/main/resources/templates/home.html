@@ -43,7 +43,7 @@
   </div>
   <div class="main" th:switch="${restaurants}">
     <h2 th:case="null">No restaurants found</h2>
-    <div class="main__grid" th:each="restaurant : ${restaurants}">
+    <div class="main__grid">
       <section class="card" th:each="restaurant : ${restaurants}">
         <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
           <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>

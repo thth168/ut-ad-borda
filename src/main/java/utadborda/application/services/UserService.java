@@ -8,6 +8,7 @@ import utadborda.application.services.DTO.UserDetailsDTO;
 public interface UserService {
     User registerNewUser(UserDTO user) throws GeneralExceptions.UserAlreadyExistsException;
     void registerAdmin() throws GeneralExceptions.UserAlreadyExistsException;
+    User findUser(String email);
 
     UserDetailsDTO getUserDetails(String email);
 }
