@@ -10,6 +10,7 @@ body{
 main {
     max-width: 1500px;
     margin: 0 auto;
+    margin-bottom: calc(5 * #{$element-margin});
 }
 .restaurant{
     p{
