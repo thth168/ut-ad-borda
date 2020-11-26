@@ -1,0 +1,36 @@
+@import './_config.scss';
+
+
+.account {
+    border: 1px grey solid;
+    border-bottom: 0px;
+    &__menu{
+
+        display: flex;
+
+        &Item{
+            font-size:2em;
+            padding: 10px;
+            width:50%;
+            text-align:center;
+            border: 2px black solid;
+        }
+    }
+    &__general{
+        padding: 40px;
+    }
+    &__info{
+        display: flex;
+        padding: 20px 0;
+        align-items: baseline;
+
+        h3{
+            padding-right: 20px;
+        }
+
+        p{
+            padding-right: 20px;
+            font-size: 1.5em;
+        }
+    }
+}

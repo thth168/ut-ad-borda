@@ -35,5 +35,5 @@ build/
 /bin/
 *.png
 scraper/photos/
-src/main/resources/static/r/
+src/main/java/utadborda/application/web/r/
 src/main/resources/application.properties

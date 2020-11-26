@@ -24,3 +24,10 @@ $(document).ready(function () {
         }
     )
 })
+
+$(document).on("click", function(event){
+        var $trigger = $("#menuNavigationElement");
+        if($trigger !== event.target && !$trigger.has(event.target).length){
+            $("#menuNavigationElement").toggleClass("hidden");
+        }
+    });

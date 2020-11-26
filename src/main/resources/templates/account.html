@@ -8,8 +8,8 @@
   <main>
     <div class="account">
       <div class="account__menu">
-        <a href="#">General</a>
-        <a th:href="@{/account/restaurants}">My Restaurants</a>
+        <a class="account__menuItem" href="#">General</a>
+        <a class="account__menuItem" th:href="@{/account/restaurants}">My Restaurants</a>
       </div>
       <div class="account__general">
         <h2>General Account Settings</h2>
@@ -17,6 +17,10 @@
             <h3>Name</h3>
             <p>Jón Jónsson</p>
         </div>
+      <div class="account__info" id="birthdate">
+          <h3>Birthdate</h3>
+          <p th:text="${LoggedInUser.getDateOfBirth()}"></p>
+      </div>
         <div class="account__info" id="username">
             <h3>Username</h3>
             <p th:text="${LoggedInUser.getUsername()}"></p>
@@ -25,10 +29,6 @@
             <h3>Contact</h3>
             <p th:text="${LoggedInUser.getEmail()}"></p>
         </div>
-      </div>
-      <div class="account__restaurants" th:each="restaurant : ${LoggedInUser.getRestaurants()}">
-        <h2>Your restaurants</h2>
-        <a th:href="${restaurant}" href="#" class="account__restaurant"></a>
       </div>
     </div>
   </main>
