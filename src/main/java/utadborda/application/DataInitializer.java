@@ -260,8 +260,8 @@ public class DataInitializer implements ApplicationRunner {
                                 case "Open 24 hours":
                                     timeRangeService.addTimeRange(
                                             new TimeRange(
-                                                    Time.valueOf("00:00:00"),
-                                                    Time.valueOf("24:00:00"),
+                                                    "00:00:00",
+                                                    "24:00:00",
                                                     i,
                                                     restaurant
                                             )
@@ -284,8 +284,8 @@ public class DataInitializer implements ApplicationRunner {
 
                                         timeRangeService.addTimeRange(
                                                 new TimeRange(
-                                                        Time.valueOf(time_24.format(time_12.parse(times[j]))),
-                                                        Time.valueOf(time_24.format(time_12.parse(times[j + 1]))),
+                                                        time_24.format(time_12.parse(times[j])),
+                                                        time_24.format(time_12.parse(times[j + 1])),
                                                         i,
                                                         restaurant
                                                 )

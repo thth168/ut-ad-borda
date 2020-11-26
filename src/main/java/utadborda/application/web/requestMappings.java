@@ -37,6 +37,7 @@ public final class requestMappings {
     public static final String RESTAURANT = "/restaurant/{restaurant_id}";
     public static final String EDIT_RESTAURANT = "/editRestaurant/{restaurant_id}";
     public static final String MY_RESTAURANTS = "/account/restaurants";
+    public static final String CLAIM_RESTAURANT = "/restaurant/claim/{restaurant_id}";
 
     public requestMappings() {
     }

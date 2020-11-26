@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface TagRepo extends JpaRepository<Tag, UUID> {
-
     List<Tag> findAllByCategory(String category);
 
     @Query(value = "SELECT DISTINCT Tag.category FROM Tag", nativeQuery = true)

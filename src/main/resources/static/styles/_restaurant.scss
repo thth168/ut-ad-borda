@@ -1,12 +1,9 @@
 @import './_config.scss';
 
-$the-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
 *{
     margin: 0 0;
     padding: 0 0;
 }
-
 body{
     margin: 0 auto;
 }
@@ -15,16 +12,18 @@ main {
     margin: 0 auto;
 }
 .restaurant{
-
     p{
         font-size: 1.2em;
         font-weight: bold;
         font-family: $font-body;
     }
     &__header{
-        position: relation;
+        position: relative;
 
         &Img{
+            border: 1px solid black;
+            box-shadow: $the-shadow;
+
             img{
                 width: 100%;
                 height: 400px;
@@ -33,7 +32,6 @@ main {
                 opacity: 80%;
                 filter: contrast(1.3) brightness(0.8) saturate(1.2);
             }
-
             h1{
                 font-family: $font-heading;
                 color: #FFF;
@@ -47,8 +45,6 @@ main {
             //    -webkit-text-stroke: 1px gray;
             //    -webkit-text-fill-color: #FFF;
             }
-
-
         }
         &Info{
             display: flex;
@@ -59,11 +55,9 @@ main {
                 font-size: 1.2em;
                 margin-right: 10px;
                 margin-top: 0;
-              //  border-right: black solid 1px;
             }
         }
     }
-
     &__info{
         &Cards{
             display:flex;
@@ -72,26 +66,24 @@ main {
         }
         &Card{
             width: auto;
-            margin: 20px;
-            padding: 20px;
+            margin: $element-margin;
+            padding: $element-padding;
             background: rgba(219, 186, 176, 0.32);
             border-radius: 10px;
         }
-
-        &Upper{
-            display:flex;
-            &Card{
+        &Upper {
+            display: flex;
+            &Card {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
                 width: 50%;
-                margin: 20px;
-                padding: 20px;
+                margin: $element-margin;
+                padding: $element-padding;
                 background: rgba(219, 186, 176, 0.32);
                 border-radius: 10px;
             }
         }
-
         &Body{
             margin: 20px 0;
             //padding:0 20px;
@@ -100,8 +92,10 @@ main {
             display:flex;
             &Card{
                 width: 33.33%;
-                margin: 20px;
-                padding: 20px;
+                margin: $element-margin;
+                padding: $element-padding;
+                //box-shadow: $the-shadow;
+                // Fugly v
                 border: 2px rgb(147, 48, 18) solid;
                 border-radius: 10px;
             }
@@ -112,47 +106,37 @@ main {
             margin: 10px 0;
             padding-right: 30px;
         }
-
         &BodyOuter{
             display: flex;
         }
         &Type{
             margin-top: 0;
         }
-
         &Dietary{
             display:flex;
             position: relative;
             width: 170px;
-
             img {
                 width: 24px;
                 height: 24px;
             }
-
             &Type {
                 position: absolute;
                 right: 0;
             }
-
             &Bool {
-
             }
-
         }
-
         &Title{
             margin: 0 10px 0 0;
         }
 
         &Item{
             margin: 0 0 0 10px;
-
             &Text{
 
                 margin: 0 0 0 10px;
             }
-
             &Box{
                 display: flex;
             }
@@ -170,34 +154,37 @@ main {
             display: flex;
             position: relative;
             min-width: 245px;
-
-            &__Day {
-
+            p {
+                margin: 0;
             }
-
             &__Hour {
                 position: absolute;
                 right: 0;
             }
-
         }
-
     }
 
     &__gmap__router {
         position:relative;
         text-align:right;
-        height:500px;
-        width:700px;
-        margin: auto;
-        padding: 20px;
+        height: $map-height;
+        width: $map-width;
+        margin: $element-padding auto $element-padding auto;
+        padding: $element-padding;
         box-shadow: $the-shadow;
     }
 
     &__gmap__canvas {
         background:none !important;
-        height:500px;
-        width:700px;
+        height: calc(#{$map-height} - (2 * #{$element-padding}));
+        width: calc(#{$map-width} - (2 * #{$element-padding}));
+    }
+
+    &__claimButton {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        z-index: 10;
     }
 }
 

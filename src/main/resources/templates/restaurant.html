@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="is">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="is">
 <head th:insert="fragments/general.html :: headerfiles">
     <title id="title">Út Að Borða</title>
 </head>
@@ -10,9 +10,13 @@
         <div class="restaurant__info">
             <div class="restaurant__header">
                 <div class="restaurant__headerImg">
+                    <form th:if="${!owner}" action="#" th:action="@{/restaurant/claim/{id}(id=__${restaurant.getId()}__)}" sec:authorize="authenticated">
+                        <button class="restaurant__claimButton btn btn-warning" type="submit">Claim</button>
+                    </form>
                     <img class="restaurant__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '../img/generic.jpg'})}"/>
                     <h1 th:text="${restaurant.name}" class="restaurant__title">Bastard Brew and Food</h1>
                 </div>
+                <h1 th:text="${owner}"></h1>
                 <div class="restaurant__headerInfo">
                     <p th:text="${restaurant.address}">Vegamótastígur 4</p>|
                     <p th:text="${restaurant.getPhone()}">+354 581 2345</p>|
@@ -93,39 +97,40 @@
                     <div class="restaurant__infoLowerCard">
                         <h2 class="restaurant__infoType">Opnunartímar</h2>
                         <div th:each="hours : ${restaurant.getOpeningHours()}" class="restaurant__infoBodyOpenHours">
-                            <p th:text="${hours.weekdayToString()}" class="restaurant__infoBodyOpenHours__Day"></p>
+                            <p th:text="${hours.weekdayToString(hours.getWeekDay())}" class="restaurant__infoBodyOpenHours__Day"></p>
                             <p th:text="${hours.hoursToString()}" class="restaurant__infoBodyOpenHours__Hour"></p>
                         </div>
                     </div>
-            <div class="restaurant__infoLowerCard">
-                <h2 class="restaurant__infoType">Ertu með sérþarfir?</h2>
-                <div class="restaurant__infoBody">
-                    <p class="restaurant__infoTitle">Sérfæði í boði:</p>
-                    <div class="restaurant__infoDietary">
-                        <img src="../img/vegan.svg" class="restaurant__infoDietaryBool"/>
-                        <p class="restaurant__infoDietaryType">Vegan</p>
-                    </div>
-                    <div class="restaurant__infoDietary">
-                        <img src="../img/vegetarian.svg" class="restaurant__infoDietaryBool"/>
-                        <p class="restaurant__infoDietaryType">Grænmetis</p>
-                    </div>
-                    <div class="restaurant__infoDietary">
-                        <img src="../img/ketogenic.svg" class="restaurant__infoDietaryBool"/>
-                        <p class="restaurant__infoDietaryType">Keto</p>
-                    </div>
-                    <div class="restaurant__infoDietary">
-                        <img src="../img/glutenfree.svg" class="restaurant__infoDietaryBool"/>
-                        <p class="restaurant__infoDietaryType">Glútenfrí</p>
+                    <div class="restaurant__infoLowerCard">
+                        <h2 class="restaurant__infoType">Ertu með sérþarfir?</h2>
+                        <div class="restaurant__infoBody">
+                            <p class="restaurant__infoTitle">Sérfæði í boði:</p>
+                            <div class="restaurant__infoDietary">
+                                <img src="../img/vegan.svg" class="restaurant__infoDietaryBool"/>
+                                <p class="restaurant__infoDietaryType">Vegan</p>
+                            </div>
+                            <div class="restaurant__infoDietary">
+                                <img src="../img/vegetarian.svg" class="restaurant__infoDietaryBool"/>
+                                <p class="restaurant__infoDietaryType">Grænmetis</p>
+                            </div>
+                            <div class="restaurant__infoDietary">
+                                <img src="../img/ketogenic.svg" class="restaurant__infoDietaryBool"/>
+                                <p class="restaurant__infoDietaryType">Keto</p>
+                            </div>
+                            <div class="restaurant__infoDietary">
+                                <img src="../img/glutenfree.svg" class="restaurant__infoDietaryBool"/>
+                                <p class="restaurant__infoDietaryType">Glútenfrí</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
             <div class="restaurant__map">
                 <div class="restaurant__gmap__router">
                     <div class="restaurant__gmap__canvas">
                         <iframe
-                                width="700"
-                                height="500"
+                                width="810"
+                                height="460"
                                 id="gmap"
                                 src="https://maps.google.com/maps?q=Iceland&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                 th:src="${'https://maps.google.com/maps?q='+restaurant.getName()+' '+restaurant.getAddress()+'&t=&z=15&ie=UTF8&iwloc=&output=embed'}"
@@ -152,6 +157,9 @@
                             <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
                         </div>
                     </a>
+                    <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHoursToday() : 'No Opening Hours')}"></p>
+                    <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu'}"></a>
+                    <p th:text="${restaurant.getAddress() != null ? restaurant.getAddress() : ''}"></p>
                 </section>
             </div>
         </div>

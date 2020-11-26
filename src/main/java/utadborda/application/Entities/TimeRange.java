@@ -1,8 +1,10 @@
 package utadborda.application.Entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Time;
+
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -11,11 +13,11 @@ public class TimeRange {
     @Id
     @GeneratedValue
     private UUID id;
-    private Time openTime;
-    private Time closeTime;
+    private String openTime;
+    private String closeTime;
     private int weekDay;
     private boolean holiday;
-    private Date specialDate;
+    private String specialDate;
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
@@ -23,11 +25,11 @@ public class TimeRange {
     protected TimeRange() {}
 
     public TimeRange(
-            Time openTime,
-            Time closeTime,
+            String openTime,
+            String closeTime,
             int weekDay,
             boolean holiday,
-            Date specialDate,
+            String specialDate,
             Restaurant restaurant
     ) {
         this.openTime = openTime;
@@ -39,11 +41,11 @@ public class TimeRange {
     }
 
     public TimeRange(
-            Time openTime,
-            Time closeTime,
+            String openTime,
+            String closeTime,
             int weekDay,
             boolean holiday,
-            Date specialDate
+            String specialDate
     ) {
         this.openTime = openTime;
         this.closeTime = closeTime;
@@ -53,8 +55,8 @@ public class TimeRange {
     }
 
     public TimeRange(
-            Time openTime,
-            Time closeTime,
+            String openTime,
+            String closeTime,
             int weekDay,
             Restaurant restaurant
     ) {
@@ -66,19 +68,19 @@ public class TimeRange {
         this.restaurant = restaurant;
     }
 
-    public Time getOpenTime() {
+    public String getOpenTime() {
         return openTime;
     }
 
-    public void setOpenTime(Time openTime) {
+    public void setOpenTime(String openTime) {
         this.openTime = openTime;
     }
 
-    public Time getCloseTime() {
+    public String getCloseTime() {
         return closeTime;
     }
 
-    public void setCloseTime(Time closeTime) {
+    public void setCloseTime(String closeTime) {
         this.closeTime = closeTime;
     }
 
@@ -98,11 +100,11 @@ public class TimeRange {
         this.holiday = holiday;
     }
 
-    public Date getSpecialDate() {
+    public String getSpecialDate() {
         return specialDate;
     }
 
-    public void setSpecialDate(Date specialDate) {
+    public void setSpecialDate(String specialDate) {
         this.specialDate = specialDate;
     }
 
@@ -118,8 +120,8 @@ public class TimeRange {
         this.restaurant = restaurant;
     }
 
-    public String weekdayToString() {
-        switch (this.getWeekDay()) {
+    public String weekdayToString(int day) {
+        switch (day) {
             case 0:
                 return "Monday";
             case 1:
@@ -138,19 +140,24 @@ public class TimeRange {
     }
 
     public String hoursToString() {
+        if (this.getOpenTime().toString().equals("00:00:00") && this.getOpenTime().toString().equals("00:00:00")) {
+            return "Open 24 hours";
+        }
         String str = "";
+        if(this.getOpenTime() == null) return str;
         str += this.getOpenTime().toString().replaceFirst(":00", "");
         str += " - ";
-        str += this.getCloseTime().toString().replaceFirst(":00", "");
+        String cl = this.getCloseTime().toString().replaceFirst(":00", "");
+        if (cl.equals("00:00")) {
+            str += "24:00";
+        } else {
+            str += cl;
+        }
         return str;
     }
 
     public String toString() {
-        return weekdayToString() + ": " + hoursToString();
-    }
-
-    public int getCurrentDay() {
-        return Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;
+        return weekdayToString(this.getWeekDay()) + ": " + hoursToString();
     }
 
 }
