@@ -141,10 +141,12 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = requestMappings.RESTAURANT)
-    public String getRestaurantView(Model model, @PathVariable UUID restaurant_id, SessionStatus status){
+    public String getRestaurantView(Model model, @PathVariable UUID restaurant_id, SessionStatus status, Principal principal){
         Restaurant restaurant = restaurantService.getByID(restaurant_id);
         model.addAttribute("restaurant", restaurant);
         model.addAttribute("categories", restaurant.getTags());
+        if (principal != null && principal.getName() != null && restaurant.getOwner() != null)
+            model.addAttribute("owner", principal.getName().equals(restaurant.getOwner().getEmail()));
         status.setComplete();
         return "restaurant";
     }
@@ -153,5 +155,13 @@ public class RestaurantController {
     public String editRestaurant(Model model, @PathVariable UUID restaurant_id) {
         model.addAttribute("restaurant", new RestaurantDTO(restaurantService.getByID(restaurant_id)));
         return "addRestaurant";
+    }
+
+    @RequestMapping(value = requestMappings.CLAIM_RESTAURANT)
+    public String claimRestaurant(RedirectAttributes attributes, @PathVariable UUID restaurant_id, Principal principal) {
+        // TODO: implement the validation of users claiming restaurants as their own
+        System.out.println("Here be some validation code");
+        restaurantService.claimRestaurant(userService.findUser(principal.getName()), restaurantService.getByID(restaurant_id));
+        return "redirect:/";
     }
 }   

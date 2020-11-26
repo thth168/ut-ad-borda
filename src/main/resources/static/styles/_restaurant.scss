@@ -19,6 +19,7 @@ main {
     }
     &__header{
         position: relative;
+
         &Img{
             border: 1px solid black;
             box-shadow: $the-shadow;
@@ -177,6 +178,13 @@ main {
         background:none !important;
         height: calc(#{$map-height} - (2 * #{$element-padding}));
         width: calc(#{$map-width} - (2 * #{$element-padding}));
+    }
+
+    &__claimButton {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        z-index: 10;
     }
 }
 
