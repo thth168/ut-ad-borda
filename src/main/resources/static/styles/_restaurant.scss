@@ -85,8 +85,13 @@ main {
                 flex-direction: column;
                 justify-content: space-evenly;
                 width: 50%;
+<<<<<<< Updated upstream
                 margin: 20px;
                 padding: 20px 50px;
+=======
+                margin: $element-margin;
+                padding: $element-margin 50px;
+>>>>>>> Stashed changes
                 background: rgba(219, 186, 176, 0.32);
                 border-radius: 10px;
             }
