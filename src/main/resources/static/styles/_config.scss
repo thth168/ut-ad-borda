@@ -16,6 +16,12 @@ $color-mint-white: #f4fffb;
 $color-white-smoke: #f4faf7;
 $color-anti-flash-white: #f2f2f2;
 
+$the-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.2);
+$element-padding: 20px;
+$element-margin: 20px;
+$map-width: 850px;
+$map-height: 500px;
+
 html, body {
   margin: 0;
   padding: 0;
@@ -39,7 +45,7 @@ a {
 }
 
 @mixin grid() {
-  max-width: $max-width;
+//  max-width: $max-width;
   margin: 0 auto;
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);

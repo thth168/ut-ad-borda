@@ -23,32 +23,65 @@
     <div th:each="category : ${categories}">
       <h2 class="cards__descript" th:text="${category.getFancyName()}">Popular Near You</h2>
       <div class="cards__row" th:switch="${restaurants}">
+      <h2 class="cards__descript" th:text="${category.name}">Popular Near You</h2>
+      <div class="cards__row" th:switch="${category.getRestaurants()}">
         <h2 th:case="null">There are no restaurants in this category</h2>
-        <section class="card" th:each="restaurant : ${restaurants}">
+        <section class="card" th:each="restaurant : ${category.getRestaurants()}">
           <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
             <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
             <div class="card__image">
               <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
             </div>
           </a>
+          <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHoursToday() : 'No Opening Hours')}"></p>
+          <p th:text="${restaurant.getAddress() != null ? restaurant.getAddress() : ''}"></p>
+          <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu'}"></a>
         </section>
       </div>
     </div>
   </div>
-  <div class="main" th:switch="${restaurants}">
-    <h2 th:case="null">No restaurants found</h2>
-    <div class="main__grid">
+  <div class="main" >
+    <div class="mainFilter" th:switch="${allCategories}">
+
+      <form th:action="@{/}" class="mainFilter__category" >
+
+          <select th:name="categories">
+          <option value="">Filter By: </option>
+          <option  th:each="category : ${allCategories}" th:text="${category}" th:value="${category}"></option>
+        </select>
+        <button type="submit" th:name="action">Filter</button>
+
+      </form>
+
+        <label th:each="tag : ${allTags}" th:if="${tag.category == getCategories}">
+          <th:block th:text="${tag.name}">Label</th:block>
+          <input type="checkbox" th:name="${tag.name}" th:checked="${tag.name}"
+                 th:value="${tag.name}"
+                 onclick=""/>
+        </label>
+
+    </div>
+
+    <div class="main__grid" th:switch="${restaurants}">
+      <h2 th:case="null">No restaurants found</h2>
       <section class="card" th:each="restaurant : ${restaurants}">
         <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
-          <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
+
           <div class="card__image">
             <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
           </div>
+          <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
+          <div th:each="hours : ${restaurant.getOpeningHours()}" class="restaurant__infoBodyOpenHours">
+            <p th:text="${hours.weekdayToString()}" class="restaurant__infoBodyOpenHours__Day"></p>
+            <p th:text="${hours.hoursToString()}" class="restaurant__infoBodyOpenHours__Hour"></p>
+          </div>
         </a>
+        <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHoursToday() : 'No Opening Hours')}"></p>
+        <p th:text="${restaurant.getAddress() != null ? restaurant.getAddress() : ''}"></p>
+        <a th:href="${restaurant.getWebsite() != null ? restaurant.getWebsite() : null}" th:text="${restaurant.getWebsite() == null ? '' : 'Menu'}"></a>
       </section>
     </div>
   </div>
-
 </main>
 </body>
 </html>

@@ -11,9 +11,7 @@ import java.util.UUID;
 
 public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
     List<Restaurant> findTop20ByIdNotNull();
-
     Restaurant findByName(String name);
-
     Restaurant findByid(UUID restaurant_ID);
 
     List<Restaurant> findAllByTagsContaining(Tag tag);

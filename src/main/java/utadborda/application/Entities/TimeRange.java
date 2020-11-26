@@ -120,8 +120,8 @@ public class TimeRange {
         this.restaurant = restaurant;
     }
 
-    public String weekdayToString() {
-        switch (this.getWeekDay()) {
+    public String weekdayToString(int day) {
+        switch (day) {
             case 0:
                 return "Monday";
             case 1:
@@ -140,21 +140,24 @@ public class TimeRange {
     }
 
     public String hoursToString() {
+        if (this.getOpenTime().toString().equals("00:00:00") && this.getOpenTime().toString().equals("00:00:00")) {
+            return "Open 24 hours";
+        }
         String str = "";
         if(this.getOpenTime() == null) return str;
         str += this.getOpenTime().toString().replaceFirst(":00", "");
         str += " - ";
-        if(this.getCloseTime() == null) return str;
-        str += this.getCloseTime().toString().replaceFirst(":00", "");
+        String cl = this.getCloseTime().toString().replaceFirst(":00", "");
+        if (cl.equals("00:00")) {
+            str += "24:00";
+        } else {
+            str += cl;
+        }
         return str;
     }
 
     public String toString() {
-        return weekdayToString() + ": " + hoursToString();
-    }
-
-    public int getCurrentDay() {
-        return Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;
+        return weekdayToString(this.getWeekDay()) + ": " + hoursToString();
     }
 
 }

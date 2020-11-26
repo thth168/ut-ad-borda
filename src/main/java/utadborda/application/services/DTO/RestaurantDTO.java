@@ -28,8 +28,6 @@ public class RestaurantDTO {
         this.name = restaurant.getName();
         this.address = restaurant.getAddress();
         this.phone = restaurant.getPhone();
-        this.cuisineType = restaurant.getCuisineType();
-        this.openingHours = restaurant.getOpeningHours();
         this.tags = restaurant.getTags();
         this.menu = restaurant.getMenu();
         this.photos = restaurant.getPhoto(0);

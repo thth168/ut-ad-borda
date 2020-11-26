@@ -3,10 +3,9 @@ package utadborda.application.Entities;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.UUID;
+
 import utadborda.application.Entities.User;
 
 @Entity
@@ -100,7 +99,6 @@ public class Restaurant {
         this.website = website;
         this.phone = phone;
         this.openingHours = openingHours;
-        this.cuisineType = "";
         this.photos = photos;
         this.gmapsId = gmapsId;
         this.gmapsUrl = gmapsUrl;
@@ -261,5 +259,35 @@ public class Restaurant {
 
     public void addTimeRange(TimeRange timeRange) {
         this.openingHours.add(timeRange);
+    }
+
+    public int getCurrentDay() {
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        switch(day) {
+            case 1:
+                return 6;
+            case 2:
+                return 0;
+            case 3:
+                return 1;
+            case 4:
+                return 2;
+            case 5:
+                return 3;
+            case 6:
+                return 4;
+            default:
+                return 5;
+        }
+    }
+
+    public String getOpeningHoursToday() {
+        int day = this.getCurrentDay();
+        for(TimeRange time : this.getOpeningHours()) {
+            if(time.getWeekDay() == day) {
+                return time.hoursToString();
+            }
+        }
+        return "Closed";
     }
 }

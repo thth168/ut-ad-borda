@@ -10,7 +10,8 @@
   &__title {
   	font-family: $font-bigtitle;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 5em ;
+    letter-spacing: 3px;
   }
 
   &__left{
@@ -25,9 +26,10 @@
   
   &__menu{
   	img {
-	    height: 20px;
+	    height: 40px;
 	    object-fit: cover;
-	    margin: 10px;
+	    margin: 10px 40px 10px 10px;
+
   	}
   }
   
