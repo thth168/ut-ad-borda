@@ -16,4 +16,5 @@ public interface RestaurantService {
     boolean existsById(UUID id);
     Restaurant getByID(UUID restaurant_ID);
     boolean claimRestaurant(User user, Restaurant restaurant);
+    List<Restaurant> findAllByTag(Tag tag);
 }

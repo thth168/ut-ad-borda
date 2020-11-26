@@ -68,7 +68,7 @@ public class DataInitializer implements ApplicationRunner {
          * Database insert from file. Keep in while spring.jpa.hibernate.ddl-auto is == to create in application.properties.
          * Otherwise run only once and comment out to avoid multiple loads of the dataset into the db.
          */
-        //addToDatabase("scraper/merged_data_complete.json");
+        addToDatabase("scraper/merged_data_complete.json");
 
         try {
             userService.registerNewUser(new UserDTO("test", "test", "test", "test@test.is", new SimpleDateFormat("dd/MM/yy").parse("04/12/97")));

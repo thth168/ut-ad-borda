@@ -124,6 +124,11 @@
                         </div>
                     </div>
                 </div>
+                <a th:if="${restaurant.getWebsite() != null}" th:href="@{{url}(url=${restaurant.getWebsite()})}" class="restaurant__menuCard">
+                    <div  class="restaurant__menuCard__inner">
+                        <p th:if="${restaurant.getWebsite() != null}">Menu</p>
+                    </div>
+                </a>
             </div>
             <div class="restaurant__map">
                 <div class="restaurant__gmap__router">

@@ -49,7 +49,6 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) {
         Restaurant newRestaurant = restaurantRepo.save(restaurant);
-        System.out.println(restaurant.getOpeningHours().getClass());
         for (TimeRange timeRange: restaurant.getOpeningHours()) {
             if(timeRange.getId() != null && !timeRangeRepo.existsById(timeRange.getId())){
                 timeRange.setRestaurant(newRestaurant);
@@ -74,7 +73,6 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Transactional
     @Override
     public Restaurant updateRestaurant(Restaurant restaurant) {
-        System.out.println(restaurant.getOpeningHours().getClass());
         Restaurant newRestaurant = restaurantRepo.save(restaurant);
         for (TimeRange timeRange: restaurant.getOpeningHours()) {
             timeRange.setRestaurant(newRestaurant);
@@ -95,5 +93,10 @@ public class RestaurantServiceImpl implements RestaurantService {
         user.getRestaurants().add(restaurant);
         restaurant.setOwner(user);
         return true;
+    }
+
+    @Override
+    public List<Restaurant> findAllByTag(Tag tag) {
+        return restaurantRepo.findAllByTagsContaining(tag);
     }
 }

@@ -2,6 +2,7 @@ package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
 import utadborda.application.services.DAO.TagRepo;
 import utadborda.application.services.TagService;
@@ -38,5 +39,10 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<Tag> getAll() {
         return tagRepo.findAll();
+    }
+
+    @Override
+    public List<Restaurant> getByName(String category, String name) {
+        return tagRepo.findByCategoryAndName(category, name).getRestaurants().subList(0,20);
     }
 }

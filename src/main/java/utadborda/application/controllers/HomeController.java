@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
@@ -34,10 +35,15 @@ public class HomeController {
     String appName;
 
     @GetMapping("/")
-    public String homePage(Model model) {
+    public String homePage(Model model, @RequestParam(required = false) String selected) {
         model.addAttribute("appName", appName);
-        model.addAttribute("restaurants", restaurantService.getAll());
         model.addAttribute("categories", tagService.getAllByCategory("type"));
+        if(selected != null) {
+            model.addAttribute("selected", selected);
+            model.addAttribute("restaurants", tagService.getByName("type", selected));
+        } else {
+            model.addAttribute("restaurants", restaurantService.getAll());
+        }
         model.addAttribute("allTags", tagService.getAll());
 
         List<String> categories = tagService.getAllDistinctCategoryFromTag();
