@@ -11,7 +11,7 @@
   <section class="filter">
       <h2 th:unless="${categories}">There are no options</h2>
       <div class="filter__options" th:if="${categories}">
-        <a th:href="${'?selected=' + category.name}" class="filter__item" th:each="category: ${categories}">
+        <a th:href="${'?selected=' + category.name + '&categories=' + allCategories.get(0)}" class="filter__item" th:each="category: ${categories}">
             <img th:class="'filter__img '+${selected == category.name || selected == null ? '': 'faded'}" alt="${category.name}" th:src="@{img/__${category.name}__.png}"/>
             <p th:text="${category.getFancyName()}">Bars</p>
         </a>
@@ -45,26 +45,27 @@
 
       <form th:action="@{/}" class="mainFilter__category" >
 
-          <select th:name="categories">
+        <select th:name="categories">
           <option value="">Filter By: </option>
-          <option  th:each="category : ${allCategories}" th:text="${category}" th:value="${category}"></option>
+          <option th:each="category : ${allCategories}" th:text="${category}" th:value="${category}"></option>
         </select>
-        <button type="submit" th:name="action">Filter</button>
-
+        <input type="hidden" th:name="selected" th:value="${selected}" th:if="${selected}">
+        <button type="submit">Filter</button>
       </form>
 
+<!--        <label th:each="tag : ${allTags}" >
         <label th:each="tag : ${allTags}" th:if="${tag.category == __${getCategories}__}">
           <th:block th:text="${tag.name}">Label</th:block>
           <input type="checkbox" th:name="${tag.name}" th:checked="${tag.name}"
                  th:value="${tag.name}"
                  onclick=""/>
-        </label>
+        </label>-->
 
     </div>
 
-    <div class="main__grid" th:switch="${restaurants}">
+    <div class="main__grid container" th:switch="${restaurants}">
       <h2 th:case="null">No restaurants found</h2>
-      <section class="card" th:each="restaurant : ${restaurants}">
+      <section class="card col" th:each="restaurant : ${restaurants}">
         <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
           <div class="card__image">
             <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
