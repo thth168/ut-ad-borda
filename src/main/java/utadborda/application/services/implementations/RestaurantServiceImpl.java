@@ -2,10 +2,7 @@ package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import utadborda.application.Entities.MenuItem;
-import utadborda.application.Entities.Restaurant;
-import utadborda.application.Entities.Tag;
-import utadborda.application.Entities.TimeRange;
+import utadborda.application.Entities.*;
 import utadborda.application.Exceptions.GeneralExceptions;
 import utadborda.application.services.DAO.MenuItemRepo;
 import utadborda.application.services.DAO.RestaurantRepo;
@@ -14,6 +11,7 @@ import utadborda.application.services.DAO.TimeRangeRepo;
 import utadborda.application.services.RestaurantService;
 import utadborda.application.services.TimeRangeService;
 
+import javax.transaction.Transactional;
 import java.sql.Time;
 import java.util.List;
 import java.util.UUID;
@@ -37,6 +35,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         this.menuItemRepo = menuItemRepo;
     }
 
+    @Transactional
     @Override
     public Restaurant getByName(String name) throws GeneralExceptions.RestaurantNotFoundException {
         Restaurant restaurant = restaurantRepo.findByName(name);
@@ -46,6 +45,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         return restaurant;
     }
 
+    @Transactional
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) {
         Restaurant newRestaurant = restaurantRepo.save(restaurant);
@@ -59,16 +59,19 @@ public class RestaurantServiceImpl implements RestaurantService {
         return newRestaurant;
     }
 
+    @Transactional
     @Override
     public Restaurant getByID(UUID restaurant_ID) {
         return restaurantRepo.findByid(restaurant_ID);
     }
 
+    @Transactional
     @Override
     public List<Restaurant> getAll() {
         return restaurantRepo.findTop20ByIdNotNull();
     }
 
+    @Transactional
     @Override
     public Restaurant updateRestaurant(Restaurant restaurant) {
         System.out.println(restaurant.getOpeningHours().getClass());
@@ -80,8 +83,17 @@ public class RestaurantServiceImpl implements RestaurantService {
         return newRestaurant;
     }
 
+    @Transactional
     @Override
     public boolean existsById(UUID id) {
         return restaurantRepo.existsById(id);
+    }
+
+    @Transactional
+    @Override
+    public boolean claimRestaurant(User user, Restaurant restaurant) {
+        user.getRestaurants().add(restaurant);
+        restaurant.setOwner(user);
+        return true;
     }
 }

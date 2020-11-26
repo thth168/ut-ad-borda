@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="is">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="is">
 <head th:insert="fragments/general.html :: headerfiles">
     <title id="title">Út Að Borða</title>
 </head>
@@ -10,9 +10,13 @@
         <div class="restaurant__info">
             <div class="restaurant__header">
                 <div class="restaurant__headerImg">
+                    <form th:if="${!owner}" action="#" th:action="@{/restaurant/claim/{id}(id=__${restaurant.getId()}__)}" sec:authorize="authenticated">
+                        <button class="restaurant__claimButton btn btn-warning" type="submit">Claim</button>
+                    </form>
                     <img class="restaurant__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '../img/generic.jpg'})}"/>
                     <h1 th:text="${restaurant.name}" class="restaurant__title">Bastard Brew and Food</h1>
                 </div>
+                <h1 th:text="${owner}"></h1>
                 <div class="restaurant__headerInfo">
                     <p th:text="${restaurant.address}">Vegamótastígur 4</p>|
                     <p th:text="${restaurant.getPhone()}">+354 581 2345</p>|
