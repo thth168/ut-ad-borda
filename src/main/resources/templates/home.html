@@ -55,7 +55,7 @@
 
       </form>
 
-        <label th:each="tag : ${allTags}" th:if="${tag.category == getCategories}">
+        <label th:each="tag : ${allTags}" th:if="${tag.category == __${getCategories}__}">
           <th:block th:text="${tag.name}">Label</th:block>
           <input type="checkbox" th:name="${tag.name}" th:checked="${tag.name}"
                  th:value="${tag.name}"
