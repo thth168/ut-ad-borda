@@ -66,15 +66,16 @@
       <h2 th:case="null">No restaurants found</h2>
       <section class="card" th:each="restaurant : ${restaurants}">
         <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
-
           <div class="card__image">
             <img class="card__img" th:src="@{{url}(url=${restaurant.getPhoto(0) != null ? restaurant.getPhoto(0) : '/img/generic.jpg'})}"/>
           </div>
           <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
+          <!--
           <div th:each="hours : ${restaurant.getOpeningHours()}" class="restaurant__infoBodyOpenHours">
             <p th:text="${hours.weekdayToString(hours.weekDay)}" class="restaurant__infoBodyOpenHours__Day"></p>
             <p th:text="${hours.hoursToString()}" class="restaurant__infoBodyOpenHours__Hour"></p>
           </div>
+        -->
         </a>
         <p th:text="${(restaurant.getOpeningHours().size() > 0 ? 'Open today: '+restaurant.getOpeningHoursToday() : 'No Opening Hours')}"></p>
         <p th:text="${restaurant.getAddress() != null ? restaurant.getAddress() : ''}"></p>

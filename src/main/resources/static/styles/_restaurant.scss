@@ -87,7 +87,6 @@ main {
         }
         &Body{
             margin: 20px 0;
-            //padding:0 20px;
         }
         &Lower{
             display:flex;
@@ -99,6 +98,7 @@ main {
                 // Fugly v
                 border: 2px rgb(147, 48, 18) solid;
                 border-radius: 10px;
+                color: #933012;
             }
         }
         &Body{
@@ -186,6 +186,24 @@ main {
         top: 1em;
         right: 1em;
         z-index: 10;
+    }
+
+    &__menuCard {
+        width: 100%;
+        margin: 0 $element-margin;
+        &__inner {
+            background-color: #933012;
+            padding: calc(#{$element-padding} / 2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            p {
+                margin: 0;
+                color: white;
+                font-size: $size-heading;
+            }
+        }
     }
 }
 
