@@ -70,11 +70,11 @@ public class RestaurantController {
         for(int i = 0; i < 7; i++) {
             if (!days.contains(i)){
                 restaurant.addTimeRange(new TimeRange(
-                        Time.valueOf("00:00:00"),
-                        Time.valueOf("00:00:00"),
+                        "00:00:00",
+                        "00:00:00",
                         i,
                         false,
-                        Date.valueOf("1970-1-1")
+                        "1970-1-1"
                 ));
                 restaurant.setOpeningHours(
                         restaurant.getOpeningHours()
@@ -85,11 +85,11 @@ public class RestaurantController {
             }
         }
         restaurant.addTimeRange(new TimeRange(
-                Time.valueOf("00:00:00"),
-                Time.valueOf("00:00:00"),
+                "00:00:00",
+                "00:00:00",
                 7,
                 true,
-                Date.valueOf(LocalDate.now())
+                LocalDate.now().toString()
         ));
         restaurant.setOpeningHours(
                 restaurant.getOpeningHours()
