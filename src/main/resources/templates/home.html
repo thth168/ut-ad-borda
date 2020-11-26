@@ -18,15 +18,14 @@
       </div>
   </section>
 
-  <div th:unless="${selected}" class="cards__grid" th:switch="${categories}" th:fragment="category">
-    <h2 th:case="null">No categories</h2>
+  <!--<div th:unless="${selected}" class="cards__grid" th:fragment="category">
     <div th:each="category : ${categories}">
       <h2 class="cards__descript" th:text="${category.getFancyName()}">Popular Near You</h2>
       <div class="cards__row" th:switch="${restaurants}">
       <h2 class="cards__descript" th:text="${category.name}">Popular Near You</h2>
       <div class="cards__row" th:switch="${category.getRestaurants()}">
         <h2 th:case="null">There are no restaurants in this category</h2>
-        <section class="card" th:each="restaurant : ${category.getRestaurants()}">
+        <section class="card" th:each="restaurant : ${restaurants}">
           <a class="card__ID" th:href="@{/restaurant/{id}(id=${restaurant.getId()})}">
             <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
             <div class="card__image">
@@ -40,6 +39,7 @@
       </div>
     </div>
   </div>
+  </div>-->
   <div class="main" >
     <div class="mainFilter" th:switch="${allCategories}">
 
@@ -53,7 +53,7 @@
 
       </form>
 
-        <label th:each="tag : ${allTags}" th:if="${tag.category == getCategories}">
+        <label th:each="tag : ${allTags}" th:if="${tag.category == allCategories}">
           <th:block th:text="${tag.name}">Label</th:block>
           <input type="checkbox" th:name="${tag.name}" th:checked="${tag.name}"
                  th:value="${tag.name}"
@@ -72,7 +72,7 @@
           </div>
           <h2 class="card__restaurantTitle" th:text="${restaurant.getName()}">Wonderful Sushiness</h2>
           <div th:each="hours : ${restaurant.getOpeningHours()}" class="restaurant__infoBodyOpenHours">
-            <p th:text="${hours.weekdayToString()}" class="restaurant__infoBodyOpenHours__Day"></p>
+            <p th:text="${hours.weekdayToString(hours.weekDay)}" class="restaurant__infoBodyOpenHours__Day"></p>
             <p th:text="${hours.hoursToString()}" class="restaurant__infoBodyOpenHours__Hour"></p>
           </div>
         </a>
