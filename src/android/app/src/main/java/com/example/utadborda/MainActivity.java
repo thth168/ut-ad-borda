@@ -1,10 +1,11 @@
 package com.example.utadborda;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import static android.util.Log.*;
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;

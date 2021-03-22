@@ -49,10 +49,12 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) {
         Restaurant newRestaurant = restaurantRepo.save(restaurant);
-        for (TimeRange timeRange: restaurant.getOpeningHours()) {
-            if(timeRange.getId() != null && !timeRangeRepo.existsById(timeRange.getId())){
-                timeRange.setRestaurant(newRestaurant);
-                timeRangeRepo.save(timeRange);
+        if (restaurant.getOpeningHours() != null) {
+            for (TimeRange timeRange: restaurant.getOpeningHours()) {
+                if(timeRange.getId() != null && !timeRangeRepo.existsById(timeRange.getId())){
+                    timeRange.setRestaurant(newRestaurant);
+                    timeRangeRepo.save(timeRange);
+                }
             }
         }
         return newRestaurant;
