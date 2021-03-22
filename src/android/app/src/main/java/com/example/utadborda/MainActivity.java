@@ -19,12 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int x = 6;
+        int y = 4;
+        int c = x + y;
 
         mButton = (Button) findViewById(R.id.back_button);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                //TODO: IMPLEMENT
+                //TODO: IMPLEMENT onCreate
                 Log.d(TAG, "Onclick");
             }
         });
@@ -33,6 +36,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop(){
         super.onStop();
-        //TODO: IMPLEMENT 
+        //TODO: IMPLEMENT onStop
     }
 }
