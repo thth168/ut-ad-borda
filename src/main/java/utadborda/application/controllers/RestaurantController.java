@@ -14,11 +14,8 @@ import utadborda.application.services.TagService;
 import utadborda.application.services.UserService;
 import utadborda.application.web.requestMappings;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.security.Principal;
-import java.sql.Date;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -127,7 +124,7 @@ public class RestaurantController {
             Principal principal,
             SessionStatus status
     ) {
-        User owner = userService.findUser(principal.getName());
+        UAB_User owner = userService.findUser(principal.getName());
         if(restaurant.getId() != null && restaurantService.existsById(restaurant.getId())){
             Restaurant res = restaurantService.getByID(restaurant.getId());
             restaurant.updateRestaurant(res);

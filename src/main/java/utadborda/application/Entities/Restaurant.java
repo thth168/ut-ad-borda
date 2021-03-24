@@ -1,12 +1,8 @@
 package utadborda.application.Entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.awt.*;
 import java.util.*;
 import java.util.List;
-
-import utadborda.application.Entities.User;
 
 @Entity
 public class Restaurant {
@@ -33,7 +29,7 @@ public class Restaurant {
     private String cuisineType;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User owner;
+    private UAB_User owner;
 
     protected Restaurant() {}
 
@@ -46,7 +42,7 @@ public class Restaurant {
             List<Tag> tags,
             List<MenuItem> menu,
             String cuisineType,
-            User owner
+            UAB_User owner
             ) {
         this.name = name;
         this.phone = phone;
@@ -241,11 +237,11 @@ public class Restaurant {
         this.photos = photos;
     }
 
-    public User getOwner() {
+    public UAB_User getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(UAB_User owner) {
         this.owner = owner;
     }
 

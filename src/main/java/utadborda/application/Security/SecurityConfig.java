@@ -15,7 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import utadborda.application.Entities.User;
+import org.springframework.security.web.util.matcher.RequestHeaderRequestMatcher;
+import utadborda.application.Entities.UAB_User;
 import utadborda.application.web.requestMappings;
 
 import javax.servlet.ServletException;
@@ -40,10 +41,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .jdbcAuthentication()
             .dataSource(dataSource)
             .usersByUsernameQuery(
-                User.SPRING_SECURITY_USERNAME_QUERY
+                UAB_User.SPRING_SECURITY_USERNAME_QUERY
             )
             .authoritiesByUsernameQuery(
-                User.SPRING_SECURITY_AUTHORITIES_BY_USERNAME_QUERY
+                UAB_User.SPRING_SECURITY_AUTHORITIES_BY_USERNAME_QUERY
             )
             .passwordEncoder(passwordEncoder());
     }

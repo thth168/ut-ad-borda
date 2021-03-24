@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class User {
+public class UAB_User {
     /** =======================
      *  Spring security queries
      *  ======================= */
@@ -70,9 +70,9 @@ public class User {
         this.restaurants = restaurants;
     }
 
-    protected User() {}
+    protected UAB_User() {}
 
-    public User(String userName, String password, String email, Date dateOfBirth, List<String> roles) {
+    public UAB_User(String userName, String password, String email, Date dateOfBirth, List<String> roles) {
         this.userName = userName;
         this.password = password;
         this.email = email;
