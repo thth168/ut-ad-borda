@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MatchButton.class));
+                startActivity(new Intent(MainActivity.this, MatchActivity.class));
             }
         });
     }
