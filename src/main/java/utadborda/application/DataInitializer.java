@@ -128,8 +128,10 @@ public class DataInitializer implements ApplicationRunner {
                 "grocery_or_supermarket",
                 "supermarket"
         ));
-
-        ArrayList<String> photoList = new ArrayList<String>(Arrays.asList((new File("src/main/resources/static/r/")).list()));
+        String[] photos = new File("src/main/resources/static/r/").list();
+        ArrayList<String> photoList = new ArrayList<String>();
+        if (photos != null)
+            photoList = new ArrayList<String>(Arrays.asList(photos));
 
         for (JSONObject place : (Iterable<JSONObject>) data) {
             if (restaurantCount > limit) break;
