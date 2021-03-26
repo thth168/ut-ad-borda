@@ -11,13 +11,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 public class MatchActivity extends AppCompatActivity {
-    public MatchActivity() {
-        super(R.layout.activity_match);
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
-
     }
 }

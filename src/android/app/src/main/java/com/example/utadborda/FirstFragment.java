@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class FirstFragment extends Fragment {
-
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
