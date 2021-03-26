@@ -8,7 +8,7 @@
     <main>
         <section class="signup">
             <h1>Signup</h1>
-            <form name="f" th:action="@{/signup}" th:object="${user}" method="post">
+            <form name="f" th:action="@{/signup}" th:object="${UABUser}" method="post">
                 <div>
                     <label for="email">Email: </label>
                     <input id="email" type="email" th:field="*{email}">

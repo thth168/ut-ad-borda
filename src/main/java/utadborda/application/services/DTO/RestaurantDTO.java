@@ -1,11 +1,7 @@
 package utadborda.application.services.DTO;
 
-import org.springframework.util.AutoPopulatingList;
 import utadborda.application.Entities.*;
 
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -142,7 +138,7 @@ public class RestaurantDTO {
         this.id = id;
     }
 
-    public Restaurant convertToRestaurant(User user) {
+    public Restaurant convertToRestaurant(UAB_User UABUser) {
         Restaurant restaurant = new Restaurant(
                 this.name,
                 this.phone,
@@ -152,7 +148,7 @@ public class RestaurantDTO {
                 this.tags,
                 this.menu,
                 this.cuisineType,
-                user
+                UABUser
         );
         return restaurant;
     }

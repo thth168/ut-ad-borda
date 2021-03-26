@@ -1,15 +1,8 @@
 package utadborda.application.services.DTO;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import utadborda.application.Annotations.PasswordMatches;
-import utadborda.application.Annotations.ValidEmail;
 import utadborda.application.Entities.Restaurant;
-import utadborda.application.Entities.User;
+import utadborda.application.Entities.UAB_User;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -20,11 +13,11 @@ public class UserDetailsDTO{
 	private Date dateOfBirth;
 	private List<Restaurant> listRestaurants;
 
-	public UserDetailsDTO(User user){
-		this.email = user.getEmail();
-		this.username = user.getUserName();
-		this.dateOfBirth = user.getDateOfBirth();;
-		this.listRestaurants = user.getRestaurants();
+	public UserDetailsDTO(UAB_User UABUser){
+		this.email = UABUser.getEmail();
+		this.username = UABUser.getUserName();
+		this.dateOfBirth = UABUser.getDateOfBirth();;
+		this.listRestaurants = UABUser.getRestaurants();
 	}
 
 	public Date getDateOfBirth() { return dateOfBirth; }

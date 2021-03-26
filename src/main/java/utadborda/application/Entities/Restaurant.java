@@ -1,12 +1,12 @@
 package utadborda.application.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.awt.*;
 import java.util.*;
 import java.util.List;
-
-import utadborda.application.Entities.User;
 
 @Entity
 public class Restaurant {
@@ -19,21 +19,27 @@ public class Restaurant {
     private Double posLat;
     private Double posLng;
     private String website;
+    @JsonManagedReference
     @OneToMany(mappedBy = "restaurant")
     private List<TimeRange> openingHours;
     @Column(columnDefinition = "varchar(1024)")
     private String photos;
     private String gmapsId;
     private String gmapsUrl;
-    @ManyToMany
-    @JoinTable
+    @JsonManagedReference
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "restaurant_tags",
+        joinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "restaurant_id", referencedColumnName = "id")
+    )
     private List<Tag> tags;
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menu;
     private String cuisineType;
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User owner;
+    @JoinColumn(name = "UAB_User_id")
+    private UAB_User owner;
 
     protected Restaurant() {}
 
@@ -46,7 +52,7 @@ public class Restaurant {
             List<Tag> tags,
             List<MenuItem> menu,
             String cuisineType,
-            User owner
+            UAB_User owner
             ) {
         this.name = name;
         this.phone = phone;
@@ -241,11 +247,11 @@ public class Restaurant {
         this.photos = photos;
     }
 
-    public User getOwner() {
+    public UAB_User getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(UAB_User owner) {
         this.owner = owner;
     }
 

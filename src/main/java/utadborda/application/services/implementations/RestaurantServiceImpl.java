@@ -9,10 +9,8 @@ import utadborda.application.services.DAO.RestaurantRepo;
 import utadborda.application.services.DAO.TagRepo;
 import utadborda.application.services.DAO.TimeRangeRepo;
 import utadborda.application.services.RestaurantService;
-import utadborda.application.services.TimeRangeService;
 
 import javax.transaction.Transactional;
-import java.sql.Time;
 import java.util.List;
 import java.util.UUID;
 
@@ -91,9 +89,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Transactional
     @Override
-    public boolean claimRestaurant(User user, Restaurant restaurant) {
-        user.getRestaurants().add(restaurant);
-        restaurant.setOwner(user);
+    public boolean claimRestaurant(UAB_User UABUser, Restaurant restaurant) {
+        UABUser.getRestaurants().add(restaurant);
+        restaurant.setOwner(UABUser);
         return true;
     }
 
