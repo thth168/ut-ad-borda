@@ -1,5 +1,9 @@
 package utadborda.application.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.*;
 import java.util.List;
@@ -15,20 +19,26 @@ public class Restaurant {
     private Double posLat;
     private Double posLng;
     private String website;
+    @JsonManagedReference
     @OneToMany(mappedBy = "restaurant")
     private List<TimeRange> openingHours;
     @Column(columnDefinition = "varchar(1024)")
     private String photos;
     private String gmapsId;
     private String gmapsUrl;
-    @ManyToMany
-    @JoinTable
+    @JsonManagedReference
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "restaurant_tags",
+        joinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "restaurant_id", referencedColumnName = "id")
+    )
     private List<Tag> tags;
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menu;
     private String cuisineType;
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "UAB_User_id")
     private UAB_User owner;
 
     protected Restaurant() {}

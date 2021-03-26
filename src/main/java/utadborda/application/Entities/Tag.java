@@ -1,5 +1,6 @@
 package utadborda.application.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.jruby.RubyBoolean;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class Tag {
     private UUID id;
     private String name;
     private String category;
+    @JsonBackReference
     @ManyToMany(mappedBy = "tags")
     private List<Restaurant> restaurants;
 

@@ -1,5 +1,7 @@
 package utadborda.application.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -43,6 +45,7 @@ public class UAB_User {
     @ElementCollection
     private List<String> roles;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "owner")
     private List<Restaurant> restaurants;
 

@@ -13,7 +13,6 @@ import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
     private Button mButton;
 
     @Override
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         int x = 6;
         int y = 4;
         int c = x + y;
-
         mButton = (Button) findViewById(R.id.back_button);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
