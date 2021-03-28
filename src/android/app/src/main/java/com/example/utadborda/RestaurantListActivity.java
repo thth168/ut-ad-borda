@@ -65,7 +65,7 @@ public class RestaurantListActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ArrayAdapter<String> restaurantAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, )
+        ArrayAdapter<String> restaurantAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
 
     }
 }
