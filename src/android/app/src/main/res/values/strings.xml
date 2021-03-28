@@ -9,7 +9,6 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-<<<<<<< Updated upstream
     <string name="title_activity_restaurant_list">ScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -112,6 +111,4 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="restaurant_name">Restaurant Name</string>
     <string name="restaurant_description">Very cheesy cheese</string>
-=======
->>>>>>> Stashed changes
 </resources>
