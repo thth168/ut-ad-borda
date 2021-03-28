@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         int x = 6;
         int y = 4;
         int c = x + y;
-        mButton = (Button) findViewById(R.id.back_button);
+        mButton = (Button) findViewById(R.id.login_button);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
