@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
-import com.example.utadborda.data.LoginRepository;
-import com.example.utadborda.data.Result;
-import com.example.utadborda.data.model.LoggedInUser;
+import com.example.utadborda.loginData.LoginRepository;
+import com.example.utadborda.loginData.Result;
+import com.example.utadborda.loginData.model.LoggedInUser;
 import com.example.utadborda.R;
 
 public class LoginViewModel extends ViewModel {
