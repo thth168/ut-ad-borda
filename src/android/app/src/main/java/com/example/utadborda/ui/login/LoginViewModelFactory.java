@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.example.utadborda.data.LoginDataSource;
-import com.example.utadborda.data.LoginRepository;
+import com.example.utadborda.loginData.LoginDataSource;
+import com.example.utadborda.loginData.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
