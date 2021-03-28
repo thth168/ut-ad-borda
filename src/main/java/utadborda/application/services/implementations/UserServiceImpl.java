@@ -3,7 +3,7 @@ package utadborda.application.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import utadborda.application.Entities.User;
+import utadborda.application.Entities.UAB_User;
 import utadborda.application.Exceptions.GeneralExceptions;
 import utadborda.application.services.DAO.UserRepo;
 import utadborda.application.services.DTO.UserDTO;
@@ -26,11 +26,11 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User registerNewUser(UserDTO user) throws GeneralExceptions.UserAlreadyExistsException {
+    public UAB_User registerNewUser(UserDTO user) throws GeneralExceptions.UserAlreadyExistsException {
         if (userRepo.existsByEmail(user.getEmail())) {
             throw new GeneralExceptions.UserAlreadyExistsException("There is an account with that email address: " + user.getEmail());
         }
-        return userRepo.save(new User(
+        return userRepo.save(new UAB_User(
                 user.getUsername(),
                 passwordEncoder.encode(user.getPassword()),
                 user.getEmail(),
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void registerAdmin() throws GeneralExceptions.UserAlreadyExistsException {
-        userRepo.save(new User(
+        userRepo.save(new UAB_User(
             "admin",
             passwordEncoder.encode("admin"),
             "admin@admin.is",
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User findUser(String email) {
+    public UAB_User findUser(String email) {
         return userRepo.findByEmail(email);
     }
 }

@@ -1,5 +1,7 @@
 package utadborda.application.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -9,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class User {
+public class UAB_User {
     /** =======================
      *  Spring security queries
      *  ======================= */
@@ -43,6 +45,7 @@ public class User {
     @ElementCollection
     private List<String> roles;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "owner")
     private List<Restaurant> restaurants;
 
@@ -70,9 +73,9 @@ public class User {
         this.restaurants = restaurants;
     }
 
-    protected User() {}
+    protected UAB_User() {}
 
-    public User(String userName, String password, String email, Date dateOfBirth, List<String> roles) {
+    public UAB_User(String userName, String password, String email, Date dateOfBirth, List<String> roles) {
         this.userName = userName;
         this.password = password;
         this.email = email;

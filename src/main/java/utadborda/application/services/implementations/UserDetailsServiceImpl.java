@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import utadborda.application.Entities.User;
+import utadborda.application.Entities.UAB_User;
 import utadborda.application.services.DAO.UserRepo;
 
 import javax.transaction.Transactional;
@@ -34,9 +34,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepo.findByEmail(email);
-        System.out.println(user.getPassword());
-        if (user == null) {
+        UAB_User UABUser = userRepo.findByEmail(email);
+        System.out.println(UABUser.getPassword());
+        if (UABUser == null) {
             throw new UsernameNotFoundException(
                     "No user found with username: "+ email);
         }
@@ -45,9 +45,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
         return  new org.springframework.security.core.userdetails.User
-                (user.getEmail(),
-                        user.getPassword().toLowerCase(), enabled, accountNonExpired,
+                (UABUser.getEmail(),
+                        UABUser.getPassword().toLowerCase(), enabled, accountNonExpired,
                         credentialsNonExpired, accountNonLocked,
-                        getAuthorities(user.getUserRoles()));
+                        getAuthorities(UABUser.getUserRoles()));
     }
 }

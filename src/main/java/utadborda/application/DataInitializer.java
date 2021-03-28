@@ -68,7 +68,7 @@ public class DataInitializer implements ApplicationRunner {
          * Database insert from file. Keep in while spring.jpa.hibernate.ddl-auto is == to create in application.properties.
          * Otherwise run only once and comment out to avoid multiple loads of the dataset into the db.
          */
-        addToDatabase("scraper/merged_data_complete.json");
+        addToDatabase("scraper/merged_data_complete.json", 100);
 
         try {
             userService.registerNewUser(new UserDTO("test", "test", "test", "test@test.is", new SimpleDateFormat("dd/MM/yy").parse("04/12/97")));
@@ -104,7 +104,7 @@ public class DataInitializer implements ApplicationRunner {
      *
      * @param path - Path to JSON data file.
      */
-    private void addToDatabase(String path) {
+    private void addToDatabase(String path, int limit) {
         System.out.println("Adding data to database\nThis might take a while...");
         JSONObject file = loadJSON(path);
         JSONArray data = (JSONArray) file.get("results");
@@ -128,10 +128,13 @@ public class DataInitializer implements ApplicationRunner {
                 "grocery_or_supermarket",
                 "supermarket"
         ));
-
-        ArrayList<String> photoList = new ArrayList<String>(Arrays.asList((new File("src/main/resources/static/r/")).list()));
+        String[] photos = new File("src/main/resources/static/r/").list();
+        ArrayList<String> photoList = new ArrayList<String>();
+        if (photos != null)
+            photoList = new ArrayList<String>(Arrays.asList(photos));
 
         for (JSONObject place : (Iterable<JSONObject>) data) {
+            if (restaurantCount > limit) break;
             try {
                 String name;
                 String address;

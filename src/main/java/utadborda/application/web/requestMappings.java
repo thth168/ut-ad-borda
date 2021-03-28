@@ -39,6 +39,12 @@ public final class requestMappings {
     public static final String MY_RESTAURANTS = "/account/restaurants";
     public static final String CLAIM_RESTAURANT = "/restaurant/claim/{restaurant_id}";
 
+    // ================= //
+    // API MAPPING
+    // ================= //
+
+    public static final String API = "/api";
+
     public requestMappings() {
     }
     

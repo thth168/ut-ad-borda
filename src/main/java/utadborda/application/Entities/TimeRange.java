@@ -1,5 +1,6 @@
 package utadborda.application.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class TimeRange {
     private int weekDay;
     private boolean holiday;
     private String specialDate;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
