@@ -10,6 +10,8 @@ import java.util.UUID;
 public interface RestaurantService {
     Restaurant getByName(String name);
     List<Restaurant> getAll();
+    List<Restaurant> getAll(int page, int limit);
+    long getRestaurantCount();
     Restaurant addRestaurant(Restaurant restaurant);
     Restaurant updateRestaurant(Restaurant restaurant);
     boolean existsById(UUID id);

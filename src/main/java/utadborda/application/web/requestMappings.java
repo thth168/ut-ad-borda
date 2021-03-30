@@ -44,6 +44,8 @@ public final class requestMappings {
     // ================= //
 
     public static final String API = "/api";
+    public static final String API_RESTAURANT_LIST = API + "/allRestaurants";
+    public static final String API_FILTER_LIST = API + "/allFilters";
 
     public requestMappings() {
     }

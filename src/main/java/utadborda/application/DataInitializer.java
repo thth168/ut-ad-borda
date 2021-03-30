@@ -68,7 +68,7 @@ public class DataInitializer implements ApplicationRunner {
          * Database insert from file. Keep in while spring.jpa.hibernate.ddl-auto is == to create in application.properties.
          * Otherwise run only once and comment out to avoid multiple loads of the dataset into the db.
          */
-        addToDatabase("scraper/merged_data_complete.json", 100);
+        addToDatabase("scraper/merged_data_complete.json", -1);
 
         try {
             userService.registerNewUser(new UserDTO("test", "test", "test", "test@test.is", new SimpleDateFormat("dd/MM/yy").parse("04/12/97")));
@@ -134,7 +134,7 @@ public class DataInitializer implements ApplicationRunner {
             photoList = new ArrayList<String>(Arrays.asList(photos));
 
         for (JSONObject place : (Iterable<JSONObject>) data) {
-            if (restaurantCount > limit) break;
+            if (restaurantCount > limit && limit != -1) break;
             try {
                 String name;
                 String address;

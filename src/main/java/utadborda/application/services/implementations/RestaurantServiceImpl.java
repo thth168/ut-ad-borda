@@ -1,6 +1,8 @@
 package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import utadborda.application.Entities.*;
 import utadborda.application.Exceptions.GeneralExceptions;
@@ -68,6 +70,19 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public List<Restaurant> getAll() {
         return restaurantRepo.findTop20ByIdNotNull();
+    }
+
+    @Transactional
+    @Override
+    public List<Restaurant> getAll(int page, int limit) {
+        Pageable paging = PageRequest.of(page, limit);
+        return restaurantRepo.findAllByIdNotNull(paging);
+    }
+
+    @Transactional
+    @Override
+    public long getRestaurantCount() {
+        return restaurantRepo.count();
     }
 
     @Transactional
