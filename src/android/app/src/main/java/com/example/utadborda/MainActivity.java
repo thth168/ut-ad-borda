@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button loginButton;
     private Button restaurantListButton;
     private Button matchButton;
+    private Button userButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.login_button);
         restaurantListButton = (Button) findViewById(R.id.restaurantList_button);
         matchButton = (Button) findViewById(R.id.match_button);
+        userButton = (Button) findViewById(R.id.user_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -47,11 +49,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MatchActivity.class));
             }
         });
+        userButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, UserActivity.class));
+            }
+        });
     }
 
-    @Override
-    protected void onStop(){
-        super.onStop();
-        //TODO: IMPLEMENT onStop
-    }
 }

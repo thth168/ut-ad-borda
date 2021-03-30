@@ -111,4 +111,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="restaurant_name">Restaurant Name</string>
     <string name="restaurant_description">Very cheesy cheese</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="tab_text_1">Favorites</string>
+    <string name="tab_text_2">Session History</string>
+    <string name="tab_text_3">Info</string>
 </resources>

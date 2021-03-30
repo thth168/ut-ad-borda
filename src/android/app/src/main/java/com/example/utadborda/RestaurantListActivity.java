@@ -37,7 +37,6 @@ public class RestaurantListActivity extends AppCompatActivity {
         listView.setAdapter(listAdapter);
         AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
         restaurantTask.execute();
-
     }
 
     private void addRestaurantsToList() {
