@@ -21,9 +21,8 @@ import java.util.List;
 public class RestaurantListActivity extends AppCompatActivity {
     //Initialize variable
     ListView listView;
-    private final String TAG = "Restaurant List";
     private List<RestaurantItem> items;
-    ArrayAdapter listAdapter;
+    private ArrayAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,7 @@ public class RestaurantListActivity extends AppCompatActivity {
     }
 
     private void addRestaurantsToList() {
+        String TAG = "Restaurant List";
         Log.i(TAG, "Loaded items: " + items.size());
     }
 
