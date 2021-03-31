@@ -28,8 +28,10 @@ public class Fetcher {
             restaurantItem.setName(restaurantJSONObject.getString("name"));
             restaurantItem.setAddress(restaurantJSONObject.getString("address"));
             restaurantItem.setPhone(restaurantJSONObject.getString("phone"));
+            restaurantItem.setImageUrl("https://media1.thehungryjpeg.com/thumbs2/ori_115244_07d36e3008cf7a53273e82f220ebf4ce111eba40_restaurant-logo.jpg");
 
             items.add(restaurantItem);
+            Log.i("Restaurant item:", "items: " + items);
         }
     }
 
@@ -71,6 +73,7 @@ public class Fetcher {
         } catch (JSONException je) {
             Log.e("Restaurant fetch", "Failed to parse JSON", je);
         }
+
         return items;
     }
 }

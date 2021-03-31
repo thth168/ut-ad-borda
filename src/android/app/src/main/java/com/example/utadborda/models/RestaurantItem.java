@@ -5,6 +5,8 @@ public class RestaurantItem {
     private String name;
     private String phone;
     private String address;
+    private String imageUrl;
+    private String website;
     private double latitute;
     private double longitute;
 
@@ -55,4 +57,21 @@ public class RestaurantItem {
     public void setLongitute(double longitute) {
         this.longitute = longitute;
     }
+
+    public void setImageUrl(String image) {
+        this.imageUrl = image;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
 }
