@@ -60,6 +60,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Transactional
     @Override
+    public List<Restaurant> addRestaurants(List<Restaurant> restaurants) {
+        return restaurantRepo.saveAll(restaurants);
+    }
+
+    @Transactional
+    @Override
     public Restaurant getByID(UUID restaurant_ID) {
         return restaurantRepo.findByid(restaurant_ID);
     }
