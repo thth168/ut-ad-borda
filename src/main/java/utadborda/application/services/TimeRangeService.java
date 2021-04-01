@@ -2,6 +2,9 @@ package utadborda.application.services;
 
 import utadborda.application.Entities.TimeRange;
 
+import java.util.List;
+
 public interface TimeRangeService {
-    public TimeRange addTimeRange(TimeRange timeRange);
+    TimeRange addTimeRange(TimeRange timeRange);
+    List<TimeRange> addTimeRanges(List<TimeRange> timeRange);
 }

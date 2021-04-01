@@ -13,6 +13,7 @@ public interface RestaurantService {
     List<Restaurant> getAll(int page, int limit);
     long getRestaurantCount();
     Restaurant addRestaurant(Restaurant restaurant);
+    List<Restaurant> addRestaurants(List<Restaurant> restaurants);
     Restaurant updateRestaurant(Restaurant restaurant);
     boolean existsById(UUID id);
     Restaurant getByID(UUID restaurant_ID);
