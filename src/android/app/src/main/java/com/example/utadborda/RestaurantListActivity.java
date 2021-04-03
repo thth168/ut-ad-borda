@@ -8,7 +8,6 @@ import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.networking.Fetcher;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,8 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 public class RestaurantListActivity extends AppCompatActivity {
@@ -26,11 +23,7 @@ public class RestaurantListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-
-    ListView listView;
-    ListView restaurantListItem;
     private List<RestaurantItem> items;
-    private ArrayAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,30 +37,35 @@ public class RestaurantListActivity extends AppCompatActivity {
         items = new ArrayList<RestaurantItem>();
         AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
         restaurantTask.execute();
-//        mAdapter = new RestaurantItemAdapter(items, RestaurantListActivity.this);
-//        recyclerView.setAdapter(mAdapter);
-
-        /*listView.setAdapter(listAdapter);
-        restaurantListItem = (ListView) findViewById(R.id.list_view);
-        listView.OnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(RestaurantListActivity.this, "Clicked on restaurant", Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
 
+    /**
+     * Logs size of restaurant list
+     */
     private void addRestaurantsToList() {
         String TAG = "Restaurant List";
         Log.i(TAG, "Loaded items: " + items.size());
     }
 
+    /**
+     * Fetches restaurant data from API asyncronously
+     * Sets data in RecyclerView
+     */
     private class AsyncFetchTask extends AsyncTask<Object, Void, List<RestaurantItem>> {
-        RestaurantItemAdapter restaurantAdapter;
+        /**
+         *
+         * @param params
+         * @return
+         */
         @Override
         protected List<RestaurantItem> doInBackground(Object... params) {
             return Fetcher.fetchRestaurants();
         }
+
+        /**
+         * Bind data retrieved from API to RecyclerView
+         * @param restaurantItems
+         */
         @Override
         protected void onPostExecute(List<RestaurantItem> restaurantItems) {
             recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, RestaurantListActivity.this));

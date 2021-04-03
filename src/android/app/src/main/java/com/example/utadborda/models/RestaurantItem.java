@@ -1,5 +1,8 @@
 package com.example.utadborda.models;
 
+/**
+ * Individual restaurant stored in API
+ */
 public class RestaurantItem {
     private String id;
     private String name;

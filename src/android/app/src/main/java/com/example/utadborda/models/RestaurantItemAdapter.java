@@ -22,10 +22,20 @@ import com.example.utadborda.RestaurantFragment;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Adapter class to bind data to RecyclerViewer in RestaurantListActivity
+ */
+
 public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAdapter.getViewHolder> {
     List<RestaurantItem> restaurantList = Collections.emptyList();
     Context context;
 
+    /**
+     * Constructor for restaurant lists to be added to the restaurant list display
+     *
+     * @param restaurantList list of items of type restaurantItem
+     * @param context Activity context
+     */
     public RestaurantItemAdapter(List<RestaurantItem> restaurantList, Context context){
         this.restaurantList = restaurantList;
         this.context = context;
@@ -38,6 +48,12 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         return holder;
     }
 
+    /**
+     * Set item values and onClick listener for listed items
+     *
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull getViewHolder holder, final int position) {
         final RestaurantItem restaurant = restaurantList.get(position);
@@ -47,6 +63,10 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         holder.restaurantPhone.setText(restaurant.getPhone());
         holder.restaurantAddress.setText(restaurant.getAddress());
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Display clicked restaurant information to user
+             * @param v
+             */
             @Override
             public void onClick(View v) {
 //                Intent intent = new Intent(context, RestaurantFragment.class);
@@ -63,12 +83,16 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         return restaurantList.size();
     }
 
+    /**
+     * Initialize item variables to be bound later
+     */
     public class getViewHolder extends RecyclerView.ViewHolder{
         ImageView restaurantPicture;
         TextView restaurantName;
         TextView restaurantId;
         TextView restaurantPhone;
         TextView restaurantAddress;
+
         ConstraintLayout parentLayout;
 
         public getViewHolder(@NonNull View itemView) {
@@ -82,8 +106,4 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         }
     }
 
-    public void setNewList(List<RestaurantItem> restaurantList){
-        this.restaurantList = restaurantList;
-        notifyDataSetChanged();
-    }
 }

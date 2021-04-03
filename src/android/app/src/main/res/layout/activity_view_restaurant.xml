@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:id="@+id/v_restaurantLarge">
+    android:id="@+id/v_restaurant">
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/restaurant_image_wide"
         android:layout_width="wrap_content"
         android:layout_height="272dp"
         android:layout_marginStart="8dp"
@@ -29,7 +29,7 @@
         android:layout_marginTop="8dp"
         android:text="Close"
         android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/restaurant_open"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_open_time"
         app:layout_constraintTop_toBottomOf="@+id/restaurant_website" />
 
     <TextView
@@ -64,7 +64,7 @@
         android:text="@string/restaurant_name"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_image_wide" />
 
     <TextView
         android:id="@+id/restaurant_open"
@@ -75,6 +75,17 @@
         android:text="Open"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_website" />
+
+    <TextView
+        android:id="@+id/restaurant_open_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="11:30"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_open"
         app:layout_constraintTop_toBottomOf="@+id/restaurant_website" />
 
     <TextView
@@ -89,4 +100,14 @@
         app:layout_constraintTop_toBottomOf="@+id/restaurant_address" />
 
 
+    <TextView
+        android:id="@+id/restaurant_close_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="23:30"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_close"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_website" />
 </androidx.constraintlayout.widget.ConstraintLayout>

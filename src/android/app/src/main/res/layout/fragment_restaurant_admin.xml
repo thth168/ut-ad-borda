@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_restaurant_admin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+
+    <EditText
+        android:id="@+id/restaurant_open_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="11:30"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_open"
+        app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_website" />
+
+    <EditText
+        android:id="@+id/restaurant_close_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="23:30"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_close"
+        app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_website" />
+
+    <EditText
+        android:id="@+id/edit_restaurant_name"
+        android:layout_width="116dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/restaurant_name"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_name"
+        app:layout_constraintTop_toTopOf="@+id/restaurant_name" />
+
+    <EditText
+        android:id="@+id/edit_restaurant_address"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginStart="80dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:text="Address"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_restaurant_phone"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_address"
+        app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_name" />
+
+    <EditText
+        android:id="@+id/edit_restaurant_website"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="80dp"
+        android:ems="8"
+        android:inputType="phone"
+        android:text="website"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/restaurant_close_time"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_website"
+        app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_phone" />
+
+    <EditText
+        android:id="@+id/edit_restaurant_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginStart="92dp"
+        android:ems="8"
+        android:inputType="phone"
+        android:text="phone"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_restaurant_website"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_phone"
+        app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_address" />
+
+    <ImageView
+        android:id="@+id/restaurant_image_wide"
+        android:layout_width="wrap_content"
+        android:layout_height="272dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="restaurantImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
+    <TextView
+        android:id="@+id/restaurant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:text="@string/restaurant_name"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_restaurant_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_image_wide" />
+
+    <TextView
+        android:id="@+id/restaurant_address"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:text="Address"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_restaurant_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edit_restaurant_address" />
+
+    <TextView
+        android:id="@+id/restaurant_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="Phone"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_restaurant_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edit_restaurant_phone" />
+
+    <TextView
+        android:id="@+id/restaurant_website"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Website"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_restaurant_website"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edit_restaurant_website" />
+
+    <TextView
+        android:id="@+id/restaurant_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Open"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_website" />
+
+    <TextView
+        android:id="@+id/restaurant_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Close"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_open_time"
+        app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_website" />
+
+    <ImageView
+        android:id="@+id/restaurant_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_image_wide"
+        app:srcCompat="@android:drawable/star_big_off" />
+</androidx.constraintlayout.widget.ConstraintLayout>
