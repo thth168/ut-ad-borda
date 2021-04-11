@@ -122,7 +122,7 @@ public class DataInitializer implements ApplicationRunner {
 
         String jsonString = loadJsonAsString(path);
         GmapsDataDTO data = objectMapper.readValue(jsonString, GmapsDataDTO.class);
-        data.results = data.results.subList(0,100);
+        data.results = data.results.subList(0,500);
 
         data.setImages(insertImages(data));
 
