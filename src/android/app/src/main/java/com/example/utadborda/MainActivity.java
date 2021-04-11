@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button loginButton;
     private Button restaurantListButton;
-    private Button matchButton;
+    private Button sessionButton;
     private Button userButton;
 
     @Override
@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton = (Button) findViewById(R.id.login_button);
         restaurantListButton = (Button) findViewById(R.id.restaurantList_button);
-        matchButton = (Button) findViewById(R.id.match_button);
+        sessionButton = (Button) findViewById(R.id.match_button);
         userButton = (Button) findViewById(R.id.user_button);
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -43,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, RestaurantListActivity.class));
             }
         });
-        matchButton.setOnClickListener(new View.OnClickListener() {
+        sessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MatchActivity.class));
+                startActivity(new Intent(MainActivity.this, SessionActivity.class));
             }
         });
         userButton.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "949065746412",
+    "firebase_url": "https://ut-ad-borda-73532-default-rtdb.firebaseio.com",
+    "project_id": "ut-ad-borda-73532",
+    "storage_bucket": "ut-ad-borda-73532.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949065746412:android:2ccd47a21b7f63e4bd22c9",
+        "android_client_info": {
+          "package_name": "com.example.utadborda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949065746412-0eapm5dni4o1g8k7oj34uogl42cp1et6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkOm_iPy-uHo7bnjVaCz4oNTFcsQZoQ_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949065746412-0eapm5dni4o1g8k7oj34uogl42cp1et6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

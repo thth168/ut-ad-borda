@@ -7,7 +7,7 @@
     tools:context=".MatchActivity">
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/right_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -15,20 +15,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/left_button" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/left_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="swipe left"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toStartOf="@+id/right_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.utadborda.FirstFragment"
+        android:name="com.example.utadborda.RestaurantFragment"
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
