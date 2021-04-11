@@ -1,0 +1,53 @@
+{
+  "endpoints": [
+    {
+      "path": "/api/allRestaurants",
+      "queryParams": [
+        {
+          "query": "page",
+          "type": "Integer",
+          "defaultValue": 0,
+          "required": false,
+          "description": "Sets the page number of the pagination of the data"
+        },
+        {
+          "query": "limit",
+          "type": "Integer",
+          "defaultValue": 10,
+          "required": false,
+          "description": "Sets the size of the pages in the pagination of the data"
+        }
+      ]
+    },
+    {
+      "path": "/api/allTags",
+      "queryParams": [
+        {
+          "query": "page",
+          "type": "Integer",
+          "defaultValue": 0,
+          "required": false,
+          "description": "Sets the page number of the pagination of the data"
+        },
+        {
+          "query": "limit",
+          "type": "Integer",
+          "defaultValue": 10,
+          "required": false,
+          "description": "Sets the size of the pages in the pagination of the data"
+        }
+      ]
+    },
+    {
+      "path": "/api/restaurant",
+      "queryParams": [
+        {
+          "query": "id",
+          "type": "String",
+          "required": true,
+          "description": "The id of the restaurant that is being fetched"
+        }
+      ]
+    }
+  ]
+}

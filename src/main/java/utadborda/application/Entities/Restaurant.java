@@ -20,7 +20,7 @@ public class Restaurant {
     private Double posLng;
     private String website;
     @JsonManagedReference
-    @OneToMany(mappedBy = "restaurant")
+    @ManyToMany(mappedBy = "restaurant")
     private List<TimeRange> openingHours;
     @Column(columnDefinition = "varchar(1024)")
     @ElementCollection

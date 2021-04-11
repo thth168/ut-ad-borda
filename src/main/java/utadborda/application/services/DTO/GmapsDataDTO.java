@@ -34,7 +34,7 @@ public class GmapsDataDTO {
         List<Restaurant> allRestaurants = new ArrayList<>();
         List<Places> toRemove = new ArrayList<>();
         for (Places place: results) {
-            if (place.tags != null)
+            if (place.tags != null && place.tags.stream().anyMatch(e -> e.getKey().equals("type")))
                 allRestaurants.add(place.createRestaurant());
             else toRemove.add(place);
         }
@@ -144,7 +144,7 @@ public class GmapsDataDTO {
 
         @JsonSetter("address_components")
         public void setAddressTags(List<Address_component> addressComponents) {
-            if (this.tags == null) return;
+            if (this.tags == null) this.tags = new ArrayList<>();
             for (Address_component addressComponent: addressComponents) {
                 if (addressComponent.long_name == null) continue;
                 List<String> categories = Arrays.asList("", "district", "city", "postalCode");
@@ -168,6 +168,7 @@ public class GmapsDataDTO {
                     this.tags.add(new AbstractMap.SimpleEntry<>(categories.get(value), addressComponent.long_name));
                 }
             }
+            if (this.tags.isEmpty()) this.tags = null;
         }
 
         @JsonSetter("photos")

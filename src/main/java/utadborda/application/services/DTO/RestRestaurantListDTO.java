@@ -4,12 +4,12 @@ import utadborda.application.Entities.Restaurant;
 
 import java.util.List;
 
-public class RestRestaurantDTO {
+public class RestRestaurantListDTO {
     private final long count;
     private final long maxPages;
     private final List<Restaurant> restaurants;
 
-    public RestRestaurantDTO(
+    public RestRestaurantListDTO(
             long count,
             long maxPages,
             List<Restaurant> restaurants

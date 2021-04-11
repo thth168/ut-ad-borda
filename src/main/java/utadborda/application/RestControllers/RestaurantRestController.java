@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
-import utadborda.application.services.DTO.RestFilterDTO;
-import utadborda.application.services.DTO.RestRestaurantDTO;
+import utadborda.application.services.DTO.RestTagDTO;
+import utadborda.application.services.DTO.RestRestaurantListDTO;
 import utadborda.application.services.RestaurantService;
 import utadborda.application.services.TagService;
 import utadborda.application.web.requestMappings;
@@ -30,18 +30,18 @@ public class RestaurantRestController {
     }
 
     @GetMapping(requestMappings.API_RESTAURANT_LIST)
-    RestRestaurantDTO getAllRestaurants(
+    RestRestaurantListDTO getAllRestaurants(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int limit
     ) {
         List<Restaurant> restaurants = restaurantService.getAll(page, limit);
         long count = restaurantService.getRestaurantCount();
         long maxNumOfPages = count / limit;
-        return new RestRestaurantDTO(count, maxNumOfPages, restaurants);
+        return new RestRestaurantListDTO(count, maxNumOfPages, restaurants);
     }
 
-    @GetMapping(requestMappings.API_FILTER_LIST)
-    RestFilterDTO getAllFilters(
+    @GetMapping(requestMappings.API_TAGS_LIST)
+    RestTagDTO getAllTags(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int limit
     ) {
@@ -50,6 +50,13 @@ public class RestaurantRestController {
         for (String category: categories) {
             subcategories.add(tagService.getAllByCategory(category));
         }
-        return new RestFilterDTO(categories, subcategories);
+        return new RestTagDTO(categories, subcategories);
+    }
+
+    @GetMapping(requestMappings.API_RESTAURANT)
+    String getRestaurant(
+            @RequestParam String id
+    ) {
+        return "TEST";
     }
 }

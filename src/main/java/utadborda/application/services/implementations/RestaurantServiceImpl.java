@@ -52,7 +52,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         if (restaurant.getOpeningHours() != null) {
             for (TimeRange timeRange: restaurant.getOpeningHours()) {
                 if(timeRange.getId() != null && !timeRangeRepo.existsById(timeRange.getId())){
-                    timeRange.setRestaurant(newRestaurant);
+                    //timeRange.addRestaurant(newRestaurant);
                     timeRangeRepo.save(timeRange);
                 }
             }
@@ -96,7 +96,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     public Restaurant updateRestaurant(Restaurant restaurant) {
         Restaurant newRestaurant = restaurantRepo.save(restaurant);
         for (TimeRange timeRange: restaurant.getOpeningHours()) {
-            timeRange.setRestaurant(newRestaurant);
+            //timeRange.addRestaurant(newRestaurant);
             timeRangeRepo.save(timeRange);
         }
         return newRestaurant;
