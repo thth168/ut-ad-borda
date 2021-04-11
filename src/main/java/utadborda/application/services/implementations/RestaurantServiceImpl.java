@@ -1,6 +1,7 @@
 package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ import java.util.UUID;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
-    private RestaurantRepo restaurantRepo;
-    private TimeRangeRepo timeRangeRepo;
+    private final RestaurantRepo restaurantRepo;
+    private final TimeRangeRepo timeRangeRepo;
     private TagRepo tagRepo;
     private MenuItemRepo menuItemRepo;
     @Autowired
@@ -116,8 +117,16 @@ public class RestaurantServiceImpl implements RestaurantService {
         return true;
     }
 
+    @Transactional
     @Override
-    public List<Restaurant> findAllByTag(Tag tag) {
-        return restaurantRepo.findAllByTagsContaining(tag);
+    public List<Restaurant> getAllByTag(Tag tag, int page, int limit) {
+        Pageable paging = PageRequest.of(page, limit);
+        return restaurantRepo.findAllByTagsContaining(tag, paging);
+    }
+
+    @Transactional
+    @Override
+    public long getCountByTag(Tag tag) {
+        return restaurantRepo.countAllByTagsContaining(tag);
     }
 }

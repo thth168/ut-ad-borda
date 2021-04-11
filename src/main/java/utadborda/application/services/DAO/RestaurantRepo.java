@@ -16,6 +16,7 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
     Restaurant findByName(String name);
     Restaurant findByid(UUID restaurant_ID);
 
-    List<Restaurant> findAllByTagsContaining(Tag tag);
+    List<Restaurant> findAllByTagsContaining(Tag tag, Pageable pageable);
     List<Restaurant> findAllByIdNotNull(Pageable pageable);
+    long countAllByTagsContaining(Tag tag);
 }

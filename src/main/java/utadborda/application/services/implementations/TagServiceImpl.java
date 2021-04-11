@@ -11,6 +11,7 @@ import utadborda.application.services.TagService;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Service
 public class TagServiceImpl implements TagService {
@@ -69,5 +70,10 @@ public class TagServiceImpl implements TagService {
         if (tag != null)
             return tag.getRestaurants().subList(0,20);
         return null;
+    }
+
+    @Override
+    public Tag getTagById(UUID id) {
+        return tagRepo.findById(id).orElse(null);
     }
 }
