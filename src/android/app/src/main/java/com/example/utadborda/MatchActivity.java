@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -46,8 +47,9 @@ public class MatchActivity extends AppCompatActivity {
         playerName = preferences.getString("playerName", "");
 
         Bundle extras = getIntent().getExtras();
-        if (extras != null){
-            sessionName = extras.getString("sessionName");
+        if (extras != null) {
+            Log.d("TEST", "Komst hérna");
+            sessionName = extras.getString("roomName");
             if (playerName == "player1"){
                 role = "host";
             } else {
@@ -55,9 +57,9 @@ public class MatchActivity extends AppCompatActivity {
             }
         }
 
-        messageRef = database.getReference("sessions/"+sessionName+"/message");
+        messageRef = database.getReference().child("sessions").child(sessionName).child("message");
         message = role + ": poked!";
-        messageRef.child(sessionName).setValue(message);
+        messageRef.setValue(message);
         addRoomEventListener();
 
     }
