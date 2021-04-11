@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.NotNull;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,34 +45,34 @@ public class MatchActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-        playerName = preferences.getString("playerName", "");
+        //playerName = preferences.getString("playerName", "");
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            Log.d("TEST", "Komst hérna");
+            playerName = extras.getString("playerName");
             sessionName = extras.getString("roomName");
-            if (playerName == "player1"){
+            if (playerName.equals("player1")){
                 role = "host";
             } else {
                 role = "guest";
             }
         }
 
-        messageRef = database.getReference().child("sessions").child(sessionName).child("message");
+        messageRef = database.getReference().child("sessions").child(sessionName);
         message = role + ": poked!";
-        messageRef.setValue(message);
+        messageRef.child("message").setValue(message);
         addRoomEventListener();
 
     }
 
     private void addRoomEventListener() {
-        messageRef.addValueEventListener(new ValueEventListener() {
+        messageRef.child("message").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NotNull DataSnapshot snapshot) {
                 //message received
                 if(role.equals("host")){
                     if(snapshot.getValue(String.class).contains("guest")){
-                        leftButton.setEnabled(true);
+                        leftButton.setEnabled(false);
                         Toast.makeText(MatchActivity.this, "" +
                                 snapshot.getValue(String.class).replace("guest", ""), Toast.LENGTH_SHORT).show();
                     }

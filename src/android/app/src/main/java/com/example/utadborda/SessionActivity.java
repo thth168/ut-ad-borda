@@ -62,12 +62,12 @@ public class SessionActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         sessionKey = preferences.getString("sessionKey", "");
         Log.i("SessionActivity", sessionKey);
-        sessionRef.setValue(sessionKey, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
-
-            }
-        });
+//        sessionRef.setValue(sessionKey, new DatabaseReference.CompletionListener() {
+//            @Override
+//            public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
+//
+//            }
+//        });
         if(!sessionKey.equals("")) {
             sessionRef = database.getReference("sessions/"+ sessionKey);
             addEventListener();
@@ -82,10 +82,11 @@ public class SessionActivity extends AppCompatActivity {
                 editText.setText("");
                 if(!sessionKey.equals("")){
                     mNewSession.setText("Creating room");
-                    sessionRef = database.getReference("session/"+ sessionKey + "/player" + playerNo );
+                    playerName = "player" +playerNo;
+                    sessionRef = database.getReference("sessions/"+ sessionKey + "/" + playerName );
                     playerNo++;
-                    addRoomEventListener();
                     sessionRef.setValue(sessionKey);
+                    //addRoomEventListener();
                 }
             }
         });
@@ -94,12 +95,18 @@ public class SessionActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 roomName = roomsList.get(position);
-                sessionRef = database.getReference("session/" + sessionKey + "/player" + playerNo);
+                sessionRef = database.getReference("sessions/" + sessionKey + "/player" + playerNo);
                 playerNo++;
-                addRoomEventListener();
+                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                intent.putExtra("roomName", roomName);
+                intent.putExtra("playerName", playerName);
+                startActivity(intent);
+                //addRoomEventListener(roomName);
                 sessionRef.setValue("");
             }
         });
+
+        addRoomsEventListener();
     }
 
     public void readData(){
@@ -146,7 +153,7 @@ public class SessionActivity extends AppCompatActivity {
             }
         });
         //Show if new room is available
-        addRoomsEventListener();
+        //addRoomsEventListener();
     }
 
     private void addEventListener(){
@@ -176,7 +183,7 @@ public class SessionActivity extends AppCompatActivity {
     }
 
     private void addRoomsEventListener() {
-        sessionRef = database.getReference("sessions");
+        sessionRef = database.getReference().child("sessions");
         sessionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -184,7 +191,7 @@ public class SessionActivity extends AppCompatActivity {
                 roomsList.clear();
                 Iterable<DataSnapshot> rooms = snapshot.getChildren();
                 for(DataSnapshot dataSnapshot : rooms) {
-                    roomsList.add(snapshot.getKey());
+                    roomsList.add(dataSnapshot.getKey());
 
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(SessionActivity.this, android.R.layout.simple_list_item_1, roomsList);
                     listView.setAdapter(adapter);
