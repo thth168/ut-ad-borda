@@ -49,16 +49,20 @@ public class SessionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
 
+        Bundle bundle = new Bundle();
+
+
 //        readData();
         editText = findViewById(R.id.sessionKey);
         mNewSession = findViewById(R.id.new_session);
-        listView = findViewById(R.id.session_list);
+        listView = findViewById(R.id.play_button);
         roomsList = new ArrayList<>();
 //
         database = FirebaseDatabase.getInstance();
         sessionRef = database.getReference("message");
         sessionRef.setValue(sessionKey);
         //check if the player exists and get reference
+
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         sessionKey = preferences.getString("sessionKey", "");
         Log.i("SessionActivity", sessionKey);
