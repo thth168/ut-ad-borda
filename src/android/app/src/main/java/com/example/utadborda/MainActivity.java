@@ -2,16 +2,11 @@ package com.example.utadborda;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.utadborda.ui.login.LoginActivity;
 
-import static android.util.Log.*;
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class MainActivity extends AppCompatActivity {
 
