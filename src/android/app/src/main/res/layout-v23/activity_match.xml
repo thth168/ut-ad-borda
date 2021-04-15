@@ -37,6 +37,7 @@
             android:background="@drawable/round_button"
             android:contentDescription="@string/button_accept"
             android:paddingTop="6dp"
+            android:foreground="?attr/selectableItemBackground"
             android:src="@drawable/ic_iconmonstr_favorite_3" />
 
         <ImageButton
@@ -46,6 +47,7 @@
             android:layout_alignParentEnd="false"
             android:background="@drawable/round_button"
             android:contentDescription="@string/button_decline"
+            android:foreground="?attr/selectableItemBackground"
             android:src="@drawable/ic_iconmonstr_x_mark_1" />
     </RelativeLayout>
 
