@@ -21,10 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private Button restaurantListButton;
     private Button matchButton;
 
+    private View activityView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        activityView = findViewById(R.id.main_pane);
 
         loginButton = (Button) findViewById(R.id.login_button);
         restaurantListButton = (Button) findViewById(R.id.restaurantList_button);
@@ -47,6 +50,34 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MatchActivity.class));
             }
         });
+
+        activityView.setOnTouchListener(new TouchListener(MainActivity.this) {
+            @Override
+            public void onSwipeLeft() {
+                super.onSwipeLeft();
+                matchButton.setText("left swipe");
+            }
+
+            @Override
+            public void onSwipeRight() {
+                super.onSwipeRight();
+                matchButton.setText("right swipe");
+            }
+
+            @Override
+            public void onSwipeUp() {
+                super.onSwipeUp();
+                matchButton.setText("up swipe");
+            }
+
+            @Override
+            public void onSwipeDown() {
+                super.onSwipeDown();
+                matchButton.setText("down swipe");
+            }
+        });
+
+
     }
 
     @Override

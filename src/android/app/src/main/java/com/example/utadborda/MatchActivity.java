@@ -44,10 +44,10 @@ public class MatchActivity extends AppCompatActivity {
 
     private void onSwipe(boolean directionRight, String restaurantId) {
         // session get new swipes from users
-        session.
+        //session.
         // session notify swipe (direction)
-        if (directionRight) rightSwipes.add(restaurantId);
-        else leftSwipes.add(restaurantId);
+        if (directionRight) {userRightSwipes.add(restaurantId);}
+        else userLeftSwipes.add(restaurantId);
 
     }
 

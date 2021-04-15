@@ -12,7 +12,7 @@ public class Session {
     }
 
     private boolean notifyMembers(Object data) throws InterruptedException {
-        boolean notified;
+        boolean notified = false;
         try {
             // notift all session members with data
             // notified = x;
@@ -27,7 +27,7 @@ public class Session {
 
     private boolean notifyMembers(Object data, int n) throws InterruptedException {
         if (n < 5) {
-            boolean notified;
+            boolean notified = false;
             try {
                 // notify all session members with data
                 // notified = x;
@@ -37,7 +37,7 @@ public class Session {
                 System.out.println("Failed to notify session members.");
             }
             return notifyMembers(data, n+1);
-            Thread.sleep(1000);
+            //Thread.sleep(1000);
         } else {
             return false;
         }
