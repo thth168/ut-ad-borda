@@ -158,7 +158,7 @@ public class RestaurantDTO {
         restaurant.setPhone(this.phone);
         restaurant.setAddress(this.address);
         restaurant.setWebsite(this.website);
-        restaurant.setPhotos(this.photos);
+        restaurant.addPhoto(this.photos);
         restaurant.setTags(this.tags);
         restaurant.setMenu(this.menu);
         restaurant.setCuisineType(this.cuisineType);

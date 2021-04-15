@@ -1,6 +1,8 @@
 package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import utadborda.application.Entities.*;
 import utadborda.application.Exceptions.GeneralExceptions;
@@ -50,12 +52,18 @@ public class RestaurantServiceImpl implements RestaurantService {
         if (restaurant.getOpeningHours() != null) {
             for (TimeRange timeRange: restaurant.getOpeningHours()) {
                 if(timeRange.getId() != null && !timeRangeRepo.existsById(timeRange.getId())){
-                    timeRange.setRestaurant(newRestaurant);
+                    //timeRange.addRestaurant(newRestaurant);
                     timeRangeRepo.save(timeRange);
                 }
             }
         }
         return newRestaurant;
+    }
+
+    @Transactional
+    @Override
+    public List<Restaurant> addRestaurants(List<Restaurant> restaurants) {
+        return restaurantRepo.saveAll(restaurants);
     }
 
     @Transactional
@@ -72,10 +80,23 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Transactional
     @Override
+    public List<Restaurant> getAll(int page, int limit) {
+        Pageable paging = PageRequest.of(page, limit);
+        return restaurantRepo.findAllByIdNotNull(paging);
+    }
+
+    @Transactional
+    @Override
+    public long getRestaurantCount() {
+        return restaurantRepo.count();
+    }
+
+    @Transactional
+    @Override
     public Restaurant updateRestaurant(Restaurant restaurant) {
         Restaurant newRestaurant = restaurantRepo.save(restaurant);
         for (TimeRange timeRange: restaurant.getOpeningHours()) {
-            timeRange.setRestaurant(newRestaurant);
+            //timeRange.addRestaurant(newRestaurant);
             timeRangeRepo.save(timeRange);
         }
         return newRestaurant;

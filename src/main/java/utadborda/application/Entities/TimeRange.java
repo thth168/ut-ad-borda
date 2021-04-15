@@ -6,7 +6,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.sql.Date;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -20,9 +22,9 @@ public class TimeRange {
     private boolean holiday;
     private String specialDate;
     @JsonBackReference
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "restaurant_id")
-    private Restaurant restaurant;
+    private List<Restaurant> restaurant;
 
     protected TimeRange() {}
 
@@ -39,7 +41,8 @@ public class TimeRange {
         this.weekDay = weekDay;
         this.holiday = holiday;
         this.specialDate = specialDate;
-        this.restaurant = restaurant;
+        this.restaurant = new ArrayList<>();
+        this.restaurant.add(restaurant);
     }
 
     public TimeRange(
@@ -54,6 +57,7 @@ public class TimeRange {
         this.weekDay = weekDay;
         this.holiday = holiday;
         this.specialDate = specialDate;
+        this.restaurant = new ArrayList<>();
     }
 
     public TimeRange(
@@ -67,7 +71,8 @@ public class TimeRange {
         this.weekDay = weekDay;
         this.holiday = false;
         this.specialDate = null;
-        this.restaurant = restaurant;
+        this.restaurant = new ArrayList<>();
+        this.restaurant.add(restaurant);
     }
 
     public String getOpenTime() {
@@ -114,12 +119,16 @@ public class TimeRange {
         return id;
     }
 
-    public Restaurant getRestaurant() {
+    public List<Restaurant> getRestaurant() {
         return restaurant;
     }
 
-    public void setRestaurant(Restaurant restaurant) {
+    public void setRestaurant(List<Restaurant> restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public void addRestaurant(Restaurant restaurant) {
+        this.restaurant.add(restaurant);
     }
 
     public String weekdayToString(int day) {

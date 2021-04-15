@@ -10,6 +10,7 @@ public interface TagService {
 
     List<Tag> getAll();
     Tag addTag(Tag tag);
+    Restaurant addTags(List<Tag> tags);
     List<Tag> getAllByCategory(String category);
     List<Restaurant> getByName(String category, String name);
 

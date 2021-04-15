@@ -1,26 +1,30 @@
 package utadborda.application;
 
+import com.cloudinary.Api;
+import com.cloudinary.Cloudinary;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-import utadborda.application.Entities.MenuItem;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
 import utadborda.application.Entities.TimeRange;
 import utadborda.application.Exceptions.GeneralExceptions;
+import utadborda.application.services.DTO.CloudinaryResponseDTO;
+import utadborda.application.services.DTO.GmapsDataDTO;
 import utadborda.application.services.DTO.UserDTO;
 import utadborda.application.services.RestaurantService;
 import utadborda.application.services.TagService;
 import utadborda.application.services.TimeRangeService;
 import utadborda.application.services.UserService;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.sql.Time;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -29,7 +33,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
-import java.io.FileReader;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @ConditionalOnProperty(
     prefix = "data.init",
@@ -40,35 +45,46 @@ import java.io.FileReader;
 
 @Component
 public class DataInitializer implements ApplicationRunner {
-    private RestaurantService restaurantService;
-    private TimeRangeService timeRangeService;
-    private UserService userService;
-    private TagService tagService;
+    private final RestaurantService restaurantService;
+    private final TimeRangeService timeRangeService;
+    private final UserService userService;
+    private final TagService tagService;
+    private final ObjectMapper objectMapper;
+    private final Cloudinary cloudinary;
 
     @Autowired
     public DataInitializer(
             RestaurantService restaurantService,
             TimeRangeService timeRangeService,
             UserService userService,
-            TagService tagService
+            TagService tagService,
+            ObjectMapper objectMapper
     ) {
         this.restaurantService = restaurantService;
         this.timeRangeService = timeRangeService;
         this.userService = userService;
         this.tagService = tagService;
+        this.objectMapper = objectMapper;
+        this.cloudinary = new Cloudinary(Stream.of(
+            new AbstractMap.SimpleEntry<>("cloud_name", "dwx7hyahv"),
+            new AbstractMap.SimpleEntry<>("api_key", "377459241788154"),
+            new AbstractMap.SimpleEntry<>("api_secret", "oBO1nzGak8XIuTpR4q0PfI98yY0")
+        ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
+        this.objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
     }
 
     /**
+     *
      * Autorun for our application data initializer.
      *
      * @param args
      */
-    public void run(ApplicationArguments args) {
+    public void run(ApplicationArguments args) throws Exception {
         /**
          * Database insert from file. Keep in while spring.jpa.hibernate.ddl-auto is == to create in application.properties.
          * Otherwise run only once and comment out to avoid multiple loads of the dataset into the db.
          */
-        addToDatabase("scraper/merged_data_complete.json", 100);
+        addToDatabase("scraper/merged_data_complete.json", -1);
 
         try {
             userService.registerNewUser(new UserDTO("test", "test", "test", "test@test.is", new SimpleDateFormat("dd/MM/yy").parse("04/12/97")));
@@ -78,310 +94,146 @@ public class DataInitializer implements ApplicationRunner {
         }
     }
 
-    /**
-     * File loader for json file with path file.
-     *
-     * @param file path to the file
-     * @return JSONObject of the file given.
-     */
-    private JSONObject loadJSON(String file) {
-        JSONParser parser = new JSONParser();
-        JSONObject jsonObject = null;
-        try {
-            jsonObject = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
-        } catch ( Exception exception ) {
-            exception.printStackTrace();
+    private String loadJsonAsString(String filename) throws IOException {
+        StringBuilder builder = new StringBuilder();
+
+        try (Stream<String> stream = Files.lines(Paths.get(filename), StandardCharsets.UTF_8)) {
+            stream.forEach(s -> builder.append(s).append('\n'));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return jsonObject;
+
+        return builder.toString();
     }
 
     /**
      * Data parser for google maps data that adds data from JSON file in path to database.
      * Parses data, creates objects and adds them to arraylists for later use.
-     *
+     * <p>
      * Can add photos, reviews and maybe even a menu later if the data for that
-     * ever becomes available. Photos and reviews are scraped but not yet addedable to db.
+     * ever becomes available. Photos and reviews are scraped but not yet addable to db.
      *
      * @param path - Path to JSON data file.
      */
-    private void addToDatabase(String path, int limit) {
+    private void addToDatabase(String path, int limit) throws Exception {
+
+
         System.out.println("Adding data to database\nThis might take a while...");
-        JSONObject file = loadJSON(path);
-        JSONArray data = (JSONArray) file.get("results");
 
-        int restaurantCount = 0;
-        int timeRangeCount = 0;
-        int tagCount = 0;
-        ArrayList<Tag> tags = new ArrayList<Tag>();
-        ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+        String jsonString = loadJsonAsString(path);
+        GmapsDataDTO data = objectMapper.readValue(jsonString, GmapsDataDTO.class);
+        data.results = data.results.subList(0,500);
 
-        ArrayList<String> allowedTypes = new ArrayList<String>(Arrays.asList(
-                "food",
-                "restaurant",
-                "night_club",
-                "bakery",
-                "cafe",
-                "bar",
-                "gas_station",
-                "liquor_store",
-                "convenience_store",
-                "grocery_or_supermarket",
-                "supermarket"
-        ));
-        String[] photos = new File("src/main/resources/static/r/").list();
-        ArrayList<String> photoList = new ArrayList<String>();
-        if (photos != null)
-            photoList = new ArrayList<String>(Arrays.asList(photos));
+        data.setImages(insertImages(data));
 
-        for (JSONObject place : (Iterable<JSONObject>) data) {
-            if (restaurantCount > limit) break;
-            try {
-                String name;
-                String address;
-                Double posLat;
-                Double posLng;
-                String gmapsId;
-                String gmapsUrl;
+        System.out.println("Parsed jsonData, creating Restaurants");
+        List<Restaurant> restaurants = data.getRestaurants();
+        restaurants = restaurantService.addRestaurants(restaurants);
+        data.updatePlaces(restaurants);
 
-                List<TimeRange> openingHours;
-                name = (String) place.get("name");
-                address = (String) place.get("formatted_address");
+        System.out.println("Created restaurants, creating TimeRanges");
+        List<TimeRange> timeRanges = data.getTimeRanges();
+        timeRangeService.addTimeRanges(timeRanges);
 
-                JSONObject location = (JSONObject) ((JSONObject) place.get("geometry")).get("location");
-                posLat = (Double) location.get("lat");
-                posLng = (Double) location.get("lng");
-                gmapsId = (String) place.get("place_id");
-                gmapsUrl = (String) place.get("url");
-
-                Restaurant restaurant = new Restaurant(name, address, posLat, posLng, gmapsId, gmapsUrl);
-
-                restaurant.setWebsite(place.containsKey("website") ? (((String) place.get("website")).length() > 255 ? null : ((String) place.get("website"))) : null);
-                restaurant.setPhone(place.containsKey("international_phone_number") ? (String) place.get("international_phone_number") : null);
-
-                if (place.containsKey("types")) {
-                    ArrayList<String> types = (ArrayList<String>)((JSONArray)place.get("types"));
-
-                    if (!Collections.disjoint(types, allowedTypes)) {
-
-                        restaurant = restaurantService.addRestaurant(restaurant);
-                        restaurantCount ++;
-
-                        for (String type : types) {
-                            hasType: {
-                                String tagName;
-
-                                switch (type) {
-                                    case "restaurant":
-                                        tagName = "restaurant";
-                                        break;
-                                    case "night_club":
-                                        tagName = "nightClub";
-                                        break;
-                                    case "bakery":
-                                        tagName = "bakery";
-                                        break;
-                                    case "cafe":
-                                        tagName = "cafe";
-                                        break;
-                                    case "bar":
-                                        tagName = "bar";
-                                        break;
-                                    case "gas_station":
-                                        tagName = "gasStation";
-                                        break;
-                                    case "liquor_store":
-                                        tagName = "liquorStore";
-                                        break;
-                                    case "convenience_store":
-                                    case "grocery_or_supermarket":
-                                    case "supermarket":
-                                        tagName = "grocer";
-                                        break;
-                                    default:
-                                        break hasType;
-                                }
-
-                                String tagCategory = "type";
-                                if (!filterTags(tags, restaurant, tagCategory, tagName, tagCount)) {
-                                    tagCount ++;
-                                }
-
-                            }
-
-                        }
-
-                    } else continue;
-
-                } else continue;
-
-                if (place.containsKey("address_components")) {
-                    ArrayList<JSONObject> addrComps = (ArrayList<JSONObject>) ((JSONArray) place.get("address_components"));
-
-                    for (JSONObject addrComp : addrComps) {
-                        ArrayList<String> types = (ArrayList<String>) addrComp.get("types");
-
-                        hasType: {
-                            String tagCategory;
-
-                            if (types.contains("postal_code") || types.contains("subpremise")) {
-                                tagCategory = "postalCode";
-                            } else if (types.contains("locality")) {
-                                tagCategory = "city";
-                            } else if (types.contains("sublocality") || types.contains("sublocality_level_1")) {
-                                tagCategory = "district";
-                            } else {
-                                break hasType;
-                            }
-
-                            String tagName = (String) addrComp.get("long_name");
-                            if (!filterTags(tags, restaurant, tagCategory, tagName, tagCount)) {
-                                tagCount ++;
-                            }
-
-                        }
-
-                    }
-
-                }
-
-                if (place.containsKey("opening_hours")) {
-                    JSONObject opening_hours = (JSONObject) place.get("opening_hours");
-
-                    if (opening_hours.containsKey("periods")) {
-                        ArrayList<String> weekday = (ArrayList<String>) ((JSONArray) opening_hours.get("weekday_text"));
-                        String[] weekdays = weekday.toArray(new String[weekday.size()]);
-                        SimpleDateFormat time_12 = new SimpleDateFormat("hh:mm a");
-                        SimpleDateFormat time_24 = new SimpleDateFormat("HH:mm:ss");
-
-                        for (int i = 0; i < weekdays.length; i++) {
-                            String[] sp = weekdays[i].split(": ", 2);
-
-                            switch (sp[1]) {
-                                case "Closed":
-                                    break;
-
-                                case "Open 24 hours":
-                                    timeRangeService.addTimeRange(
-                                            new TimeRange(
-                                                    "00:00:00",
-                                                    "24:00:00",
-                                                    i,
-                                                    restaurant
-                                            )
-                                    );
-                                    timeRangeCount ++;
-                                    break;
-
-                                default:
-                                    String[] times = sp[1].split(" – |, ");
-                                    String str = "";
-
-                                    for (int j = 0; j < times.length; j += 2) {
-                                        String[] open = times[j].split("( )");
-
-                                        if (open.length == 2) {
-                                            String open_M = open[1];
-                                        } else {
-                                            times[j] += " " + times[j + 1].split("( )")[1];
-                                        }
-
-                                        timeRangeService.addTimeRange(
-                                                new TimeRange(
-                                                        time_24.format(time_12.parse(times[j])),
-                                                        time_24.format(time_12.parse(times[j + 1])),
-                                                        i,
-                                                        restaurant
-                                                )
-                                        );
-                                        timeRangeCount ++;
-
-                                    }
-                                    break;
-                            }
-
-                        }
-
-                    }
-
-                }
-
-                if (place.containsKey("photos")) {
-                    JSONArray photoObject = (JSONArray) place.get("photos");
-
-                    for (Object p : photoObject) {
-                        JSONObject photo = (JSONObject) p;
-
-                        String reference = (String) photo.get("photo_reference") + ".png";
-
-                        if (photoList.contains(reference)) {
-                            restaurant.addPhoto("/r/" + reference);
-                        }
-
-                    }
-
-                }
-
-                restaurants.add(restaurant);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("Data insertion into databse was unsuccessful");
-            }
-
+        System.out.println("Created TimeRanges, creating Tags");
+        List<List<Tag>> tags = data.getTags();
+        restaurants.clear();
+        for (List<Tag> tag : tags) {
+            restaurants.add(tagService.addTags(tag));
         }
-
-        try {
-            for (Tag tag : tags) {
-                tagService.addTag(tag);
-            }
-
-            for (Restaurant restaurant : restaurants) {
-                restaurantService.updateRestaurant(restaurant);
-            }
-
-            System.out.println("Added " + timeRangeCount + " timeRanges to database");
-            System.out.println("Added " + tagCount + " tags to database");
-            System.out.println("Added " + restaurantCount + " restaurants to database");
-            System.out.println("Data insertion into databse was successful");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Data insertion into databse was unsuccessful");
-        }
-
+        restaurantService.addRestaurants(restaurants);
+        System.out.println("Created Tags, finished adding to database");
     }
 
-    /**
-     * Filter helper function for parseData.
-     * replacement for duplicate code.
-     *
-     * @param tags
-     * @param restaurant
-     * @param tagCategory
-     * @param tagName
-     */
-    private boolean filterTags(ArrayList<Tag> tags, Restaurant restaurant, String tagCategory, String tagName, int tagCount) {
-        boolean tagExists = false;
+    public Map<String, String> insertImages(GmapsDataDTO data) throws Exception {
+        Map<Object, Object> params = new HashMap<>();
+        params.put("public_id", "ut-ad-borda/test");
+        params.put("overwrite", false);
+        params.put("tags", "ut-ad-borda");
 
-        for (Tag tag : tags) {
-            if (tag.getName().equals(tagName) && tag.getCategory().equals(tagCategory)) {
-                tag.addRestaurant(restaurant);
-                restaurant.addTag(tag);
-                tagExists = true;
-                break;
+        Map<String, Object> options = new HashMap<>();
+        options.put("type", "upload");
+        options.put("prefix", "ut-ad-borda/");
+        options.put("max_results", 500);
+
+        JSONArray allImages = new JSONArray();
+        Api.ApiResponse cloudinaryResponse = cloudinary.api().resources(options);
+        allImages.addAll((JSONArray) cloudinaryResponse.get("resources"));
+        options.put("next_cursor", cloudinaryResponse.get("next_cursor"));
+        while(cloudinaryResponse.get("next_cursor") != null) {
+            cloudinaryResponse = cloudinary.api().resources(options);
+            allImages.addAll((JSONArray) cloudinaryResponse.get("resources"));
+            options.put("next_cursor", cloudinaryResponse.get("next_cursor"));
+        }
+        String cloudinaryJson = allImages.toString();
+        cloudinaryJson = "{resources: " + cloudinaryJson + "}";
+        CloudinaryResponseDTO cloudinaryData = objectMapper.readValue(cloudinaryJson, CloudinaryResponseDTO.class);
+        List<String> imageKeys = cloudinaryData.getKeys();
+
+        Map<String, File> images = data.createImageMap();
+        for (String imageKey : imageKeys) {
+            images.remove(imageKey);
+        }
+        Map<String, String> cloudinaryUrls = new HashMap<>();
+
+        System.out.println("Uploading " + images.size() + " images to cloudinary: ");
+        List<imageUploader> uploaders = new ArrayList<>();
+        List<Thread> threads = new ArrayList<>();
+        for (Map.Entry<String, File> image: images.entrySet()) {
+            imageUploader uploader = new imageUploader(params, image.getKey(), image.getValue());
+            uploaders.add(uploader);
+            Thread t = new Thread(uploader);
+            threads.add(t);
+        }
+        System.out.println("All " + threads.size() + " threads started");
+        List<Thread> running = new ArrayList<>();
+        for (int i = 0; i < threads.size(); i++) {
+            threads.get(i).start();
+            running.add(threads.get(i));
+            if(threads.size() > 10 && i % (threads.size() / 10) == 0) System.out.println((i / threads.size()) + "% complete");
+            if(i % 100 == 0) {
+                for (Thread t: running) t.join();
+                running.clear();
             }
-
         }
-
-        if (!tagExists) {
-            Tag newTag = new Tag(tagName, tagCategory);
-            newTag.addRestaurant(restaurant);
-            restaurant.addTag(newTag);
-            tags.add(newTag);
+        if (!running.isEmpty()) {
+            for (Thread t: running) t.join();
         }
-
-        return tagExists;
-
+        System.out.println("All threads finished");
+        for (imageUploader uploader: uploaders) {
+            cloudinaryUrls.put(uploader.getPath().getKey(), uploader.getPath().getValue());
+        }
+        cloudinaryUrls.putAll(cloudinaryData.createEntryList());
+        return cloudinaryUrls;
     }
 
+    public class imageUploader implements Runnable {
+        private final Map<Object, Object> params;
+        private final String name;
+        private final File file;
+        private volatile String path;
+
+        public imageUploader(Map<Object, Object> params, String name, File file) {
+            this.params = params;
+            this.name = name;
+            this.file = file;
+        }
+
+        @Override
+        public void run() {
+            if (!file.exists()) {
+                this.path = "";
+            } else {
+                params.replace("public_id", "ut-ad-borda/" + name);
+                try {
+                    Map<?, ?> result = cloudinary.uploader().upload(file, params);
+                    this.path = (String) result.get("secure_url");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public Map.Entry<String, String> getPath() { return new AbstractMap.SimpleEntry<>(this.name, this.path); }
+    }
 }

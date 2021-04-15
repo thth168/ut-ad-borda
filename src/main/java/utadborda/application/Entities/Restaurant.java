@@ -20,10 +20,11 @@ public class Restaurant {
     private Double posLng;
     private String website;
     @JsonManagedReference
-    @OneToMany(mappedBy = "restaurant")
+    @ManyToMany(mappedBy = "restaurant")
     private List<TimeRange> openingHours;
     @Column(columnDefinition = "varchar(1024)")
-    private String photos;
+    @ElementCollection
+    private List<String> photos;
     private String gmapsId;
     private String gmapsUrl;
     @JsonManagedReference
@@ -58,7 +59,8 @@ public class Restaurant {
         this.phone = phone;
         this.address = address;
         this.website = website;
-        this.photos = photos;
+        this.photos = new ArrayList<>();
+        this.photos.add(photos);
         this.tags = tags;
         this.menu = menu;
         this.cuisineType = cuisineType;
@@ -89,6 +91,34 @@ public class Restaurant {
             String address,
             Double posLat,
             Double posLng,
+            String gmapsId,
+            String gmapsUrl,
+            String website,
+            String phone,
+            List<String> photos
+    ) {
+        this.name = name;
+        this.address = address;
+        this.posLat = posLat;
+        this.posLng = posLng;
+        this.gmapsId = gmapsId;
+        this.gmapsUrl = gmapsUrl;
+        this.openingHours = new ArrayList<TimeRange>();
+        this.tags = new ArrayList<Tag>();
+        this.menu = new ArrayList<MenuItem>();
+        this.website = website;
+        this.phone = phone;
+        this.photos = new ArrayList<>();
+        if(photos != null) {
+            this.photos = photos;
+        }
+    }
+
+    public Restaurant(
+            String name,
+            String address,
+            Double posLat,
+            Double posLng,
             String website,
             String phone,
             List<TimeRange> openingHours,
@@ -105,7 +135,8 @@ public class Restaurant {
         this.website = website;
         this.phone = phone;
         this.openingHours = openingHours;
-        this.photos = photos;
+        this.photos = new ArrayList<>();
+        this.photos.add(photos);
         this.gmapsId = gmapsId;
         this.gmapsUrl = gmapsUrl;
         this.tags = tags;
@@ -173,34 +204,21 @@ public class Restaurant {
     }
 
     public List<String> getPhotos() {
-        if (this.photos == null) {
-            return new ArrayList<String>();
-        }
-        return new ArrayList<String>(Arrays.asList(this.photos.split("&")));
+        return this.photos;
     }
 
     public String getPhoto(int index) {
-        if (this.photos == null) {
-            return null;
-        }
-        String[] str = this.photos.split("&");
-        if (str.length <= index) {
-            return str[str.length-1];
-        } else {
-            return str[index];
-        }
+        if (index < photos.size())
+            return photos.get(index);
+        return null;
     }
 
     public void setPhotos(List<String> photos) {
-        this.photos = String.join("&", photos);
+        this.photos = photos;
     }
 
     public void addPhoto(String photoReference) {
-        if (this.photos == null) {
-            this.photos = photoReference;
-        } else {
-            this.photos += "&" + photoReference;
-        }
+        this.photos.add(photoReference);
     }
 
     public String getGmapsId() {
@@ -239,12 +257,10 @@ public class Restaurant {
         tags.add(tag);
     }
 
+    public void addTags(List<Tag> tags) {this.tags.addAll(tags); }
+
     public String toString() {
         return this.getName();
-    }
-
-    public void setPhotos(String photos) {
-        this.photos = photos;
     }
 
     public UAB_User getOwner() {
