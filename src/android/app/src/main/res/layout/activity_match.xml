@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.utadborda.RestaurantFragment"
+        android:name="com.example.utadborda.MatchFragment"
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

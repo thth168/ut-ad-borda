@@ -24,129 +24,88 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SessionActivity extends AppCompatActivity {
 
     private static final String TAG = "SessionActivity";
 
-    EditText editText;
+    EditText sessionText;
+    EditText nameText;
     Button mNewSession;
-    ListView listView;
+    Button mPlayButton;
 
-    List<String> roomsList;
-
-    String sessionKey = "halló!";
+    String sessionKey = "";
     String playerName = "";
-    String roomName = "";
-    int playerNo = 1;
-    private FirebaseAnalytics mFirebaseAnalytics;
+    Boolean newSession = false;
+
     private FirebaseDatabase database;
     private DatabaseReference sessionRef;
-    private DatabaseReference sessionsRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
 
-        Bundle bundle = new Bundle();
-
-
-//        readData();
-        editText = findViewById(R.id.sessionKey);
+        nameText = findViewById(R.id.nickName);
+        sessionText = findViewById(R.id.sessionKey);
         mNewSession = findViewById(R.id.new_session);
-        listView = findViewById(R.id.play_button);
-        roomsList = new ArrayList<>();
-//
-        database = FirebaseDatabase.getInstance();
-        sessionRef = database.getReference("message");
-        sessionRef.setValue(sessionKey);
-        //check if the player exists and get reference
+        mPlayButton = findViewById(R.id.play_button);
 
+        database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         sessionKey = preferences.getString("sessionKey", "");
-        Log.i("SessionActivity", sessionKey);
-//        sessionRef.setValue(sessionKey, new DatabaseReference.CompletionListener() {
-//            @Override
-//            public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
-//
-//            }
-//        });
-        if(!sessionKey.equals("")) {
-            sessionRef = database.getReference("sessions/"+ sessionKey);
-            addEventListener();
-            sessionRef.child("session").setValue(sessionKey);
-        }
 
         mNewSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sessionKey = editText.getText().toString();
-                Log.i("SessionActivity", sessionKey);
-                editText.setText("");
-                if(!sessionKey.equals("")){
+                sessionKey = randomString();
+                playerName = nameText.getText().toString();
+                sessionText.setText("");
+                if(!sessionKey.equals("")) {
                     mNewSession.setText("Creating room");
-                    playerName = "player" +playerNo;
-                    sessionRef = database.getReference("sessions/"+ sessionKey + "/" + playerName );
-                    playerNo++;
-                    sessionRef.setValue(sessionKey);
-                    //addRoomEventListener();
+                    sessionRef = database.getReference( "sessions/" );
+                    newSession = true;
+                    addRoomEventListener();
                 }
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                roomName = roomsList.get(position);
-                sessionRef = database.getReference("sessions/" + sessionKey + "/player" + playerNo);
-                playerNo++;
-                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
-                intent.putExtra("roomName", roomName);
-                intent.putExtra("playerName", playerName);
-                startActivity(intent);
-                //addRoomEventListener(roomName);
-                sessionRef.setValue("");
+            public void onClick(View view) {
+                sessionKey = sessionText.getText().toString();
+                sessionRef = database.getReference("sessions/");
+                addRoomEventListener();
             }
         });
-
-        addRoomsEventListener();
-    }
-
-    public void readData(){
-        FirebaseDatabase database;
-        DatabaseReference sessionRef;
-        database = FirebaseDatabase.getInstance();
-        sessionRef = database.getReference();
-        
-        sessionRef.setValue(sessionKey);
-
-        sessionRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class).toString();
-                Log.d(TAG, "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+//        addRoomEventListener();
     }
 
     private void addRoomEventListener(){
-        sessionRef.addValueEventListener(new ValueEventListener() {
+        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            // Check if session exists, add player and go to next activity
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mNewSession.setText("CREATE ROOM");
-                mNewSession.setEnabled(true);
-                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
-                intent.putExtra("roomName", sessionKey);
-                startActivity(intent);
+                Log.i("RoomEvent- new session", String.valueOf(newSession));
+                Log.i("RoomEvent - snapshot", String.valueOf(snapshot.child(sessionKey).exists()));
+//                if(snapshot.child(sessionKey).exists()){
+                if(snapshot.child(sessionKey).exists() || newSession){
+                    newSession = false;
+                    long playerCount = snapshot.child(sessionKey).getChildrenCount();
+                    playerName = nameText.getText().toString();
+                    sessionRef = database.getReference("sessions/"+ sessionKey + "/player-" + playerCount);
+                    sessionRef.setValue(playerName);
+
+                    Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                    intent.putExtra("sessionName", sessionKey);
+                    intent.putExtra("playerCount", playerCount);
+                    intent.putExtra("playerName", playerName);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(SessionActivity.this, "Invalid room key", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -171,8 +130,8 @@ public class SessionActivity extends AppCompatActivity {
                     editor.putString("sessionKey", sessionKey);
                     editor.apply();
 
-                    //startActivity(new Intent(getApplicationContext(), MatchActivity.class));
-                    //finish();
+                    startActivity(new Intent(getApplicationContext(), waitingRoomFragment.class));
+                    finish();
                 }
             }
 
@@ -183,30 +142,63 @@ public class SessionActivity extends AppCompatActivity {
                 Toast.makeText(SessionActivity.this, "Error!", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+//
+//    private void addRoomsEventListener() {
+//        sessionRef = database.getReference().child("sessions");
+//        sessionRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                //show list of rooms
+//                roomsList.clear();
+//                Iterable<DataSnapshot> rooms = snapshot.getChildren();
+//                for(DataSnapshot dataSnapshot : rooms) {
+//                    roomsList.add(dataSnapshot.getKey());
+//                    ArrayAdapter<String> adapter = new ArrayAdapter<>(SessionActivity.this, android.R.layout.simple_list_item_1, roomsList);
+//                    listView.setAdapter(adapter);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                //error - nothing
+//            }
+//        });
+//    }
 
-    private void addRoomsEventListener() {
-        sessionRef = database.getReference().child("sessions");
-        sessionRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //show list of rooms
-                roomsList.clear();
-                Iterable<DataSnapshot> rooms = snapshot.getChildren();
-                for(DataSnapshot dataSnapshot : rooms) {
-                    roomsList.add(dataSnapshot.getKey());
+    public String randomString() {
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(SessionActivity.this, android.R.layout.simple_list_item_1, roomsList);
-                    listView.setAdapter(adapter);
-                }
-            }
+        // create a string of uppercase and lowercase characters and numbers
+        String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
+        String numbers = "0123456789";
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //error - nothing
+        // combine all strings
+        String alphaNumeric = upperAlphabet + lowerAlphabet + numbers;
 
-            }
-        });
+        // create random string builder
+        StringBuilder sb = new StringBuilder();
+
+        // create an object of Random class
+        Random random = new Random();
+
+        // specify length of random string
+        int length = 4;
+
+        for(int i = 0; i < length; i++) {
+
+            // generate random index number
+            int index = random.nextInt(alphaNumeric.length());
+
+            // get character specified by index
+            // from the string
+            char randomChar = alphaNumeric.charAt(index);
+
+            // append the character to string builder
+            sb.append(randomChar);
+        }
+
+        String randomString = sb.toString();
+        return randomString;
     }
 }

@@ -27,12 +27,13 @@ public class MatchActivity extends AppCompatActivity {
     Button rightButton;
 
     String playerName = "";
-    String sessionName = "";
+    String sessionKey= "";
+    Long playerCount;
     String role = "";
     String message = "";
 
     FirebaseDatabase database;
-    DatabaseReference messageRef;
+    DatabaseReference sessionRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,51 +46,50 @@ public class MatchActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
+
         //playerName = preferences.getString("playerName", "");
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             playerName = extras.getString("playerName");
-            sessionName = extras.getString("roomName");
-            if (playerName.equals("player1")){
-                role = "host";
-            } else {
-                role = "guest";
-            }
+            playerCount = extras.getLong("playerCount");
+            sessionKey = extras.getString("sessionName");
+            sessionRef = database.getReference("sessions/"+ sessionKey + "/player-" + playerCount);
+            sessionRef.setValue(playerName);
         }
 
-        messageRef = database.getReference().child("sessions").child(sessionName);
-        message = role + ": poked!";
-        messageRef.child("message").setValue(message);
-        addRoomEventListener();
+//        messageRef = database.getReference().child("sessions").child(sessionName);
+//        message = role + ": poked!";
+//        messageRef.child("message").setValue(message);
+//        addRoomEventListener();
 
     }
-
-    private void addRoomEventListener() {
-        messageRef.child("message").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NotNull DataSnapshot snapshot) {
-                //message received
-                if(role.equals("host")){
-                    if(snapshot.getValue(String.class).contains("guest")){
-                        leftButton.setEnabled(false);
-                        Toast.makeText(MatchActivity.this, "" +
-                                snapshot.getValue(String.class).replace("guest", ""), Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    if(snapshot.getValue(String.class).contains("host")){
-                        leftButton.setEnabled(true);
-                        Toast.makeText(MatchActivity.this, "" +
-                                snapshot.getValue(String.class).replace("host", ""), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //error - retry
-                messageRef.setValue(message);
-            }
-        });
-    }
+//
+//    private void addRoomEventListener() {
+//        messageRef.child("message").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NotNull DataSnapshot snapshot) {
+//                //message received
+//                if(role.equals("host")){
+//                    if(snapshot.getValue(String.class).contains("guest")){
+//                        leftButton.setEnabled(false);
+//                        Toast.makeText(MatchActivity.this, "" +
+//                                snapshot.getValue(String.class).replace("guest", ""), Toast.LENGTH_SHORT).show();
+//                    }
+//                } else {
+//                    if(snapshot.getValue(String.class).contains("host")){
+//                        leftButton.setEnabled(true);
+//                        Toast.makeText(MatchActivity.this, "" +
+//                                snapshot.getValue(String.class).replace("host", ""), Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                //error - retry
+//                messageRef.setValue(message);
+//            }
+//        });
+//    }
 }

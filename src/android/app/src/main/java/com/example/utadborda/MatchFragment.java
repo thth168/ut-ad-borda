@@ -18,7 +18,7 @@ public class MatchFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_restaurant_admin, container, false);
+        return inflater.inflate(R.layout.activity_view_restaurant, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
