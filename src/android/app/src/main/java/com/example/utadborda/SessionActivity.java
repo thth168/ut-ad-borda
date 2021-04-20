@@ -92,12 +92,12 @@ public class SessionActivity extends AppCompatActivity {
 //                if(snapshot.child(sessionKey).exists()){
                 if(snapshot.child(sessionKey).exists() || newSession){
                     newSession = false;
-                    long playerCount = snapshot.child(sessionKey).getChildrenCount();
+                    long playerCount = snapshot.child(sessionKey).child("/players").getChildrenCount();
                     playerName = nameText.getText().toString();
-                    sessionRef = database.getReference("sessions/"+ sessionKey + "/player-" + playerCount);
+                    sessionRef = database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount);
                     sessionRef.setValue(playerName);
 
-                    Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), WaitingRoomActivity.class);
                     intent.putExtra("sessionName", sessionKey);
                     intent.putExtra("playerCount", playerCount);
                     intent.putExtra("playerName", playerName);

@@ -32,9 +32,6 @@ public class MatchActivity extends AppCompatActivity {
     private ImageButton button_dislike;
     private ImageButton button_like;
 
-    private Button leftButton;
-    Button rightButton;
-
     String playerName = "";
     String sessionKey= "";
     Long playerCount;
@@ -48,9 +45,6 @@ public class MatchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
-
-        leftButton = (Button) findViewById(R.id.left_button);
-        rightButton = (Button) findViewById(R.id.right_button);
 
         database = FirebaseDatabase.getInstance();
 
@@ -72,7 +66,7 @@ public class MatchActivity extends AppCompatActivity {
 //        messageRef.child("message").setValue(message);
 //        addRoomEventListener();
 
-    }
+//    }
 //
 //    private void addRoomEventListener() {
 //        messageRef.child("message").addValueEventListener(new ValueEventListener() {
@@ -101,7 +95,7 @@ public class MatchActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
-}
+//}
         button_dislike = (ImageButton) findViewById(R.id.button_dislike);
         button_like = (ImageButton) findViewById(R.id.button_like);
         readyImageButton(button_dislike, R.color.red, R.color.red_dark,false);

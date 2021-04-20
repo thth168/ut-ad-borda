@@ -53,7 +53,7 @@ public class waitingRoomFragment extends Fragment {
             playerName = extras.getString("playerName");
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
-            sessionRef = database.getReference("sessions/"+ sessionKey + "/player-" + playerCount);
+            sessionRef = database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount);
             sessionRef.setValue(playerName);
         }
 

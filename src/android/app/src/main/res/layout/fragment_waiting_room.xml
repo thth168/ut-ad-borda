@@ -8,8 +8,6 @@ android:layout_height="wrap_content"
 android:layout_gravity="center"
 android:id="@+id/v_restaurant">
 
-
-
     <ListView
         android:id="@+id/user_list"
         android:layout_width="match_parent"
