@@ -1,10 +1,19 @@
 package com.example.utadborda;
 
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageButton;
+import androidx.fragment.app.FragmentContainerView;
+import android.widget.RelativeLayout;
+import java.util.Collections;
+import java.util.List;
+import com.example.utadborda.models.RestaurantItem;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,25 +21,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-import android.annotation.SuppressLint;
-import android.graphics.PorterDuff;
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ImageButton;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MatchActivity extends AppCompatActivity {
-    private ImageButton button_dislike;
-    private ImageButton button_like;
+    private RelativeLayout matchingCardContainer;
+    private FragmentContainerView matchingCard;
+    private RelativeLayout buttonContainer;
+    private ImageButton buttonLike;
+    private ImageButton buttonDislike;
+    private MatchCardFragment matchCardFragment;
+
+    private List<RestaurantItem> restaurantQueue;
+    private RestaurantItem currentRestaurant;
+    private List<String> swipeLeft;
+    private List<String> swipeRight;
 
     String playerName = "";
     String sessionKey= "";
@@ -45,13 +48,29 @@ public class MatchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
+        matchingCardContainer = (RelativeLayout) findViewById(R.id.matchingCardContainer);
+        matchingCard = (FragmentContainerView) findViewById(R.id.matchingCard);
+        buttonContainer = (RelativeLayout) findViewById(R.id.buttonContainer);
+        buttonLike = (ImageButton) findViewById(R.id.buttonLike);
+        buttonDislike = (ImageButton) findViewById(R.id.buttonDislike);
+        matchCardFragment = (MatchCardFragment) getSupportFragmentManager().findFragmentById(R.id.matchingCard);
+        readyImageButton(buttonLike, R.color.greenMint, R.color.greenMint_dark, true);
+        readyImageButton(buttonDislike, R.color.red, R.color.red_dark, false);
+
+
+        // get restaurants for session
+        //if (restaurantQueue.size() != 0) {
+        //    Collections.shuffle(restaurantQueue);
+        //    currentRestaurant = restaurantQueue.remove(0);
+        //}
+        // else { swiping done }
+        // display currentRestaurant
+        // matchCardFragment.setData();
+
 
         database = FirebaseDatabase.getInstance();
-
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-
         //playerName = preferences.getString("playerName", "");
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             playerName = extras.getString("playerName");
@@ -60,11 +79,8 @@ public class MatchActivity extends AppCompatActivity {
             sessionRef = database.getReference("sessions/"+ sessionKey + "/player-" + playerCount);
             sessionRef.setValue(playerName);
         }
+    }
 
-//        messageRef = database.getReference().child("sessions").child(sessionName);
-//        message = role + ": poked!";
-//        messageRef.child("message").setValue(message);
-//        addRoomEventListener();
 
 //    }
 //
@@ -96,10 +112,21 @@ public class MatchActivity extends AppCompatActivity {
 //        });
 //    }
 //}
-        button_dislike = (ImageButton) findViewById(R.id.button_dislike);
-        button_like = (ImageButton) findViewById(R.id.button_like);
-        readyImageButton(button_dislike, R.color.red, R.color.red_dark,false);
-        readyImageButton(button_like, R.color.greenMint, R.color.greenMint_dark,true);
+
+    public void swipe(boolean right) {
+        //if (right) {
+            //swipeRight.add(currentRestaurant.getId());
+        //} else {
+            //swipeLeft.add(currentRestaurant.getId());
+        //}
+        //if (restaurantQueue.size() != 0) {
+        //    currentRestaurant = restaurantQueue.remove(0);
+        //}
+        //else {// matching finished return;}
+
+        // display currentRestaurant
+        // matchCardFragment.setData();
+
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -143,11 +170,4 @@ public class MatchActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-    private void swipe(boolean right) {
-
-    }
-
 }

@@ -6,20 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MatchActivity">
 
-    <RelativeLayout
-        android:id="@+id/matching_card_container"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/matchingCard"
+        android:name="com.example.utadborda.MatchCardFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="61dp">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/matching_card"
-            android:name="com.example.utadborda.MatchCardFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
+    </androidx.fragment.app.FragmentContainerView>
 
     <RelativeLayout
-        android:id="@+id/button_container"
+        android:id="@+id/buttonContainer"
         android:layout_width="265dp"
         android:layout_height="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +27,7 @@
         app:layout_constraintVertical_bias="0.949">
 
         <ImageButton
-            android:id="@+id/button_like"
+            android:id="@+id/buttonLike"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_alignParentEnd="true"
@@ -41,7 +38,7 @@
             android:src="@drawable/ic_iconmonstr_favorite_3" />
 
         <ImageButton
-            android:id="@+id/button_dislike"
+            android:id="@+id/buttonDislike"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_alignParentEnd="false"
