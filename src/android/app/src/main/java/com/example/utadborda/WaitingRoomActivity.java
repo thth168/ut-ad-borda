@@ -3,13 +3,21 @@ package com.example.utadborda;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import com.example.utadborda.models.RestaurantItem;
+import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.models.Tag;
 import com.example.utadborda.models.TagItemAdapter;
+import com.example.utadborda.networking.Fetcher;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +31,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
     ListView userListView;
     GridView tagListView;
+    Button mSubmitButton;
 
     String playerName = "";
     String sessionKey= "";
@@ -32,6 +41,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference sessionRef;
+    private List<RestaurantItem> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +49,10 @@ public class WaitingRoomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_waiting_room);
         userListView = (ListView) findViewById(R.id.user_list);
         tagListView = (GridView) findViewById(R.id.tag_gridView);
+        mSubmitButton = (Button) findViewById(R.id.submit_button);
+
         database = FirebaseDatabase.getInstance();
+
         userList = new ArrayList<>();
         tagList =  new ArrayList<Tag>();
         tagList.add(new Tag("Hamburger"));
@@ -59,6 +72,8 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
         ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
         tagListView.setAdapter(adapter);
+
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             playerName = extras.getString("playerName");
@@ -68,6 +83,15 @@ public class WaitingRoomActivity extends AppCompatActivity {
             sessionRef.setValue(playerName);
         }
 
+        mSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Collect tags
+                //waiting for number of players: -1
+                //if all players have chosen
+                startSessionEventListener();
+            }
+        });
         addRoomsEventListener();
 
 
@@ -109,4 +133,64 @@ public class WaitingRoomActivity extends AppCompatActivity {
 //        ArrayAdapter adapter = new ArrayAdapter<String>(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, list);
 //        view.setAdapter(adapter);
 //    }
+
+    /**
+     * Logs size of restaurant list
+     */
+    private void addRestaurantsToList() {
+        String TAG = "Restaurant List";
+        Log.i(TAG, "Loaded items: " + items.size());
+    }
+
+
+    /**
+     * Fetches restaurant data from API asyncronously
+     * Sets data in RecyclerView
+     */
+    private class AsyncFetchTask extends AsyncTask<Object, Void, List<RestaurantItem>> {
+        /**
+         *
+         * @param params
+         * @return
+         */
+        @Override
+        protected List<RestaurantItem> doInBackground(Object... params) {
+            return Fetcher.fetchRestaurants();
+        }
+
+        /**
+         * Bind data retrieved from API to RecyclerView
+         * @param restaurantItems
+         */
+        @Override
+        protected void onPostExecute(List<RestaurantItem> restaurantItems) {
+
+            for(RestaurantItem item : restaurantItems){
+                Log.i("Restaurant", item.getName());
+                sessionRef = database.getReference("sessions/" + sessionKey + "/restaurants").child(item.getId());
+                sessionRef.setValue(0);
+                }
+//                recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, RestaurantListActivity.this));
+                addRestaurantsToList();
+        }
+    }
+
+    private void startSessionEventListener(){
+        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // When all players have chosen tags add restaurants to db and start session
+                items = new ArrayList<RestaurantItem>();
+                AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
+                restaurantTask.execute();
+//                startActivity(new Intent(getApplicationContext(), MatchActivity.class));
+//                getIntent().putExtra("playerName", playerName);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }

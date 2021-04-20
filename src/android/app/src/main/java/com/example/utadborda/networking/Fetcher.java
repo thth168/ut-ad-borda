@@ -84,7 +84,7 @@ public class Fetcher {
     public static List<RestaurantItem> fetchRestaurants() {
         List<RestaurantItem> items = new ArrayList<RestaurantItem>();
         try {
-            String url = Uri.parse("https://ut-ad-borda.herokuapp.com/api/allRestaurants").buildUpon().build().toString();
+            String url = Uri.parse("https://ut-ad-borda.herokuapp.com/api/allRestaurants?limit=10&page=0").buildUpon().build().toString();
             String jsonString = getUrlString(url);
             JSONObject jsonBody = new JSONObject(jsonString);
             JSONArray restaurants = (JSONArray) jsonBody.getJSONArray("restaurants");

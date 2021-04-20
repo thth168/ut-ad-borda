@@ -7,11 +7,11 @@
 
     <Button
         android:id="@+id/tag_button"
-        style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#31000000"
+        android:background="#2F000000"
         android:text="tag"
+        android:textColor="#616161"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

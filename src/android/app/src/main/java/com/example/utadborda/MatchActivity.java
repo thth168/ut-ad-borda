@@ -82,37 +82,6 @@ public class MatchActivity extends AppCompatActivity {
     }
 
 
-//    }
-//
-//    private void addRoomEventListener() {
-//        messageRef.child("message").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NotNull DataSnapshot snapshot) {
-//                //message received
-//                if(role.equals("host")){
-//                    if(snapshot.getValue(String.class).contains("guest")){
-//                        leftButton.setEnabled(false);
-//                        Toast.makeText(MatchActivity.this, "" +
-//                                snapshot.getValue(String.class).replace("guest", ""), Toast.LENGTH_SHORT).show();
-//                    }
-//                } else {
-//                    if(snapshot.getValue(String.class).contains("host")){
-//                        leftButton.setEnabled(true);
-//                        Toast.makeText(MatchActivity.this, "" +
-//                                snapshot.getValue(String.class).replace("host", ""), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                //error - retry
-//                messageRef.setValue(message);
-//            }
-//        });
-//    }
-//}
-
     public void swipe(boolean right) {
         //if (right) {
             //swipeRight.add(currentRestaurant.getId());
