@@ -1,33 +1,13 @@
 package com.example.utadborda;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.annotations.NotNull;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-import android.annotation.SuppressLint;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.SharedPreferences;
 import androidx.fragment.app.FragmentContainerView;
 import android.widget.RelativeLayout;
 
@@ -47,18 +27,6 @@ public class MatchActivity extends AppCompatActivity {
     private MatchCardFragment matchCardFragment;
 
 
-
-    String playerName = "";
-    String sessionKey= "";
-    Long playerCount;
-    String role = "";
-    String message = "";
-
-    FirebaseDatabase database;
-    DatabaseReference sessionRef;
-
-    private Button leftButton;
-    Button rightButton;
 
     String playerName = "";
     String sessionKey= "";
@@ -89,16 +57,6 @@ public class MatchActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         //playerName = preferences.getString("playerName", "");
-
-        leftButton = (Button) findViewById(R.id.left_button);
-        rightButton = (Button) findViewById(R.id.right_button);
-
-        database = FirebaseDatabase.getInstance();
-
-        SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-
-        //playerName = preferences.getString("playerName", "");
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             playerName = extras.getString("playerName");
@@ -107,47 +65,8 @@ public class MatchActivity extends AppCompatActivity {
             sessionRef = database.getReference("sessions/"+ sessionKey + "/player-" + playerCount);
             sessionRef.setValue(playerName);
         }
-
-//        messageRef = database.getReference().child("sessions").child(sessionName);
-//        message = role + ": poked!";
-//        messageRef.child("message").setValue(message);
-//        addRoomEventListener();
-
     }
-//
-//    private void addRoomEventListener() {
-//        messageRef.child("message").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NotNull DataSnapshot snapshot) {
-//                //message received
-//                if(role.equals("host")){
-//                    if(snapshot.getValue(String.class).contains("guest")){
-//                        leftButton.setEnabled(false);
-//                        Toast.makeText(MatchActivity.this, "" +
-//                                snapshot.getValue(String.class).replace("guest", ""), Toast.LENGTH_SHORT).show();
-//                    }
-//                } else {
-//                    if(snapshot.getValue(String.class).contains("host")){
-//                        leftButton.setEnabled(true);
-//                        Toast.makeText(MatchActivity.this, "" +
-//                                snapshot.getValue(String.class).replace("host", ""), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                //error - retry
-//                messageRef.setValue(message);
-//            }
-//        });
-//    }
-}
-        button_dislike = (ImageButton) findViewById(R.id.button_dislike);
-        button_like = (ImageButton) findViewById(R.id.button_like);
-        readyImageButton(button_dislike, R.color.red, R.color.red_dark,false);
-        readyImageButton(button_like, R.color.greenMint, R.color.greenMint_dark,true);
-    }
+
 
 
 

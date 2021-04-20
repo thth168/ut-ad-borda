@@ -49,7 +49,6 @@ public class MatchCardFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setData(R.drawable.ic__f34e, "aa", "bb", "cc");
     }
 
     public void setData(
@@ -64,15 +63,4 @@ public class MatchCardFragment extends Fragment {
         restaurantDistance.setText(distance);
     }
 
-    public void setData(
-            int imageSource,
-            String name,
-            String price,
-            String distance
-    ) {
-        restaurantImage.setImageResource(imageSource);
-        restaurantName.setText(name);
-        restaurantPrice.setText(price);
-        restaurantDistance.setText(distance);
-    }
 }
