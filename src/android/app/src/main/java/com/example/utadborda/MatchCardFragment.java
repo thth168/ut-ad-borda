@@ -63,4 +63,16 @@ public class MatchCardFragment extends Fragment {
         restaurantPrice.setText(price);
         restaurantDistance.setText(distance);
     }
+
+    public void setData(
+            int imageSource,
+            String name,
+            String price,
+            String distance
+    ) {
+        restaurantImage.setImageResource(imageSource);
+        restaurantName.setText(name);
+        restaurantPrice.setText(price);
+        restaurantDistance.setText(distance);
+    }
 }

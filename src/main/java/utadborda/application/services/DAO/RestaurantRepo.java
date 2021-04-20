@@ -1,6 +1,8 @@
 package utadborda.application.services.DAO;
 
 import org.jruby.runtime.Signature;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import utadborda.application.Entities.Restaurant;
@@ -15,4 +17,5 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
     Restaurant findByid(UUID restaurant_ID);
 
     List<Restaurant> findAllByTagsContaining(Tag tag);
+    List<Restaurant> findAllByIdNotNull(Pageable pageable);
 }
