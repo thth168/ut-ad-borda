@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import androidx.fragment.app.FragmentContainerView;
 import android.widget.RelativeLayout;
+import java.util.Collections;
+import java.util.List;
+import com.example.utadborda.models.RestaurantItem;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 
+
 public class MatchActivity extends AppCompatActivity {
     private RelativeLayout matchingCardContainer;
     private FragmentContainerView matchingCard;
@@ -25,6 +29,11 @@ public class MatchActivity extends AppCompatActivity {
     private ImageButton buttonLike;
     private ImageButton buttonDislike;
     private MatchCardFragment matchCardFragment;
+
+    private List<RestaurantItem> restaurantQueue;
+    private RestaurantItem currentRestaurant;
+    private List<String> swipeLeft;
+    private List<String> swipeRight;
 
 
 
@@ -52,6 +61,14 @@ public class MatchActivity extends AppCompatActivity {
 
 
 
+        // get restaurants for session
+        //if (restaurantQueue.size() != 0) {
+        //    Collections.shuffle(restaurantQueue);
+        //    currentRestaurant = restaurantQueue.remove(0);
+        //}
+        // else { swiping done }
+        // display currentRestaurant
+        // matchCardFragment.setData();
 
 
         database = FirebaseDatabase.getInstance();
@@ -69,6 +86,21 @@ public class MatchActivity extends AppCompatActivity {
 
 
 
+    public void swipe(boolean right) {
+        //if (right) {
+            //swipeRight.add(currentRestaurant.getId());
+        //} else {
+            //swipeLeft.add(currentRestaurant.getId());
+        //}
+        //if (restaurantQueue.size() != 0) {
+        //    currentRestaurant = restaurantQueue.remove(0);
+        //}
+        //else {// matching finished return;}
+
+        // display currentRestaurant
+        // matchCardFragment.setData();
+
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     private void readyImageButton(
@@ -111,15 +143,4 @@ public class MatchActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void swipe(boolean right) {
-        if (right) {
-            matchCardFragment.setData(R.drawable.ic__f34e, "aa", "bb", "cc");
-            buttonLike.setBackground(null);
-        } else {
-            buttonDislike.setBackground(null);
-            matchCardFragment.setData(R.drawable.ic__f60b, "aa", "bb", "cc");
-        }
-    }
-
 }

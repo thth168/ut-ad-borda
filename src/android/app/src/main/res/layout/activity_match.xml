@@ -48,5 +48,4 @@
             android:contentDescription="@string/button_decline"
             android:src="@drawable/ic_iconmonstr_x_mark_1" />
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
