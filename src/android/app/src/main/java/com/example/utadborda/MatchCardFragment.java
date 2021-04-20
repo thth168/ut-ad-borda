@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import java.text.DecimalFormat;
 
 public class MatchCardFragment extends Fragment {
     private MatchActivity parent;
@@ -55,12 +56,43 @@ public class MatchCardFragment extends Fragment {
             int imageSource,
             String name,
             String price,
-            String distance
+            double longitude,
+            double latitude
     ) {
         restaurantImage.setImageResource(imageSource);
         restaurantName.setText(name);
         restaurantPrice.setText(price);
-        restaurantDistance.setText(distance);
+
+
+
+
+        //restaurantDistance.setText(distance);
     }
 
+    /**
+     * @param distance - Distance in meters.
+     * @return Returns string representation of distance with appropriate unit suffix.
+     */
+    public String generateDistanceString(double distance) {
+        DecimalFormat df;
+        if (distance <= 1000) return (int)distance + " meters away";
+        df = new DecimalFormat("#.#");
+        return df.format(distance/1000) + " kilometers away";
+    }
+
+    /**
+     * @return distance between two points on the globe in meters.
+     */
+    private double calculateDistance(double lat1, double lat2, double lon1, double lon2) {
+        final int R = 6371;
+        double latDistance = Math.toRadians(lat2 - lat1);
+        double lonDistance = Math.toRadians(lon2 - lon1);
+        double a = (
+                Math.sin(latDistance / 2) * Math.sin(latDistance / 2) +
+                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+                Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2)
+        );
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c * 1000;
+    }
 }

@@ -5,13 +5,16 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
+import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import androidx.fragment.app.FragmentContainerView;
 import android.widget.RelativeLayout;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
 import com.example.utadborda.models.RestaurantItem;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,7 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
-
 
 public class MatchActivity extends AppCompatActivity {
     private RelativeLayout matchingCardContainer;
@@ -34,9 +36,11 @@ public class MatchActivity extends AppCompatActivity {
     private RestaurantItem currentRestaurant;
     private List<String> swipeLeft;
     private List<String> swipeRight;
+    private List<Pair<String, Integer>> likeInfo;
+
 
     String playerName = "";
-    String sessionKey= "";
+    String sessionKey = "";
     Long playerCount;
     String role = "";
     String message = "";
@@ -76,48 +80,17 @@ public class MatchActivity extends AppCompatActivity {
             playerName = extras.getString("playerName");
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
-            sessionRef = database.getReference("sessions/"+ sessionKey + "/player-" + playerCount);
+            sessionRef = database.getReference("sessions/" + sessionKey + "/player-" + playerCount);
             sessionRef.setValue(playerName);
         }
     }
 
 
-//    }
-//
-//    private void addRoomEventListener() {
-//        messageRef.child("message").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NotNull DataSnapshot snapshot) {
-//                //message received
-//                if(role.equals("host")){
-//                    if(snapshot.getValue(String.class).contains("guest")){
-//                        leftButton.setEnabled(false);
-//                        Toast.makeText(MatchActivity.this, "" +
-//                                snapshot.getValue(String.class).replace("guest", ""), Toast.LENGTH_SHORT).show();
-//                    }
-//                } else {
-//                    if(snapshot.getValue(String.class).contains("host")){
-//                        leftButton.setEnabled(true);
-//                        Toast.makeText(MatchActivity.this, "" +
-//                                snapshot.getValue(String.class).replace("host", ""), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                //error - retry
-//                messageRef.setValue(message);
-//            }
-//        });
-//    }
-//}
-
     public void swipe(boolean right) {
         //if (right) {
-            //swipeRight.add(currentRestaurant.getId());
+        //swipeRight.add(currentRestaurant.getId());
         //} else {
-            //swipeLeft.add(currentRestaurant.getId());
+        //swipeLeft.add(currentRestaurant.getId());
         //}
         //if (restaurantQueue.size() != 0) {
         //    currentRestaurant = restaurantQueue.remove(0);
@@ -127,6 +100,21 @@ public class MatchActivity extends AppCompatActivity {
         // display currentRestaurant
         // matchCardFragment.setData();
 
+    }
+
+    private void sortLikes(List<Pair<String, Integer>> sessionLikes) {
+        Collections.sort(sessionLikes, new Comparator<Pair<String, Integer>>() {
+            @Override
+            public int compare(Pair<String, Integer> o1, Pair<String, Integer> o2) {
+                if (o1.second > o2.second) {
+                    return -1;
+                } else if (o1.second.equals(o2.second)) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            }
+        });
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -145,7 +133,7 @@ public class MatchActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        ImageButton view = (ImageButton ) v;
+                        ImageButton view = (ImageButton) v;
                         view.getBackground().setColorFilter(
                                 getResources().getColor(colorDark),
                                 PorterDuff.Mode.SRC_ATOP
