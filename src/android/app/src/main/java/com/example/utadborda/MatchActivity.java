@@ -8,14 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentContainerView;
-import android.view.View;
-import android.annotation.SuppressLint;
-import android.graphics.PorterDuff;
-import android.view.MotionEvent;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
-
 
 public class MatchActivity extends AppCompatActivity {
     private RelativeLayout matchingCardContainer;
