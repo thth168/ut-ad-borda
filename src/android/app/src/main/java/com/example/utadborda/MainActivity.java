@@ -46,33 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        activityView.setOnTouchListener(new TouchListener(MainActivity.this) {
-            @Override
-            public void onSwipeLeft() {
-                super.onSwipeLeft();
-                matchButton.setText("left swipe");
-            }
-
-            @Override
-            public void onSwipeRight() {
-                super.onSwipeRight();
-                matchButton.setText("right swipe");
-            }
-
-            @Override
-            public void onSwipeUp() {
-                super.onSwipeUp();
-                matchButton.setText("up swipe");
-            }
-
-            @Override
-            public void onSwipeDown() {
-                super.onSwipeDown();
-                matchButton.setText("down swipe");
-            }
-        });
-
-
     }
 
     @Override

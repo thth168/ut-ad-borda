@@ -8,24 +8,72 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="306dp"
-        android:layout_height="554dp"
+        android:id="@+id/restaurantImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495"
-        android:src="@drawable/ic_launcher_foreground" />
+        app:layout_constraintVertical_bias="1.0"
+        android:contentDescription="@string/restaurantImage" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="604dp"
-        android:text="Send Help"
+    <RelativeLayout
+        android:id="@+id/restaurantInfoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="580dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/restaurantName"
+            android:layout_width="350dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="31dp"
+            android:text="@string/restaurantName" />
+
+        <ImageView
+            android:id="@+id/gpsIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_below="@+id/restaurantName"
+            android:layout_alignStart="@+id/restaurantName"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_iconmonstr_location_pin_thin"
+            android:contentDescription="@string/gpsIcon" />
+
+        <TextView
+            android:id="@+id/restaurantPrice"
+            android:layout_width="159dp"
+            android:layout_height="16dp"
+            android:layout_below="@+id/restaurantName"
+            android:layout_alignEnd="@+id/restaurantName"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toEndOf="@+id/restaurantDistance"
+            android:gravity="right"
+            android:text="@string/restaurantPrice" />
+
+        <TextView
+            android:id="@+id/restaurantDistance"
+            android:layout_width="100dp"
+            android:layout_height="16dp"
+            android:layout_below="@+id/restaurantName"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="316dp"
+            android:layout_toEndOf="@+id/gpsIcon"
+            android:text="@string/restaurantDistance" />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
