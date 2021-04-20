@@ -150,10 +150,14 @@ public class MatchActivity extends AppCompatActivity {
         });
     }
 
-
-
-    private void swipe(boolean right) {
-
+    public void swipe(boolean right) {
+        if (right) {
+            matchCardFragment.setData(R.drawable.ic__f34e, "aa", "bb", "cc");
+            buttonLike.setBackground(null);
+        } else {
+            buttonDislike.setBackground(null);
+            matchCardFragment.setData(R.drawable.ic__f60b, "aa", "bb", "cc");
+        }
     }
 
 }

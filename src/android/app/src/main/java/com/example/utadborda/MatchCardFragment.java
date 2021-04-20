@@ -17,4 +17,16 @@ public class MatchCardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
+    public void setData(
+            int imageSource,
+            String name,
+            String price,
+            String distance
+    ) {
+        restaurantImage.setImageResource(imageSource);
+        restaurantName.setText(name);
+        restaurantPrice.setText(price);
+        restaurantDistance.setText(distance);
+    }
 }
