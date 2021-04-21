@@ -7,6 +7,7 @@ public class ApiDocumentationDTO {
 
     public static class Endpoint {
         public String path;
+        public String description;
         public List<QueryParam> queryParams;
     }
 

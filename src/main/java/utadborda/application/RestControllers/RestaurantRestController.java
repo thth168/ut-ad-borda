@@ -1,11 +1,10 @@
 package utadborda.application.RestControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
+import utadborda.application.services.DTO.RestTagCategoryDTO;
 import utadborda.application.services.DTO.RestTagDTO;
 import utadborda.application.services.DTO.RestRestaurantListDTO;
 import utadborda.application.services.RestaurantService;
@@ -14,6 +13,8 @@ import utadborda.application.web.requestMappings;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 public class RestaurantRestController {
@@ -32,31 +33,52 @@ public class RestaurantRestController {
     @GetMapping(requestMappings.API_RESTAURANT_LIST)
     RestRestaurantListDTO getAllRestaurants(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int limit
+            @RequestParam(defaultValue = "10") int limit,
+            @RequestParam(required = false) UUID tag,
+            @RequestParam(required = false) Optional<Double> lat,
+            @RequestParam(required = false) Optional<Double> lng,
+            @RequestParam(required = false) Optional<Double> distance
     ) {
-        List<Restaurant> restaurants = restaurantService.getAll(page, limit);
-        long count = restaurantService.getRestaurantCount();
-        long maxNumOfPages = count / limit;
+        List<Restaurant> restaurants;
+        long count;
+        long maxNumOfPages;
+
+        if (tag != null) {
+            Tag foundTag = tagService.getTagById(tag);
+            if (lat.isPresent() && lng.isPresent() && distance.isPresent()) {
+                restaurants = restaurantService.getAllByTagAndGPS( foundTag, lat.get(), lng.get(), distance.get(), page, limit);
+            } else {
+                restaurants = restaurantService.getAllByTag( foundTag, page, limit);
+            }
+            count = restaurantService.getCountByTag( foundTag );
+        } else {
+            restaurants = restaurantService.getAll(page, limit);
+            count = restaurantService.getRestaurantCount();
+        }
+        maxNumOfPages = count / limit;
         return new RestRestaurantListDTO(count, maxNumOfPages, restaurants);
     }
 
     @GetMapping(requestMappings.API_TAGS_LIST)
     RestTagDTO getAllTags(
+            @RequestParam(defaultValue = "all") String category,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int limit
     ) {
-        List<String> categories = tagService.getAllDistinctCategoryFromTag();
-        List<List<Tag>> subcategories = new ArrayList<List<Tag>>();
-        for (String category: categories) {
-            subcategories.add(tagService.getAllByCategory(category));
-        }
-        return new RestTagDTO(categories, subcategories);
+        if (category.equals("all"))
+            return new RestTagDTO(tagService.getAll(page, limit));
+        return new RestTagDTO(tagService.getAllByCategory(category, page, limit));
     }
 
-    @GetMapping(requestMappings.API_RESTAURANT)
-    String getRestaurant(
-            @RequestParam String id
+    @GetMapping(requestMappings.API_TAG_CATEGORIES)
+    RestTagCategoryDTO getAllTagCategory() {
+        return new RestTagCategoryDTO(tagService.getAllDistinctCategoryFromTag());
+    }
+
+    @GetMapping(value = requestMappings.API_RESTAURANT)
+    Restaurant getRestaurant(
+            @RequestParam UUID id
     ) {
-        return "TEST";
+        return restaurantService.getByID(id);
     }
 }
