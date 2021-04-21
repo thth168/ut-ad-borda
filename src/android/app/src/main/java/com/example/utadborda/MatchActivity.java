@@ -80,8 +80,7 @@ public class MatchActivity extends AppCompatActivity {
             playerName = extras.getString("playerName");
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
-            sessionRef = database.getReference("sessions/" + sessionKey + "/player-" + playerCount);
-            sessionRef.setValue(playerName);
+            sessionRef = database.getReference("sessions/" + sessionKey);
         }
     }
 

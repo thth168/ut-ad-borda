@@ -36,6 +36,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private String playerName = "";
     private String sessionKey= "";
     private Long playerCount;
+    private int waitingCount;
     private List<String> userList;
     private List<Tag> tagList;
 
@@ -79,17 +80,23 @@ public class WaitingRoomActivity extends AppCompatActivity {
             playerName = extras.getString("playerName");
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
-            sessionRef = database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount);
-            sessionRef.setValue(playerName);
+            waitingCount = extras.getInt("waitingCount");
+            database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount).setValue(playerName);
+
         }
+        sessionRef = database.getReference("sessions/"+ sessionKey);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Collect tags
-                //waiting for number of players: -1
+                //waiting for players
+                waitingCount = waitingCount-1;
+                database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 //if all players have chosen
-                startSessionEventListener();
+                if(waitingCount == 0){
+                    startSessionEventListener();
+                }
             }
         });
         addRoomsEventListener();

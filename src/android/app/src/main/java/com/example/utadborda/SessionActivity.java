@@ -2,7 +2,6 @@ package com.example.utadborda;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,9 +21,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import kotlinx.coroutines.Delay;
 
 public class SessionActivity extends AppCompatActivity {
 
@@ -59,6 +61,14 @@ public class SessionActivity extends AppCompatActivity {
         mNewSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                WordsRequest customRequest = new DataMuseRequest().topics("Food");
+//                try{
+//                    sessionKey = RandomWordGenerator.getRandomWord(customRequest);
+//                } catch(DataMuseException e){
+//                    e.getStackTrace();
+////
+//                }
+
                 sessionKey = randomString();
                 playerName = nameText.getText().toString();
                 sessionText.setText("");
@@ -91,13 +101,22 @@ public class SessionActivity extends AppCompatActivity {
                 Log.i("RoomEvent - snapshot", String.valueOf(snapshot.child(sessionKey).exists()));
 //                if(snapshot.child(sessionKey).exists()){
                 if(snapshot.child(sessionKey).exists() || newSession){
+                    Intent intent = new Intent(getApplicationContext(), WaitingRoomActivity.class);
                     newSession = false;
+                    int count;
                     long playerCount = snapshot.child(sessionKey).child("/players").getChildrenCount();
                     playerName = nameText.getText().toString();
-                    sessionRef = database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount);
-                    sessionRef.setValue(playerName);
+//                    sessionRef = database.getReference("sessions/"+ sessionKey + "/waiting-for-players");
+                    if(!snapshot.child(sessionKey + "/waiting-for-players").exists()){
+                        sessionRef.child(sessionKey+ "/waiting-for-players").setValue(1);
+                        intent.putExtra("waitingCount", 1);
+                    } else {
+                        count = snapshot.child(sessionKey + "/waiting-for-players").getValue(Integer.class);
+                        sessionRef.child(sessionKey+ "/waiting-for-players").setValue(count+1);
+                        intent.putExtra("waitingCount", count);
+                    }
 
-                    Intent intent = new Intent(getApplicationContext(), WaitingRoomActivity.class);
+
                     intent.putExtra("sessionName", sessionKey);
                     intent.putExtra("playerCount", playerCount);
                     intent.putExtra("playerName", playerName);
