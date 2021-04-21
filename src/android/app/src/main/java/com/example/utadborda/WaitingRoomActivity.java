@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.utadborda.models.RestaurantItem;
 import com.example.utadborda.models.RestaurantItemAdapter;
@@ -32,10 +33,12 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private ListView userListView;
     private GridView tagListView;
     private Button mSubmitButton;
+    private TextView mSessionKey;
 
     private String playerName = "";
     private String sessionKey= "";
     private Long playerCount;
+    private int waitingCount;
     private List<String> userList;
     private List<Tag> tagList;
 
@@ -50,6 +53,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
         userListView = (ListView) findViewById(R.id.user_list);
         tagListView = (GridView) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
+        mSessionKey = (TextView) findViewById(R.id.session_key_text);
 
         database = FirebaseDatabase.getInstance();
 
@@ -79,17 +83,24 @@ public class WaitingRoomActivity extends AppCompatActivity {
             playerName = extras.getString("playerName");
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
-            sessionRef = database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount);
-            sessionRef.setValue(playerName);
+            waitingCount = extras.getInt("waitingCount");
+            database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount).setValue(playerName);
+
+            mSessionKey.setText(sessionKey);
         }
+        sessionRef = database.getReference("sessions/"+ sessionKey);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Collect tags
-                //waiting for number of players: -1
+                //waiting for players
+                waitingCount = waitingCount-1;
+                database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 //if all players have chosen
-                startSessionEventListener();
+                if(waitingCount == 0){
+                    startSessionEventListener();
+                }
             }
         });
         addRoomsEventListener();

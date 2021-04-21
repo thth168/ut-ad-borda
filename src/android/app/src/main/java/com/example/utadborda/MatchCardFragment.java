@@ -62,13 +62,17 @@ public class MatchCardFragment extends Fragment {
 
     public void setData(RestaurantItem restaurantItem) {
         try {
-            URL url = new URL(restaurantItem.getImageUrl());
-            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            restaurantImage.setImageBitmap(bmp);
+            if (restaurantItem.getImageUrl() != null || restaurantItem.getImageUrl() != "") {
+                URL url = new URL(restaurantItem.getImageUrl());
+                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                restaurantImage.setImageBitmap(bmp);
+            }
         } catch (Exception e) {
             Log.e("error", e.getMessage());
         }
-        restaurantName.setText(restaurantItem.getName());
+        if (restaurantItem.getName() != null) {
+            restaurantName.setText(restaurantItem.getName());
+        }
 
         //restaurantPrice.setText(price);
         //restaurantDistance.setText(distance);
