@@ -129,4 +129,12 @@ public class RestaurantServiceImpl implements RestaurantService {
     public long getCountByTag(Tag tag) {
         return restaurantRepo.countAllByTagsContaining(tag);
     }
+
+    @Transactional
+    @Override
+    public List<Restaurant> getAllByTagAndGPS(Tag tag, double lat, double lng, int page, int limit) {
+        Pageable paging = PageRequest.of(page, limit);
+        List<Restaurant> restaurants = restaurantRepo.findAllByTagsContainingAndGPS(lat, lng, paging);
+        return restaurants;
+    }
 }

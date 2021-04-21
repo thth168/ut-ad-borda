@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
 
@@ -19,4 +20,26 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
     List<Restaurant> findAllByTagsContaining(Tag tag, Pageable pageable);
     List<Restaurant> findAllByIdNotNull(Pageable pageable);
     long countAllByTagsContaining(Tag tag);
+    @Query(value = "select " +
+            "id, address, cuisine_type, gmaps_id, gmaps_url, name, phone, pos_lat, pos_lng, website, uab_user_id " +
+            "from (" +
+            "select *, ( 6371 * acos( cos( radians(:lat)) * " +
+            "cos( radians( pos_lat )) * cos( radians(pos_lng) - radians(:lng)) " +
+            "+ sin(radians(:lat)) * sin( radians(pos_lat)))) " +
+            "AS distance from restaurant) as rd order by rd.distance",
+            nativeQuery = true,
+            countQuery = "select count(*) from restaurant"
+    )
+    List<Restaurant> findAllByTagsContainingAndGPS(@Param("lat") double lat, @Param("lng") double lng, Pageable pageable);
+    @Query(value = "select " +
+            "id, address, cuisine_type, gmaps_id, gmaps_url, name, phone, pos_lat, pos_lng, website, uab_user_id " +
+            "from (" +
+            "select *, ( 6371 * acos( cos( radians(:lat)) * " +
+            "cos( radians( pos_lat )) * cos( radians(pos_lng) - radians(:lng)) " +
+            "+ sin(radians(:lat)) * sin( radians(pos_lat)))) " +
+            "AS distance from restaurant) as rd order by rd.distance",
+            nativeQuery = true,
+            countQuery = "select count(*) from restaurant"
+    )
+    List<Restaurant> findAllByGPS(@Param("lat") double lat, @Param("lng") double lng, @Param("dist") double distance, Pageable pageable);
 }

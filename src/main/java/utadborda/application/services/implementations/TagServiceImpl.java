@@ -1,6 +1,8 @@
 package utadborda.application.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
@@ -52,6 +54,11 @@ public class TagServiceImpl implements TagService {
         return tagRepo.findAllByCategory(category);
     }
 
+    @Override
+    public List<Tag> getAllByCategory(String category, int page, int limit) {
+        Pageable pageable = PageRequest.of(page, limit);
+        return tagRepo.findAllByCategory(category, pageable);
+    }
 
     @Override
     public List<String> getAllDistinctCategoryFromTag() {
@@ -62,6 +69,12 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<Tag> getAll() {
         return tagRepo.findAll();
+    }
+
+    @Override
+    public List<Tag> getAll(int page, int limit) {
+        Pageable pageable = PageRequest.of(page, limit);
+        return tagRepo.findAll(pageable).getContent();
     }
 
     @Override
