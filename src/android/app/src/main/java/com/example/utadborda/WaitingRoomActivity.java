@@ -29,18 +29,18 @@ import java.util.List;
 
 public class WaitingRoomActivity extends AppCompatActivity {
 
-    ListView userListView;
-    GridView tagListView;
-    Button mSubmitButton;
+    private ListView userListView;
+    private GridView tagListView;
+    private Button mSubmitButton;
 
-    String playerName = "";
-    String sessionKey= "";
-    Long playerCount;
-    List<String> userList;
-    List<Tag> tagList;
+    private String playerName = "";
+    private String sessionKey= "";
+    private Long playerCount;
+    private List<String> userList;
+    private List<Tag> tagList;
 
-    FirebaseDatabase database;
-    DatabaseReference sessionRef;
+    private FirebaseDatabase database;
+    private DatabaseReference sessionRef;
     private List<RestaurantItem> items;
 
     @Override
@@ -170,6 +170,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 sessionRef = database.getReference("sessions/" + sessionKey + "/restaurants").child(item.getId());
                 sessionRef.setValue(0);
                 }
+                sessionRef = database.getReference("sessions/" + sessionKey + "restaurants");
 //                recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, RestaurantListActivity.this));
                 addRestaurantsToList();
         }
@@ -183,8 +184,12 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 items = new ArrayList<RestaurantItem>();
                 AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
                 restaurantTask.execute();
-//                startActivity(new Intent(getApplicationContext(), MatchActivity.class));
-//                getIntent().putExtra("playerName", playerName);
+                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                intent.putExtra("sessionName", sessionKey);
+                intent.putExtra("playerCount", playerCount);
+                intent.putExtra("playerName", playerName);
+                startActivity(intent);
+                finish();
             }
 
             @Override
