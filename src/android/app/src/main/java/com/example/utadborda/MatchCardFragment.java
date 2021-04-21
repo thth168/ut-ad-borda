@@ -1,7 +1,10 @@
 package com.example.utadborda;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.example.utadborda.models.RestaurantItem;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DecimalFormat;
 
 public class MatchCardFragment extends Fragment {
@@ -52,20 +60,17 @@ public class MatchCardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    public void setData(
-            int imageSource,
-            String name,
-            String price,
-            double longitude,
-            double latitude
-    ) {
-        restaurantImage.setImageResource(imageSource);
-        restaurantName.setText(name);
-        restaurantPrice.setText(price);
+    public void setData(RestaurantItem restaurantItem) {
+        try {
+            URL url = new URL(restaurantItem.getImageUrl());
+            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            restaurantImage.setImageBitmap(bmp);
+        } catch (Exception e) {
+            Log.e("error", e.getMessage());
+        }
+        restaurantName.setText(restaurantItem.getName());
 
-
-
-
+        //restaurantPrice.setText(price);
         //restaurantDistance.setText(distance);
     }
 

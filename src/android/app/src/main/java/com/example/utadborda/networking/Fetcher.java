@@ -98,4 +98,27 @@ public class Fetcher {
 
         return items;
     }
+
+    public static RestaurantItem fetchRestaurant(String id) {
+        RestaurantItem restaurantItem = new RestaurantItem();
+        try {
+            String url = Uri.parse("https://ut-ad-borda.herokuapp.com/api/restaurant?id=" + id).buildUpon().build().toString();
+            String jsonString = getUrlString(url);
+            JSONObject jsonBody = new JSONObject(jsonString);
+            restaurantItem.setId(jsonBody.getString("id"));
+            restaurantItem.setName(jsonBody.getString("name"));
+            restaurantItem.setPhone(jsonBody.getString("phone"));
+            restaurantItem.setAddress(jsonBody.getString("address"));
+            restaurantItem.setImageUrl(jsonBody.getString("imageUrl"));
+            restaurantItem.setWebsite(jsonBody.getString("website"));
+            restaurantItem.setLatitute(Double.parseDouble(jsonBody.getString("posLat")));
+            restaurantItem.setLongitute(Double.parseDouble(jsonBody.getString("posLng")));
+            Log.i("Restaurant fetch", "JSON data loaded");
+        } catch (IOException ioe) {
+            Log.e("Restuarant fetch", "Failed to fetch items", ioe);
+        } catch (JSONException je) {
+            Log.e("Restaurant fetch", "Failed to parse JSON", je);
+        }
+        return restaurantItem;
+    }
 }

@@ -3,6 +3,7 @@ package com.example.utadborda;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.util.Pair;
@@ -11,18 +12,19 @@ import android.view.View;
 import android.widget.ImageButton;
 import androidx.fragment.app.FragmentContainerView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import com.example.utadborda.models.RestaurantItem;
-
+import com.example.utadborda.networking.Fetcher;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.annotations.NotNull;
 
 public class MatchActivity extends AppCompatActivity {
     private RelativeLayout matchingCardContainer;
@@ -31,6 +33,9 @@ public class MatchActivity extends AppCompatActivity {
     private ImageButton buttonLike;
     private ImageButton buttonDislike;
     private MatchCardFragment matchCardFragment;
+
+
+    private List<String> restaurantIds;
 
     private List<RestaurantItem> restaurantQueue;
     private RestaurantItem currentRestaurant;
@@ -61,20 +66,8 @@ public class MatchActivity extends AppCompatActivity {
         readyImageButton(buttonLike, R.color.greenMint, R.color.greenMint_dark, true);
         readyImageButton(buttonDislike, R.color.red, R.color.red_dark, false);
 
-
-        // get restaurants for session
-        //if (restaurantQueue.size() != 0) {
-        //    Collections.shuffle(restaurantQueue);
-        //    currentRestaurant = restaurantQueue.remove(0);
-        //}
-        // else { swiping done }
-        // display currentRestaurant
-        // matchCardFragment.setData();
-
-
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-        //playerName = preferences.getString("playerName", "");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             playerName = extras.getString("playerName");
@@ -83,8 +76,46 @@ public class MatchActivity extends AppCompatActivity {
             sessionRef = database.getReference("sessions/" + sessionKey + "/player-" + playerCount);
             sessionRef.setValue(playerName);
         }
+
+        // get restaurants for session
+        addRoomsEventListener();
+
+
+
+
+
+
+
     }
 
+    private void addRoomsEventListener() {
+        sessionRef = database.getReference("sessions/" + sessionKey);
+        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Iterable<DataSnapshot> restaurants = snapshot.child("/restaurants").getChildren();
+                restaurantIds = new ArrayList<>();
+                for(DataSnapshot dataSnapshot : restaurants) {
+                    restaurantIds.add(dataSnapshot.getKey());
+                }
+                restaurantQueue = new ArrayList<>();
+                for (String restaurantID : restaurantIds) {
+                    restaurantQueue.add(Fetcher.fetchRestaurant(restaurantID));
+                }
+                if (restaurantQueue.size() != 0) {
+                    Collections.shuffle(restaurantQueue);
+                    currentRestaurant = restaurantQueue.remove(0);
+                }
+                // else { swiping done }
+                matchCardFragment.setData(currentRestaurant);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MatchActivity.this, "Database error occured", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     public void swipe(boolean right) {
         //if (right) {

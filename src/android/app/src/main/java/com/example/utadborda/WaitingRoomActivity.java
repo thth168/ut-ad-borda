@@ -55,7 +55,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
         userList = new ArrayList<>();
         tagList =  new ArrayList<Tag>();
-        tagList.add(new Tag("Hamburger"));
+        tagList.add(new Tag("boiga"));
         tagList.add(new Tag("Pizza"));
         tagList.add(new Tag("Healthy"));
         tagList.add(new Tag("Sushi"));
