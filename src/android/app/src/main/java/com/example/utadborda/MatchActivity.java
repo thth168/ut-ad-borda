@@ -2,6 +2,7 @@ package com.example.utadborda;
 
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -73,11 +74,8 @@ public class MatchActivity extends AppCompatActivity {
             playerName = extras.getString("playerName");
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
-            sessionRef = database.getReference("sessions/" + sessionKey + "/player-" + playerCount);
-            sessionRef.setValue(playerName);
+            sessionRef = database.getReference("sessions/" + sessionKey);
         }
-
-        // get restaurants for session
         addRoomsEventListener();
 
 
@@ -89,7 +87,6 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     private void addRoomsEventListener() {
-        sessionRef = database.getReference("sessions/" + sessionKey);
         sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -100,7 +97,12 @@ public class MatchActivity extends AppCompatActivity {
                 }
                 restaurantQueue = new ArrayList<>();
                 for (String restaurantID : restaurantIds) {
-                    restaurantQueue.add(Fetcher.fetchRestaurant(restaurantID));
+                    AsyncTask<String,?,RestaurantItem> restaurantTask = new Fetcher.AsyncFetchTask();
+                    try {
+                        restaurantQueue.add(restaurantTask.execute(restaurantID).get());
+                    } catch (Exception e) {
+                        return;
+                    }
                 }
                 if (restaurantQueue.size() != 0) {
                     Collections.shuffle(restaurantQueue);

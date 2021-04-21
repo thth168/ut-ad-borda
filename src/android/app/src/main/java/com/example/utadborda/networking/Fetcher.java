@@ -1,6 +1,7 @@
 package com.example.utadborda.networking;
 
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.utadborda.models.RestaurantItem;
@@ -68,9 +69,12 @@ public class Fetcher {
             }
             out.close();
             return out.toByteArray();
+        } catch (IOException exception) {
+            Log.e("error", exception.getMessage());
         } finally {
             conn.disconnect();
         }
+        return null;
     }
 
     public static String getUrlString(String urlSpec) throws IOException {
@@ -97,6 +101,13 @@ public class Fetcher {
         }
 
         return items;
+    }
+
+    public static class AsyncFetchTask extends AsyncTask<String, Void, RestaurantItem> {
+        @Override
+        protected RestaurantItem doInBackground(String... strings) {
+            return Fetcher.fetchRestaurant(strings[0]);
+        }
     }
 
     public static RestaurantItem fetchRestaurant(String id) {
