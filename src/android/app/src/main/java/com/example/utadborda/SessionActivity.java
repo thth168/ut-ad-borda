@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,9 +31,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class SessionActivity extends AppCompatActivity {
 
@@ -55,19 +72,54 @@ public class SessionActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         sessionKey = preferences.getString("sessionKey", "");
-
+        final RequestQueue randomStringRequestQueue = Volley.newRequestQueue(this);
         mNewSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sessionKey = randomString();
-                playerName = nameText.getText().toString();
-                sessionText.setText("");
-                if(!sessionKey.equals("")) {
-                    mNewSession.setText("Creating room");
-                    sessionRef = database.getReference( "sessions/" );
-                    newSession = true;
-                    addRoomEventListener();
-                }
+                String url = "https://random-words-api.vercel.app/word";
+                JsonArrayRequest randomStringRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.i(TAG, response.toString());
+                        try {
+                            sessionKey += ((JSONObject)response.get(0)).getString("word") + "_";
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, error.getMessage());
+                    }
+                });
+                JsonArrayRequest randomStringFinalRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.i(TAG, response.toString());
+                        try {
+                            sessionKey += ((JSONObject)response.get(0)).getString("word");
+                            playerName = nameText.getText().toString();
+                            sessionText.setText("");
+                            if(!sessionKey.equals("")) {
+                                mNewSession.setText("Creating room");
+                                sessionRef = database.getReference( "sessions/" );
+                                newSession = true;
+                                addRoomEventListener();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, error.getMessage());
+                    }
+                });
+                randomStringRequestQueue.add(randomStringRequest);
+                randomStringRequestQueue.add(randomStringRequest);
+                randomStringRequestQueue.add(randomStringFinalRequest);
             }
         });
 
@@ -165,40 +217,4 @@ public class SessionActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
-
-    public String randomString() {
-
-        // create a string of uppercase and lowercase characters and numbers
-        String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
-        String numbers = "0123456789";
-
-        // combine all strings
-        String alphaNumeric = upperAlphabet + lowerAlphabet + numbers;
-
-        // create random string builder
-        StringBuilder sb = new StringBuilder();
-
-        // create an object of Random class
-        Random random = new Random();
-
-        // specify length of random string
-        int length = 4;
-
-        for(int i = 0; i < length; i++) {
-
-            // generate random index number
-            int index = random.nextInt(alphaNumeric.length());
-
-            // get character specified by index
-            // from the string
-            char randomChar = alphaNumeric.charAt(index);
-
-            // append the character to string builder
-            sb.append(randomChar);
-        }
-
-        String randomString = sb.toString();
-        return randomString;
-    }
 }

@@ -1,5 +1,9 @@
 package utadborda.application.RestControllers;
 
+import com.github.dhiraj072.randomwordgenerator.RandomWordGenerator;
+import com.github.dhiraj072.randomwordgenerator.datamuse.DataMuseRequest;
+import com.github.dhiraj072.randomwordgenerator.datamuse.WordsRequest;
+import com.github.dhiraj072.randomwordgenerator.exceptions.DataMuseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import utadborda.application.Entities.Restaurant;
@@ -80,5 +84,17 @@ public class RestaurantRestController {
             @RequestParam UUID id
     ) {
         return restaurantService.getByID(id);
+    }
+
+    @GetMapping(value = requestMappings.API_3_FOOD_WORDS)
+    String get3Words() throws DataMuseException {
+        String randomWord = "";
+        WordsRequest customRequest = new DataMuseRequest().topics("pasta");
+        randomWord += RandomWordGenerator.getRandomWord(customRequest) + "-";
+        customRequest = new DataMuseRequest().topics("food", "dinner", "cooking", "restaurant");
+        randomWord += RandomWordGenerator.getRandomWord(customRequest) + "-";
+        customRequest = new DataMuseRequest().topics("surprise", "happy", "glad");
+        randomWord += RandomWordGenerator.getRandomWord(customRequest);
+        return randomWord;
     }
 }

@@ -90,8 +90,11 @@
 			<artifactId>cloudinary</artifactId>
 			<version>1.0.14</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>com.github.dhiraj072</groupId>
+			<artifactId>random-word-generator</artifactId>
+			<version>1.1.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
