@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
@@ -76,39 +77,19 @@ public class SessionActivity extends AppCompatActivity {
         mNewSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://random-words-api.vercel.app/word";
-                JsonArrayRequest randomStringRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                String url = "https://ut-ad-borda.herokuapp.com/api/random-3-words";
+                mNewSession.setText("Creating room");
+                StringRequest randomStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        Log.i(TAG, response.toString());
-                        try {
-                            sessionKey += ((JSONObject)response.get(0)).getString("word") + "_";
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e(TAG, error.getMessage());
-                    }
-                });
-                JsonArrayRequest randomStringFinalRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.i(TAG, response.toString());
-                        try {
-                            sessionKey += ((JSONObject)response.get(0)).getString("word");
-                            playerName = nameText.getText().toString();
-                            sessionText.setText("");
-                            if(!sessionKey.equals("")) {
-                                mNewSession.setText("Creating room");
-                                sessionRef = database.getReference( "sessions/" );
-                                newSession = true;
-                                addRoomEventListener();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                    public void onResponse(String response) {
+                        Log.i(TAG, response);
+                        sessionKey = response.replaceAll(" ", "");
+                        playerName = nameText.getText().toString();
+                        sessionText.setText("");
+                        if(!sessionKey.equals("")) {
+                            sessionRef = database.getReference( "sessions/" );
+                            newSession = true;
+                            addRoomEventListener();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -118,8 +99,6 @@ public class SessionActivity extends AppCompatActivity {
                     }
                 });
                 randomStringRequestQueue.add(randomStringRequest);
-                randomStringRequestQueue.add(randomStringRequest);
-                randomStringRequestQueue.add(randomStringFinalRequest);
             }
         });
 
