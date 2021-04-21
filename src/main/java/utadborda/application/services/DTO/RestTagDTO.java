@@ -7,15 +7,21 @@ import java.util.List;
 import java.util.Map;
 
 public class RestTagDTO {
-    private final Map<String, List<Tag>> filters;
-    public RestTagDTO(List<String> categories, List<List<Tag>> tags) {
-        this.filters = new HashMap<>();
-        for (int i = 0; i < categories.size() && i < tags.size(); i++) {
-            this.filters.put(categories.get(i), tags.get(i));
-        }
+    private final List<Tag> tags;
+    private final String category;
+
+    public RestTagDTO(List<Tag> tags) {
+        this.tags = tags;
+        this.category = "all";
     }
 
-    public Map<String, List<Tag>> getFilters() {
-        return filters;
+    public RestTagDTO(String category, List<Tag> tags) {
+        this.tags = tags;
+        this.category = category;
+    }
+
+    public String getCategory() { return category; }
+    public List<Tag> getFilters() {
+        return tags;
     }
 }

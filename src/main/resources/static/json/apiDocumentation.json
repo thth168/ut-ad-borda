@@ -2,6 +2,7 @@
   "endpoints": [
     {
       "path": "/api/allRestaurants",
+      "description": "Fetches all the restaurants in a paginated manner. It is not an option to fetch all the restaurants.",
       "queryParams": [
         {
           "query": "page",
@@ -21,6 +22,7 @@
     },
     {
       "path": "/api/allTags",
+      "description": "Fetches all the tags in a paginated manner.",
       "queryParams": [
         {
           "query": "page",
@@ -40,6 +42,7 @@
     },
     {
       "path": "/api/restaurant",
+      "description": "Fetches the info relating to a single restaurant.",
       "queryParams": [
         {
           "query": "id",
