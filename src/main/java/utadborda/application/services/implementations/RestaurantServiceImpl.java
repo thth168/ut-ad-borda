@@ -132,9 +132,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Transactional
     @Override
-    public List<Restaurant> getAllByTagAndGPS(Tag tag, double lat, double lng, int page, int limit) {
+    public List<Restaurant> getAllByTagAndGPS(Tag tag, double lat, double lng, double distance, int page, int limit) {
         Pageable paging = PageRequest.of(page, limit);
-        List<Restaurant> restaurants = restaurantRepo.findAllByTagsContainingAndGPS(lat, lng, paging);
+        List<Restaurant> restaurants = restaurantRepo.findAllByGPS(lat, lng, distance, paging);
         return restaurants;
     }
 }

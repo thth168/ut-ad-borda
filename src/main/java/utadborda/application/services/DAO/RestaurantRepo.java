@@ -20,7 +20,7 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
     List<Restaurant> findAllByTagsContaining(Tag tag, Pageable pageable);
     List<Restaurant> findAllByIdNotNull(Pageable pageable);
     long countAllByTagsContaining(Tag tag);
-    @Query(value = "select " +
+    /* @Query(value = "select " +
             "id, address, cuisine_type, gmaps_id, gmaps_url, name, phone, pos_lat, pos_lng, website, uab_user_id " +
             "from (" +
             "select *, ( 6371 * acos( cos( radians(:lat)) * " +
@@ -30,14 +30,14 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
             nativeQuery = true,
             countQuery = "select count(*) from restaurant"
     )
-    List<Restaurant> findAllByTagsContainingAndGPS(@Param("lat") double lat, @Param("lng") double lng, Pageable pageable);
+    List<Restaurant> findAllByTagsContainingAndGPS(@Param("lat") double lat, @Param("lng") double lng, Pageable pageable);*/
     @Query(value = "select " +
             "id, address, cuisine_type, gmaps_id, gmaps_url, name, phone, pos_lat, pos_lng, website, uab_user_id " +
             "from (" +
             "select *, ( 6371 * acos( cos( radians(:lat)) * " +
             "cos( radians( pos_lat )) * cos( radians(pos_lng) - radians(:lng)) " +
             "+ sin(radians(:lat)) * sin( radians(pos_lat)))) " +
-            "AS distance from restaurant) as rd order by rd.distance",
+            "AS distance from restaurant) as rd where distance < :dist order by rd.distance",
             nativeQuery = true,
             countQuery = "select count(*) from restaurant"
     )

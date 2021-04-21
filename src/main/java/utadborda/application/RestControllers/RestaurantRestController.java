@@ -36,7 +36,8 @@ public class RestaurantRestController {
             @RequestParam(defaultValue = "10") int limit,
             @RequestParam(required = false) UUID tag,
             @RequestParam(required = false) Optional<Double> lat,
-            @RequestParam(required = false) Optional<Double> lng
+            @RequestParam(required = false) Optional<Double> lng,
+            @RequestParam(required = false) Optional<Double> distance
     ) {
         List<Restaurant> restaurants;
         long count;
@@ -44,8 +45,8 @@ public class RestaurantRestController {
 
         if (tag != null) {
             Tag foundTag = tagService.getTagById(tag);
-            if (lat.isPresent() && lng.isPresent()) {
-                restaurants = restaurantService.getAllByTagAndGPS( foundTag, lat.get(), lng.get(), page, limit);
+            if (lat.isPresent() && lng.isPresent() && distance.isPresent()) {
+                restaurants = restaurantService.getAllByTagAndGPS( foundTag, lat.get(), lng.get(), distance.get(), page, limit);
             } else {
                 restaurants = restaurantService.getAllByTag( foundTag, page, limit);
             }
