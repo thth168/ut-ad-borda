@@ -19,6 +19,7 @@ import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.models.Tag;
 import com.example.utadborda.models.TagItemAdapter;
 import com.example.utadborda.networking.Fetcher;
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +35,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private GridView tagListView;
     private Button mSubmitButton;
     private TextView mSessionKey;
+//    private MaterialButtonToggleGroup toggleGroup;
 
     private String playerName = "";
     private String sessionKey= "";
@@ -59,14 +61,16 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
         userList = new ArrayList<>();
         tagList =  new ArrayList<Tag>();
-        tagList.add(new Tag("boiga"));
+        tagList.add(new Tag("Burger"));
+        tagList.add(new Tag("Fries"));
         tagList.add(new Tag("Pizza"));
         tagList.add(new Tag("Healthy"));
         tagList.add(new Tag("Sushi"));
         tagList.add(new Tag("Noodles"));
+        tagList.add(new Tag("Keto"));
         tagList.add(new Tag("Vegan"));
         tagList.add(new Tag("Vegetarian"));
-        tagList.add(new Tag("Fast food"));
+        tagList.add(new Tag("Fast Food"));
         tagList.add(new Tag("Desert"));
         tagList.add(new Tag("Coffee and Tea"));
         tagList.add(new Tag("Alcohol"));
@@ -76,6 +80,16 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
         ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
         tagListView.setAdapter(adapter);
+
+//        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.toggle_group);
+//        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
+//            @Override
+//            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
+////                if(isChecked){
+//                    Log.i("WaitingRoom", String.valueOf(group));
+////                }
+//            }
+//        });
 
 
         Bundle extras = getIntent().getExtras();
@@ -98,9 +112,9 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 waitingCount = waitingCount-1;
                 database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 //if all players have chosen
-                if(waitingCount == 0){
+//                if(waitingCount == 0){
                     startSessionEventListener();
-                }
+//                }
             }
         });
         addRoomsEventListener();
@@ -136,14 +150,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
         });
     }
 
-//    private void fillViewList(List<String> list, ListView view, Iterable<DataSnapshot> data){
-//        list.clear();
-//        for(DataSnapshot dataSnapshot : data) {
-//            list.add(dataSnapshot.getValue().toString());
-//        }
-//        ArrayAdapter adapter = new ArrayAdapter<String>(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, list);
-//        view.setAdapter(adapter);
-//    }
 
     /**
      * Logs size of restaurant list
