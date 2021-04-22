@@ -30,6 +30,14 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public Tag addTag(Tag tag) {
+        Tag found = tagRepo.findByCategoryAndName(tag.getCategory(), tag.getName());
+        if (found != null) return found;
+        return tagRepo.save(tag);
+    }
+
+    @Transactional
+    @Override
+    public Tag updateTag(Tag tag) {
         return tagRepo.save(tag);
     }
 
