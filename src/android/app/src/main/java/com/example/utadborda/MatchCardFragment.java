@@ -60,7 +60,6 @@ public class MatchCardFragment extends Fragment {
         restaurantInfoContainer = (RelativeLayout) view.findViewById(R.id.restaurantInfoContainer);
         restaurantName = (TextView) view.findViewById(R.id.restaurantName);
         gpsIcon = (ImageView) view.findViewById(R.id.gpsIcon);
-        restaurantPrice = (TextView) view.findViewById(R.id.restaurantPrice);
         restaurantDistance = (TextView) view.findViewById(R.id.restaurantDistance);
         return view;
     }

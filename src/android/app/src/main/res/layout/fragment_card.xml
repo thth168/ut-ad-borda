@@ -24,55 +24,44 @@
         android:id="@+id/restaurantInfoContainer"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="568dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/restaurantName"
             android:layout_width="350dp"
-            android:layout_height="24dp"
+            android:layout_height="36dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="31dp"
-            android:text="@string/restaurantName" />
+            android:text="@string/restaurantName"
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/gpsIcon"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_below="@+id/restaurantName"
             android:layout_alignStart="@+id/restaurantName"
             android:layout_marginStart="1dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/ic_iconmonstr_location_pin_thin"
-            android:contentDescription="@string/gpsIcon" />
-
-        <TextView
-            android:id="@+id/restaurantPrice"
-            android:layout_width="159dp"
-            android:layout_height="16dp"
-            android:layout_below="@+id/restaurantName"
-            android:layout_alignEnd="@+id/restaurantName"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="0dp"
-            android:layout_toEndOf="@+id/restaurantDistance"
-            android:gravity="right"
-            android:text="@string/restaurantPrice" />
+            android:contentDescription="@string/gpsIcon"
+            android:src="@drawable/ic_iconmonstr_location_pin_thin" />
 
         <TextView
             android:id="@+id/restaurantDistance"
-            android:layout_width="100dp"
-            android:layout_height="16dp"
+            android:layout_width="304dp"
+            android:layout_height="20dp"
             android:layout_below="@+id/restaurantName"
+            android:layout_alignEnd="@+id/restaurantName"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="-1dp"
             android:layout_marginBottom="316dp"
             android:layout_toEndOf="@+id/gpsIcon"
-            android:text="@string/restaurantDistance" />
+            android:text="@string/restaurantDistance"
+            android:textSize="16dp" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
