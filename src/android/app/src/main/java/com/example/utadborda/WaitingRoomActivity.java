@@ -35,6 +35,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private GridView tagListView;
     private Button mSubmitButton;
     private TextView mSessionKey;
+//    private MaterialButtonToggleGroup toggleGroup;
 
     private String playerName = "";
     private String sessionKey= "";
@@ -45,13 +46,16 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference sessionRef;
+    private DatabaseReference restaurantRef;
     private List<RestaurantItem> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_room);
+//        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.toggle_group);
         userListView = (ListView) findViewById(R.id.user_list);
+//        View view = (View) findViewById(R.id.toggle_group);
         tagListView = (GridView) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
         mSessionKey = (TextView) findViewById(R.id.session_key_text);
@@ -77,19 +81,18 @@ public class WaitingRoomActivity extends AppCompatActivity {
         tagList.add(new Tag("Comfort Food"));
         //playerName = preferences.getString("playerName", "");
 
-        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
-        tagListView.setAdapter(adapter);
 
-//        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.toggle_group);
 //        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
 //            @Override
 //            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
 ////                if(isChecked){
-//                    Log.i("WaitingRoom", String.valueOf(group));
+//                    Log.i("WaitingRoom", String.valueOf(checkedId));
 ////                }
 //            }
 //        });
 
+        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
+        tagListView.setAdapter(adapter);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -102,7 +105,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
             mSessionKey.setText(sessionKey);
         }
         sessionRef = database.getReference("sessions/"+ sessionKey);
-
+        restaurantRef = sessionRef.child("/restaurants");
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,12 +114,25 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 waitingCount = waitingCount-1;
                 database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 //if all players have chosen
-                /*
-                if(waitingCount == 0){
+
+                if (waitingCount <= 0){
+                    AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+                    try {
+                        restaurantTask.execute().get();
+                    } catch (Exception e) {
+                        return;
+                    }
+
+                    Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                    intent.putExtra("sessionName", sessionKey);
+                    intent.putExtra("playerCount", playerCount);
+                    intent.putExtra("playerName", playerName);
+                    startActivity(intent);
+                    finish();
                 }
 
-                 */
-                startSessionEventListener();
+//                startSessionEventListener();
+
             }
         });
         addRoomsEventListener();
@@ -154,15 +170,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
 
     /**
-     * Logs size of restaurant list
-     */
-    private void addRestaurantsToList() {
-        String TAG = "Restaurant List";
-        Log.i(TAG, "Loaded items: " + items.size());
-    }
-
-
-    /**
      * Fetches restaurant data from API asyncronously
      * Sets data in RecyclerView
      */
@@ -182,43 +189,51 @@ public class WaitingRoomActivity extends AppCompatActivity {
          * @param restaurantItems
          */
         @Override
-        protected void onPostExecute(List<RestaurantItem> restaurantItems) {
-
-            for(RestaurantItem item : restaurantItems){
-                Log.i("Restaurant", item.getName());
-                sessionRef = database.getReference("sessions/" + sessionKey + "/restaurants").child(item.getId());
-                sessionRef.setValue(0);
+        protected void onPostExecute(final List<RestaurantItem> restaurantItems) {
+            // rsetaurantRef = database.getReference("sessions/" + sessionKey + "restaurants")
+            sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(RestaurantItem item : restaurantItems){
+                        Log.i("Restaurant", item.getName());
+                        restaurantRef = sessionRef.child("restaurants").child(item.getId());
+                        if(!snapshot.child("restaurants").child(item.getId()).exists()){
+                            restaurantRef.setValue(0);
+                        }
+                    }
                 }
-                sessionRef = database.getReference("sessions/" + sessionKey + "restaurants");
-//                recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, RestaurantListActivity.this));
-                addRestaurantsToList();
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
         }
     }
-
-    private void startSessionEventListener(){
-        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // When all players have chosen tags add restaurants to db and start session
-                items = new ArrayList<RestaurantItem>();
-                AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
-                try {
-                    restaurantTask.execute().get();
-                } catch (Exception e) {
-                    return;
-                }
-                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
-                intent.putExtra("sessionName", sessionKey);
-                intent.putExtra("playerCount", playerCount);
-                intent.putExtra("playerName", playerName);
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
+//
+//    private void startSessionEventListener(){
+//        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                // When all players have chosen tags add restaurants to db and start session
+//                items = new ArrayList<RestaurantItem>();
+//                if (waitingCount <= 0){
+//                    AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+//                    try {
+//                        restaurantTask.execute().get();
+//                    } catch (Exception e) {
+//                        return;
+//                    }
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
 }

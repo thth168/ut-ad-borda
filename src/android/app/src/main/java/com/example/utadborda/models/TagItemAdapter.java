@@ -21,7 +21,7 @@ import java.util.List;
 public class TagItemAdapter extends ArrayAdapter {
 
     List<Tag> tagItems = new ArrayList<>();
-    private MaterialButtonToggleGroup toggleGroup;
+//    private MaterialButtonToggleGroup toggleGroup;
     int id = 0;
 
     public TagItemAdapter(@NonNull Context context, int resource, List<Tag> objects) {
@@ -40,9 +40,8 @@ public class TagItemAdapter extends ArrayAdapter {
         View v = inflater.inflate(R.layout.grid_view_items, null);
         Button mTagButton = (Button) v.findViewById(R.id.button1);
         mTagButton.setText(tagItems.get(position).getTagName());
-//        mTagButton
-        toggleGroup = (MaterialButtonToggleGroup) v.findViewById(R.id.toggle_group);
-//        toggleGroup.addView(mTagButton, id);
+//        toggleGroup = (MaterialButtonToggleGroup) v.findViewById(R.id.toggle_group);
+//        toggleGroup.addView(mTagButton);
         id++;
 //        addToToggleGroup(v, mTagButton);
 //        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
@@ -56,9 +55,9 @@ public class TagItemAdapter extends ArrayAdapter {
         return v;
     }
 
-    public void addToToggleGroup(View v, Button button){
-        toggleGroup = (MaterialButtonToggleGroup) v.findViewById(R.id.toggle_group);
-        toggleGroup.addView(button);
-    }
+//    public void addToToggleGroup(View v, Button button){
+//        toggleGroup = (MaterialButtonToggleGroup) v.findViewById(R.id.toggle_group);
+//        toggleGroup.addView(button);
+//    }
 }
 

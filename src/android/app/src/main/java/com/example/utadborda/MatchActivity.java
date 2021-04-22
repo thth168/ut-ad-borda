@@ -51,11 +51,13 @@ public class MatchActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference sessionRef;
+    DatabaseReference restaurantRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
+
         matchingCardContainer = (RelativeLayout) findViewById(R.id.matchingCardContainer);
         matchingCard = (FragmentContainerView) findViewById(R.id.matchingCard);
         buttonContainer = (RelativeLayout) findViewById(R.id.buttonContainer);
@@ -66,6 +68,8 @@ public class MatchActivity extends AppCompatActivity {
         readyImageButton(buttonDislike, R.color.red, R.color.red_dark, false);
         swipeLeft = new ArrayList<>();
         swipeRight = new ArrayList<>();
+
+
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         Bundle extras = getIntent().getExtras();
@@ -74,12 +78,13 @@ public class MatchActivity extends AppCompatActivity {
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
             sessionRef = database.getReference("sessions/" + sessionKey);
+            restaurantRef = sessionRef.child("/restaurants");
         }
         addRoomsEventListener();
     }
 
     private void addRoomsEventListener() {
-        sessionRef.addValueEventListener(new ValueEventListener() {
+        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -115,6 +120,8 @@ public class MatchActivity extends AppCompatActivity {
     public void swipe(boolean right) {
         if (right) {
             swipeRight.add(currentRestaurant.getId());
+            String restaurantId = currentRestaurant.getId();
+            addRestaurantIncrementEventListener(restaurantId);
         } else {
             swipeLeft.add(currentRestaurant.getId());
         }
@@ -125,7 +132,22 @@ public class MatchActivity extends AppCompatActivity {
         }
         //else {// matching finished return;}
 
+    }
 
+    private void addRestaurantIncrementEventListener(final String restaurantId){
+        restaurantRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DataSnapshot restaurantMatches = snapshot.child(restaurantId);
+                int currentMatches = restaurantMatches.getValue(Integer.class);
+                restaurantRef.child(restaurantId).setValue(currentMatches+1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //Do Nothing
+            }
+        });
     }
 
     private void sortLikes(List<Pair<String, Integer>> sessionLikes) {

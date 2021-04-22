@@ -49,6 +49,8 @@ public final class requestMappings {
     public static final String API_TAG_CATEGORIES = API + "/allTagCategories";
     public static final String API_RESTAURANT = API + "/restaurant";
     public static final String API_3_FOOD_WORDS = API + "/random-3-words";
+    public static final String API_ADD_TAG_TO_RESTAURANT = API + "/addTagToRestaurant";
+    public static final String API_ADD_TAG = API + "/addTag";
     public requestMappings() {
     }
     
