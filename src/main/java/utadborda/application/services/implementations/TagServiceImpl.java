@@ -12,7 +12,6 @@ import utadborda.application.services.TagService;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -96,5 +95,10 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag getTagById(UUID id) {
         return tagRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Tag> getTagsById(List<UUID> id) {
+        return tagRepo.findAllById(id);
     }
 }
