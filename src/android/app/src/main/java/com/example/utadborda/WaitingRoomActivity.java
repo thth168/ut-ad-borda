@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,10 +33,10 @@ import java.util.List;
 public class WaitingRoomActivity extends AppCompatActivity {
 
     private ListView userListView;
-    private GridView tagListView;
+    private LinearLayout tagListView;
     private Button mSubmitButton;
     private TextView mSessionKey;
-//    private MaterialButtonToggleGroup toggleGroup;
+    private MaterialButtonToggleGroup toggleGroup;
 
     private String playerName = "";
     private String sessionKey= "";
@@ -43,6 +44,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private int waitingCount;
     private List<String> userList;
     private List<Tag> tagList;
+
 
     private FirebaseDatabase database;
     private DatabaseReference sessionRef;
@@ -53,10 +55,10 @@ public class WaitingRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_room);
-//        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.toggle_group);
+        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.MaterialButtonToggleGroup1);
         userListView = (ListView) findViewById(R.id.user_list);
 //        View view = (View) findViewById(R.id.toggle_group);
-        tagListView = (GridView) findViewById(R.id.tag_gridView);
+        tagListView = (LinearLayout) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
         mSessionKey = (TextView) findViewById(R.id.session_key_text);
 
@@ -91,8 +93,8 @@ public class WaitingRoomActivity extends AppCompatActivity {
 //            }
 //        });
 
-        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
-        tagListView.setAdapter(adapter);
+//        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
+//        tagListView.setAdapter(adapter);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -106,16 +108,20 @@ public class WaitingRoomActivity extends AppCompatActivity {
         }
         sessionRef = database.getReference("sessions/"+ sessionKey);
         restaurantRef = sessionRef.child("/restaurants");
+
+
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Collect tags
                 //waiting for players
-                waitingCount = waitingCount-1;
-                database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
+                if(waitingCount > 0){
+                    waitingCount = waitingCount-1;
+                    database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
+                }
                 //if all players have chosen
 
-                if (waitingCount <= 0){
+                if (waitingCount == 0) {
                     AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
                     try {
                         restaurantTask.execute().get();
@@ -212,28 +218,5 @@ public class WaitingRoomActivity extends AppCompatActivity {
 
         }
     }
-//
-//    private void startSessionEventListener(){
-//        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                // When all players have chosen tags add restaurants to db and start session
-//                items = new ArrayList<RestaurantItem>();
-//                if (waitingCount <= 0){
-//                    AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
-//                    try {
-//                        restaurantTask.execute().get();
-//                    } catch (Exception e) {
-//                        return;
-//                    }
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
+
 }

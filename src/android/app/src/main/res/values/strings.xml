@@ -125,4 +125,18 @@
     <string name="restaurantDistance">TextView</string>
     <string name="gpsIcon">TODO</string>
     <string name="restaurantImage">TODO</string>
+    <string name="button_tag1">Hamburger</string>
+    <string name="button_tag2">Fries</string>
+    <string name="button_tag3">Pizza</string>
+    <string name="button_tag4">Healthy</string>
+    <string name="button_tag5">Sushi</string>
+    <string name="button_tag6">Noodles</string>
+    <string name="button_tag7">Keto</string>
+    <string name="button_tag8">Vegan</string>
+    <string name="button_tag9">Vegetarian</string>
+    <string name="button_tag10">Fast Food</string>
+    <string name="button_tag11">Desert</string>
+    <string name="button_tag12">Coffee and Tea</string>
+    <string name="button_tag13">Alcohol</string>
+    <string name="button_tag14">Comfort Food</string>
 </resources>
