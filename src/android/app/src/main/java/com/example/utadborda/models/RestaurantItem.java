@@ -1,5 +1,7 @@
 package com.example.utadborda.models;
 
+import java.util.List;
+
 /**
  * Individual restaurant stored in API
  */
@@ -8,7 +10,7 @@ public class RestaurantItem {
     private String name;
     private String phone;
     private String address;
-    private String imageUrl;
+    private List<String> imageUrl;
     private String website;
     private double latitute;
     private double longitute;
@@ -61,12 +63,15 @@ public class RestaurantItem {
         this.longitute = longitute;
     }
 
-    public void setImageUrl(String image) {
+    public void setImageUrl(List<String> image) {
         this.imageUrl = image;
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        if (imageUrl.size() == 0) {
+            return "";
+        }
+        return imageUrl.get(0);
     }
 
     public String getWebsite() {

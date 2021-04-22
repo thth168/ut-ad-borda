@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 import androidx.fragment.app.FragmentContainerView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,11 +34,10 @@ public class MatchActivity extends AppCompatActivity {
     private ImageButton buttonDislike;
     private MatchCardFragment matchCardFragment;
 
-
     private List<String> restaurantIds;
-
     private List<RestaurantItem> restaurantQueue;
     private RestaurantItem currentRestaurant;
+
     private List<String> swipeLeft;
     private List<String> swipeRight;
     private List<Pair<String, Integer>> likeInfo;
@@ -66,7 +64,8 @@ public class MatchActivity extends AppCompatActivity {
         matchCardFragment = (MatchCardFragment) getSupportFragmentManager().findFragmentById(R.id.matchingCard);
         readyImageButton(buttonLike, R.color.greenMint, R.color.greenMint_dark, true);
         readyImageButton(buttonDislike, R.color.red, R.color.red_dark, false);
-
+        swipeLeft = new ArrayList<>();
+        swipeRight = new ArrayList<>();
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         Bundle extras = getIntent().getExtras();
@@ -77,19 +76,13 @@ public class MatchActivity extends AppCompatActivity {
             sessionRef = database.getReference("sessions/" + sessionKey);
         }
         addRoomsEventListener();
-
-
-
-
-
-
-
     }
 
     private void addRoomsEventListener() {
-        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        sessionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 Iterable<DataSnapshot> restaurants = snapshot.child("/restaurants").getChildren();
                 restaurantIds = new ArrayList<>();
                 for(DataSnapshot dataSnapshot : restaurants) {
@@ -120,18 +113,18 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     public void swipe(boolean right) {
-        //if (right) {
-        //swipeRight.add(currentRestaurant.getId());
-        //} else {
-        //swipeLeft.add(currentRestaurant.getId());
-        //}
-        //if (restaurantQueue.size() != 0) {
-        //    currentRestaurant = restaurantQueue.remove(0);
-        //}
+        if (right) {
+            swipeRight.add(currentRestaurant.getId());
+        } else {
+            swipeLeft.add(currentRestaurant.getId());
+        }
+        if (restaurantQueue.size() != 0) {
+            currentRestaurant = restaurantQueue.remove(0);
+            //display currentRestaurant
+            matchCardFragment.setData(currentRestaurant);
+        }
         //else {// matching finished return;}
 
-        // display currentRestaurant
-        // matchCardFragment.setData();
 
     }
 
