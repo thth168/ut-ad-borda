@@ -2,7 +2,6 @@ package com.example.utadborda;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,39 +12,32 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.utadborda.models.RestaurantItem;
-import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.models.Tag;
 import com.example.utadborda.models.TagItemAdapter;
 import com.example.utadborda.networking.Fetcher;
-import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class WaitingRoomActivity extends AppCompatActivity {
-
     private ListView userListView;
     private GridView tagListView;
     private Button mSubmitButton;
     private TextView mSessionKey;
-
     private String playerName = "";
     private String sessionKey= "";
     private Long playerCount;
     private int waitingCount;
     private List<String> userList;
     private List<Tag> tagList;
-
     private FirebaseDatabase database;
     private DatabaseReference sessionRef;
-    private List<RestaurantItem> items;
+    private DatabaseReference restaurantRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +47,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
         tagListView = (GridView) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
         mSessionKey = (TextView) findViewById(R.id.session_key_text);
-
         database = FirebaseDatabase.getInstance();
-
         userList = new ArrayList<>();
         tagList =  new ArrayList<Tag>();
         tagList.add(new Tag("Burger"));
@@ -77,19 +67,18 @@ public class WaitingRoomActivity extends AppCompatActivity {
         tagList.add(new Tag("Comfort Food"));
         //playerName = preferences.getString("playerName", "");
 
-        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
-        tagListView.setAdapter(adapter);
 
-//        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.toggle_group);
 //        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
 //            @Override
 //            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
 ////                if(isChecked){
-//                    Log.i("WaitingRoom", String.valueOf(group));
+//                    Log.i("WaitingRoom", String.valueOf(checkedId));
 ////                }
 //            }
 //        });
 
+        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
+        tagListView.setAdapter(adapter);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -98,25 +87,33 @@ public class WaitingRoomActivity extends AppCompatActivity {
             sessionKey = extras.getString("sessionName");
             waitingCount = extras.getInt("waitingCount");
             database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount).setValue(playerName);
-
             mSessionKey.setText(sessionKey);
         }
         sessionRef = database.getReference("sessions/"+ sessionKey);
-
+        restaurantRef = sessionRef.child("/restaurants");
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Collect tags
-                //waiting for players
                 waitingCount = waitingCount-1;
                 database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
-                //if all players have chosen
-                /*
-                if(waitingCount == 0){
+                if (waitingCount <= 0){
+                    AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+                    try {
+                        restaurantTask.execute().get();
+                    } catch (Exception e) {
+                        return;
+                    }
+
+                    Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                    intent.putExtra("sessionName", sessionKey);
+                    intent.putExtra("playerCount", playerCount);
+                    intent.putExtra("playerName", playerName);
+                    startActivity(intent);
+                    finish();
                 }
 
-                 */
-                startSessionEventListener();
+//                startSessionEventListener();
+
             }
         });
         addRoomsEventListener();
@@ -153,72 +150,29 @@ public class WaitingRoomActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Logs size of restaurant list
-     */
-    private void addRestaurantsToList() {
-        String TAG = "Restaurant List";
-        Log.i(TAG, "Loaded items: " + items.size());
-    }
-
-
-    /**
-     * Fetches restaurant data from API asyncronously
-     * Sets data in RecyclerView
-     */
     private class AsyncFetchTask extends AsyncTask<Object, Void, List<RestaurantItem>> {
-        /**
-         *
-         * @param params
-         * @return
-         */
         @Override
         protected List<RestaurantItem> doInBackground(Object... params) {
             return Fetcher.fetchRestaurants();
         }
 
-        /**
-         * Bind data retrieved from API to RecyclerView
-         * @param restaurantItems
-         */
         @Override
-        protected void onPostExecute(List<RestaurantItem> restaurantItems) {
-
-            for(RestaurantItem item : restaurantItems){
-                Log.i("Restaurant", item.getName());
-                sessionRef = database.getReference("sessions/" + sessionKey + "/restaurants").child(item.getId());
-                sessionRef.setValue(0);
+        protected void onPostExecute(final List<RestaurantItem> restaurantItems) {
+            sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(RestaurantItem item : restaurantItems){
+                        Log.i("Restaurant", item.getName());
+                        restaurantRef = sessionRef.child("restaurants").child(item.getId());
+                        if(!snapshot.child("restaurants").child(item.getId()).exists()){
+                            restaurantRef.setValue(0);
+                        }
+                    }
                 }
-                sessionRef = database.getReference("sessions/" + sessionKey + "restaurants");
-//                recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, RestaurantListActivity.this));
-                addRestaurantsToList();
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) { }
+            });
         }
-    }
-
-    private void startSessionEventListener(){
-        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // When all players have chosen tags add restaurants to db and start session
-                items = new ArrayList<RestaurantItem>();
-                AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
-                try {
-                    restaurantTask.execute().get();
-                } catch (Exception e) {
-                    return;
-                }
-                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
-                intent.putExtra("sessionName", sessionKey);
-                intent.putExtra("playerCount", playerCount);
-                intent.putExtra("playerName", playerName);
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 }
