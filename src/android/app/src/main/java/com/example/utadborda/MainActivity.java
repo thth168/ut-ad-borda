@@ -5,18 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.utadborda.ui.login.LoginActivity;
-
 
 public class MainActivity extends AppCompatActivity {
-
     private static final String TAG = "MainActivity";
-
-    //private Button userButton;
-    //private Button loginButton;
     private Button restaurantListButton;
     private Button sessionButton;
-
     private View activityView;
 
     @Override
@@ -24,20 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         activityView = findViewById(R.id.main_pane);
-
         restaurantListButton = (Button) findViewById(R.id.restaurantList_button);
         sessionButton = (Button) findViewById(R.id.match_button);
-
-        /*
-        userButton = (Button) findViewById(R.id.user_button);
-        loginButton = (Button) findViewById(R.id.login_button);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-               startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            }
-        });
-         */
         restaurantListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,13 +31,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SessionActivity.class));
             }
         });
-        /*
-        userButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, UserActivity.class));
-            }
-        });
-        */
     }
 }

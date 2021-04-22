@@ -13,10 +13,25 @@
         android:layout_height="wrap_content"
         android:text="@string/match_results"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lv_restaurantList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.272" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lv_restaurantList"
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
