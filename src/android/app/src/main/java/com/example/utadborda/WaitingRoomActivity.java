@@ -35,7 +35,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private GridView tagListView;
     private Button mSubmitButton;
     private TextView mSessionKey;
-//    private MaterialButtonToggleGroup toggleGroup;
 
     private String playerName = "";
     private String sessionKey= "";
@@ -112,9 +111,12 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 waitingCount = waitingCount-1;
                 database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 //if all players have chosen
-//                if(waitingCount == 0){
-                    startSessionEventListener();
-//                }
+                /*
+                if(waitingCount == 0){
+                }
+
+                 */
+                startSessionEventListener();
             }
         });
         addRoomsEventListener();
@@ -199,8 +201,12 @@ public class WaitingRoomActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // When all players have chosen tags add restaurants to db and start session
                 items = new ArrayList<RestaurantItem>();
-                AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
-                restaurantTask.execute();
+                AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+                try {
+                    restaurantTask.execute().get();
+                } catch (Exception e) {
+                    return;
+                }
                 Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
                 intent.putExtra("sessionName", sessionKey);
                 intent.putExtra("playerCount", playerCount);

@@ -14,11 +14,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.utadborda.models.RestaurantItem;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DecimalFormat;
+
+import static android.os.FileUtils.copy;
 
 public class MatchCardFragment extends Fragment {
     private MatchActivity parent;
@@ -28,6 +36,7 @@ public class MatchCardFragment extends Fragment {
     private ImageView gpsIcon;
     private TextView restaurantPrice;
     private TextView restaurantDistance;
+    private static final int IO_BUFFER_SIZE = 8 * 1024;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -60,22 +69,44 @@ public class MatchCardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    public void setData(RestaurantItem restaurantItem) {
+    public static Bitmap loadBitmap(String url) throws IOException {
+        Bitmap bitmap = null;
+        InputStream in = null;
+        BufferedOutputStream out = null;
         try {
-            if (restaurantItem.getImageUrl() != null || restaurantItem.getImageUrl() != "") {
-                URL url = new URL(restaurantItem.getImageUrl());
-                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                restaurantImage.setImageBitmap(bmp);
-            }
-        } catch (Exception e) {
-            Log.e("error", e.getMessage());
+            URL _url = new URL(url);
+            in = new BufferedInputStream(_url.openStream(), IO_BUFFER_SIZE);
+
+            final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+            out = new BufferedOutputStream(dataStream, IO_BUFFER_SIZE);
+            copy(in, out);
+            out.flush();
+
+            final byte[] data = dataStream.toByteArray();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            //options.inSampleSize = 1;
+
+            bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
+        } catch (IOException e) {
+            Log.e("image fetch error", e.getMessage());
+        }
+        return bitmap;
+    }
+
+    public void setData(RestaurantItem restaurantItem) {
+        if (restaurantItem.getImageUrl() != "") {
+            Glide.with(this).load(restaurantItem.getImageUrl()).into(restaurantImage);
+        } else {
+            restaurantImage.setImageResource(R.drawable.generic);
         }
         if (restaurantItem.getName() != null) {
             restaurantName.setText(restaurantItem.getName());
         }
-
-        //restaurantPrice.setText(price);
-        //restaurantDistance.setText(distance);
+        if (restaurantItem.getAddress() != "") {
+            restaurantDistance.setText(restaurantItem.getAddress());
+        } else {
+            restaurantDistance.setText("");
+        }
     }
 
     /**
