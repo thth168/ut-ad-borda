@@ -12,10 +12,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    private Button loginButton;
+    //private Button userButton;
+    //private Button loginButton;
     private Button restaurantListButton;
     private Button sessionButton;
-    private Button userButton;
 
     private View activityView;
 
@@ -25,17 +25,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         activityView = findViewById(R.id.main_pane);
 
-        loginButton = (Button) findViewById(R.id.login_button);
         restaurantListButton = (Button) findViewById(R.id.restaurantList_button);
         sessionButton = (Button) findViewById(R.id.match_button);
-        userButton = (Button) findViewById(R.id.user_button);
 
+        /*
+        userButton = (Button) findViewById(R.id.user_button);
+        loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
+         */
         restaurantListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,39 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SessionActivity.class));
             }
         });
+        /*
         userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, UserActivity.class));
             }
         });
-
-//        activityView.setOnTouchListener(new TouchListener(MainActivity.this) {
-//            @Override
-//            public void onSwipeLeft() {
-//                super.onSwipeLeft();
-//                matchButton.setText("left swipe");
-//            }
-//
-//            @Override
-//            public void onSwipeRight() {
-//                super.onSwipeRight();
-//                matchButton.setText("right swipe");
-//            }
-//
-//            @Override
-//            public void onSwipeUp() {
-//                super.onSwipeUp();
-//                matchButton.setText("up swipe");
-//            }
-//
-//            @Override
-//            public void onSwipeDown() {
-//                super.onSwipeDown();
-//                matchButton.setText("down swipe");
-//            }
-//        });
-
+        */
     }
-
 }

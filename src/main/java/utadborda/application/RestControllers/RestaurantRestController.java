@@ -5,9 +5,11 @@ import com.github.dhiraj072.randomwordgenerator.datamuse.DataMuseRequest;
 import com.github.dhiraj072.randomwordgenerator.datamuse.WordsRequest;
 import com.github.dhiraj072.randomwordgenerator.exceptions.DataMuseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
+import utadborda.application.services.DTO.RestAddTagDTO;
 import utadborda.application.services.DTO.RestTagCategoryDTO;
 import utadborda.application.services.DTO.RestTagDTO;
 import utadborda.application.services.DTO.RestRestaurantListDTO;
@@ -15,7 +17,6 @@ import utadborda.application.services.RestaurantService;
 import utadborda.application.services.TagService;
 import utadborda.application.web.requestMappings;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -96,5 +97,23 @@ public class RestaurantRestController {
         customRequest = new DataMuseRequest().topics("surprise", "happy", "glad");
         randomWord += RandomWordGenerator.getRandomWord(customRequest);
         return randomWord;
+    }
+
+    @PostMapping(value = requestMappings.API_ADD_TAG, consumes = "application/json;charset=UTF-8")
+    Tag addTag(@RequestBody RestAddTagDTO restTagDTO) {
+        Tag tag = new Tag(restTagDTO.getName(), restTagDTO.getCategory());
+        tag = tagService.addTag(tag);
+        return tag;
+    }
+
+    @PostMapping(value = requestMappings.API_ADD_TAG_TO_RESTAURANT)
+    Restaurant addTagToRestaurant(@RequestParam UUID restaurant_id, @RequestParam UUID tag_id) {
+        Tag tag = tagService.getTagById(tag_id);
+        Restaurant restaurant = restaurantService.getByID(restaurant_id);
+        restaurant.addTag(tag);
+        tag.addRestaurant(restaurant);
+        restaurant = restaurantService.updateRestaurant(restaurant);
+        tagService.updateTag(tag);
+        return restaurant;
     }
 }

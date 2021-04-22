@@ -12,6 +12,7 @@ public interface TagService {
     List<Tag> getAll();
     List<Tag> getAll(int page, int limit);
     Tag addTag(Tag tag);
+    Tag updateTag(Tag tag);
     Restaurant addTags(List<Tag> tags);
     List<Tag> getAllByCategory(String category);
     List<Tag> getAllByCategory(String category, int page, int limit);

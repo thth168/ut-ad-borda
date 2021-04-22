@@ -33,14 +33,18 @@ public class Fetcher {
             throws IOException, JSONException {
         for (int i = 0; i < jsonBody.length(); i++) {
             JSONObject restaurantJSONObject = jsonBody.getJSONObject(i);
-
             RestaurantItem restaurantItem = new RestaurantItem();
-
             restaurantItem.setId(restaurantJSONObject.getString("id"));
             restaurantItem.setName(restaurantJSONObject.getString("name"));
             restaurantItem.setAddress(restaurantJSONObject.getString("address"));
             restaurantItem.setPhone(restaurantJSONObject.getString("phone"));
-            restaurantItem.setImageUrl("https://media1.thehungryjpeg.com/thumbs2/ori_115244_07d36e3008cf7a53273e82f220ebf4ce111eba40_restaurant-logo.jpg");
+
+            List<String> photos = new ArrayList<>();
+            JSONArray array = restaurantJSONObject.getJSONArray("photos");
+            for (int j = 0; j < array.length(); j++) {
+                photos.add(array.getString(j));
+            }
+            restaurantItem.setImageUrl(photos);
 
             items.add(restaurantItem);
             Log.i("Restaurant item:", "items: " + items);
@@ -120,7 +124,14 @@ public class Fetcher {
             restaurantItem.setName(jsonBody.getString("name"));
             restaurantItem.setPhone(jsonBody.getString("phone"));
             restaurantItem.setAddress(jsonBody.getString("address"));
-            restaurantItem.setImageUrl(jsonBody.getString("imageUrl"));
+
+            List<String> photos = new ArrayList<>();
+            JSONArray array = jsonBody.getJSONArray("photos");
+            for (int i = 0; i < array.length(); i++) {
+                photos.add(array.getString(i));
+            }
+            restaurantItem.setImageUrl(photos);
+
             restaurantItem.setWebsite(jsonBody.getString("website"));
             restaurantItem.setLatitute(Double.parseDouble(jsonBody.getString("posLat")));
             restaurantItem.setLongitute(Double.parseDouble(jsonBody.getString("posLng")));
