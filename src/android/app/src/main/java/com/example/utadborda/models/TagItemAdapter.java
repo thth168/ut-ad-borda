@@ -40,9 +40,8 @@ public class TagItemAdapter extends ArrayAdapter {
         View v = inflater.inflate(R.layout.grid_view_items, null);
         Button mTagButton = (Button) v.findViewById(R.id.button1);
         mTagButton.setText(tagItems.get(position).getTagName());
-//        mTagButton
         toggleGroup = (MaterialButtonToggleGroup) v.findViewById(R.id.toggle_group);
-//        toggleGroup.addView(mTagButton, id);
+        toggleGroup.addView(mTagButton);
         id++;
 //        addToToggleGroup(v, mTagButton);
 //        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {

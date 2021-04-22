@@ -35,7 +35,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private GridView tagListView;
     private Button mSubmitButton;
     private TextView mSessionKey;
-//    private MaterialButtonToggleGroup toggleGroup;
+    private MaterialButtonToggleGroup toggleGroup;
 
     private String playerName = "";
     private String sessionKey= "";
@@ -52,7 +52,9 @@ public class WaitingRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_room);
+        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.toggle_group);
         userListView = (ListView) findViewById(R.id.user_list);
+        View view = (View) findViewById(R.id.toggle_group);
         tagListView = (GridView) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
         mSessionKey = (TextView) findViewById(R.id.session_key_text);
@@ -78,19 +80,18 @@ public class WaitingRoomActivity extends AppCompatActivity {
         tagList.add(new Tag("Comfort Food"));
         //playerName = preferences.getString("playerName", "");
 
+
+        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
+            @Override
+            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
+//                if(isChecked){
+                    Log.i("WaitingRoom", String.valueOf(checkedId));
+//                }
+            }
+        });
+
         ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
-        tagListView.setAdapter(adapter);
-
-//        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.toggle_group);
-//        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
-//            @Override
-//            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
-////                if(isChecked){
-//                    Log.i("WaitingRoom", String.valueOf(group));
-////                }
-//            }
-//        });
-
+//        tagListView.setAdapter(adapter);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
