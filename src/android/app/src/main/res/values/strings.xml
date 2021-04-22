@@ -125,4 +125,5 @@
     <string name="waiting_for_players_3">Waiting for players: 3</string>
     <string name="choose">Choose</string>
     <string name="session_key">Session Key</string>
+    <string name="match_results">Match Results</string>
 </resources>

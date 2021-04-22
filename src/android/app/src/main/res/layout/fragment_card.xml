@@ -62,6 +62,6 @@
             android:layout_marginBottom="316dp"
             android:layout_toEndOf="@+id/gpsIcon"
             android:text="@string/restaurantDistance"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
