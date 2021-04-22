@@ -92,7 +92,7 @@ public class RestaurantRestController {
         DataMuseRequest request = new DataMuseRequest().topics("food");
         request.build().addQueryParam("sp", "?????");
         WordsRequest customRequest = request;
-        randomWord += RandomWordGenerator.getRandomWord(customRequest) + "-";
+        randomWord += RandomWordGenerator.getRandomWord(customRequest) + ".";
         customRequest = request.topics("breakfast", "dinner", "cooking", "restaurant");
         randomWord += RandomWordGenerator.getRandomWord(customRequest);
         return randomWord;
