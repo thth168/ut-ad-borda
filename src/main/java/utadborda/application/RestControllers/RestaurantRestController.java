@@ -9,10 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import utadborda.application.Entities.Restaurant;
 import utadborda.application.Entities.Tag;
-import utadborda.application.services.DTO.RestAddTagDTO;
-import utadborda.application.services.DTO.RestTagCategoryDTO;
-import utadborda.application.services.DTO.RestTagDTO;
-import utadborda.application.services.DTO.RestRestaurantListDTO;
+import utadborda.application.services.DTO.*;
 import utadborda.application.services.RestaurantService;
 import utadborda.application.services.TagService;
 import utadborda.application.web.requestMappings;
@@ -20,6 +17,7 @@ import utadborda.application.web.requestMappings;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 public class RestaurantRestController {
@@ -35,11 +33,11 @@ public class RestaurantRestController {
         this.tagService = tagService;
     }
 
-    @GetMapping(requestMappings.API_RESTAURANT_LIST)
+    @GetMapping(value = requestMappings.API_RESTAURANT_LIST)
     RestRestaurantListDTO getAllRestaurants(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int limit,
-            @RequestParam(required = false) UUID tag,
+            @RequestParam(required = false) List<UUID> tag,
             @RequestParam(required = false) Optional<Double> lat,
             @RequestParam(required = false) Optional<Double> lng,
             @RequestParam(required = false) Optional<Double> distance
@@ -49,13 +47,14 @@ public class RestaurantRestController {
         long maxNumOfPages;
 
         if (tag != null) {
-            Tag foundTag = tagService.getTagById(tag);
+            System.out.println(tag.get(0));
+            List<Tag> foundTag = tagService.getTagsById(tag);
             if (lat.isPresent() && lng.isPresent() && distance.isPresent()) {
                 restaurants = restaurantService.getAllByTagAndGPS( foundTag, lat.get(), lng.get(), distance.get(), page, limit);
             } else {
                 restaurants = restaurantService.getAllByTag( foundTag, page, limit);
             }
-            count = restaurantService.getCountByTag( foundTag );
+            count = restaurantService.getCountByTag( foundTag.get(0) );
         } else {
             restaurants = restaurantService.getAll(page, limit);
             count = restaurantService.getRestaurantCount();
@@ -90,11 +89,11 @@ public class RestaurantRestController {
     @GetMapping(value = requestMappings.API_3_FOOD_WORDS)
     String get3Words() throws DataMuseException {
         String randomWord = "";
-        WordsRequest customRequest = new DataMuseRequest().topics("pasta");
-        randomWord += RandomWordGenerator.getRandomWord(customRequest) + "-";
-        customRequest = new DataMuseRequest().topics("food", "dinner", "cooking", "restaurant");
-        randomWord += RandomWordGenerator.getRandomWord(customRequest) + "-";
-        customRequest = new DataMuseRequest().topics("surprise", "happy", "glad");
+        DataMuseRequest request = new DataMuseRequest().topics("food");
+        request.build().addQueryParam("sp", "?????");
+        WordsRequest customRequest = request;
+        randomWord += RandomWordGenerator.getRandomWord(customRequest) + ".";
+        customRequest = request.topics("breakfast", "dinner", "cooking", "restaurant");
         randomWord += RandomWordGenerator.getRandomWord(customRequest);
         return randomWord;
     }

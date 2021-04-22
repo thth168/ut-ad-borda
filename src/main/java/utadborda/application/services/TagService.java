@@ -18,4 +18,5 @@ public interface TagService {
     List<Tag> getAllByCategory(String category, int page, int limit);
     List<Restaurant> getByName(String category, String name);
     Tag getTagById(UUID id);
+    List<Tag> getTagsById(List<UUID> id);
 }
