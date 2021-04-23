@@ -1,15 +1,11 @@
 package com.example.utadborda;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.utadborda.models.RestaurantItem;
-
-import org.w3c.dom.Text;
 
 public class RestaurantPage extends AppCompatActivity {
     RestaurantItem restaurantItem;

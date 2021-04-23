@@ -2,7 +2,6 @@ package com.example.utadborda;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,16 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.utadborda.models.RestaurantItem;
-import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.models.Tag;
-import com.example.utadborda.models.TagItemAdapter;
 import com.example.utadborda.networking.Fetcher;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.button.MaterialButtonToggleGroup;
@@ -28,12 +23,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class WaitingRoomActivity extends AppCompatActivity {
-
     private ListView userListView;
     private LinearLayout tagListView;
     private Button mSubmitButton;
@@ -41,7 +34,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private MaterialButtonToggleGroup toggleGroup;
     private String toggledTagText;
     private String tagQuery = "?";
-
     private String playerName = "";
     private String sessionKey= "";
     private Long playerCount;
@@ -49,7 +41,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private List<String> userList;
     private List<Tag> tagList;
     private List<String> userTags;
-
     private FirebaseDatabase database;
     private DatabaseReference sessionRef;
     private DatabaseReference restaurantRef;
@@ -60,20 +51,16 @@ public class WaitingRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_room);
         toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.MaterialButtonToggleGroup1);
-
         userListView = (ListView) findViewById(R.id.user_list);
 
 //        View view = (View) findViewById(R.id.toggle_group);
         tagListView = (LinearLayout) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
         mSessionKey = (TextView) findViewById(R.id.session_key_text);
-
         database = FirebaseDatabase.getInstance();
-
         userList = new ArrayList<>();
         userTags = new ArrayList<>();
         tagList =  new ArrayList<Tag>();
-
         tagList.add(new Tag("Hamburger", "218e0238-83ed-46e4-9d4d-0f18597a8d67"));
         tagList.add(new Tag("Fries", "775d92d3-1a51-4e19-8585-84ca26e9a440"));
         tagList.add(new Tag("Pizza", "4099c172-2eb4-4b48-9db5-f33b460e9e7c"));
