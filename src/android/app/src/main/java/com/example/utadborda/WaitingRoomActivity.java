@@ -23,6 +23,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private LinearLayout tagListView;
     private Button mSubmitButton;
     private TextView mSessionKey;
+    private TextView mWaitingPlayers;
     private MaterialButtonToggleGroup toggleGroup;
     private String toggledTagText;
     private String tagQuery = "?";
@@ -57,6 +61,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
         tagListView = (LinearLayout) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
         mSessionKey = (TextView) findViewById(R.id.session_key_text);
+        mWaitingPlayers = (TextView) findViewById(R.id.waiting_for_players);
         database = FirebaseDatabase.getInstance();
         userList = new ArrayList<>();
         userTags = new ArrayList<>();
@@ -130,6 +135,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
             waitingCount = extras.getInt("waitingCount");
+            mWaitingPlayers.setText("Waiting for players: " + waitingCount );
             database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount).setValue(playerName);
             sessionRef = database.getReference("sessions/"+ sessionKey);
             restaurantRef = sessionRef.child("/restaurants");
@@ -146,32 +152,14 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 if(waitingCount > 0){
                     waitingCount = waitingCount-1;
                     database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
+                    mWaitingPlayers.setText("Waiting for players: " + waitingCount );
                 }
                 //if all players have chosen
-//                String query = "?";
-//                try{
-//                    Iterable<DataSnapshot> userTags = database.getReference("sessions/" + sessionKey + "/tags").get().getResult().getChildren();
-//
-//                for (DataSnapshot s: userTags) {
-//                    if(s.getValue(Integer.class) > 0){
-//                        for (Tag tag : tagList) {
-//                            if (tag.getTagName().equals(s)) {
-//                                query += "tag=" + tag.getTagId() + "&";
-//                                break;
-//                            }
-//                        }
-//                    }
-//                }
-//                } catch (Exception e){
-//                    Log.e("Firebase Error", String.valueOf(e));
-//                    Toast.makeText(WaitingRoomActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-//                }
-
-                if (waitingCount == 0) {
+                if (waitingCount == 0 && playerCount > 1) {
                     getTagsFromDatabase(tagList);
+                } if (playerCount < 1){
+                    Toast.makeText(WaitingRoomActivity.this, "You're the only player!", Toast.LENGTH_SHORT).show();
                 }
-
-//                startSessionEventListener();
 
             }
         });
@@ -187,6 +175,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Iterable<DataSnapshot> playerTags = snapshot.child("tags").getChildren();
+
                 for(DataSnapshot s : playerTags){
                     Log.i("Tags", s.getKey());
                     if(s.getValue(Integer.class) > 0){
