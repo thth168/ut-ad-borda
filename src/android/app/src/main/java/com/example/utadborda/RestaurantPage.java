@@ -42,9 +42,5 @@ public class RestaurantPage extends AppCompatActivity {
         Glide.with(this).load(restaurantItem.getImageUrl()).into(imageView);
         website = findViewById(R.id.website);
         website.setText(restaurantItem.getWebsite());
-        latitude = findViewById(R.id.latitude);
-        latitude.setText(String.valueOf(restaurantItem.getLatitude()));
-        longitude = findViewById(R.id.longitude);
-        longitude.setText(String.valueOf(restaurantItem.getLongitude()));
     }
 }
