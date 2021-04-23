@@ -123,10 +123,8 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 mWaitingPlayers.setText("Waiting for players: " + waitingCount);
             }
-            if (waitingCount == 0 && playerCount > 1) {
+            if (waitingCount == 0) {
                 getTagsFromDatabase(tagList);
-            } if (playerCount < 1){
-                Toast.makeText(WaitingRoomActivity.this, "You're the only player!", Toast.LENGTH_SHORT).show();
             }
             }
         });
