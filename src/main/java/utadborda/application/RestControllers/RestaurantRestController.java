@@ -38,6 +38,7 @@ public class RestaurantRestController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int limit,
             @RequestParam(required = false) List<UUID> tag,
+            @RequestParam(defaultValue = "false") boolean exclude,
             @RequestParam(required = false) Optional<Double> lat,
             @RequestParam(required = false) Optional<Double> lng,
             @RequestParam(required = false) Optional<Double> distance
@@ -47,14 +48,19 @@ public class RestaurantRestController {
         long maxNumOfPages;
 
         if (tag != null) {
-            System.out.println(tag.get(0));
             List<Tag> foundTag = tagService.getTagsById(tag);
+            count = restaurantService.getCountByTags( foundTag );
             if (lat.isPresent() && lng.isPresent() && distance.isPresent()) {
                 restaurants = restaurantService.getAllByTagAndGPS( foundTag, lat.get(), lng.get(), distance.get(), page, limit);
             } else {
-                restaurants = restaurantService.getAllByTag( foundTag, page, limit);
+                if (exclude) {
+                    restaurants = restaurantService.getAllByExcludeTag( foundTag, page, limit);
+                    count = restaurantService.getCountByTagsExclude( foundTag );
+                } else {
+                    restaurants = restaurantService.getAllByTag( foundTag, page, limit);
+                }
             }
-            count = restaurantService.getCountByTag( foundTag.get(0) );
+
         } else {
             restaurants = restaurantService.getAll(page, limit);
             count = restaurantService.getRestaurantCount();
