@@ -3,7 +3,6 @@ package com.example.utadborda.models;
 import java.util.UUID;
 
 public class Session {
-
     private UUID id;
     private String session;
 

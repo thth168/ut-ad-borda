@@ -1,7 +1,5 @@
 package com.example.utadborda;
 
-import org.json.JSONObject;
-
 public class Session {
     String sessionKey;
     MatchActivity matchActivity;
@@ -14,8 +12,6 @@ public class Session {
     private boolean notifyMembers(Object data) throws InterruptedException {
         boolean notified = false;
         try {
-            // notift all session members with data
-            // notified = x;
             if (notified) return true;
             else return false;
         } catch (Exception e) {
@@ -29,15 +25,12 @@ public class Session {
         if (n < 5) {
             boolean notified = false;
             try {
-                // notify all session members with data
-                // notified = x;
                 if (notified) return true;
                 else return false;
             } catch (Exception e) {
                 System.out.println("Failed to notify session members.");
             }
             return notifyMembers(data, n+1);
-            //Thread.sleep(1000);
         } else {
             return false;
         }

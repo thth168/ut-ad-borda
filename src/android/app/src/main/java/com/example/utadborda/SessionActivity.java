@@ -4,61 +4,33 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.HttpURLConnection;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
-import kotlinx.coroutines.Delay;
-
 public class SessionActivity extends AppCompatActivity {
-
     private static final String TAG = "SessionActivity";
-
     EditText sessionText;
     EditText nameText;
     Button mNewSession;
     Button mPlayButton;
-
     String sessionKey = "";
     String playerName = "";
     Boolean newSession = false;
-
     private FirebaseDatabase database;
     private DatabaseReference sessionRef;
 
@@ -66,12 +38,10 @@ public class SessionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
-
         nameText = findViewById(R.id.nickName);
         sessionText = findViewById(R.id.sessionKey);
         mNewSession = findViewById(R.id.new_session);
         mPlayButton = findViewById(R.id.play_button);
-
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         sessionKey = preferences.getString("sessionKey", "");
@@ -103,7 +73,6 @@ public class SessionActivity extends AppCompatActivity {
                 randomStringRequestQueue.add(randomStringRequest);
             }
         });
-
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,7 +81,6 @@ public class SessionActivity extends AppCompatActivity {
                 addRoomEventListener();
             }
         });
-//        addRoomEventListener();
     }
 
     private void addRoomEventListener(){
@@ -122,14 +90,12 @@ public class SessionActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.i("RoomEvent- new session", String.valueOf(newSession));
                 Log.i("RoomEvent - snapshot", String.valueOf(snapshot.child(sessionKey).exists()));
-//                if(snapshot.child(sessionKey).exists()){
                 if(snapshot.child(sessionKey).exists() || newSession){
                     Intent intent = new Intent(getApplicationContext(), WaitingRoomActivity.class);
                     newSession = false;
                     int count;
                     long playerCount = snapshot.child(sessionKey).child("/players").getChildrenCount();
                     playerName = nameText.getText().toString();
-//                    sessionRef = database.getReference("sessions/"+ sessionKey + "/waiting-for-players");
                     if(!snapshot.child(sessionKey + "/waiting-for-players").exists()){
                         sessionRef.child(sessionKey+ "/waiting-for-players").setValue(1);
                         intent.putExtra("waitingCount", 1);
@@ -138,8 +104,6 @@ public class SessionActivity extends AppCompatActivity {
                         sessionRef.child(sessionKey+ "/waiting-for-players").setValue(count+1);
                         intent.putExtra("waitingCount", count);
                     }
-
-
                     intent.putExtra("sessionName", sessionKey);
                     intent.putExtra("playerCount", playerCount);
                     intent.putExtra("playerName", playerName);
@@ -157,15 +121,12 @@ public class SessionActivity extends AppCompatActivity {
                 Toast.makeText(SessionActivity.this, "Error!", Toast.LENGTH_SHORT).show();
             }
         });
-        //Show if new room is available
-        //addRoomsEventListener();
     }
 
     private void addEventListener(){
         sessionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //success - continue to the next screen after saving the session name
                 if(!sessionKey.equals("")){
                     SharedPreferences preferences = getSharedPreferences("PREFS", 0);
                     SharedPreferences.Editor editor = preferences.edit();
@@ -185,26 +146,4 @@ public class SessionActivity extends AppCompatActivity {
             }
         });
     }
-//
-//    private void addRoomsEventListener() {
-//        sessionRef = database.getReference().child("sessions");
-//        sessionRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                //show list of rooms
-//                roomsList.clear();
-//                Iterable<DataSnapshot> rooms = snapshot.getChildren();
-//                for(DataSnapshot dataSnapshot : rooms) {
-//                    roomsList.add(dataSnapshot.getKey());
-//                    ArrayAdapter<String> adapter = new ArrayAdapter<>(SessionActivity.this, android.R.layout.simple_list_item_1, roomsList);
-//                    listView.setAdapter(adapter);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                //error - nothing
-//            }
-//        });
-//    }
 }

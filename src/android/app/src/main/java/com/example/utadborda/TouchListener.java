@@ -6,8 +6,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-import androidx.constraintlayout.widget.ConstraintSet;
-
 public class TouchListener implements OnTouchListener {
     private GestureDetector gestureDetector;
 

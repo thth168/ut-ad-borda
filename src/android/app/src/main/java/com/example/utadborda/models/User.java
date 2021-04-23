@@ -10,7 +10,6 @@ public class User {
     private String firstName;
     private String lastName;
     private String password;
-
     private String email;
     private Date dateOfBirth;
     private List<String> roles;
@@ -38,7 +37,6 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
 
     public String getPassword() {
         return password;
