@@ -89,10 +89,10 @@ public class Fetcher {
      * Fetch restaurants from API asyncronously and send them to main thread
      * @return
      */
-    public static List<RestaurantItem> fetchRestaurants() {
+    public static List<RestaurantItem> fetchRestaurants(String queryParams) {
         List<RestaurantItem> items = new ArrayList<RestaurantItem>();
         try {
-            String url = Uri.parse("https://ut-ad-borda.herokuapp.com/api/allRestaurants?limit=10&page=0").buildUpon().build().toString();
+            String url = Uri.parse("https://ut-ad-borda.herokuapp.com/api/allRestaurants" + queryParams).buildUpon().build().toString();
             String jsonString = getUrlString(url);
             JSONObject jsonBody = new JSONObject(jsonString);
             JSONArray restaurants = (JSONArray) jsonBody.getJSONArray("restaurants");

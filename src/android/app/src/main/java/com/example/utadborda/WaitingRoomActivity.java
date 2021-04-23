@@ -20,6 +20,7 @@ import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.models.Tag;
 import com.example.utadborda.models.TagItemAdapter;
 import com.example.utadborda.networking.Fetcher;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +38,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private Button mSubmitButton;
     private TextView mSessionKey;
     private MaterialButtonToggleGroup toggleGroup;
+    private String toggledTagText;
 
     private String playerName = "";
     private String sessionKey= "";
@@ -44,7 +46,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private int waitingCount;
     private List<String> userList;
     private List<Tag> tagList;
-
+    private List<String> userTags;
 
     private FirebaseDatabase database;
     private DatabaseReference sessionRef;
@@ -56,7 +58,9 @@ public class WaitingRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_room);
         toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.MaterialButtonToggleGroup1);
+
         userListView = (ListView) findViewById(R.id.user_list);
+
 //        View view = (View) findViewById(R.id.toggle_group);
         tagListView = (LinearLayout) findViewById(R.id.tag_gridView);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
@@ -65,33 +69,36 @@ public class WaitingRoomActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         userList = new ArrayList<>();
+        userTags = new ArrayList<>();
         tagList =  new ArrayList<Tag>();
-        tagList.add(new Tag("Burger"));
-        tagList.add(new Tag("Fries"));
-        tagList.add(new Tag("Pizza"));
-        tagList.add(new Tag("Healthy"));
-        tagList.add(new Tag("Sushi"));
-        tagList.add(new Tag("Noodles"));
-        tagList.add(new Tag("Keto"));
-        tagList.add(new Tag("Vegan"));
-        tagList.add(new Tag("Vegetarian"));
-        tagList.add(new Tag("Fast Food"));
-        tagList.add(new Tag("Desert"));
-        tagList.add(new Tag("Coffee and Tea"));
-        tagList.add(new Tag("Alcohol"));
-        tagList.add(new Tag("Indian"));
-        tagList.add(new Tag("Comfort Food"));
+
+        tagList.add(new Tag("Hamburger", "218e0238-83ed-46e4-9d4d-0f18597a8d67"));
+        tagList.add(new Tag("Fries", "775d92d3-1a51-4e19-8585-84ca26e9a440"));
+        tagList.add(new Tag("Pizza", "4099c172-2eb4-4b48-9db5-f33b460e9e7c"));
+        tagList.add(new Tag("Healthy", "35542744-e728-48c9-beef-30d55e19a1ca"));
+        tagList.add(new Tag("Sushi", "9f7553eb-4902-484d-b901-91a4324b9583"));
+        tagList.add(new Tag("Noodles", "b2fd7be5-fd04-4ef1-b302-69594142796e"));
+        tagList.add(new Tag("Keto", "0570b5c0-d0e1-47a8-aa15-43b977d9faa1"));
+        tagList.add(new Tag("Vegan", "dde6bd9b-ab13-4992-be11-7d6fd9b66595"));
+        tagList.add(new Tag("Vegetarian", "61a8fa1b-0a2e-4232-b828-0a6f9d4c75bc"));
+        tagList.add(new Tag("Fast Food", "b4eab4a0-2489-49ca-b197-d8b21f432043"));
+        tagList.add(new Tag("Dessert", "f48da935-7ba1-4b40-ac69-5cd096330d5a"));
+        tagList.add(new Tag("Coffee and Tea", "1b9cd157-eebe-45f7-8970-f34f25e7c059"));
+        tagList.add(new Tag("Alcohol", "0f81ba44-e94c-4a1c-a750-a1d56439d833"));
+        tagList.add(new Tag("Indian", "3702f847-3c6e-45e4-904e-042613aa47c3"));
+        tagList.add(new Tag("Comfort Food", "2750344b-a0a0-4bdd-a445-f9a0c3ccde82"));
         //playerName = preferences.getString("playerName", "");
 
 
-//        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
-//            @Override
-//            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
-////                if(isChecked){
-//                    Log.i("WaitingRoom", String.valueOf(checkedId));
-////                }
-//            }
-//        });
+        toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
+            @Override
+            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
+                if(isChecked){
+                    toggledTagText = (String) ((MaterialButton) findViewById(checkedId)).getText();
+                    userTags.add(toggledTagText);
+                }
+            }
+        });
 
 //        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
 //        tagListView.setAdapter(adapter);
@@ -120,11 +127,20 @@ public class WaitingRoomActivity extends AppCompatActivity {
                     database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 }
                 //if all players have chosen
+                String query = "?";
+                for (String s: userTags) {
+                    for (Tag tag : tagList) {
+                        if (tag.getTagName().equals(s)) {
+                            query += "tag=" + tag.getTagId() + "&";
+                            break;
+                        }
+                    }
+                }
 
                 if (waitingCount == 0) {
-                    AsyncTask<?,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+                    AsyncTask<String,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
                     try {
-                        restaurantTask.execute().get();
+                        restaurantTask.execute(query).get();
                     } catch (Exception e) {
                         return;
                     }
@@ -179,15 +195,15 @@ public class WaitingRoomActivity extends AppCompatActivity {
      * Fetches restaurant data from API asyncronously
      * Sets data in RecyclerView
      */
-    private class AsyncFetchTask extends AsyncTask<Object, Void, List<RestaurantItem>> {
+    private class AsyncFetchTask extends AsyncTask<String, Void, List<RestaurantItem>> {
         /**
          *
          * @param params
          * @return
          */
         @Override
-        protected List<RestaurantItem> doInBackground(Object... params) {
-            return Fetcher.fetchRestaurants();
+        protected List<RestaurantItem> doInBackground(String... params) {
+            return Fetcher.fetchRestaurants(params[0]);
         }
 
         /**

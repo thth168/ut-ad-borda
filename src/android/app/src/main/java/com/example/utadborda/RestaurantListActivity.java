@@ -59,7 +59,7 @@ public class RestaurantListActivity extends AppCompatActivity {
          */
         @Override
         protected List<RestaurantItem> doInBackground(Object... params) {
-            return Fetcher.fetchRestaurants();
+            return Fetcher.fetchRestaurants("");
         }
 
         /**

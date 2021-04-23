@@ -139,4 +139,5 @@
     <string name="button_tag12">Coffee and Tea</string>
     <string name="button_tag13">Alcohol</string>
     <string name="button_tag14">Comfort Food</string>
+    <string name="match_results">Match Results</string>
 </resources>
