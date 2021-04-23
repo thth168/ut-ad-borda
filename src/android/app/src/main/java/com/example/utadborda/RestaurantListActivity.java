@@ -19,9 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantListActivity extends AppCompatActivity {
-    //Initialize variable
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private List<RestaurantItem> items;
 
@@ -52,20 +50,11 @@ public class RestaurantListActivity extends AppCompatActivity {
      * Sets data in RecyclerView
      */
     private class AsyncFetchTask extends AsyncTask<Object, Void, List<RestaurantItem>> {
-        /**
-         *
-         * @param params
-         * @return
-         */
         @Override
         protected List<RestaurantItem> doInBackground(Object... params) {
             return Fetcher.fetchRestaurants("");
         }
 
-        /**
-         * Bind data retrieved from API to RecyclerView
-         * @param restaurantItems
-         */
         @Override
         protected void onPostExecute(List<RestaurantItem> restaurantItems) {
             recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, RestaurantListActivity.this));
