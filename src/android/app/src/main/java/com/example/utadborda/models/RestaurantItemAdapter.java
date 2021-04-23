@@ -3,6 +3,7 @@ package com.example.utadborda.models;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class RestaurantItemAdapter extends RecyclerView.Adapter<RestaurantItemAd
         } else {
             holder.restaurantPicture.setImageResource(R.drawable.generic);
         }
+        Log.i("Restaurants", String.valueOf(restaurant.getSwipes()));
         if (drawSwipes) {
             holder.swipeCount.setText(String.valueOf(restaurant.getSwipes()));
         } else {

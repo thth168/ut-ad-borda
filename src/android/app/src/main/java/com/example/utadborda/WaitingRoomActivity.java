@@ -211,7 +211,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private void getTagsFromDatabase(final List<Tag> tagList) {
         sessionRef = database.getReference("sessions/"+ sessionKey);
 //        sessionRef.child("tags").get().getResult().getChildren();
-        sessionRef.addValueEventListener(new ValueEventListener() {
+        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Iterable<DataSnapshot> playerTags = snapshot.child("tags").getChildren();
@@ -219,9 +219,9 @@ public class WaitingRoomActivity extends AppCompatActivity {
                     Log.i("Tags", s.getKey());
                     if(s.getValue(Integer.class) > 0){
                         for (Tag tag : tagList) {
-                            Log.i("Tags", tag.getTagName());
+                            Log.i("Tags", s.getKey());
                             if (tag.getTagName().equals(s.getKey())) {
-                                Log.i("Tags", tag.getTagName());
+                                Log.i("Tags sem komast 'i gegn", tag.getTagName());
                                 tagQuery += "tag=" + tag.getTagId() + "&";
                                 break;
                             }

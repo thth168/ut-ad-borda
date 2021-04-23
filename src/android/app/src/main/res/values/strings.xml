@@ -55,4 +55,5 @@
     <string name="address">Address</string>
     <string name="todo">TODO</string>
     <string name="website">Website</string>
+    <string name="match_results">Match Results</string>
 </resources>

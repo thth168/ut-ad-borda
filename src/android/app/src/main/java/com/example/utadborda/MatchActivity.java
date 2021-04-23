@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -34,6 +35,7 @@ public class MatchActivity extends AppCompatActivity {
     private String sessionKey;
     private DatabaseReference sessionRef;
     private DatabaseReference restaurantRef;
+    private DataSnapshot restaurants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +127,9 @@ public class MatchActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 DataSnapshot restaurantMatches = snapshot.child(restaurantId);
                 int currentMatches = restaurantMatches.getValue(Integer.class);
-                restaurantRef.child(restaurantId).setValue(currentMatches+1);
+                restaurantRef.child(restaurantId).setValue(currentMatches + 1);
+                currentRestaurant.setSwipes(currentMatches + 1);
+                Log.i("MatchActiviity", String.valueOf(currentRestaurant.getSwipes()));
             }
 
             @Override

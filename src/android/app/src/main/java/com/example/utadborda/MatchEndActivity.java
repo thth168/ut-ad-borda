@@ -84,4 +84,18 @@ public class MatchEndActivity extends AppCompatActivity {
             recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, true, MatchEndActivity.this));
         }
     }
+
+    private void getSwipes(){
+        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }
