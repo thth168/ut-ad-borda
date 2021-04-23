@@ -52,10 +52,13 @@ public class MatchEndActivity extends AppCompatActivity {
             AsyncTask<String,?,RestaurantItem> restaurantTask = new Fetcher.AsyncFetchTask();
             try {
                 final RestaurantItem restaurant = restaurantTask.execute(restaurantID).get();
-                restaurantRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                restaurantRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       restaurant.setSwipes(snapshot.child(restaurantID).getValue(Integer.class));
+                        int index = restaurantQueue.indexOf(restaurant);
+                        restaurant.setSwipes(snapshot.child(restaurantID).getValue(Integer.class));
+                        restaurantQueue.set(index, restaurant);
+                        recyclerView.getAdapter().notifyItemChanged(index);
                     }
 
                     @Override
@@ -68,8 +71,9 @@ public class MatchEndActivity extends AppCompatActivity {
             }
         }
         recyclerView.setLayoutManager(layoutManager);
-        AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
-        restaurantTask.execute();
+        recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
+        /*AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
+        restaurantTask.execute();*/
     }
 
     private void sortLikes(List<Pair<RestaurantItem, Integer>> sessionLikes) {
@@ -95,7 +99,7 @@ public class MatchEndActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(List<RestaurantItem> restaurantItems) {
-            recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
+
         }
     }
 
