@@ -1,5 +1,7 @@
 package com.example.utadborda.dummy;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +14,6 @@ import java.util.Map;
  * TODO: Replace all uses of this class before publishing your app.
  */
 public class DummyContent {
-
     /**
      * An array of sample (dummy) items.
      */
@@ -64,6 +65,7 @@ public class DummyContent {
             this.details = details;
         }
 
+        @NotNull
         @Override
         public String toString() {
             return content;

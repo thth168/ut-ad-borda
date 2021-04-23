@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import com.example.utadborda.models.RestaurantItem;
 import com.example.utadborda.networking.Fetcher;
 import com.google.firebase.database.DataSnapshot;

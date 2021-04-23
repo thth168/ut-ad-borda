@@ -27,9 +27,7 @@ import static android.os.FileUtils.copy;
 public class MatchCardFragment extends Fragment {
     private MatchActivity parent;
     private ImageView restaurantImage;
-    private RelativeLayout restaurantInfoContainer;
     private TextView restaurantName;
-    private ImageView gpsIcon;
     private TextView restaurantPrice;
     private TextView restaurantDistance;
     private static final int IO_BUFFER_SIZE = 8 * 1024;
@@ -53,9 +51,9 @@ public class MatchCardFragment extends Fragment {
                 parent.swipe(true);
             }
         });
-        restaurantInfoContainer = (RelativeLayout) view.findViewById(R.id.restaurantInfoContainer);
+        RelativeLayout restaurantInfoContainer = (RelativeLayout) view.findViewById(R.id.restaurantInfoContainer);
         restaurantName = (TextView) view.findViewById(R.id.restaurantName);
-        gpsIcon = (ImageView) view.findViewById(R.id.gpsIcon);
+        ImageView gpsIcon = (ImageView) view.findViewById(R.id.gpsIcon);
         restaurantDistance = (TextView) view.findViewById(R.id.restaurantDistance);
         return view;
     }
@@ -71,16 +69,12 @@ public class MatchCardFragment extends Fragment {
         try {
             URL _url = new URL(url);
             in = new BufferedInputStream(_url.openStream(), IO_BUFFER_SIZE);
-
             final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
             out = new BufferedOutputStream(dataStream, IO_BUFFER_SIZE);
             copy(in, out);
             out.flush();
-
             final byte[] data = dataStream.toByteArray();
             BitmapFactory.Options options = new BitmapFactory.Options();
-            //options.inSampleSize = 1;
-
             bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
         } catch (IOException e) {
             Log.e("image fetch error", e.getMessage());
@@ -89,7 +83,7 @@ public class MatchCardFragment extends Fragment {
     }
 
     public void setData(RestaurantItem restaurantItem) {
-        if (restaurantItem.getImageUrl() != "") {
+        if (!restaurantItem.getImageUrl().equals("")) {
             Glide.with(this).load(restaurantItem.getImageUrl()).into(restaurantImage);
         } else {
             restaurantImage.setImageResource(R.drawable.generic);
@@ -97,7 +91,7 @@ public class MatchCardFragment extends Fragment {
         if (restaurantItem.getName() != null) {
             restaurantName.setText(restaurantItem.getName());
         }
-        if (restaurantItem.getAddress() != "") {
+        if (!restaurantItem.getAddress().equals("")) {
             restaurantDistance.setText(restaurantItem.getAddress());
         } else {
             restaurantDistance.setText("");

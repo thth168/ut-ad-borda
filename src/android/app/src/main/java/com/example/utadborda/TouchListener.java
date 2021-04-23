@@ -7,13 +7,14 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 
 public class TouchListener implements OnTouchListener {
-    private GestureDetector gestureDetector;
+    private final GestureDetector gestureDetector;
 
     public TouchListener(Context context) {
         gestureDetector = new GestureDetector(context, new GestureListener());
     }
 
     public boolean onTouch(final View view, final MotionEvent motionEvent) {
+        view.performClick();
         return gestureDetector.onTouchEvent(motionEvent);
     }
 

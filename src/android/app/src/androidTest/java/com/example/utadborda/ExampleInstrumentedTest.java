@@ -17,7 +17,6 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-
         assertEquals("com.example.utadborda", appContext.getPackageName());
     }
 }

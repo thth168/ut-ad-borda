@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="61dp">
-
     </androidx.fragment.app.FragmentContainerView>
 
     <RelativeLayout
@@ -47,5 +46,4 @@
             android:foreground="?attr/selectableItemBackground"
             android:src="@drawable/ic_iconmonstr_x_mark_1" />
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

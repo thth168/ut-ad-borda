@@ -16,7 +16,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,19 +23,9 @@ import java.util.List;
 
 public class MatchEndActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private FirebaseDatabase database;
-    private String sessionKey;
-    private Long playerCount;
-    private String playerName;
-    private ArrayList<String> swipeLeft;
-    private ArrayList<String> swipeRight;
     private ArrayList<String> restaurantIds;
     private ArrayList<RestaurantItem> restaurantQueue;
-    private DatabaseReference sessionRef;
     private DatabaseReference restaurantRef;
-    private List<Pair<RestaurantItem, Integer>> KVPair;
-    private Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,50 +34,40 @@ public class MatchEndActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.lv_restaurantList);
         restaurantQueue = new ArrayList<>();
         recyclerView.setHasFixedSize(true);
-        database = FirebaseDatabase.getInstance();
-        extras = getIntent().getExtras();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            sessionKey = extras.getString("sessionKey");
-            playerCount = extras.getLong("playerCount");
-            playerName = extras.getString("playerName");
-            swipeLeft = extras.getStringArrayList("swipeLeft");
-            swipeRight = extras.getStringArrayList("swipeRight");
+            String sessionKey = extras.getString("sessionKey");
+            Long playerCount = extras.getLong("playerCount");
+            String playerName = extras.getString("playerName");
+            ArrayList<String> swipeLeft = extras.getStringArrayList("swipeLeft");
+            ArrayList<String> swipeRight = extras.getStringArrayList("swipeRight");
             restaurantIds = extras.getStringArrayList("restaurantIds");
-            sessionRef = database.getReference("sessions/" + sessionKey);
+            DatabaseReference sessionRef = database.getReference("sessions/" + sessionKey);
             restaurantRef = sessionRef.child("/restaurants");
         }
-        layoutManager = new LinearLayoutManager(this);
-
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         Log.i("MatchEnd - IDS", String.valueOf(restaurantIds));
         for (final String restaurantID : restaurantIds) {
             AsyncTask<String,?,RestaurantItem> restaurantTask = new Fetcher.AsyncFetchTask();
             try {
                 final RestaurantItem restaurant = restaurantTask.execute(restaurantID).get();
-
-
                 restaurantRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                        restaurant.setSwipes(snapshot.child(restaurantID).getValue(Integer.class));
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
+                    public void onCancelled(@NonNull DatabaseError error) { }
                 });
-
                 restaurantQueue.add(restaurant);
-
                 Log.i("MatchEnd- restaurantQue", String.valueOf(restaurantQueue));
             } catch (Exception e) {
                 Log.e("Matchend - e", String.valueOf(e));
             }
         }
         recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
-
         AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
         restaurantTask.execute();
     }
