@@ -75,7 +75,7 @@ public class MatchEndActivity extends AppCompatActivity {
     private class AsyncFetchTask extends AsyncTask<Object, Void, List<RestaurantItem>> {
         @Override
         protected List<RestaurantItem> doInBackground(Object... params) {
-            return Fetcher.fetchRestaurants();
+            return Fetcher.fetchRestaurants("");
         }
 
         @Override

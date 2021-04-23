@@ -14,6 +14,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.utadborda.models.RestaurantItem;
 import com.example.utadborda.models.RestaurantItemAdapter;
@@ -39,6 +40,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
     private TextView mSessionKey;
     private MaterialButtonToggleGroup toggleGroup;
     private String toggledTagText;
+    private String tagQuery = "?";
 
     private String playerName = "";
     private String sessionKey= "";
@@ -90,14 +92,46 @@ public class WaitingRoomActivity extends AppCompatActivity {
         //playerName = preferences.getString("playerName", "");
 
 
+
         toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
-            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
-                if(isChecked){
+            public void onButtonChecked(MaterialButtonToggleGroup group, final int checkedId, final boolean isChecked) {
+                Log.i("isChecked", String.valueOf(isChecked));
+//                if(isChecked){
                     toggledTagText = (String) ((MaterialButton) findViewById(checkedId)).getText();
-                    userTags.add(toggledTagText);
+//                    userTags.add(toggledTagText);
+
+                    sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            int tagCount;
+                            Log.i("isChecked - datachnage", String.valueOf(isChecked));
+                            if (isChecked) {
+                                toggledTagText = (String) ((MaterialButton) findViewById(checkedId)).getText();
+                                userTags.add(toggledTagText);
+
+
+                                if (snapshot.child(toggledTagText).exists()) {
+                                    tagCount = snapshot.child("tags").child(toggledTagText).getValue(Integer.class);
+                                } else {
+                                    tagCount = 1;
+                                }
+                                sessionRef.child("tags").child(toggledTagText).setValue(tagCount);
+                            } else {
+//                                Toast.makeText(WaitingRoomActivity.this, "Unchecked tag", Toast.LENGTH_SHORT).show();
+//                                Log.i("isChecked false", "something is happening here");
+                                tagCount = snapshot.child("tags").child(toggledTagText).getValue(Integer.class);
+                                sessionRef.child("tags").child(toggledTagText).setValue(tagCount-1);
+                                userTags.remove(toggledTagText);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
-            }
         });
 
 //        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
@@ -110,11 +144,11 @@ public class WaitingRoomActivity extends AppCompatActivity {
             sessionKey = extras.getString("sessionName");
             waitingCount = extras.getInt("waitingCount");
             database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount).setValue(playerName);
-
+            sessionRef = database.getReference("sessions/"+ sessionKey);
+            restaurantRef = sessionRef.child("/restaurants");
             mSessionKey.setText(sessionKey);
         }
-        sessionRef = database.getReference("sessions/"+ sessionKey);
-        restaurantRef = sessionRef.child("/restaurants");
+
 
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
@@ -127,22 +161,34 @@ public class WaitingRoomActivity extends AppCompatActivity {
                     database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
                 }
                 //if all players have chosen
-                String query = "?";
-                for (String s: userTags) {
-                    for (Tag tag : tagList) {
-                        if (tag.getTagName().equals(s)) {
-                            query += "tag=" + tag.getTagId() + "&";
-                            break;
-                        }
-                    }
-                }
+//                String query = "?";
+//                try{
+//                    Iterable<DataSnapshot> userTags = database.getReference("sessions/" + sessionKey + "/tags").get().getResult().getChildren();
+//
+//                for (DataSnapshot s: userTags) {
+//                    if(s.getValue(Integer.class) > 0){
+//                        for (Tag tag : tagList) {
+//                            if (tag.getTagName().equals(s)) {
+//                                query += "tag=" + tag.getTagId() + "&";
+//                                break;
+//                            }
+//                        }
+//                    }
+//                }
+//                } catch (Exception e){
+//                    Log.e("Firebase Error", String.valueOf(e));
+//                    Toast.makeText(WaitingRoomActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+//                }
 
                 if (waitingCount == 0) {
-                    AsyncTask<String,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+
+                    getTagsFromDatabase(tagList);
                     try {
-                        restaurantTask.execute(query).get();
+                        AsyncTask<String,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+                        Log.i("jæja", tagQuery);
+                        restaurantTask.execute(tagQuery).get();
                     } catch (Exception e) {
-                        return;
+                        Toast.makeText(WaitingRoomActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                     }
 
                     Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
@@ -160,6 +206,35 @@ public class WaitingRoomActivity extends AppCompatActivity {
         addRoomsEventListener();
 
 
+    }
+
+    private void getTagsFromDatabase(final List<Tag> tagList) {
+        sessionRef = database.getReference("sessions/"+ sessionKey);
+//        sessionRef.child("tags").get().getResult().getChildren();
+        sessionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Iterable<DataSnapshot> playerTags = snapshot.child("tags").getChildren();
+                for(DataSnapshot s : playerTags){
+                    Log.i("Tags", s.getKey());
+                    if(s.getValue(Integer.class) > 0){
+                        for (Tag tag : tagList) {
+                            Log.i("Tags", tag.getTagName());
+                            if (tag.getTagName().equals(s.getKey())) {
+                                Log.i("Tags", tag.getTagName());
+                                tagQuery += "tag=" + tag.getTagId() + "&";
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void addRoomsEventListener() {
