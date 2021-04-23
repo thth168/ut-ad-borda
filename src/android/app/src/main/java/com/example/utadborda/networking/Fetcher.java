@@ -3,13 +3,10 @@ package com.example.utadborda.networking;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import com.example.utadborda.models.RestaurantItem;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +18,6 @@ import java.util.List;
 /**
  * Fetches JSON data from API and returns a list of RestaurantItems to be loaded into the RecyclerView
  */
-
 public class Fetcher {
     /**
      * @param items Empty array to be filled with RestaurantItems
@@ -103,7 +99,6 @@ public class Fetcher {
         } catch (JSONException je) {
             Log.e("Restaurant fetch", "Failed to parse JSON", je);
         }
-
         return items;
     }
 
@@ -124,20 +119,18 @@ public class Fetcher {
             restaurantItem.setName(jsonBody.getString("name"));
             restaurantItem.setPhone(jsonBody.getString("phone"));
             restaurantItem.setAddress(jsonBody.getString("address"));
-
             List<String> photos = new ArrayList<>();
             JSONArray array = jsonBody.getJSONArray("photos");
             for (int i = 0; i < array.length(); i++) {
                 photos.add(array.getString(i));
             }
             restaurantItem.setImageUrl(photos);
-
             restaurantItem.setWebsite(jsonBody.getString("website"));
-            restaurantItem.setLatitute(Double.parseDouble(jsonBody.getString("posLat")));
-            restaurantItem.setLongitute(Double.parseDouble(jsonBody.getString("posLng")));
+            restaurantItem.setLatitude(Double.parseDouble(jsonBody.getString("posLat")));
+            restaurantItem.setLongitude(Double.parseDouble(jsonBody.getString("posLng")));
             Log.i("Restaurant fetch", "JSON data loaded");
         } catch (IOException ioe) {
-            Log.e("Restuarant fetch", "Failed to fetch items", ioe);
+            Log.e("Restaurant fetch", "Failed to fetch items", ioe);
         } catch (JSONException je) {
             Log.e("Restaurant fetch", "Failed to parse JSON", je);
         }

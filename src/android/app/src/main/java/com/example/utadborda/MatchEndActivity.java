@@ -1,17 +1,21 @@
 package com.example.utadborda;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Pair;
 import com.example.utadborda.models.RestaurantItem;
 import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.networking.Fetcher;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,7 +24,6 @@ import java.util.List;
 public class MatchEndActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private List<RestaurantItem> items;
     private FirebaseDatabase database;
     private String sessionKey;
     private Long playerCount;
@@ -29,7 +32,8 @@ public class MatchEndActivity extends AppCompatActivity {
     private ArrayList<String> swipeRight;
     private DatabaseReference sessionRef;
     private DatabaseReference restaurantRef;
-
+    private List<Pair<RestaurantItem, Integer>> KVPair;
+    private Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,7 @@ public class MatchEndActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.lv_restaurantList);
         recyclerView.setHasFixedSize(true);
         database = FirebaseDatabase.getInstance();
-        Bundle extras = getIntent().getExtras();
+        extras = getIntent().getExtras();
         if (extras != null) {
             sessionKey = extras.getString("sessionKey");
             playerCount = extras.getLong("playerCount");
@@ -50,17 +54,14 @@ public class MatchEndActivity extends AppCompatActivity {
         }
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        items = new ArrayList<RestaurantItem>();
         AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
         restaurantTask.execute();
-
     }
 
-
-    private void sortLikes(List<Pair<String, Integer>> sessionLikes) {
-        Collections.sort(sessionLikes, new Comparator<Pair<String, Integer>>() {
+    private void sortLikes(List<Pair<RestaurantItem, Integer>> sessionLikes) {
+        Collections.sort(sessionLikes, new Comparator<Pair<RestaurantItem, Integer>>() {
             @Override
-            public int compare(Pair<String, Integer> o1, Pair<String, Integer> o2) {
+            public int compare(Pair<RestaurantItem, Integer> o1, Pair<RestaurantItem, Integer> o2) {
                 if (o1.second > o2.second) {
                     return -1;
                 } else if (o1.second.equals(o2.second)) {
@@ -75,12 +76,12 @@ public class MatchEndActivity extends AppCompatActivity {
     private class AsyncFetchTask extends AsyncTask<Object, Void, List<RestaurantItem>> {
         @Override
         protected List<RestaurantItem> doInBackground(Object... params) {
-            return Fetcher.fetchRestaurants();
+            return Fetcher.fetchRestaurants("");
         }
 
         @Override
         protected void onPostExecute(List<RestaurantItem> restaurantItems) {
-            recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, MatchEndActivity.this));
+            recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, true, MatchEndActivity.this));
         }
     }
 }

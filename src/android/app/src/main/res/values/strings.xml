@@ -48,5 +48,12 @@
     <string name="button_tag12">Coffee and Tea</string>
     <string name="button_tag13">Alcohol</string>
     <string name="button_tag14">Comfort Food</string>
-    <string name="match_results">Match Results</string>
+    <string name="likes">Likes</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="address">Address</string>
+    <string name="todo">TODO</string>
+    <string name="website">Website</string>
 </resources>

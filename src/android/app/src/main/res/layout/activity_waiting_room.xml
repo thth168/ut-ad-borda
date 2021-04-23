@@ -15,7 +15,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +26,6 @@
         android:text="What are you hungry for? "
         app:layout_constraintBottom_toTopOf="@+id/toggle_group"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/session_key_text" />
 
@@ -72,7 +71,8 @@
                     android:minHeight="36dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
-                    android:text="@string/button_tag1" />
+                    android:text="@string/button_tag1"
+                    android:textColor="@color/white" />
 
 
                 <com.google.android.material.button.MaterialButton
@@ -83,7 +83,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag2" />
+                    android:text="@string/button_tag2"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag3"
@@ -93,7 +94,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag3" />
+                    android:text="@string/button_tag3"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag4"
@@ -103,7 +105,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag4" />
+                    android:text="@string/button_tag4"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag5"
@@ -113,7 +116,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag5" />
+                    android:text="@string/button_tag5"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag6"
@@ -123,7 +127,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag6" />
+                    android:text="@string/button_tag6"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag7"
@@ -133,7 +138,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag7" />
+                    android:text="@string/button_tag7"
+                    android:textColor="@color/white" />
 
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -161,7 +167,8 @@
                     android:minHeight="36dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
-                    android:text="@string/button_tag8" />
+                    android:text="@string/button_tag8"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag9"
@@ -171,7 +178,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag9" />
+                    android:text="@string/button_tag9"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag10"
@@ -181,7 +189,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag10" />
+                    android:text="@string/button_tag10"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag11"
@@ -191,7 +200,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag11" />
+                    android:text="@string/button_tag11"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag12"
@@ -201,7 +211,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag12" />
+                    android:text="@string/button_tag12"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag13"
@@ -211,7 +222,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag13" />
+                    android:text="@string/button_tag13"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag14"
@@ -221,7 +233,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag11" />
+                    android:text="@string/button_tag11"
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_tag15"
@@ -231,7 +244,8 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minHeight="36dp"
-                    android:text="@string/button_tag14" />
+                    android:text="@string/button_tag14"
+                    android:textColor="@color/white" />
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -239,26 +253,27 @@
         </LinearLayout>
 
     </ScrollView>
+
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:text="Choose "
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scroll_tags"/>
+        app:layout_constraintTop_toBottomOf="@+id/scroll_tags" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp"
         android:text="Waiting for players: 3 "
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/submit_button" />
 
