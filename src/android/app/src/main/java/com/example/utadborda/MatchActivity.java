@@ -83,6 +83,7 @@ public class MatchActivity extends AppCompatActivity {
                     currentRestaurant = restaurantQueue.remove(0);
                     matchCardFragment.setData(currentRestaurant);
                 } else {
+                    Log.i("Match", "Ending match");
                     endMatching();
                 }
             }

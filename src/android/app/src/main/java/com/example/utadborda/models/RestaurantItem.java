@@ -12,7 +12,7 @@ public class RestaurantItem {
     private String website;
     private double latitude;
     private double longitude;
-    private int swipes = 0;
+    private int swipes;
 
     public RestaurantItem() {}
 

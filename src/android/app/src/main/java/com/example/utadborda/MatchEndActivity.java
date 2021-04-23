@@ -1,16 +1,22 @@
 package com.example.utadborda;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import com.example.utadborda.models.RestaurantItem;
 import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.networking.Fetcher;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -37,6 +43,7 @@ public class MatchEndActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_end);
         recyclerView = (RecyclerView) findViewById(R.id.lv_restaurantList);
+        restaurantQueue = new ArrayList<>();
         recyclerView.setHasFixedSize(true);
         database = FirebaseDatabase.getInstance();
         extras = getIntent().getExtras();
@@ -52,19 +59,38 @@ public class MatchEndActivity extends AppCompatActivity {
         }
         layoutManager = new LinearLayoutManager(this);
 
-        for (String restaurantID : restaurantIds) {
+        Log.i("MatchEnd - IDS", String.valueOf(restaurantIds));
+        for (final String restaurantID : restaurantIds) {
             AsyncTask<String,?,RestaurantItem> restaurantTask = new Fetcher.AsyncFetchTask();
             try {
-                restaurantQueue.add(restaurantTask.execute(restaurantID).get());
+                final RestaurantItem restaurant = restaurantTask.execute(restaurantID).get();
+
+
+                restaurantRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                       restaurant.setSwipes(snapshot.child(restaurantID).getValue(Integer.class));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                restaurantQueue.add(restaurant);
+
+                Log.i("MatchEnd- restaurantQue", String.valueOf(restaurantQueue));
             } catch (Exception e) {
-                return;
+                Log.e("Matchend - e", String.valueOf(e));
             }
         }
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
+//        recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
 
-//        AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
-//        restaurantTask.execute();
+        AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
+        restaurantTask.execute();
     }
 
     private void sortLikes(List<Pair<RestaurantItem, Integer>> sessionLikes) {
@@ -90,7 +116,7 @@ public class MatchEndActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(List<RestaurantItem> restaurantItems) {
-            recyclerView.setAdapter(new RestaurantItemAdapter(restaurantItems, true, MatchEndActivity.this));
+            recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
         }
     }
 
