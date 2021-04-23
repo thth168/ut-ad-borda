@@ -168,22 +168,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
 //                }
 
                 if (waitingCount == 0) {
-
                     getTagsFromDatabase(tagList);
-                    try {
-                        AsyncTask<String,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
-                        Log.i("jæja", tagQuery);
-                        restaurantTask.execute(tagQuery).get();
-                    } catch (Exception e) {
-                        Toast.makeText(WaitingRoomActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-                    }
-
-                    Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
-                    intent.putExtra("sessionName", sessionKey);
-                    intent.putExtra("playerCount", playerCount);
-                    intent.putExtra("playerName", playerName);
-                    startActivity(intent);
-                    finish();
                 }
 
 //                startSessionEventListener();
@@ -215,6 +200,20 @@ public class WaitingRoomActivity extends AppCompatActivity {
                         }
                     }
                 }
+                try {
+                    AsyncTask<String,?,List<RestaurantItem>> restaurantTask = new AsyncFetchTask();
+                    Log.i("jæja", tagQuery);
+                    restaurantTask.execute(tagQuery).get();
+                } catch (Exception e) {
+                    Toast.makeText(WaitingRoomActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                }
+
+                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                intent.putExtra("sessionName", sessionKey);
+                intent.putExtra("playerCount", playerCount);
+                intent.putExtra("playerName", playerName);
+                startActivity(intent);
+                finish();
             }
 
             @Override
