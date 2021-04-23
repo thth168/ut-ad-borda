@@ -125,8 +125,26 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Transactional
     @Override
+    public List<Restaurant> getAllByExcludeTag(List<Tag> tag, int page, int limit) {
+        Pageable paging = PageRequest.of(page, limit);
+        return restaurantRepo.findAllByTagsIsContainingAll(tag, tag.size(), paging);
+    }
+
+    @Transactional
+    @Override
     public long getCountByTag(Tag tag) {
         return restaurantRepo.countAllByTagsContaining(tag);
+    }
+
+    @Transactional
+    @Override
+    public long getCountByTags(List<Tag> tag) {
+        return restaurantRepo.countAllByTagsContainingAll(tag);
+    }
+
+    @Override
+    public long getCountByTagsExclude(List<Tag> tag) {
+        return restaurantRepo.countAllByTagsContainingAllExclude(tag, tag.size());
     }
 
     @Transactional

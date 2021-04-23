@@ -1,7 +1,6 @@
 package com.example.utadborda;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 /**

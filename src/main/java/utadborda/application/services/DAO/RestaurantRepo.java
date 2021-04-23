@@ -19,8 +19,14 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, UUID> {
 
     @Query("SELECT r from Restaurant r, IN (r.tags) t where t in (:tags)")
     List<Restaurant> findAllByTagsIsContaining(@Param("tags") List<Tag> tag, Pageable pageable);
+    @Query("select distinct r from Restaurant r where :numberOfTags = (select count(distinct tag.name) from Restaurant r2 inner join r2.tags tag where r2.id = r.id and tag IN (:tags)) ")
+    List<Restaurant> findAllByTagsIsContainingAll(@Param("tags") List<Tag> tag, @Param("numberOfTags") long numTags, Pageable pageable);
     List<Restaurant> findAllByIdNotNull(Pageable pageable);
     long countAllByTagsContaining(Tag tag);
+    @Query("SELECT count(r) from Restaurant r, IN (r.tags) t where t in (:tags)")
+    long countAllByTagsContainingAll(@Param("tags") List<Tag> tag);
+    @Query("select count(r) from Restaurant r where :numberOfTags = (select count(distinct tag.name) from Restaurant r2 inner join r2.tags tag where r2.id = r.id and tag IN (:tags)) ")
+    long countAllByTagsContainingAllExclude(@Param("tags") List<Tag> tag, @Param("numberOfTags") long numTags);
 
     @Query(value = "select " +
             "id, address, cuisine_type, gmaps_id, gmaps_url, name, phone, pos_lat, pos_lng, website, uab_user_id " +

@@ -1,6 +1,5 @@
 package com.example.utadborda;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,12 +9,8 @@ import android.util.Pair;
 import com.example.utadborda.models.RestaurantItem;
 import com.example.utadborda.models.RestaurantItemAdapter;
 import com.example.utadborda.networking.Fetcher;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -85,17 +80,4 @@ public class MatchEndActivity extends AppCompatActivity {
         }
     }
 
-    private void getSwipes(){
-        sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 }

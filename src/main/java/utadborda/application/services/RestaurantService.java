@@ -19,6 +19,9 @@ public interface RestaurantService {
     Restaurant getByID(UUID restaurant_ID);
     boolean claimRestaurant(UAB_User UABUser, Restaurant restaurant);
     List<Restaurant> getAllByTag(List<Tag> tag, int page, int limit);
+    List<Restaurant> getAllByExcludeTag(List<Tag> tag, int page, int limit);
     long getCountByTag(Tag tag);
+    long getCountByTags(List<Tag> tag);
+    long getCountByTagsExclude(List<Tag> tag);
     List<Restaurant> getAllByTagAndGPS(List<Tag> tag, double lat, double lng, double distance, int page, int limit);
 }

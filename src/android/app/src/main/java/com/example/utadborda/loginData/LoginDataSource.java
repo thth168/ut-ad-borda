@@ -1,7 +1,6 @@
 package com.example.utadborda.loginData;
 
 import com.example.utadborda.loginData.model.LoggedInUser;
-
 import java.io.IOException;
 
 /**

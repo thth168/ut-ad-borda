@@ -23,7 +23,6 @@ public class RestaurantListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant_list);
         recyclerView = (RecyclerView) findViewById(R.id.lv_restaurantList);
         recyclerView.setHasFixedSize(true);
-
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         items = new ArrayList<RestaurantItem>();

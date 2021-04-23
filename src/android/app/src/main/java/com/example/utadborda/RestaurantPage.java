@@ -1,15 +1,11 @@
 package com.example.utadborda;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.utadborda.models.RestaurantItem;
-
-import org.w3c.dom.Text;
 
 public class RestaurantPage extends AppCompatActivity {
     RestaurantItem restaurantItem;
@@ -46,9 +42,5 @@ public class RestaurantPage extends AppCompatActivity {
         Glide.with(this).load(restaurantItem.getImageUrl()).into(imageView);
         website = findViewById(R.id.website);
         website.setText(restaurantItem.getWebsite());
-        latitude = findViewById(R.id.latitude);
-        latitude.setText(String.valueOf(restaurantItem.getLatitude()));
-        longitude = findViewById(R.id.longitude);
-        longitude.setText(String.valueOf(restaurantItem.getLongitude()));
     }
 }
