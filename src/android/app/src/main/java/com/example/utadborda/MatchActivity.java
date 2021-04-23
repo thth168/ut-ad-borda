@@ -25,8 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MatchActivity extends AppCompatActivity {
     private MatchCardFragment matchCardFragment;
-    private List<String> restaurantIds;
-    private List<RestaurantItem> restaurantQueue;
+    private ArrayList<String> restaurantIds;
+    private ArrayList<RestaurantItem> restaurantQueue;
     private RestaurantItem currentRestaurant;
     private ArrayList<String> swipeLeft;
     private ArrayList<String> swipeRight;
@@ -115,6 +115,7 @@ public class MatchActivity extends AppCompatActivity {
         intent.putExtra("sessionKey", sessionKey);
         intent.putExtra("playerCount", playerCount);
         intent.putExtra("playerName", playerName);
+        intent.putStringArrayListExtra("restaurantIds", restaurantIds);
         intent.putStringArrayListExtra("swipeLeft", swipeLeft);
         intent.putStringArrayListExtra("swipeRight", swipeRight);
         startActivity(intent);

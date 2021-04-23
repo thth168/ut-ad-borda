@@ -25,6 +25,8 @@ public class MatchEndActivity extends AppCompatActivity {
     private String playerName;
     private ArrayList<String> swipeLeft;
     private ArrayList<String> swipeRight;
+    private ArrayList<String> restaurantIds;
+    private ArrayList<RestaurantItem> restaurantQueue;
     private DatabaseReference sessionRef;
     private DatabaseReference restaurantRef;
     private List<Pair<RestaurantItem, Integer>> KVPair;
@@ -44,13 +46,25 @@ public class MatchEndActivity extends AppCompatActivity {
             playerName = extras.getString("playerName");
             swipeLeft = extras.getStringArrayList("swipeLeft");
             swipeRight = extras.getStringArrayList("swipeRight");
+            restaurantIds = extras.getStringArrayList("restaurantIds");
             sessionRef = database.getReference("sessions/" + sessionKey);
             restaurantRef = sessionRef.child("/restaurants");
         }
         layoutManager = new LinearLayoutManager(this);
+
+        for (String restaurantID : restaurantIds) {
+            AsyncTask<String,?,RestaurantItem> restaurantTask = new Fetcher.AsyncFetchTask();
+            try {
+                restaurantQueue.add(restaurantTask.execute(restaurantID).get());
+            } catch (Exception e) {
+                return;
+            }
+        }
         recyclerView.setLayoutManager(layoutManager);
-        AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
-        restaurantTask.execute();
+        recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
+
+//        AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
+//        restaurantTask.execute();
     }
 
     private void sortLikes(List<Pair<RestaurantItem, Integer>> sessionLikes) {
