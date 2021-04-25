@@ -15,7 +15,3 @@ Java 1.8
 ```
 /android/app
 ```
-3. To run the program first run
-```
-build gradle
-```
