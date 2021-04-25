@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
+    android:layout_height="match_parent">
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:layout_width="match_parent"
@@ -57,9 +55,5 @@
             android:insetBottom="0dp"
             android:minHeight="36dp"
             android:text="Hamburger" />
-
-
     </com.google.android.material.button.MaterialButtonToggleGroup>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

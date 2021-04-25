@@ -34,14 +34,12 @@ public class Fetcher {
             restaurantItem.setName(restaurantJSONObject.getString("name"));
             restaurantItem.setAddress(restaurantJSONObject.getString("address"));
             restaurantItem.setPhone(restaurantJSONObject.getString("phone"));
-
             List<String> photos = new ArrayList<>();
             JSONArray array = restaurantJSONObject.getJSONArray("photos");
             for (int j = 0; j < array.length(); j++) {
                 photos.add(array.getString(j));
             }
             restaurantItem.setImageUrl(photos);
-
             items.add(restaurantItem);
             Log.i("Restaurant item:", "items: " + items);
         }
@@ -121,9 +119,7 @@ public class Fetcher {
             restaurantItem.setAddress(jsonBody.getString("address"));
             List<String> photos = new ArrayList<>();
             JSONArray array = jsonBody.getJSONArray("photos");
-            for (int i = 0; i < array.length(); i++) {
-                photos.add(array.getString(i));
-            }
+            for (int i = 0; i < array.length(); i++) photos.add(array.getString(i));
             restaurantItem.setImageUrl(photos);
             restaurantItem.setWebsite(jsonBody.getString("website"));
             restaurantItem.setLatitude(Double.parseDouble(jsonBody.getString("posLat")));

@@ -23,17 +23,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class WaitingRoomActivity extends AppCompatActivity {
     private ListView userListView;
-    private LinearLayout tagListView;
-    private Button mSubmitButton;
-    private TextView mSessionKey;
     private TextView mWaitingPlayers;
     private MaterialButtonToggleGroup toggleGroup;
     private String toggledTagText;
@@ -54,13 +48,11 @@ public class WaitingRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_room);
-        toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.MaterialButtonToggleGroup1);
+        MaterialButtonToggleGroup toggleGroup = (MaterialButtonToggleGroup) findViewById(R.id.MaterialButtonToggleGroup1);
         userListView = (ListView) findViewById(R.id.user_list);
-
-//        View view = (View) findViewById(R.id.toggle_group);
-        tagListView = (LinearLayout) findViewById(R.id.tag_gridView);
-        mSubmitButton = (Button) findViewById(R.id.submit_button);
-        mSessionKey = (TextView) findViewById(R.id.session_key_text);
+        LinearLayout tagListView = (LinearLayout) findViewById(R.id.tag_gridView);
+        Button mSubmitButton = (Button) findViewById(R.id.submit_button);
+        TextView mSessionKey = (TextView) findViewById(R.id.session_key_text);
         mWaitingPlayers = (TextView) findViewById(R.id.waiting_for_players);
         database = FirebaseDatabase.getInstance();
         userList = new ArrayList<>();
@@ -81,101 +73,70 @@ public class WaitingRoomActivity extends AppCompatActivity {
         tagList.add(new Tag("Alcohol", "0f81ba44-e94c-4a1c-a750-a1d56439d833"));
         tagList.add(new Tag("Indian", "3702f847-3c6e-45e4-904e-042613aa47c3"));
         tagList.add(new Tag("Comfort Food", "2750344b-a0a0-4bdd-a445-f9a0c3ccde82"));
-        //playerName = preferences.getString("playerName", "");
-
-
-
         toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, final int checkedId, final boolean isChecked) {
-                Log.i("isChecked", String.valueOf(isChecked));
-//                if(isChecked){
-                    toggledTagText = (String) ((MaterialButton) findViewById(checkedId)).getText();
-//                    userTags.add(toggledTagText);
-
-                    sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            int tagCount;
-                            Log.i("isChecked - datachnage", String.valueOf(isChecked));
-                            if (isChecked) {
-                                toggledTagText = (String) ((MaterialButton) findViewById(checkedId)).getText();
-                                userTags.add(toggledTagText);
-
-
-                                if (snapshot.child(toggledTagText).exists()) {
-                                    tagCount = snapshot.child("tags").child(toggledTagText).getValue(Integer.class);
-                                } else {
-                                    tagCount = 1;
-                                }
-                                sessionRef.child("tags").child(toggledTagText).setValue(tagCount);
-                            } else {
-//                                Toast.makeText(WaitingRoomActivity.this, "Unchecked tag", Toast.LENGTH_SHORT).show();
-//                                Log.i("isChecked false", "something is happening here");
-                                tagCount = snapshot.child("tags").child(toggledTagText).getValue(Integer.class);
-                                sessionRef.child("tags").child(toggledTagText).setValue(tagCount-1);
-                                userTags.remove(toggledTagText);
-                            }
+            Log.i("isChecked", String.valueOf(isChecked));
+            toggledTagText = (String) ((MaterialButton) findViewById(checkedId)).getText();
+            sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    int tagCount;
+                    Log.i("isChecked - datachnage", String.valueOf(isChecked));
+                    if (isChecked) {
+                        toggledTagText = (String) ((MaterialButton) findViewById(checkedId)).getText();
+                        userTags.add(toggledTagText);
+                        if (snapshot.child(toggledTagText).exists()) {
+                            tagCount = snapshot.child("tags").child(toggledTagText).getValue(Integer.class);
+                        } else {
+                            tagCount = 1;
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+                        sessionRef.child("tags").child(toggledTagText).setValue(tagCount);
+                    } else {
+                        tagCount = snapshot.child("tags").child(toggledTagText).getValue(Integer.class);
+                        sessionRef.child("tags").child(toggledTagText).setValue(tagCount - 1);
+                        userTags.remove(toggledTagText);
+                    }
                 }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) { }
+            });
+            }
         });
-
-//        ArrayAdapter adapter = new TagItemAdapter(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, tagList);
-//        tagListView.setAdapter(adapter);
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             playerName = extras.getString("playerName");
             playerCount = extras.getLong("playerCount");
             sessionKey = extras.getString("sessionName");
             waitingCount = extras.getInt("waitingCount");
-            mWaitingPlayers.setText("Waiting for players: " + waitingCount );
+            mWaitingPlayers.setText("Waiting for players: " + waitingCount);
             database.getReference("sessions/"+ sessionKey + "/players/player-" + playerCount).setValue(playerName);
             sessionRef = database.getReference("sessions/"+ sessionKey);
             restaurantRef = sessionRef.child("/restaurants");
             mSessionKey.setText(sessionKey);
         }
-
-
-
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Collect tags
-                //waiting for players
-                if(waitingCount > 0){
-                    waitingCount = waitingCount-1;
-                    database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
-                    mWaitingPlayers.setText("Waiting for players: " + waitingCount );
-                }
-                //if all players have chosen
-                if (waitingCount == 0 && playerCount > 1) {
-                    getTagsFromDatabase(tagList);
-                } if (playerCount < 1){
-                    Toast.makeText(WaitingRoomActivity.this, "You're the only player!", Toast.LENGTH_SHORT).show();
-                }
-
+            if(waitingCount > 0){
+                waitingCount = waitingCount-1;
+                database.getReference("sessions/"+ sessionKey).child("waiting-for-players").setValue(waitingCount);
+                mWaitingPlayers.setText("Waiting for players: " + waitingCount);
+            }
+            if (waitingCount == 0) {
+                getTagsFromDatabase(tagList);
+            }
             }
         });
         addRoomsEventListener();
-
-
     }
 
     private void getTagsFromDatabase(final List<Tag> tagList) {
         sessionRef = database.getReference("sessions/"+ sessionKey);
-//        sessionRef.child("tags").get().getResult().getChildren();
         sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Iterable<DataSnapshot> playerTags = snapshot.child("tags").getChildren();
-
                 for(DataSnapshot s : playerTags){
                     Log.i("Tags", s.getKey());
                     if(s.getValue(Integer.class) > 0){
@@ -196,7 +157,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     Toast.makeText(WaitingRoomActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                 }
-
                 Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
                 intent.putExtra("sessionName", sessionKey);
                 intent.putExtra("playerCount", playerCount);
@@ -206,9 +166,7 @@ public class WaitingRoomActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
     }
 
@@ -217,29 +175,18 @@ public class WaitingRoomActivity extends AppCompatActivity {
         sessionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //show list of users
                 userList.clear();
                 Iterable<DataSnapshot> users = snapshot.child("/players").getChildren();
                 Iterable<DataSnapshot> tags = snapshot.child("/tags").getChildren();
-                for(DataSnapshot dataSnapshot : users) {
-                    userList.add(dataSnapshot.getValue().toString());
-                }
+                for(DataSnapshot dataSnapshot : users) userList.add(dataSnapshot.getValue().toString());
                 ArrayAdapter adapter = new ArrayAdapter<String>(WaitingRoomActivity.this, android.R.layout.simple_list_item_1, userList);
                 userListView.setAdapter(adapter);
-
-//                fillViewList(userList, userListView, users);
-//                fillViewList();
             }
-
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //error - nothing
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
     }
-
 
     /**
      * Fetches restaurant data from API asyncronously
@@ -247,7 +194,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
      */
     private class AsyncFetchTask extends AsyncTask<String, Void, List<RestaurantItem>> {
         /**
-         *
          * @param params
          * @return
          */
@@ -262,7 +208,6 @@ public class WaitingRoomActivity extends AppCompatActivity {
          */
         @Override
         protected void onPostExecute(final List<RestaurantItem> restaurantItems) {
-            // rsetaurantRef = database.getReference("sessions/" + sessionKey + "restaurants")
             sessionRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -276,13 +221,8 @@ public class WaitingRoomActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
+                public void onCancelled(@NonNull DatabaseError error) { }
             });
-
-
         }
     }
-
 }

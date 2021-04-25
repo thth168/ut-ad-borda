@@ -13,7 +13,7 @@ public class Session {
         boolean notified = false;
         try {
             if (notified) return true;
-            else return false;
+            return false;
         } catch (Exception e) {
             System.out.println("Failed to notify session members.");
         }

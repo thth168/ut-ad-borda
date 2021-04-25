@@ -1,10 +1,8 @@
 package com.example.utadborda.models;
 
 public class Tag {
-
     private String TagName;
     private String TagId;
-
 
     public String getTagId() {
         return TagId;

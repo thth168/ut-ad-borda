@@ -8,17 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private Button restaurantListButton;
-    private Button sessionButton;
-    private View activityView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        activityView = findViewById(R.id.main_pane);
-        restaurantListButton = (Button) findViewById(R.id.restaurantList_button);
-        sessionButton = (Button) findViewById(R.id.match_button);
+        View activityView = findViewById(R.id.main_pane);
+        Button restaurantListButton = (Button) findViewById(R.id.restaurantList_button);
+        Button sessionButton = (Button) findViewById(R.id.match_button);
         restaurantListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

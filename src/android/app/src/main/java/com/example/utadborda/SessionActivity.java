@@ -50,7 +50,7 @@ public class SessionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String url = "https://ut-ad-borda.herokuapp.com/api/random-3-words";
-                mNewSession.setText("Creating room");
+                mNewSession.setText(R.string.create_room);
                 StringRequest randomStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -118,7 +118,7 @@ public class SessionActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                mNewSession.setText("Create a room");
+                mNewSession.setText(R.string.create_room);
                 mNewSession.setEnabled(true);
                 Toast.makeText(SessionActivity.this, "Error!", Toast.LENGTH_SHORT).show();
             }
@@ -142,7 +142,7 @@ public class SessionActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                mNewSession.setText("Create a room");
+                mNewSession.setText(R.string.create_room);
                 mNewSession.setEnabled(true);
                 Toast.makeText(SessionActivity.this, "Error!", Toast.LENGTH_SHORT).show();
             }
