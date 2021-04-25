@@ -95,6 +95,7 @@ public class SessionActivity extends AppCompatActivity {
                     newSession = false;
                     int count;
                     long playerCount = snapshot.child(sessionKey).child("/players").getChildrenCount();
+
                     playerName = nameText.getText().toString();
                     if(!snapshot.child(sessionKey + "/waiting-for-players").exists()){
                         sessionRef.child(sessionKey+ "/waiting-for-players").setValue(1);
@@ -104,6 +105,7 @@ public class SessionActivity extends AppCompatActivity {
                         sessionRef.child(sessionKey+ "/waiting-for-players").setValue(count+1);
                         intent.putExtra("waitingCount", count);
                     }
+
                     intent.putExtra("sessionName", sessionKey);
                     intent.putExtra("playerCount", playerCount);
                     intent.putExtra("playerName", playerName);

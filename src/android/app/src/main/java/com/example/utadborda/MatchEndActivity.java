@@ -71,6 +71,7 @@ public class MatchEndActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                        restaurant.setSwipes(snapshot.child(restaurantID).getValue(Integer.class));
+
                     }
 
                     @Override
@@ -88,6 +89,7 @@ public class MatchEndActivity extends AppCompatActivity {
         }
         recyclerView.setLayoutManager(layoutManager);
 //        recyclerView.setAdapter(new RestaurantItemAdapter(restaurantQueue, true, MatchEndActivity.this));
+
 
         AsyncTask<?,?,?> restaurantTask = new AsyncFetchTask();
         restaurantTask.execute();
