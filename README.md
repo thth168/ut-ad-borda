@@ -6,9 +6,10 @@ For this project we are building an app for those who are looking for a place to
 The app has a list of Icelandic restaurants and a matching game where a group of people can start a session together and find a place that suits everyone. 
 
 ## How to run
-1. Validate that you have maven installed with the following code in the terminal:
+1. Chose correct versions 
 ```
 Create android emulator phone with Nougat or higher
+Java 1.8
 ```
 2. Navigate to the project root
 ```
